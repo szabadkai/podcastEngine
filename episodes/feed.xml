@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+  xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Layer Lines Weekly</title>
+    <description>The practical additive manufacturing news brief. What matters, what&apos;s hype, and what it means for builders.</description>
+    <language>en</language>
+    <link>https://szabadkai.github.io/podcastEngine</link>
+    <atom:link href="https://szabadkai.github.io/podcastEngine/feed.xml" rel="self" type="application/rss+xml"/>
+    <itunes:author>Layer Lines Weekly</itunes:author>
+    <itunes:image href="https://szabadkai.github.io/podcastEngine/artwork.png"/>
+    <itunes:category text="Technology"/>
+    <itunes:explicit>false</itunes:explicit>
+    <item>
+      <title>Stratasys Buys Markforged for a Song, and a $185K Metal Printer</title>
+      <description>Alex and Jordan dig into the biggest AM deal of the year—Stratasys snapping up Markforged for just $42.5 million, minus the metal binder jet line. They also unpack a new dual-laser metal printer priced suspiciously low, Norsk Titanium&apos;s first real production contract with Northrop Grumman, and whether an AI that fixes prints mid-job is ready for your garage.</description>
+      <pubDate>Fri, 29 May 2026 00:00:00 GMT</pubDate>
+      <enclosure url="https://github.com/szabadkai/podcastEngine/releases/download/episode-2026-05-29/episode.mp3" length="11516588" type="audio/mpeg"/>
+      <guid isPermaLink="false">layer-lines-weekly-2026-05-29</guid>
+      <itunes:duration>720</itunes:duration>
+      <itunes:episode>1</itunes:episode>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
+  </channel>
+</rss>
