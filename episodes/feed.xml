@@ -7,8 +7,10 @@
     <title>Layer Lines Weekly</title>
     <description>The practical additive manufacturing news brief. What matters, what&apos;s hype, and what it means for builders.</description>
     <language>en</language>
-    <link>https://github.com/szabadkai/podcastEngine</link>
+    <link>https://szabadkai.github.io/podcastEngine</link>
+    <atom:link href="https://szabadkai.github.io/podcastEngine/feed.xml" rel="self" type="application/rss+xml"/>
     <itunes:author>Layer Lines Weekly</itunes:author>
+    <itunes:image href="https://szabadkai.github.io/podcastEngine/artwork.png"/>
     <itunes:category text="Technology"/>
     <itunes:explicit>false</itunes:explicit>
     <item>

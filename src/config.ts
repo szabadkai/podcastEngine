@@ -3,7 +3,9 @@ export const config = {
     title: "Layer Lines Weekly",
     description:
       "The practical additive manufacturing news brief. What matters, what's hype, and what it means for builders.",
-    siteUrl: "https://github.com/szabadkai/podcastEngine",
+    siteUrl: "https://szabadkai.github.io/podcastEngine",
+    feedUrl: "https://szabadkai.github.io/podcastEngine/feed.xml",
+    imageUrl: "https://szabadkai.github.io/podcastEngine/artwork.png",
     language: "en",
     author: "Layer Lines Weekly",
     category: "Technology",

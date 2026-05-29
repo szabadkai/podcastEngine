@@ -72,7 +72,9 @@ function generateFeedXml(manifest: EpisodeManifest): string {
     <description>${escapeXml(config.podcast.description)}</description>
     <language>${config.podcast.language}</language>
     <link>${escapeXml(config.podcast.siteUrl)}</link>
+    <atom:link href="${escapeXml(config.podcast.feedUrl)}" rel="self" type="application/rss+xml"/>
     <itunes:author>${escapeXml(config.podcast.author)}</itunes:author>
+    <itunes:image href="${escapeXml(config.podcast.imageUrl)}"/>
     <itunes:category text="${escapeXml(config.podcast.category)}"/>
     <itunes:explicit>${config.podcast.explicit ? "true" : "false"}</itunes:explicit>
 ${items}
