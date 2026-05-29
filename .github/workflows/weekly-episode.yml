@@ -95,6 +95,8 @@ jobs:
           git config user.email "bot@layerlines.dev"
           # Only the feed, manifest, recaps, and seen-urls are committed. The MP3
           # and intermediate JSON live in the GitHub Release (see .gitignore).
-          git add data/ episodes/manifest.json episodes/feed.xml episodes/recaps/
+          # Use --ignore-errors so a dry run (no manifest/feed yet) or a first-ever
+          # run doesn't abort on a not-yet-created pathspec.
+          git add --ignore-errors data/ episodes/manifest.json episodes/feed.xml episodes/recaps/ || true
           git diff --staged --quiet || git commit -m "Episode $(date +%Y-%m-%d)"
           git push
