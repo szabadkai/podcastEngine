@@ -53,7 +53,7 @@ export const config = {
   // For providers not listed here, tags are stripped before synthesis (see stage 04b / 05).
   tagSupport: {
     chatterbox: true,
-    elevenlabs: true,
+    elevenlabs: false,
     edge: false,
     kokoro: false,
     piper: false,
@@ -89,16 +89,16 @@ export const config = {
   // ElevenLabs voice settings (used when ttsProvider === "elevenlabs")
   elevenlabsVoices: {
     alex: {
-      voiceId: "pNInz6obpgDQGcFmaJgB",
-      stability: 0.5,
+      voiceId: "SF9uvIlY93SJRMdV5jeP",
+      stability: 0.35,
       similarityBoost: 0.75,
-      style: 0.3,
+      style: 0.55,
     },
     jordan: {
-      voiceId: "ErXwobaYiN019PkySvjV",
-      stability: 0.5,
+      voiceId: "UgBBYS2sOqTuMpoF3BR0",
+      stability: 0.40,
       similarityBoost: 0.75,
-      style: 0.2,
+      style: 0.40,
     },
   },
 
@@ -111,7 +111,7 @@ export const config = {
   piperDataDir: "~/.local/share/piper-voices",
 
   audio: {
-    model: "eleven_flash_v2_5",
+    model: "eleven_multilingual_v2",
     outputFormat: "mp3_44100_128",
     chunkMaxChars: 5000,
     delayBetweenChunksMs: 500,
