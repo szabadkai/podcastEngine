@@ -44,7 +44,8 @@ export async function run(episodeDir: string): Promise<void> {
       },
     ],
     temperature: 0.2,
-    maxTokens: 4096,
+    // Headroom for the reasoning model's trace + the JSON answer (see analyze).
+    maxTokens: 16384,
   });
 
   const factChecked: FactCheckedStories = {

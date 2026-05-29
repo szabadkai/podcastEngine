@@ -39,7 +39,9 @@ export async function run(episodeDir: string): Promise<void> {
       },
     ],
     temperature: 0.3,
-    maxTokens: 4096,
+    // Reasoning models (deepseek-v4-pro) emit a long internal trace before the
+    // JSON; 4096 truncates the answer mid-string. Give it ample headroom.
+    maxTokens: 16384,
   });
 
   writeJson(outputPath, result);

@@ -56,16 +56,43 @@ export async function chat(opts: ChatOptions): Promise<string> {
     }
 
     const data = (await res.json()) as {
-      choices: Array<{ message: { content: string } }>;
+      choices: Array<{ message: { content: string }; finish_reason?: string }>;
     };
-    return data.choices[0].message.content;
+    const choice = data.choices[0];
+    // A reasoning model can blow past max_tokens and return a truncated answer.
+    // Treat that as a retryable failure rather than handing back broken JSON.
+    if (choice.finish_reason === "length") {
+      lastError = new Error(
+        "OpenRouter response truncated (finish_reason=length); raise maxTokens",
+      );
+      continue;
+    }
+    return choice.message.content;
   }
 
   throw lastError || new Error("AI call failed after retries");
 }
 
 export async function chatJson<T>(opts: ChatOptions): Promise<T> {
-  const raw = await chat({ ...opts, jsonMode: true });
-  const cleaned = raw.replace(/^```json\s*\n?/, "").replace(/\n?```\s*$/, "");
-  return JSON.parse(cleaned) as T;
+  let lastError: Error | null = null;
+
+  for (let attempt = 0; attempt < config.ai.maxRetries; attempt++) {
+    const raw = await chat({ ...opts, jsonMode: true });
+    const cleaned = raw
+      .replace(/^```json\s*\n?/, "")
+      .replace(/\n?```\s*$/, "")
+      .trim();
+    try {
+      return JSON.parse(cleaned) as T;
+    } catch (err) {
+      // Malformed/truncated JSON: retry the whole call. Reasoning models
+      // occasionally emit partial output even under finish_reason=stop.
+      lastError = err as Error;
+      console.log(
+        `  JSON parse failed (attempt ${attempt + 1}/${config.ai.maxRetries}): ${(err as Error).message}`,
+      );
+    }
+  }
+
+  throw lastError || new Error("chatJson failed after retries");
 }
