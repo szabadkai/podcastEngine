@@ -38,12 +38,11 @@ jobs:
           node-version: '22'
           cache: 'npm'
 
+      # ffmpeg is needed by the audio stage to concat + loudnorm the TTS chunks.
       - uses: FedericoCarboni/setup-ffmpeg@v3.1
 
-      - name: Install edge-tts (TTS engine for the audio stage)
-        if: ${{ !inputs.dry_run }}
-        run: pipx install edge-tts
-
+      # TTS provider is "elevenlabs" (see config.ts) — a hosted API, so no local
+      # TTS engine to install. It only needs ELEVENLABS_API_KEY (set as a secret).
       - run: npm ci
 
       - name: Collect stories

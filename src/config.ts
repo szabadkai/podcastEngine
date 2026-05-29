@@ -40,7 +40,7 @@ export const config = {
   //   "chatterbox" — free, fully local, expressive (PyTorch; supports [laugh]/[cough] tags; slow on CPU)
   //   "piper"      — free, fully local/offline, flatter quality
   //   "elevenlabs" — paid, best quality
-  ttsProvider: "edge" as
+  ttsProvider: "elevenlabs" as
     | "edge"
     | "kokoro"
     | "chatterbox"
