@@ -1,0 +1,16 @@
+node_modules/
+dist/
+.env
+.env.*
+
+# Local Claude harness state
+.claude/
+
+# Stray backups created during local runs
+*.bak-*
+
+# Per-episode working dirs (MP3 + intermediate JSON) are archived in the
+# GitHub Release, not committed. Git keeps only what the pipeline needs to
+# keep working: the feed, the manifest, and the continuity recaps.
+episodes/*/
+!episodes/recaps/

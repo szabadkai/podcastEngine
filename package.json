@@ -1,0 +1,26 @@
+{
+  "name": "podcast-engine",
+  "version": "1.0.0",
+  "description": "Layer Lines Weekly — automated 3D printing podcast engine",
+  "type": "module",
+  "scripts": {
+    "pipeline": "tsx --env-file-if-exists=.env src/pipeline.ts",
+    "collect": "tsx --env-file-if-exists=.env src/pipeline.ts collect",
+    "analyze": "tsx --env-file-if-exists=.env src/pipeline.ts analyze",
+    "fact-check": "tsx --env-file-if-exists=.env src/pipeline.ts fact-check",
+    "script": "tsx --env-file-if-exists=.env src/pipeline.ts script",
+    "recap": "tsx --env-file-if-exists=.env src/pipeline.ts recap",
+    "audio": "tsx --env-file-if-exists=.env src/pipeline.ts audio",
+    "publish": "tsx --env-file-if-exists=.env src/pipeline.ts publish",
+    "dry-run": "tsx --env-file-if-exists=.env src/pipeline.ts --dry-run"
+  },
+  "dependencies": {
+    "rss-parser": "^3.13.0",
+    "podcast": "^2.0.1"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0",
+    "@types/node": "^22.0.0"
+  }
+}
