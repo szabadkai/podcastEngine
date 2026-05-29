@@ -95,7 +95,7 @@ export const config = {
       style: 0.55,
     },
     jordan: {
-      voiceId: "UgBBYS2sOqTuMpoF3BR0",
+      voiceId: "RNnkVeW25AwKYxZgnHBH",
       stability: 0.40,
       similarityBoost: 0.75,
       style: 0.40,
