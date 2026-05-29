@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+  xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Layer Lines Weekly</title>
+    <description>The practical additive manufacturing news brief. What matters, what&apos;s hype, and what it means for builders.</description>
+    <language>en</language>
+    <link>https://github.com/szabadkai/podcastEngine</link>
+    <itunes:author>Layer Lines Weekly</itunes:author>
+    <itunes:category text="Technology"/>
+    <itunes:explicit>false</itunes:explicit>
+    <item>
+      <title>AI Takes Over 3D Printing: ORNL&apos;s Real-Time Correction and More</title>
+      <description>Oak Ridge National Lab&apos;s AI system corrects 3D printing errors in real time—but is it really lights-out? Plus, Norsk Titanium inks a production contract with Northrop Grumman, Decathlon&apos;s Kiprun launches a 3D printed running shoe, and an IPO that smells like biotech hype. We dig into the week&apos;s additive manufacturing news and separate signal from noise.</description>
+      <pubDate>Fri, 29 May 2026 00:00:00 GMT</pubDate>
+      <enclosure url="https://github.com/szabadkai/podcastEngine/releases/download/episode-2026-05-29/episode.mp3" length="10959788" type="audio/mpeg"/>
+      <guid isPermaLink="false">layer-lines-weekly-2026-05-29</guid>
+      <itunes:duration>685</itunes:duration>
+      <itunes:episode>1</itunes:episode>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
+  </channel>
+</rss>
