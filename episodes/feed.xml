@@ -12,6 +12,16 @@
     <itunes:category text="Technology"/>
     <itunes:explicit>false</itunes:explicit>
     <item>
+      <title>Stratasys Snags Markforged: Fire Sale or Smart Play?</title>
+      <description>Stratasys is buying Markforged from Nano Dimension for $42.5 million, but the metal binder jetting line got left on the curb. We dig into what this means for Markforged users and the composite printing market. Plus, a $185K dual-laser metal printer from Mastrex, Northrop Grumman bets on Norsk Titanium for structural flight parts, and Decathlon&apos;s Kiprun launches a 3D-printed running shoe that could actually show up in your local store.</description>
+      <pubDate>Sat, 30 May 2026 00:00:00 GMT</pubDate>
+      <enclosure url="https://github.com/szabadkai/podcastEngine/releases/download/episode-2026-05-30/episode.mp3" length="22106540" type="audio/mpeg"/>
+      <guid isPermaLink="false">layer-lines-weekly-2026-05-30</guid>
+      <itunes:duration>1382</itunes:duration>
+      <itunes:episode>2</itunes:episode>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
+    <item>
       <title>AI Takes Over 3D Printing: ORNL&apos;s Real-Time Correction and More</title>
       <description>Oak Ridge National Lab&apos;s AI system corrects 3D printing errors in real time—but is it really lights-out? Plus, Norsk Titanium inks a production contract with Northrop Grumman, Decathlon&apos;s Kiprun launches a 3D printed running shoe, and an IPO that smells like biotech hype. We dig into the week&apos;s additive manufacturing news and separate signal from noise.</description>
       <pubDate>Fri, 29 May 2026 00:00:00 GMT</pubDate>

@@ -1,6 +1,16 @@
 {
   "episodes": [
     {
+      "number": 2,
+      "date": "2026-05-30",
+      "title": "Stratasys Snags Markforged: Fire Sale or Smart Play?",
+      "description": "Stratasys is buying Markforged from Nano Dimension for $42.5 million, but the metal binder jetting line got left on the curb. We dig into what this means for Markforged users and the composite printing market. Plus, a $185K dual-laser metal printer from Mastrex, Northrop Grumman bets on Norsk Titanium for structural flight parts, and Decathlon's Kiprun launches a 3D-printed running shoe that could actually show up in your local store.",
+      "duration": 1382,
+      "fileSize": 22106540,
+      "releaseUrl": "https://github.com/szabadkai/podcastEngine/releases/download/episode-2026-05-30/episode.mp3",
+      "guid": "layer-lines-weekly-2026-05-30"
+    },
+    {
       "number": 1,
       "date": "2026-05-29",
       "title": "AI Takes Over 3D Printing: ORNL's Real-Time Correction and More",
