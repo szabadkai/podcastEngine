@@ -29,7 +29,8 @@ jobs:
         run: |
           mkdir -p _site
           cp episodes/feed.xml _site/feed.xml
-          cp pages/* _site/ 2>/dev/null || true
+          # -r so pages/transcripts/ (and any future subdirs) are included.
+          cp -r pages/. _site/ 2>/dev/null || true
 
       - uses: actions/upload-pages-artifact@v3
 

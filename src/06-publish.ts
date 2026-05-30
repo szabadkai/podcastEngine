@@ -11,6 +11,35 @@ const execFileAsync = promisify(execFile);
 
 const MANIFEST_PATH = path.resolve("episodes", "manifest.json");
 const FEED_PATH = path.resolve("episodes", "feed.xml");
+const TRANSCRIPTS_DIR = path.resolve("pages", "transcripts");
+
+const SPEAKER_LABELS: Record<string, string> = {
+  alex: "Alex",
+  jordan: "Jordan",
+};
+
+// Builds a plain-text, speaker-labelled transcript from the script. No
+// timestamps — the TTS pipeline produces no word-level timing — but this is a
+// valid text/plain transcript for the <podcast:transcript> tag.
+function buildTranscriptText(script: EpisodeScript): string {
+  const header = `${config.podcast.title} — ${script.title}\nEpisode ${script.episodeNumber} · ${script.episodeDate}\n\n`;
+  const body = script.lines
+    .map((l) => `${SPEAKER_LABELS[l.speaker] ?? l.speaker}: ${l.text}`)
+    .join("\n\n");
+  return header + body + "\n";
+}
+
+// Writes the transcript to pages/transcripts/<date>.txt (served by GitHub
+// Pages) and returns its public URL.
+function writeTranscript(script: EpisodeScript): string {
+  fs.mkdirSync(TRANSCRIPTS_DIR, { recursive: true });
+  const fileName = `${script.episodeDate}.txt`;
+  fs.writeFileSync(
+    path.join(TRANSCRIPTS_DIR, fileName),
+    buildTranscriptText(script)
+  );
+  return `${config.podcast.siteUrl}/transcripts/${fileName}`;
+}
 
 // Creates the release with every asset attached (MP3 + intermediate JSON
 // artifacts), then returns the download URL of the MP3 specifically — that URL
@@ -46,10 +75,13 @@ async function createGitHubRelease(
   return mp3?.url || assets[0]?.url || releaseUrl;
 }
 
-function generateFeedXml(manifest: EpisodeManifest): string {
+export function generateFeedXml(manifest: EpisodeManifest): string {
   const items = manifest.episodes
-    .map(
-      (ep) => `    <item>
+    .map((ep) => {
+      const transcript = ep.transcriptUrl
+        ? `\n      <podcast:transcript url="${escapeXml(ep.transcriptUrl)}" type="text/plain"/>`
+        : "";
+      return `    <item>
       <title>${escapeXml(ep.title)}</title>
       <description>${escapeXml(ep.description)}</description>
       <pubDate>${new Date(ep.date).toUTCString()}</pubDate>
@@ -57,15 +89,16 @@ function generateFeedXml(manifest: EpisodeManifest): string {
       <guid isPermaLink="false">${escapeXml(ep.guid)}</guid>
       <itunes:duration>${ep.duration}</itunes:duration>
       <itunes:episode>${ep.number}</itunes:episode>
-      <itunes:explicit>false</itunes:explicit>
-    </item>`
-    )
+      <itunes:explicit>false</itunes:explicit>${transcript}
+    </item>`;
+    })
     .join("\n");
 
   return `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0"
   xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
   xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:podcast="https://podcastindex.org/namespace/1.0"
   xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>${escapeXml(config.podcast.title)}</title>
@@ -147,6 +180,8 @@ export async function run(episodeDir: string): Promise<void> {
     releaseUrl = `${config.podcast.siteUrl}/releases/tag/${tag}`;
   }
 
+  const transcriptUrl = writeTranscript(script);
+
   const entry: EpisodeEntry = {
     number: script.episodeNumber,
     date: script.episodeDate,
@@ -156,6 +191,7 @@ export async function run(episodeDir: string): Promise<void> {
     fileSize,
     releaseUrl,
     guid: `layer-lines-weekly-${script.episodeDate}`,
+    transcriptUrl,
   };
 
   manifest.episodes.unshift(entry);

@@ -90,6 +90,7 @@ export interface EpisodeEntry {
   fileSize: number;
   releaseUrl: string;
   guid: string;
+  transcriptUrl?: string;
 }
 
 export interface EpisodeManifest {

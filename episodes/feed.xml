@@ -2,6 +2,7 @@
 <rss version="2.0"
   xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
   xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:podcast="https://podcastindex.org/namespace/1.0"
   xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Layer Lines Weekly</title>
@@ -26,6 +27,7 @@
       <itunes:duration>733</itunes:duration>
       <itunes:episode>1</itunes:episode>
       <itunes:explicit>false</itunes:explicit>
+      <podcast:transcript url="https://szabadkai.github.io/podcastEngine/transcripts/2026-05-29.txt" type="text/plain"/>
     </item>
   </channel>
 </rss>
