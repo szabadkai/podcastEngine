@@ -5,6 +5,14 @@ export interface RawStory {
   source: string;
   published: string;
   snippet: string;
+  curated?: boolean;
+}
+
+export interface CuratedLink {
+  url: string;
+  title?: string;
+  note?: string;
+  issueNumber: number;
 }
 
 export type Segment =

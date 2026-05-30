@@ -22,6 +22,7 @@ const stages: Array<{ name: string; run: () => Promise<StageFn> }> = [
   { name: "script", run: () => import("./04-script.js").then((m) => m.run) },
   { name: "tag", run: () => import("./04b-tag.js").then((m) => m.run) },
   { name: "recap", run: () => import("./04c-recap.js").then((m) => m.run) },
+  { name: "pronunciation", run: () => import("./04d-pronunciation.js").then((m) => m.run) },
   { name: "audio", run: () => import("./05-audio.js").then((m) => m.run) },
   { name: "publish", run: () => import("./06-publish.js").then((m) => m.run) },
 ];

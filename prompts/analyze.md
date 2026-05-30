@@ -19,6 +19,8 @@ Your job: take a list of raw news stories and produce a curated shortlist for th
 
 Target: 4-6 clusters for the episode, plus skipped items.
 
+5. **Curated stories**: Stories marked `[Curated — editor pick]` were hand-selected by the show's editor. Include them unless they are a duplicate of another story or completely unrelated to additive manufacturing. Assign them to whichever segment fits best. If a curated story includes an `[Editor note: ...]`, use that context to inform segment assignment and framing.
+
 ## Output format
 
 Return a JSON object with this exact structure:

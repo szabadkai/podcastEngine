@@ -1,6 +1,11 @@
 import path from "node:path";
 import { config } from "./config.js";
 import { fetchFeed } from "./lib/rss-fetch.js";
+import {
+  fetchCuratedLinks,
+  linkToStory,
+  closeProcessedIssues,
+} from "./lib/curated-fetch.js";
 import { loadJson, writeJson, fileExists } from "./lib/storage.js";
 import type { RawStory } from "./lib/types.js";
 
@@ -18,46 +23,75 @@ export async function run(episodeDir: string): Promise<void> {
     return;
   }
 
+  // ── RSS feeds ──────────────────────────────────────────────────────────
   console.log(`Fetching ${config.sources.length} RSS feeds...`);
 
   const results = await Promise.allSettled(
     config.sources.map((s) => fetchFeed(s.url, s.name))
   );
 
-  const allStories: RawStory[] = [];
+  const rssStories: RawStory[] = [];
   for (let i = 0; i < results.length; i++) {
     const result = results[i];
     const source = config.sources[i];
     if (result.status === "fulfilled") {
       console.log(`  ${source.name}: ${result.value.length} items`);
-      allStories.push(...result.value);
+      rssStories.push(...result.value);
     } else {
       console.warn(`  ${source.name}: FAILED — ${result.reason}`);
     }
   }
 
-  if (allStories.length === 0) {
-    throw new Error("All feeds failed. Aborting.");
+  // ── Curated links (GitHub Issues) ──────────────────────────────────────
+  const curatedLinks = await fetchCuratedLinks();
+  const curatedStories: RawStory[] = [];
+  const processedIssueNumbers: number[] = [];
+
+  if (curatedLinks.length > 0) {
+    console.log(`  Fetching metadata for ${curatedLinks.length} curated link(s)...`);
+    const today = new Date().toISOString();
+    for (const link of curatedLinks) {
+      const story = await linkToStory(link, today);
+      curatedStories.push(story);
+      processedIssueNumbers.push(link.issueNumber);
+      console.log(`  Curated #${link.issueNumber}: "${story.title}"`);
+    }
   }
 
+  if (rssStories.length === 0 && curatedStories.length === 0) {
+    throw new Error("All feeds failed and no curated links. Aborting.");
+  }
+
+  // ── Dedup & filtering ─────────────────────────────────────────────────
   const seenUrls = new Set<string>(loadJson<string[]>(SEEN_URLS_PATH, []));
 
-  let stories = allStories.filter(
-    (s) =>
-      !seenUrls.has(s.url) &&
-      isWithinDays(s.published, config.episode.storyWindowDays)
+  // Curated stories bypass the time-window filter but still respect seen-urls.
+  const freshCurated = curatedStories.filter((s) => !seenUrls.has(s.url));
+
+  // Build a set of curated URLs so we can prefer curated over RSS duplicates.
+  const curatedUrls = new Set(freshCurated.map((s) => s.url));
+
+  // RSS stories: dedup against seen-urls AND curated (prefer curated version),
+  // then apply the time-window filter.
+  const deduped = rssStories.filter(
+    (s) => !seenUrls.has(s.url) && !curatedUrls.has(s.url),
   );
 
-  if (stories.length < config.episode.minStories) {
+  let rssFiltered = deduped.filter((s) =>
+    isWithinDays(s.published, config.episode.storyWindowDays),
+  );
+
+  const totalBeforeWindow = freshCurated.length + rssFiltered.length;
+  if (totalBeforeWindow < config.episode.minStories) {
     console.log(
-      `Only ${stories.length} stories in ${config.episode.storyWindowDays}d window, widening to ${config.episode.fallbackWindowDays}d...`
+      `Only ${totalBeforeWindow} stories in ${config.episode.storyWindowDays}d window, widening to ${config.episode.fallbackWindowDays}d...`
     );
-    stories = allStories.filter(
-      (s) =>
-        !seenUrls.has(s.url) &&
-        isWithinDays(s.published, config.episode.fallbackWindowDays)
+    rssFiltered = deduped.filter((s) =>
+      isWithinDays(s.published, config.episode.fallbackWindowDays),
     );
   }
+
+  const stories = [...freshCurated, ...rssFiltered];
 
   if (stories.length < config.episode.minStories) {
     throw new Error(
@@ -69,10 +103,17 @@ export async function run(episodeDir: string): Promise<void> {
     (a, b) => new Date(b.published).getTime() - new Date(a.published).getTime()
   );
 
+  // ── Persist ────────────────────────────────────────────────────────────
   for (const s of stories) seenUrls.add(s.url);
   const trimmedUrls = [...seenUrls].slice(-config.episode.maxSeenUrls);
   writeJson(SEEN_URLS_PATH, trimmedUrls);
 
   writeJson(outputPath, stories);
-  console.log(`Stage 01: collected ${stories.length} stories.`);
+  const curatedCount = stories.filter((s) => s.curated).length;
+  console.log(
+    `Stage 01: collected ${stories.length} stories${curatedCount > 0 ? ` (${curatedCount} curated)` : ""}.`
+  );
+
+  // Close processed GitHub Issues after successful write.
+  await closeProcessedIssues(processedIssueNumbers);
 }

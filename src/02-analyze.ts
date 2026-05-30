@@ -24,7 +24,7 @@ export async function run(episodeDir: string): Promise<void> {
   const storyList = stories
     .map(
       (s, i) =>
-        `${i + 1}. [${s.source}] "${s.title}" (${s.published})\n   URL: ${s.url}\n   ${s.snippet}`
+        `${i + 1}. [${s.curated ? "Curated — editor pick" : s.source}] "${s.title}" (${s.published})\n   URL: ${s.url}\n   ${s.snippet}`
     )
     .join("\n\n");
 

@@ -7,6 +7,7 @@ import { synthesize as edgeSynthesize } from "./lib/edge-tts.js";
 import { synthesizeBatch as kokoroSynthesizeBatch } from "./lib/kokoro.js";
 import { synthesizeBatch as chatterboxSynthesizeBatch } from "./lib/chatterbox.js";
 import { concatAndNormalize } from "./lib/audio.js";
+import { normalizeForTTS } from "./lib/pronunciation.js";
 import { stripTags } from "./lib/tags.js";
 import { loadJson, fileExists, ensureDir } from "./lib/storage.js";
 import type {
@@ -82,6 +83,9 @@ export async function run(episodeDir: string): Promise<void> {
   }
 
   const chunks = chunkScript(script);
+  for (const chunk of chunks) {
+    chunk.text = normalizeForTTS(chunk.text);
+  }
   const totalChars = chunks.reduce((sum, c) => sum + c.text.length, 0);
   console.log(
     `Stage 05: ${chunks.length} audio chunks, ${totalChars} total characters.`
