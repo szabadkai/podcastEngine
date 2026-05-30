@@ -35,7 +35,7 @@ const show: ShowConfig = {
     { name: "Slant 3D Blog", url: "https://www.slant3d.com/blog-feed.xml", type: "vendor" },
     { name: "ELEGOO Blog", url: "https://www.elegoo.com/blogs/news.atom", type: "vendor" },
     { name: "Anycubic Blog", url: "https://store.anycubic.com/blogs/news.atom", type: "vendor" },
-    { name: "MatterHackers", url: "https://www.matterhackers.com/news/rss", type: "vendor" },
+    // MatterHackers: feed returns malformed XML, skipped for now
 
     // ── Community (Reddit top/week) ─────────────────────────────────────
     { name: "r/3Dprinting", url: "https://www.reddit.com/r/3Dprinting/top/.rss?t=week", type: "community" },
