@@ -19,6 +19,7 @@ export interface ShowConfig {
     ownerEmail: string;
     category: string;
     explicit: boolean;
+    podcastGuid?: string;
   };
   sources: Array<{
     name: string;

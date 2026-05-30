@@ -85,7 +85,8 @@ export function generateFeedXml(manifest: EpisodeManifest): string {
       <guid isPermaLink="false">${escapeXml(ep.guid)}</guid>
       <itunes:duration>${ep.duration}</itunes:duration>
       <itunes:episode>${ep.number}</itunes:episode>
-      <itunes:explicit>false</itunes:explicit>${transcript}
+      <itunes:explicit>false</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>${transcript}
     </item>`;
     })
     .join("\n");
@@ -111,6 +112,8 @@ export function generateFeedXml(manifest: EpisodeManifest): string {
     <itunes:category text="${escapeXml(config.podcast.category)}"/>
     <itunes:type>episodic</itunes:type>
     <itunes:explicit>${config.podcast.explicit ? "true" : "false"}</itunes:explicit>
+    <podcast:locked>yes</podcast:locked>${config.podcast.podcastGuid ? `\n    <podcast:guid>${config.podcast.podcastGuid}</podcast:guid>` : ""}
+    <copyright>© ${new Date().getFullYear()} ${escapeXml(config.podcast.author)}</copyright>
 ${items}
   </channel>
 </rss>

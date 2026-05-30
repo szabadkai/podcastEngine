@@ -14,6 +14,7 @@ const show: ShowConfig = {
     ownerEmail: "levente@szabadkai.com",
     category: "Technology",
     explicit: false,
+    podcastGuid: "1aa65aa4-6725-411a-8b5c-a109f9cf36b6",
   },
 
   sources: [

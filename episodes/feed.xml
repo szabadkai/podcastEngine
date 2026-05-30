@@ -19,6 +19,9 @@
     <itunes:category text="Technology"/>
     <itunes:type>episodic</itunes:type>
     <itunes:explicit>false</itunes:explicit>
+    <podcast:locked>yes</podcast:locked>
+    <podcast:guid>1aa65aa4-6725-411a-8b5c-a109f9cf36b6</podcast:guid>
+    <copyright>© 2026 Layer Lines Weekly</copyright>
     <item>
       <title>Stratasys Buys Markforged for a Song, and a $185K Metal Printer</title>
       <description>Alex and Jordan dig into the biggest AM deal of the year—Stratasys snapping up Markforged for just $42.5 million, minus the metal binder jet line. They also unpack a new dual-laser metal printer priced suspiciously low, Norsk Titanium&apos;s first real production contract with Northrop Grumman, and whether an AI that fixes prints mid-job is ready for your garage.</description>
@@ -28,6 +31,7 @@
       <itunes:duration>733</itunes:duration>
       <itunes:episode>1</itunes:episode>
       <itunes:explicit>false</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
       <podcast:transcript url="https://szabadkai.github.io/podcastEngine/transcripts/2026-05-29.txt" type="text/plain"/>
     </item>
   </channel>
