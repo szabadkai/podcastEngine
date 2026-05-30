@@ -8,6 +8,8 @@ export const config = {
     imageUrl: "https://szabadkai.github.io/podcastEngine/artwork.png",
     language: "en",
     author: "Layer Lines Weekly",
+    ownerName: "Layer Lines Weekly",
+    ownerEmail: "levente@szabadkai.com",
     category: "Technology",
     explicit: false,
   },

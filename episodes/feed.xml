@@ -10,6 +10,10 @@
     <link>https://szabadkai.github.io/podcastEngine</link>
     <atom:link href="https://szabadkai.github.io/podcastEngine/feed.xml" rel="self" type="application/rss+xml"/>
     <itunes:author>Layer Lines Weekly</itunes:author>
+    <itunes:owner>
+      <itunes:name>Layer Lines Weekly</itunes:name>
+      <itunes:email>levente@szabadkai.com</itunes:email>
+    </itunes:owner>
     <itunes:image href="https://szabadkai.github.io/podcastEngine/artwork.png"/>
     <itunes:category text="Technology"/>
     <itunes:explicit>false</itunes:explicit>
