@@ -17,6 +17,7 @@
     </itunes:owner>
     <itunes:image href="https://szabadkai.github.io/podcastEngine/artwork.png"/>
     <itunes:category text="Technology"/>
+    <itunes:type>episodic</itunes:type>
     <itunes:explicit>false</itunes:explicit>
     <item>
       <title>Stratasys Buys Markforged for a Song, and a $185K Metal Printer</title>

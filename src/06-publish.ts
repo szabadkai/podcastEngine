@@ -109,6 +109,7 @@ export function generateFeedXml(manifest: EpisodeManifest): string {
     </itunes:owner>
     <itunes:image href="${escapeXml(config.podcast.imageUrl)}"/>
     <itunes:category text="${escapeXml(config.podcast.category)}"/>
+    <itunes:type>episodic</itunes:type>
     <itunes:explicit>${config.podcast.explicit ? "true" : "false"}</itunes:explicit>
 ${items}
   </channel>
