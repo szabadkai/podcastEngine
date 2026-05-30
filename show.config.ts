@@ -17,17 +17,49 @@ const show: ShowConfig = {
   },
 
   sources: [
+    // ── Core AM news ────────────────────────────────────────────────────
+    { name: "3D Printing Industry", url: "https://3dprintingindustry.com/feed/" },
+    { name: "VoxelMatters", url: "https://www.voxelmatters.com/feed/" },
+    { name: "TCT Magazine", url: "https://www.tctmagazine.com/feed/" },
+    { name: "3DPrint.com", url: "https://3dprint.com/feed/" },
+    { name: "Fabbaloo", url: "https://www.fabbaloo.com/feed" },
+    { name: "3Dnatives", url: "https://www.3dnatives.com/en/feed/" },
+
+    // ── Maker / practical ───────────────────────────────────────────────
+    { name: "Hackaday 3DP", url: "https://hackaday.com/category/3d-printer-hacks/feed/", type: "maker" },
+
+    // ── Vendor blogs ────────────────────────────────────────────────────
+    { name: "Prusa Blog", url: "https://blog.prusa3d.com/feed/", type: "vendor" },
+    { name: "Bambu Lab Blog", url: "https://blog.bambulab.com/feed/", type: "vendor" },
+    { name: "Stratasys IR", url: "https://investors.stratasys.com/rss/news-releases.xml", type: "vendor" },
+    { name: "Slant 3D Blog", url: "https://www.slant3d.com/blog-feed.xml", type: "vendor" },
+    { name: "ELEGOO Blog", url: "https://www.elegoo.com/blogs/news.atom", type: "vendor" },
+    { name: "Anycubic Blog", url: "https://store.anycubic.com/blogs/news.atom", type: "vendor" },
+    { name: "MatterHackers", url: "https://www.matterhackers.com/news/rss", type: "vendor" },
+
+    // ── Community (Reddit top/week) ─────────────────────────────────────
+    { name: "r/3Dprinting", url: "https://www.reddit.com/r/3Dprinting/top/.rss?t=week", type: "community" },
+    { name: "r/functionalprint", url: "https://www.reddit.com/r/functionalprint/top/.rss?t=week", type: "community" },
+    { name: "r/AdditiveManufacturing", url: "https://www.reddit.com/r/AdditiveManufacturing/top/.rss?t=week", type: "community" },
+    { name: "r/BambuLab", url: "https://www.reddit.com/r/BambuLab/top/.rss?t=week", type: "community" },
+    { name: "r/prusa3d", url: "https://www.reddit.com/r/prusa3d/top/.rss?t=week", type: "community" },
+    { name: "r/resinprinting", url: "https://www.reddit.com/r/resinprinting/top/.rss?t=week", type: "community" },
+
+    // ── Discovery (Google News) ─────────────────────────────────────────
     {
-      name: "TCT Magazine",
-      url: "https://www.tctmagazine.com/rss/",
+      name: "GNews AM",
+      url: "https://news.google.com/rss/search?q=%223D+printing%22+OR+%22additive+manufacturing%22&hl=en-US&gl=US&ceid=US:en",
+      type: "discovery",
     },
     {
-      name: "VoxelMatters",
-      url: "https://www.voxelmatters.com/feed/",
+      name: "GNews Metal AM",
+      url: "https://news.google.com/rss/search?q=%22laser+powder+bed+fusion%22+OR+LPBF+OR+%22metal+additive+manufacturing%22&hl=en-US&gl=US&ceid=US:en",
+      type: "discovery",
     },
     {
-      name: "3D Printing Industry",
-      url: "https://3dprintingindustry.com/feed/",
+      name: "GNews AM Companies",
+      url: "https://news.google.com/rss/search?q=%22Formlabs%22+OR+%22Bambu+Lab%22+OR+%22Prusa%22+OR+%22Stratasys%22+OR+%22Desktop+Metal%22+OR+%22EOS%22+OR+%223D+Systems%22&hl=en-US&gl=US&ceid=US:en",
+      type: "discovery",
     },
   ],
 
@@ -74,7 +106,7 @@ const show: ShowConfig = {
     storyWindowDays: 7,
     fallbackWindowDays: 14,
     minStories: 3,
-    maxSeenUrls: 500,
+    maxSeenUrls: 2000,
     continuityWindow: 8,
   },
 

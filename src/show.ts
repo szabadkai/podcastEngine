@@ -20,7 +20,11 @@ export interface ShowConfig {
     category: string;
     explicit: boolean;
   };
-  sources: Array<{ name: string; url: string }>;
+  sources: Array<{
+    name: string;
+    url: string;
+    type?: "core" | "maker" | "research" | "discovery" | "vendor" | "community";
+  }>;
   speakers: Speaker[];
   voices: {
     edge: Record<string, { voice: string; rate: string; pitch: string }>;

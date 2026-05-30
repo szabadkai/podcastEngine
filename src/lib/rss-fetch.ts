@@ -1,6 +1,6 @@
 import Parser from "rss-parser";
 import { config } from "../config.js";
-import type { RawStory } from "./types.js";
+import type { RawStory, SourceType } from "./types.js";
 
 let _parser: Parser | null = null;
 
@@ -19,7 +19,8 @@ function getParser(): Parser {
 
 export async function fetchFeed(
   url: string,
-  sourceName: string
+  sourceName: string,
+  sourceType: SourceType = "core"
 ): Promise<RawStory[]> {
   const feed = await getParser().parseURL(url);
   return (feed.items || []).map((item, i) => ({
@@ -27,6 +28,7 @@ export async function fetchFeed(
     title: item.title?.trim() || "Untitled",
     url: item.link || "",
     source: sourceName,
+    sourceType,
     published: item.isoDate || item.pubDate || new Date().toISOString(),
     snippet: (item.contentSnippet || item.content || "").slice(0, 500).trim(),
   }));

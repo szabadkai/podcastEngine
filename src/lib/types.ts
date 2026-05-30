@@ -1,8 +1,11 @@
+export type SourceType = "core" | "maker" | "research" | "discovery" | "vendor" | "community";
+
 export interface RawStory {
   id: string;
   title: string;
   url: string;
   source: string;
+  sourceType: SourceType;
   published: string;
   snippet: string;
   curated?: boolean;

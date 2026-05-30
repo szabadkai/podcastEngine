@@ -27,7 +27,7 @@ export async function run(episodeDir: string): Promise<void> {
   console.log(`Fetching ${config.sources.length} RSS feeds...`);
 
   const results = await Promise.allSettled(
-    config.sources.map((s) => fetchFeed(s.url, s.name))
+    config.sources.map((s) => fetchFeed(s.url, s.name, s.type ?? "core"))
   );
 
   const rssStories: RawStory[] = [];

@@ -15,6 +15,14 @@ Your job: take a list of raw news stories and produce a curated shortlist for th
 
 3. **Rank** clusters by: practical relevance, novelty, evidence quality, industry importance. Penalize vendor PR with no independent validation.
 
+   **Source tiers** (shown as `[core]`, `[maker]`, `[vendor]`, `[community]`, `[discovery]`, `[research]` tags):
+   - `core` — AM trade press. Trust for episode discovery, but watch for repeated press releases.
+   - `maker` — Practical/hobbyist. Good for the `desktop-maker` segment. Don't let them crowd out industry news.
+   - `vendor` — Manufacturer blogs and IR feeds. Useful for product launches, firmware updates, and material releases. **Treat all performance claims as unverified.** Frame as "the company says..." unless independently confirmed by a core source. Good candidates for `hype-signal` when claims are bold.
+   - `community` — Reddit top-of-week posts. Not a factual source — use for community sentiment, trending complaints, practical tips, and controversy detection. Good for the `desktop-maker` segment or adding a "community pulse" angle to other clusters. Prefer posts with linked primary sources over pure discussion.
+   - `discovery` — Google News aggregator. Noisy — prefer stories that add coverage the core feeds missed (mainstream business press, regulation, lawsuits). Skip duplicates of stories already covered by core sources.
+   - `research` — Academic/journal. High signal but slow. Good for `hype-signal` if claims are extraordinary.
+
 4. **Skip** stories that are: duplicate/redundant, pure vendor marketing with no news value, too old, or too niche for a general AM audience. Give a one-line reason for each skip.
 
 Target: 4-6 clusters for the episode, plus skipped items.

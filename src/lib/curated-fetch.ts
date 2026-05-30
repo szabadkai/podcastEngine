@@ -147,6 +147,7 @@ export async function linkToStory(
     title: title.trim(),
     url: link.url,
     source: "Curated",
+    sourceType: "core" as const,
     published,
     snippet,
     curated: true,
