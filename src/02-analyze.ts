@@ -35,7 +35,7 @@ export async function run(episodeDir: string): Promise<void> {
       { role: "system", content: systemPrompt },
       {
         role: "user",
-        content: `Today's date: ${today}\n\nHere are ${stories.length} additive manufacturing stories from this week:\n\n${storyList}\n\nAnalyze, cluster, rank, and assign segments. Return JSON.`,
+        content: `Today's date: ${today}\n\nHere are ${stories.length} stories from this week:\n\n${storyList}\n\nAnalyze, cluster, rank, and assign segments. Return JSON.`,
       },
     ],
     temperature: 0.3,

@@ -3,26 +3,30 @@ import os from "node:os";
 import path from "node:path";
 import { execFile } from "node:child_process";
 import { promisify } from "node:util";
+import { config } from "../config.js";
+import { getSpeakerLabel } from "../show.js";
 import { loadJson, fileExists } from "./storage.js";
 import type { EpisodeRecap, EpisodeScript, FactCheckedStories } from "./types.js";
 
 const execFileAsync = promisify(execFile);
 
-// Words too generic to signal a genuine topic match between episodes.
-const STOPWORDS = new Set([
+const BASE_STOPWORDS = [
   "the", "a", "an", "and", "or", "of", "for", "to", "in", "on", "with", "at",
   "by", "from", "as", "is", "are", "be", "new", "first", "more", "its", "into",
-  "3d", "printing", "printer", "printers", "print", "additive", "manufacturing",
-  "am", "material", "materials", "tech", "technology", "industry", "company",
-]);
+];
+
+function getStopwords(): Set<string> {
+  return new Set([...BASE_STOPWORDS, ...config.continuityStopwords]);
+}
 
 function tokenize(text: string): Set<string> {
+  const stopwords = getStopwords();
   return new Set(
     text
       .toLowerCase()
       .replace(/[^a-z0-9\s-]/g, " ")
       .split(/\s+/)
-      .filter((w) => w.length > 2 && !STOPWORDS.has(w))
+      .filter((w) => w.length > 2 && !stopwords.has(w))
   );
 }
 
@@ -87,7 +91,8 @@ export async function getPastTranscript(
   }
 
   const tag = `episode-${episodeDate}`;
-  const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), "llw-transcript-"));
+  const slug = config.podcast.title.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+  const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), `${slug}-transcript-`));
   try {
     await execFileAsync("gh", [
       "release",
@@ -113,6 +118,6 @@ export async function getPastTranscript(
 // in the script prompt as source-of-truth for an accurate callback.
 export function transcriptToDialogue(script: EpisodeScript): string {
   return script.lines
-    .map((l) => `${l.speaker === "alex" ? "Alex" : "Jordan"}: ${l.text}`)
+    .map((l) => `${getSpeakerLabel(l.speaker)}: ${l.text}`)
     .join("\n");
 }

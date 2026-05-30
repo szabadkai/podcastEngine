@@ -1,18 +1,27 @@
 import Parser from "rss-parser";
+import { config } from "../config.js";
 import type { RawStory } from "./types.js";
 
-const parser = new Parser({
-  timeout: 15000,
-  headers: {
-    "User-Agent": "LayerLinesWeekly/1.0 (podcast news aggregator)",
-  },
-});
+let _parser: Parser | null = null;
+
+function getParser(): Parser {
+  if (!_parser) {
+    const slug = config.podcast.title.replace(/\s+/g, "");
+    _parser = new Parser({
+      timeout: 15000,
+      headers: {
+        "User-Agent": `${slug}/1.0 (podcast news aggregator)`,
+      },
+    });
+  }
+  return _parser;
+}
 
 export async function fetchFeed(
   url: string,
   sourceName: string
 ): Promise<RawStory[]> {
-  const feed = await parser.parseURL(url);
+  const feed = await getParser().parseURL(url);
   return (feed.items || []).map((item, i) => ({
     id: `${sourceName.toLowerCase().replace(/\s+/g, "-")}-${i}`,
     title: item.title?.trim() || "Untitled",

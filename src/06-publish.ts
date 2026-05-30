@@ -3,6 +3,7 @@ import path from "node:path";
 import { execFile } from "node:child_process";
 import { promisify } from "node:util";
 import { config } from "./config.js";
+import { getSpeakerLabel } from "./show.js";
 import { loadJson, writeJson, fileExists, recapPath } from "./lib/storage.js";
 import { getAudioDuration } from "./lib/audio.js";
 import type { EpisodeScript, EpisodeManifest, EpisodeEntry } from "./lib/types.js";
@@ -13,18 +14,13 @@ const MANIFEST_PATH = path.resolve("episodes", "manifest.json");
 const FEED_PATH = path.resolve("episodes", "feed.xml");
 const TRANSCRIPTS_DIR = path.resolve("pages", "transcripts");
 
-const SPEAKER_LABELS: Record<string, string> = {
-  alex: "Alex",
-  jordan: "Jordan",
-};
-
 // Builds a plain-text, speaker-labelled transcript from the script. No
 // timestamps — the TTS pipeline produces no word-level timing — but this is a
 // valid text/plain transcript for the <podcast:transcript> tag.
 function buildTranscriptText(script: EpisodeScript): string {
   const header = `${config.podcast.title} — ${script.title}\nEpisode ${script.episodeNumber} · ${script.episodeDate}\n\n`;
   const body = script.lines
-    .map((l) => `${SPEAKER_LABELS[l.speaker] ?? l.speaker}: ${l.text}`)
+    .map((l) => `${getSpeakerLabel(l.speaker)}: ${l.text}`)
     .join("\n\n");
   return header + body + "\n";
 }
@@ -190,7 +186,7 @@ export async function run(episodeDir: string): Promise<void> {
     duration,
     fileSize,
     releaseUrl,
-    guid: `layer-lines-weekly-${script.episodeDate}`,
+    guid: `${config.guidPrefix}-${script.episodeDate}`,
     transcriptUrl,
   };
 

@@ -1,5 +1,10 @@
 import path from "node:path";
+import { loadShow } from "./show.js";
+import { setShowConfig, config } from "./config.js";
 import { getEpisodeDir } from "./lib/storage.js";
+
+const show = await loadShow();
+setShowConfig(show);
 
 const args = process.argv.slice(2);
 const dryRun = args.includes("--dry-run");
@@ -8,7 +13,7 @@ const requestedStage = args.find((a) => !a.startsWith("--"));
 const dateOverride = process.env.EPISODE_DATE || undefined;
 const episodeDir = getEpisodeDir(dateOverride);
 
-console.log(`\nLayer Lines Weekly — Pipeline`);
+console.log(`\n${config.podcast.title} — Pipeline`);
 console.log(`Episode dir: ${path.relative(process.cwd(), episodeDir)}`);
 if (dryRun) console.log("Mode: DRY RUN (skipping audio + publish)\n");
 else console.log("");

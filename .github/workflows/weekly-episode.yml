@@ -92,8 +92,8 @@ jobs:
 
       - name: Commit state changes
         run: |
-          git config user.name "Layer Lines Bot"
-          git config user.email "bot@layerlines.dev"
+          git config user.name "Podcast Bot"
+          git config user.email "bot@podcast.dev"
           # Only the feed, manifest, recaps, and seen-urls are committed. The MP3
           # and intermediate JSON live in the GitHub Release (see .gitignore).
           # Use --ignore-errors so a dry run (no manifest/feed yet) or a first-ever

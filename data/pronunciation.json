@@ -12,7 +12,7 @@
   "STL": "ess-tee-ell",
   "ABS": "ay-bee-ess",
   "PLA": "pee-ell-ay",
-  "PETG": "pee-tee-gee",
+  "PETG": "pee-e-tee-gee",
   "TPU": "tee-pee-you",
   "PA12": "pee-ay-twelve",
   "PA6": "pee-ay-six",
@@ -34,5 +34,12 @@
   "CAD": "cad",
   "STEP": "step",
   "PEEK": "peek",
-  "PEKK": "peck"
+  "PEKK": "peck",
+  "IPO": "eye-pee-oh",
+  "KIPNEXT": "kip-next",
+  "LED": "ell-ee-dee",
+  "MJF": "em-jay-eff",
+  "MX300": "em-ex-three-hundred",
+  "ORNL": "oh-arr-en-ell",
+  "TED": "ted"
 }

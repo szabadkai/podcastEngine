@@ -10,6 +10,7 @@ import { concatAndNormalize } from "./lib/audio.js";
 import { normalizeForTTS } from "./lib/pronunciation.js";
 import { stripTags } from "./lib/tags.js";
 import { loadJson, fileExists, ensureDir } from "./lib/storage.js";
+import { getSpeakerIds } from "./show.js";
 import type {
   EpisodeScript,
   TaggedEpisodeScript,
@@ -110,7 +111,7 @@ export async function run(episodeDir: string): Promise<void> {
   // Kokoro runs as a single batch process (loads the model once).
   if (provider === "kokoro") {
     const jobChunks = chunks.map((chunk, i) => {
-      const voice = config.kokoroVoices[chunk.speaker];
+      const voice = config.voices.kokoro[chunk.speaker];
       return {
         text: chunk.text,
         voice: voice.voice,
@@ -125,7 +126,7 @@ export async function run(episodeDir: string): Promise<void> {
   // Chatterbox also runs as a single batch process (PyTorch model loaded once).
   if (provider === "chatterbox") {
     const jobChunks = chunks.map((chunk, i) => {
-      const voice = config.chatterboxVoices[chunk.speaker];
+      const voice = config.voices.chatterbox[chunk.speaker];
       return {
         text: chunk.text,
         audioPrompt: voice.audioPrompt,
@@ -138,7 +139,9 @@ export async function run(episodeDir: string): Promise<void> {
     return finalize(chunkPaths, chunksDir, outputPath);
   }
 
-  const requestIds: Record<string, string[]> = { alex: [], jordan: [] };
+  const requestIds: Record<string, string[]> = Object.fromEntries(
+    getSpeakerIds().map((id) => [id, []])
+  );
 
   for (const chunk of chunks) {
     const chunkPath = chunkPaths[chunk.index];
@@ -153,7 +156,7 @@ export async function run(episodeDir: string): Promise<void> {
     );
 
     if (provider === "piper") {
-      const voice = config.piperVoices[chunk.speaker];
+      const voice = config.voices.piper[chunk.speaker];
       await piperSynthesize({
         model: voice.model,
         text: chunk.text,
@@ -161,7 +164,7 @@ export async function run(episodeDir: string): Promise<void> {
         lengthScale: voice.lengthScale,
       });
     } else if (provider === "edge") {
-      const voice = config.edgeVoices[chunk.speaker];
+      const voice = config.voices.edge[chunk.speaker];
       await edgeSynthesize({
         voice: voice.voice,
         text: chunk.text,
@@ -170,7 +173,7 @@ export async function run(episodeDir: string): Promise<void> {
         pitch: voice.pitch,
       });
     } else {
-      const voice = config.elevenlabsVoices[chunk.speaker];
+      const voice = config.voices.elevenlabs[chunk.speaker];
       const result = await textToSpeech({
         voiceId: voice.voiceId,
         text: chunk.text,

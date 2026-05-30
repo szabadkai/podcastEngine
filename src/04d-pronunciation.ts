@@ -1,4 +1,5 @@
 import path from "node:path";
+import { config } from "./config.js";
 import { chatJson } from "./lib/ai.js";
 import { loadJson } from "./lib/storage.js";
 import {
@@ -62,7 +63,7 @@ export async function run(episodeDir: string): Promise<void> {
     messages: [
       {
         role: "system",
-        content: `You are a pronunciation guide for a text-to-speech engine reading a 3D printing / additive manufacturing podcast.
+        content: `You are a pronunciation guide for a text-to-speech engine reading a ${config.domain} podcast.
 
 For each acronym or technical term, decide how it should be spoken aloud and return a phonetic form that a TTS engine will read naturally.
 

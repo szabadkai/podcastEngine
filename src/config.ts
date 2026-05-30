@@ -1,34 +1,6 @@
-export const config = {
-  podcast: {
-    title: "Layer Lines Weekly",
-    description:
-      "The practical additive manufacturing news brief. What matters, what's hype, and what it means for builders.",
-    siteUrl: "https://szabadkai.github.io/podcastEngine",
-    feedUrl: "https://szabadkai.github.io/podcastEngine/feed.xml",
-    imageUrl: "https://szabadkai.github.io/podcastEngine/artwork.png",
-    language: "en",
-    author: "Layer Lines Weekly",
-    ownerName: "Layer Lines Weekly",
-    ownerEmail: "levente@szabadkai.com",
-    category: "Technology",
-    explicit: false,
-  },
+import type { ShowConfig } from "./show.js";
 
-  sources: [
-    {
-      name: "TCT Magazine",
-      url: "https://www.tctmagazine.com/rss/",
-    },
-    {
-      name: "VoxelMatters",
-      url: "https://www.voxelmatters.com/feed/",
-    },
-    {
-      name: "3D Printing Industry",
-      url: "https://3dprintingindustry.com/feed/",
-    },
-  ],
-
+export const engineConfig = {
   ai: {
     baseUrl: "https://openrouter.ai/api/v1",
     model: "deepseek/deepseek-v4-pro",
@@ -51,8 +23,6 @@ export const config = {
     | "piper"
     | "elevenlabs",
 
-  // Which providers natively interpret expressive tags like [laugh], [cough], [chuckle].
-  // For providers not listed here, tags are stripped before synthesis (see stage 04b / 05).
   tagSupport: {
     chatterbox: true,
     elevenlabs: false,
@@ -61,55 +31,7 @@ export const config = {
     piper: false,
   } as Record<string, boolean>,
 
-  // Kokoro voices (used when ttsProvider === "kokoro").
-  // Full voice list: https://github.com/thewh1teagle/kokoro-onnx
-  kokoroVoices: {
-    alex: { voice: "af_sarah", speed: 1.0 },
-    jordan: { voice: "am_adam", speed: 1.0 },
-  },
-  // Directory holding kokoro-v1.0.onnx and voices-v1.0.bin (run scripts/setup-kokoro.sh to populate)
   kokoroModelDir: "~/.local/share/kokoro",
-
-  // Chatterbox voices (used when ttsProvider === "chatterbox").
-  // Zero-shot voice cloning: point each host at a ~5-10s reference WAV (16kHz+ mono).
-  // Leave audioPrompt empty ("") to use the model's default voice.
-  // exaggeration controls expressiveness (0.0-1.0); cfgWeight controls pacing/fidelity.
-  chatterboxVoices: {
-    // Alex uses Chatterbox's expressive default voice (no reference clip).
-    alex: { audioPrompt: "", exaggeration: 0.5, cfgWeight: 0.5 },
-    // Jordan clones a drier British-male reference to stay distinct from the default.
-    jordan: { audioPrompt: "assets/voices/jordan-ref.wav", exaggeration: 0.4, cfgWeight: 0.5 },
-  },
-
-  // Edge-TTS voices (used when ttsProvider === "edge").
-  // Browse all voices with: edge-tts --list-voices
-  edgeVoices: {
-    alex: { voice: "en-US-AriaNeural", rate: "+0%", pitch: "+0Hz" },
-    jordan: { voice: "en-US-GuyNeural", rate: "+0%", pitch: "+0Hz" },
-  },
-
-  // ElevenLabs voice settings (used when ttsProvider === "elevenlabs")
-  elevenlabsVoices: {
-    alex: {
-      voiceId: "SF9uvIlY93SJRMdV5jeP",
-      stability: 0.35,
-      similarityBoost: 0.75,
-      style: 0.55,
-    },
-    jordan: {
-      voiceId: "RNnkVeW25AwKYxZgnHBH",
-      stability: 0.40,
-      similarityBoost: 0.75,
-      style: 0.40,
-    },
-  },
-
-  // Piper voice models (used when ttsProvider === "piper").
-  // Models are downloaded to piperDataDir; the .onnx filename (minus extension) is the model name.
-  piperVoices: {
-    alex: { model: "en_US-amy-medium", lengthScale: 1.0 },
-    jordan: { model: "en_US-joe-medium", lengthScale: 1.0 },
-  },
   piperDataDir: "~/.local/share/piper-voices",
 
   audio: {
@@ -118,14 +40,20 @@ export const config = {
     chunkMaxChars: 5000,
     delayBetweenChunksMs: 500,
   },
-
-  episode: {
-    targetMinutes: 17,
-    storyWindowDays: 7,
-    fallbackWindowDays: 14,
-    minStories: 3,
-    maxSeenUrls: 500,
-    // How many recent episode recaps to feed into the script prompt for continuity.
-    continuityWindow: 8,
-  },
 } as const;
+
+export type Config = typeof engineConfig & ShowConfig;
+
+let _config: Config | null = null;
+
+export function setShowConfig(show: ShowConfig): void {
+  _config = { ...engineConfig, ...show };
+}
+
+export const config = new Proxy({} as Config, {
+  get(_target, prop, receiver) {
+    if (!_config)
+      throw new Error("Config not initialized — call loadShow() first");
+    return Reflect.get(_config, prop, receiver);
+  },
+});

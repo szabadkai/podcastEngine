@@ -2,6 +2,7 @@
 // Requires GITHUB_TOKEN in env (available by default in GitHub Actions).
 
 import { execSync } from "node:child_process";
+import { config } from "../config.js";
 import type { CuratedLink, RawStory } from "./types.js";
 
 const LABEL = "episode-link";
@@ -115,7 +116,7 @@ export async function linkToStory(
   let html = "";
   try {
     const res = await fetch(link.url, {
-      headers: { "User-Agent": "LayerLinesWeekly/1.0 (podcast news aggregator)" },
+      headers: { "User-Agent": `${config.podcast.title.replace(/\s+/g, "")}/1.0 (podcast news aggregator)` },
       redirect: "follow",
       signal: AbortSignal.timeout(FETCH_TIMEOUT),
     });

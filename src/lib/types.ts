@@ -15,12 +15,7 @@ export interface CuratedLink {
   issueNumber: number;
 }
 
-export type Segment =
-  | "big-print"
-  | "materials-watch"
-  | "factory-floor"
-  | "desktop-maker"
-  | "hype-signal";
+export type Segment = string;
 
 export interface StoryCluster {
   id: string;
@@ -61,7 +56,7 @@ export interface FactCheckedStories {
 }
 
 export interface ScriptLine {
-  speaker: "alex" | "jordan";
+  speaker: string;
   segment: string;
   text: string;
 }
@@ -85,7 +80,7 @@ export interface TaggedEpisodeScript extends Omit<EpisodeScript, "lines"> {
 
 export interface TtsChunk {
   index: number;
-  speaker: "alex" | "jordan";
+  speaker: string;
   text: string;
 }
 
