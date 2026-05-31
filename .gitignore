@@ -9,6 +9,13 @@ dist/
 # Stray backups created during local runs
 *.bak-*
 
+# macOS folder metadata
+.DS_Store
+
+# Model bake-off outputs (regenerable; audio is large). The harness scripts
+# scripts/model-bakeoff.ts and scripts/render-bakeoff-audio.ts ARE tracked.
+scripts/bakeoff-out/
+
 # Per-episode working dirs (MP3 + intermediate JSON) are archived in the
 # GitHub Release, not committed. Git keeps only what the pipeline needs to
 # keep working: the feed, the manifest, and the continuity recaps.
