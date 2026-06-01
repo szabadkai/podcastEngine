@@ -94,10 +94,14 @@ jobs:
         run: |
           git config user.name "Podcast Bot"
           git config user.email "bot@podcast.dev"
-          # Only the feed, manifest, recaps, and seen-urls are committed. The MP3
-          # and intermediate JSON live in the GitHub Release (see .gitignore).
+          # Committed: the feed, manifest, recaps, seen-urls, and the Pages
+          # payload (pages/episodes/*.mp3 + pages/transcripts/*.txt) that the feed
+          # links to. The intermediate JSON artifacts live in the GitHub Release
+          # (see .gitignore). The MP3 is served from Pages so Apple Podcasts
+          # accepts it (audio/mpeg, inline) rather than as an octet-stream
+          # attachment from the Release download URL.
           # Use --ignore-errors so a dry run (no manifest/feed yet) or a first-ever
           # run doesn't abort on a not-yet-created pathspec.
-          git add --ignore-errors data/ episodes/manifest.json episodes/feed.xml episodes/recaps/ || true
+          git add --ignore-errors data/ episodes/manifest.json episodes/feed.xml episodes/recaps/ pages/episodes/ pages/transcripts/ || true
           git diff --staged --quiet || git commit -m "Episode $(date +%Y-%m-%d)"
           git push

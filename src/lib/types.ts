@@ -94,6 +94,13 @@ export interface EpisodeEntry {
   description: string;
   duration: number;
   fileSize: number;
+  // Public URL of the MP3 used for the RSS <enclosure>. Served from GitHub
+  // Pages (audio/mpeg, inline) so podcast clients and Apple's validator accept
+  // it — GitHub Release downloads are served as application/octet-stream with
+  // Content-Disposition: attachment, which Apple rejects.
+  audioUrl: string;
+  // GitHub Release page for this episode — archival reference for the MP3 plus
+  // intermediate JSON artifacts. Not used by the feed.
   releaseUrl: string;
   guid: string;
   transcriptUrl?: string;

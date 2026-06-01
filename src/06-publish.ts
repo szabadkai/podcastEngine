@@ -13,6 +13,7 @@ const execFileAsync = promisify(execFile);
 const MANIFEST_PATH = path.resolve("episodes", "manifest.json");
 const FEED_PATH = path.resolve("episodes", "feed.xml");
 const TRANSCRIPTS_DIR = path.resolve("pages", "transcripts");
+const AUDIO_DIR = path.resolve("pages", "episodes");
 
 // Builds a plain-text, speaker-labelled transcript from the script. No
 // timestamps — the TTS pipeline produces no word-level timing — but this is a
@@ -37,10 +38,25 @@ function writeTranscript(script: EpisodeScript): string {
   return `${config.podcast.siteUrl}/transcripts/${fileName}`;
 }
 
+// Copies the rendered MP3 into pages/episodes/<date>.mp3 (served by GitHub
+// Pages) and returns its public URL. This URL becomes the RSS <enclosure>.
+//
+// The MP3 is deliberately served from Pages rather than from the GitHub Release
+// download URL: Release downloads are served as application/octet-stream with
+// `Content-Disposition: attachment`, which Apple Podcasts rejects ("Invalid
+// content type for media" / "downloads as an attachment"). Pages serves .mp3 as
+// audio/mpeg, inline, with byte-range support — exactly what podcast clients
+// expect.
+function writeEpisodeAudio(mp3Path: string, episodeDate: string): string {
+  fs.mkdirSync(AUDIO_DIR, { recursive: true });
+  const fileName = `${episodeDate}.mp3`;
+  fs.copyFileSync(mp3Path, path.join(AUDIO_DIR, fileName));
+  return `${config.podcast.siteUrl}/episodes/${fileName}`;
+}
+
 // Creates the release with every asset attached (MP3 + intermediate JSON
-// artifacts), then returns the download URL of the MP3 specifically — that URL
-// becomes the RSS enclosure, so it must be the audio file, not whichever asset
-// happens to sort first.
+// artifacts) as a per-episode archive, then returns the release page URL. The
+// feed enclosure is NOT served from here — see writeEpisodeAudio.
 async function createGitHubRelease(
   tag: string,
   title: string,
@@ -55,20 +71,7 @@ async function createGitHubRelease(
     "--title", title,
     "--notes", body,
   ]);
-  const releaseUrl = stdout.trim();
-
-  const { stdout: assetJson } = await execFileAsync("gh", [
-    "release",
-    "view",
-    tag,
-    "--json", "assets",
-  ]);
-  const assets = JSON.parse(assetJson).assets as Array<{
-    name: string;
-    url: string;
-  }>;
-  const mp3 = assets.find((a) => a.name.endsWith(".mp3"));
-  return mp3?.url || assets[0]?.url || releaseUrl;
+  return stdout.trim();
 }
 
 export function generateFeedXml(manifest: EpisodeManifest): string {
@@ -81,7 +84,7 @@ export function generateFeedXml(manifest: EpisodeManifest): string {
       <title>${escapeXml(ep.title)}</title>
       <description>${escapeXml(ep.description)}</description>
       <pubDate>${new Date(ep.date).toUTCString()}</pubDate>
-      <enclosure url="${escapeXml(ep.releaseUrl)}" length="${ep.fileSize}" type="audio/mpeg"/>
+      <enclosure url="${escapeXml(ep.audioUrl ?? ep.releaseUrl)}" length="${ep.fileSize}" type="audio/mpeg"/>
       <guid isPermaLink="false">${escapeXml(ep.guid)}</guid>
       <itunes:duration>${ep.duration}</itunes:duration>
       <itunes:episode>${ep.number}</itunes:episode>
@@ -180,6 +183,9 @@ export async function run(episodeDir: string): Promise<void> {
     releaseUrl = `${config.podcast.siteUrl}/releases/tag/${tag}`;
   }
 
+  // Serve the MP3 from GitHub Pages (audio/mpeg, inline) — this is the feed
+  // enclosure. The release above remains the archival copy.
+  const audioUrl = writeEpisodeAudio(mp3Path, script.episodeDate);
   const transcriptUrl = writeTranscript(script);
 
   const entry: EpisodeEntry = {
@@ -189,6 +195,7 @@ export async function run(episodeDir: string): Promise<void> {
     description: script.description,
     duration,
     fileSize,
+    audioUrl,
     releaseUrl,
     guid: `${config.guidPrefix}-${script.episodeDate}`,
     transcriptUrl,

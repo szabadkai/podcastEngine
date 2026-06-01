@@ -7,7 +7,8 @@
       "description": "Alex and Jordan dig into the biggest AM deal of the year—Stratasys snapping up Markforged for just $42.5 million, minus the metal binder jet line. They also unpack a new dual-laser metal printer priced suspiciously low, Norsk Titanium's first real production contract with Northrop Grumman, and whether an AI that fixes prints mid-job is ready for your garage.",
       "duration": 733,
       "fileSize": 11740461,
-      "releaseUrl": "https://github.com/szabadkai/podcastEngine/releases/download/episode-2026-05-29/episode.mp3",
+      "audioUrl": "https://szabadkai.github.io/podcastEngine/episodes/2026-05-29.mp3",
+      "releaseUrl": "https://github.com/szabadkai/podcastEngine/releases/tag/episode-2026-05-29",
       "guid": "layer-lines-weekly-2026-05-29",
       "transcriptUrl": "https://szabadkai.github.io/podcastEngine/transcripts/2026-05-29.txt"
     }
