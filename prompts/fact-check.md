@@ -19,13 +19,14 @@ For each story cluster provided, you must:
 
 4. **Note missing context:** What information would a practitioner need that isn't in the story?
 
-5. **Suggest skeptical angles:** What should the podcast hosts question or push back on?
+5. **Suggest skeptical angles — only when warranted:** If a story has a genuine soft spot (a dubious or unverifiable claim, a vendor overclaim, real hype), note what the hosts should question or push back on. If the story checks out — claims verified, no hype — return an empty `skepticalAngles` list. Do NOT invent doubts to fill the field.
 
 ## Rules
 - Do NOT make claims that are not supported by the provided sources
 - If you cannot verify something, say so — do not guess
 - Separate facts from vendor marketing language
 - Be specific: "claims 2x speed" is more useful than "makes speed claims"
+- A clean story with no hype flags and an empty `skepticalAngles` list is a valid and common result. Reserve skepticism for claims that genuinely earn it — don't flag a solid story just to have something to say.
 
 ## Output format
 

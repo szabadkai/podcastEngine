@@ -84,26 +84,61 @@ export async function run(episodeDir: string): Promise<void> {
 
   const storyBrief = factChecked.clusters
     .map((c) => {
-      const claimLines = c.factCheck.claims
+      const fc = c.factCheck;
+      const claimLines = fc.claims
         .map((cl) => `  - [${cl.rating}] ${cl.claim}: ${cl.note}`)
         .join("\n");
-      const hypeLines =
-        c.factCheck.hypeFlags.length > 0
-          ? `Hype flags: ${c.factCheck.hypeFlags.join("; ")}`
-          : "";
-      const skeptical =
-        c.factCheck.skepticalAngles.length > 0
-          ? `Skeptical angles: ${c.factCheck.skepticalAngles.join("; ")}`
+
+      // Derive a fact-check verdict from the objective signals (claim ratings +
+      // hype flags) so the script model knows which stories are solid and which
+      // genuinely earn a caveat. Without this, every cluster carried a
+      // "skeptical angle" into the brief and the script grew a predictable
+      // "but here's the catch" beat in every single segment.
+      const hasDubious = fc.claims.some((cl) => cl.rating === "dubious");
+      const hasHype = fc.hypeFlags.length > 0;
+      const hasSoft = fc.claims.some(
+        (cl) => cl.rating === "plausible" || cl.rating === "unverifiable"
+      );
+
+      let verdict: string;
+      if (hasDubious || hasHype) {
+        verdict =
+          "Needs scrutiny — there's a real soft spot here; this story earns a caveat or some pushback.";
+      } else if (hasSoft) {
+        verdict =
+          'Mostly solid — single-source or unconfirmed in spots; a light "that\'s their number" touch is plenty, don\'t dwell.';
+      } else {
+        verdict =
+          "Checks out — no caveats worth raising. Play it straight; do NOT manufacture skepticism for this one.";
+      }
+
+      // Only feed hype flags / skeptical angles into the brief when the story
+      // actually has a soft spot — a clean story shouldn't arrive pre-loaded
+      // with doubts for the script model to weave in.
+      const concernLines =
+        hasDubious || hasHype || hasSoft
+          ? [
+              hasHype ? `Hype flags: ${fc.hypeFlags.join("; ")}` : "",
+              fc.skepticalAngles.length > 0
+                ? `Caveats worth raising (only if they earn a beat): ${fc.skepticalAngles.join("; ")}`
+                : "",
+            ]
+              .filter(Boolean)
+              .join("\n")
           : "";
 
-      return `### ${c.segment.toUpperCase()}: ${c.headline}
-Summary: ${c.summary}
-Significance: ${c.significance}
-Sources: ${c.sources.join(", ")}
-Claims:
-${claimLines}
-${hypeLines}
-${skeptical}`;
+      return [
+        `### ${c.segment.toUpperCase()}: ${c.headline}`,
+        `Summary: ${c.summary}`,
+        `Significance: ${c.significance}`,
+        `Sources: ${c.sources.join(", ")}`,
+        `Fact-check verdict: ${verdict}`,
+        `Claims:`,
+        claimLines,
+        concernLines,
+      ]
+        .filter(Boolean)
+        .join("\n");
     })
     .join("\n\n---\n\n");
 
