@@ -30,6 +30,8 @@ jobs:
     permissions:
       contents: write
       issues: write
+      # Needed to dispatch the deploy-pages workflow after pushing the feed.
+      actions: write
 
     steps:
       - uses: actions/checkout@v5
@@ -91,6 +93,7 @@ jobs:
         run: npx tsx src/pipeline.ts publish
 
       - name: Commit state changes
+        id: commit
         run: |
           git config user.name "Podcast Bot"
           git config user.email "bot@podcast.dev"
@@ -99,5 +102,22 @@ jobs:
           # Use --ignore-errors so a dry run (no manifest/feed yet) or a first-ever
           # run doesn't abort on a not-yet-created pathspec.
           git add --ignore-errors data/ episodes/manifest.json episodes/feed.xml episodes/recaps/ || true
-          git diff --staged --quiet || git commit -m "Episode $(date +%Y-%m-%d)"
-          git push
+          if git diff --staged --quiet; then
+            echo "committed=false" >> "$GITHUB_OUTPUT"
+          else
+            git commit -m "Episode $(date +%Y-%m-%d)"
+            git push
+            echo "committed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      # A push made with the default GITHUB_TOKEN does NOT trigger other
+      # workflows (GitHub blocks this to avoid recursive runs), so the
+      # deploy-pages "push" trigger never fires for the bot's feed.xml commit
+      # and the new feed never reaches GitHub Pages / the distributors.
+      # workflow_dispatch is exempt from that rule, so kick the deploy
+      # explicitly once the new feed has been pushed.
+      - name: Trigger Pages deploy
+        if: ${{ !inputs.dry_run && steps.commit.outputs.committed == 'true' }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh workflow run deploy-pages.yml --ref main
