@@ -11,8 +11,8 @@ The pipeline runs as a sequence of stages, each reading the previous stage's JSO
 | Stage | File | What it does |
 |-------|------|-------------|
 | **collect** | `01-collect.ts` | Fetches RSS feeds + curated GitHub Issues, deduplicates, filters by recency |
-| **analyze** | `02-analyze.ts` | AI clusters stories into 4-6 segments, ranks by relevance |
-| **fact-check** | `03-fact-check.ts` | AI verifies claims, flags hype, adds skeptical angles |
+| **analyze** | `02-analyze.ts` | AI clusters stories into 7-10 segments, ranks by relevance |
+| **fact-check** | `03-fact-check.ts` | AI verifies claims, flags hype, adds skeptical angles where warranted |
 | **script** | `04-script.ts` | AI writes a two-host conversational script (Alex & Jordan) |
 | **tag** | `04b-tag.ts` | Adds expressive tags (`[laugh]`, `[chuckle]`) for TTS providers that support them |
 | **recap** | `04c-recap.ts` | Distills episode into a continuity recap for future episodes |

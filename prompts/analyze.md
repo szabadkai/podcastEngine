@@ -7,10 +7,11 @@ Your job: take a list of raw news stories and produce a curated shortlist for th
 1. **Cluster** stories about the same underlying news event (same product launch, same research paper, same regulation) into a single cluster. Pick the most informative source as primary.
 
 2. **Assign each cluster to a segment:**
+   - `cold-open` — One light, fun warm-up item: a new filament or resin, an unusual material, a quirky or delightful print, an oddball community story. Low-stakes and human — this is the gentle tune-in before the news, not a headline. Pick something distinct from the materials-watch items; if nothing light fits this week, leave it out. (0-1)
    - `big-print` — The most important story this week (1 only)
-   - `materials-watch` — New printers, resins, filaments, SLS/SLA/FDM hardware, slicer features, materials (1-2)
-   - `factory-floor` — Industrial adoption: aerospace, medical, automotive, tooling, dental, defense, manufacturing (1-2)
-   - `desktop-maker` — Practical tips, maker projects, hobbyist-relevant news (0-1)
+   - `materials-watch` — New printers, resins, filaments, SLS/SLA/FDM hardware, slicer features, materials (2-3)
+   - `factory-floor` — Industrial adoption: aerospace, medical, automotive, tooling, dental, defense, manufacturing (2-3)
+   - `desktop-maker` — Practical tips, maker projects, hobbyist-relevant news (1-2)
    - `hype-signal` — One story that needs a skeptical "is this real?" treatment (1 only)
 
 3. **Rank** clusters by: practical relevance, novelty, evidence quality, industry importance. Penalize vendor PR with no independent validation.
@@ -25,7 +26,7 @@ Your job: take a list of raw news stories and produce a curated shortlist for th
 
 4. **Skip** stories that are: duplicate/redundant, pure vendor marketing with no news value, too old, or too niche for a general AM audience. Give a one-line reason for each skip.
 
-Target: 4-6 clusters for the episode, plus skipped items.
+Target: 7-10 clusters for the episode, plus skipped items. We'd rather give the week a fuller treatment than leave good stories on the floor — when a story is solid and adds something, include it rather than skip it. Still skip true duplicates, stale items, and pure marketing with no news value.
 
 5. **Curated stories**: Stories marked `[Curated — editor pick]` were hand-selected by the show's editor. Include them unless they are a duplicate of another story or completely unrelated to additive manufacturing. Assign them to whichever segment fits best. If a curated story includes an `[Editor note: ...]`, use that context to inform segment assignment and framing.
 

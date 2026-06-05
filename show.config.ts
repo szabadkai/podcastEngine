@@ -103,7 +103,9 @@ const show: ShowConfig = {
   },
 
   episode: {
-    targetMinutes: 17,
+    // Indicative only — actual runtime is driven by the word target in
+    // prompts/script.md (currently ~25-32 min), not read by the pipeline.
+    targetMinutes: 28,
     storyWindowDays: 7,
     fallbackWindowDays: 14,
     minStories: 3,

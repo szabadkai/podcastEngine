@@ -153,7 +153,9 @@ export async function run(episodeDir: string): Promise<void> {
       },
     ],
     temperature: 0.7,
-    maxTokens: 16384,
+    // Episodes target ~25-32 min (3800-4800 words) across 7-10 stories, so the
+    // JSON script runs long — give the model room not to truncate mid-line.
+    maxTokens: 32000,
     model: config.ai.scriptModel,
   });
 

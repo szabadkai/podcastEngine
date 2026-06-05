@@ -45,7 +45,8 @@ export async function run(episodeDir: string): Promise<void> {
     ],
     temperature: 0.2,
     // Headroom for the reasoning model's trace + the JSON answer (see analyze).
-    maxTokens: 16384,
+    // Scales with cluster count, which is now 7-10 per episode.
+    maxTokens: 24000,
   });
 
   const factChecked: FactCheckedStories = {
