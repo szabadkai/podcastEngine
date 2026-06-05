@@ -1,6 +1,17 @@
 {
   "episodes": [
     {
+      "number": 2,
+      "date": "2026-06-05",
+      "title": "States Try to Code Guns Out of Your Printer",
+      "description": "New York's mandatory gun-blocking software for 3D printers raises huge feasibility and free-speech questions, with California close behind. Plus Bambu's $469 large-format A2L, Sandvik exits metal AM, Creality's billion-dollar IPO, Prusa's open-source ColorMix, and a Pentagon volcanic-fiber boat fantasy.",
+      "duration": 903,
+      "fileSize": 14444204,
+      "releaseUrl": "https://github.com/szabadkai/podcastEngine/releases/download/episode-2026-06-05/episode.mp3",
+      "guid": "layer-lines-weekly-2026-06-05",
+      "transcriptUrl": "https://szabadkai.github.io/podcastEngine/transcripts/2026-06-05.txt"
+    },
+    {
       "number": 1,
       "date": "2026-05-29",
       "title": "Stratasys Buys Markforged for a Song, and a $185K Metal Printer",
