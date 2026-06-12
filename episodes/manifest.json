@@ -1,6 +1,17 @@
 {
   "episodes": [
     {
+      "number": 3,
+      "date": "2026-06-12",
+      "title": "TDK Buys ECAM, the Air Force Prints 222 Planes' Worth of Vanes",
+      "description": "TDK drops up to $400M on electrochemical metal printing for AI data centers, the US Air Force commits to fleet-wide 3D printed microvanes, and a tower-crane concrete printer makes some very tall promises. Plus a yeast-based building material, a high-temp aluminum, and the return of Thingiverse.",
+      "duration": 1327,
+      "fileSize": 21224492,
+      "releaseUrl": "https://github.com/szabadkai/podcastEngine/releases/download/episode-2026-06-12/episode.mp3",
+      "guid": "layer-lines-weekly-2026-06-12",
+      "transcriptUrl": "https://szabadkai.github.io/podcastEngine/transcripts/2026-06-12.txt"
+    },
+    {
       "number": 2,
       "date": "2026-06-05",
       "title": "States Try to Code Guns Out of Your Printer",
