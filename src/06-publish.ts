@@ -72,21 +72,38 @@ async function createGitHubRelease(
 }
 
 export function generateFeedXml(manifest: EpisodeManifest): string {
+  const channelPubDate = manifest.episodes[0]
+    ? new Date(manifest.episodes[0].date).toUTCString()
+    : new Date().toUTCString();
+  const rssCategory = config.podcast.rssCategory ?? config.podcast.category;
+  const itunesCategories = renderItunesCategories();
+  const youtubeChannelTags = renderYouTubeMetadata("    ");
+
   const items = manifest.episodes
     .map((ep) => {
       const transcript = ep.transcriptUrl
         ? `\n      <podcast:transcript url="${escapeXml(ep.transcriptUrl)}" type="text/plain"/>`
         : "";
+      const mediaDescription = escapeXml(ep.description);
+      const youtubeItemTags = renderYouTubeMetadata("      ");
       return `    <item>
       <title>${escapeXml(ep.title)}</title>
       <description>${escapeXml(ep.description)}</description>
+      <itunes:title>${escapeXml(ep.title)}</itunes:title>
+      <itunes:summary>${escapeXml(ep.description)}</itunes:summary>
+      <content:encoded><![CDATA[${escapeCdata(ep.description)}]]></content:encoded>
       <pubDate>${new Date(ep.date).toUTCString()}</pubDate>
       <enclosure url="${escapeXml(ep.releaseUrl)}" length="${ep.fileSize}" type="audio/mpeg"/>
+      <media:content url="${escapeXml(ep.releaseUrl)}" fileSize="${ep.fileSize}" type="audio/mpeg" medium="audio" duration="${ep.duration}"/>
+      <media:title>${escapeXml(ep.title)}</media:title>
+      <media:description>${mediaDescription}</media:description>
+      <media:thumbnail url="${escapeXml(config.podcast.imageUrl)}"/>
       <guid isPermaLink="false">${escapeXml(ep.guid)}</guid>
       <itunes:duration>${ep.duration}</itunes:duration>
       <itunes:episode>${ep.number}</itunes:episode>
       <itunes:explicit>false</itunes:explicit>
-      <itunes:episodeType>full</itunes:episodeType>${transcript}
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:image href="${escapeXml(config.podcast.imageUrl)}"/>${youtubeItemTags}${transcript}
     </item>`;
     })
     .join("\n");
@@ -95,29 +112,62 @@ export function generateFeedXml(manifest: EpisodeManifest): string {
 <rss version="2.0"
   xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
   xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:media="http://search.yahoo.com/mrss/"
   xmlns:podcast="https://podcastindex.org/namespace/1.0"
-  xmlns:atom="http://www.w3.org/2005/Atom">
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:yt="http://www.youtube.com/xml/schemas/2015">
   <channel>
     <title>${escapeXml(config.podcast.title)}</title>
     <description>${escapeXml(config.podcast.description)}</description>
+    <itunes:summary>${escapeXml(config.podcast.description)}</itunes:summary>
+    <content:encoded><![CDATA[${escapeCdata(config.podcast.description)}]]></content:encoded>
     <language>${config.podcast.language}</language>
     <link>${escapeXml(config.podcast.siteUrl)}</link>
     <atom:link href="${escapeXml(config.podcast.feedUrl)}" rel="self" type="application/rss+xml"/>
+    <pubDate>${channelPubDate}</pubDate>
+    <lastBuildDate>${channelPubDate}</lastBuildDate>
+    <generator>podcast-engine</generator>
+    <category>${escapeXml(rssCategory)}</category>
     <itunes:author>${escapeXml(config.podcast.author)}</itunes:author>
     <itunes:owner>
       <itunes:name>${escapeXml(config.podcast.ownerName)}</itunes:name>
       <itunes:email>${escapeXml(config.podcast.ownerEmail)}</itunes:email>
     </itunes:owner>
+    <image>
+      <url>${escapeXml(config.podcast.imageUrl)}</url>
+      <title>${escapeXml(config.podcast.title)}</title>
+      <link>${escapeXml(config.podcast.siteUrl)}</link>
+    </image>
     <itunes:image href="${escapeXml(config.podcast.imageUrl)}"/>
-    <itunes:category text="${escapeXml(config.podcast.category)}"/>
+${itunesCategories}
     <itunes:type>episodic</itunes:type>
-    <itunes:explicit>${config.podcast.explicit ? "true" : "false"}</itunes:explicit>
+    <itunes:explicit>${config.podcast.explicit ? "true" : "false"}</itunes:explicit>${youtubeChannelTags}
     <podcast:locked>yes</podcast:locked>${config.podcast.podcastGuid ? `\n    <podcast:guid>${config.podcast.podcastGuid}</podcast:guid>` : ""}
     <copyright>© ${new Date().getFullYear()} ${escapeXml(config.podcast.author)}</copyright>
 ${items}
   </channel>
 </rss>
 `;
+}
+
+function renderItunesCategories(): string {
+  const categories =
+    config.podcast.itunesCategories?.length
+      ? config.podcast.itunesCategories
+      : [config.podcast.category];
+
+  return categories
+    .map((category) => `    <itunes:category text="${escapeXml(category)}"/>`)
+    .join("\n");
+}
+
+function renderYouTubeMetadata(indent: string): string {
+  const youtube = config.podcast.youtube;
+  if (!youtube) return "";
+
+  return `
+${indent}<yt:category id="${youtube.categoryId}">${escapeXml(youtube.category)}</yt:category>
+${indent}<yt:madeForKids>${youtube.madeForKids ? "true" : "false"}</yt:madeForKids>`;
 }
 
 function escapeXml(s: string): string {
@@ -127,6 +177,10 @@ function escapeXml(s: string): string {
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&apos;");
+}
+
+function escapeCdata(s: string): string {
+  return s.replace(/\]\]>/g, "]]]]><![CDATA[>");
 }
 
 export async function run(episodeDir: string): Promise<void> {

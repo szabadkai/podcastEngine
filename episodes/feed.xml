@@ -2,60 +2,106 @@
 <rss version="2.0"
   xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
   xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:media="http://search.yahoo.com/mrss/"
   xmlns:podcast="https://podcastindex.org/namespace/1.0"
-  xmlns:atom="http://www.w3.org/2005/Atom">
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:yt="http://www.youtube.com/xml/schemas/2015">
   <channel>
     <title>Layer Lines Weekly</title>
     <description>The practical additive manufacturing news brief. What matters, what&apos;s hype, and what it means for builders.</description>
+    <itunes:summary>The practical additive manufacturing news brief. What matters, what&apos;s hype, and what it means for builders.</itunes:summary>
+    <content:encoded><![CDATA[The practical additive manufacturing news brief. What matters, what's hype, and what it means for builders.]]></content:encoded>
     <language>en</language>
     <link>https://szabadkai.github.io/podcastEngine</link>
     <atom:link href="https://szabadkai.github.io/podcastEngine/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Fri, 12 Jun 2026 00:00:00 GMT</pubDate>
+    <lastBuildDate>Fri, 12 Jun 2026 00:00:00 GMT</lastBuildDate>
+    <generator>podcast-engine</generator>
+    <category>Science &amp; Technology</category>
     <itunes:author>Layer Lines Weekly</itunes:author>
     <itunes:owner>
       <itunes:name>Layer Lines Weekly</itunes:name>
       <itunes:email>levente@szabadkai.com</itunes:email>
     </itunes:owner>
+    <image>
+      <url>https://szabadkai.github.io/podcastEngine/artwork.png</url>
+      <title>Layer Lines Weekly</title>
+      <link>https://szabadkai.github.io/podcastEngine</link>
+    </image>
     <itunes:image href="https://szabadkai.github.io/podcastEngine/artwork.png"/>
+    <itunes:category text="Science"/>
     <itunes:category text="Technology"/>
     <itunes:type>episodic</itunes:type>
     <itunes:explicit>false</itunes:explicit>
+    <yt:category id="28">Science &amp; Technology</yt:category>
+    <yt:madeForKids>false</yt:madeForKids>
     <podcast:locked>yes</podcast:locked>
     <podcast:guid>1aa65aa4-6725-411a-8b5c-a109f9cf36b6</podcast:guid>
     <copyright>© 2026 Layer Lines Weekly</copyright>
     <item>
       <title>TDK Buys ECAM, the Air Force Prints 222 Planes&apos; Worth of Vanes</title>
       <description>TDK drops up to $400M on electrochemical metal printing for AI data centers, the US Air Force commits to fleet-wide 3D printed microvanes, and a tower-crane concrete printer makes some very tall promises. Plus a yeast-based building material, a high-temp aluminum, and the return of Thingiverse.</description>
+      <itunes:title>TDK Buys ECAM, the Air Force Prints 222 Planes&apos; Worth of Vanes</itunes:title>
+      <itunes:summary>TDK drops up to $400M on electrochemical metal printing for AI data centers, the US Air Force commits to fleet-wide 3D printed microvanes, and a tower-crane concrete printer makes some very tall promises. Plus a yeast-based building material, a high-temp aluminum, and the return of Thingiverse.</itunes:summary>
+      <content:encoded><![CDATA[TDK drops up to $400M on electrochemical metal printing for AI data centers, the US Air Force commits to fleet-wide 3D printed microvanes, and a tower-crane concrete printer makes some very tall promises. Plus a yeast-based building material, a high-temp aluminum, and the return of Thingiverse.]]></content:encoded>
       <pubDate>Fri, 12 Jun 2026 00:00:00 GMT</pubDate>
       <enclosure url="https://github.com/szabadkai/podcastEngine/releases/download/episode-2026-06-12/episode.mp3" length="21224492" type="audio/mpeg"/>
+      <media:content url="https://github.com/szabadkai/podcastEngine/releases/download/episode-2026-06-12/episode.mp3" fileSize="21224492" type="audio/mpeg" medium="audio" duration="1327"/>
+      <media:title>TDK Buys ECAM, the Air Force Prints 222 Planes&apos; Worth of Vanes</media:title>
+      <media:description>TDK drops up to $400M on electrochemical metal printing for AI data centers, the US Air Force commits to fleet-wide 3D printed microvanes, and a tower-crane concrete printer makes some very tall promises. Plus a yeast-based building material, a high-temp aluminum, and the return of Thingiverse.</media:description>
+      <media:thumbnail url="https://szabadkai.github.io/podcastEngine/artwork.png"/>
       <guid isPermaLink="false">layer-lines-weekly-2026-06-12</guid>
       <itunes:duration>1327</itunes:duration>
       <itunes:episode>3</itunes:episode>
       <itunes:explicit>false</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
+      <itunes:image href="https://szabadkai.github.io/podcastEngine/artwork.png"/>
+      <yt:category id="28">Science &amp; Technology</yt:category>
+      <yt:madeForKids>false</yt:madeForKids>
       <podcast:transcript url="https://szabadkai.github.io/podcastEngine/transcripts/2026-06-12.txt" type="text/plain"/>
     </item>
     <item>
       <title>States Try to Code Guns Out of Your Printer</title>
       <description>New York&apos;s mandatory gun-blocking software for 3D printers raises huge feasibility and free-speech questions, with California close behind. Plus Bambu&apos;s $469 large-format A2L, Sandvik exits metal AM, Creality&apos;s billion-dollar IPO, Prusa&apos;s open-source ColorMix, and a Pentagon volcanic-fiber boat fantasy.</description>
+      <itunes:title>States Try to Code Guns Out of Your Printer</itunes:title>
+      <itunes:summary>New York&apos;s mandatory gun-blocking software for 3D printers raises huge feasibility and free-speech questions, with California close behind. Plus Bambu&apos;s $469 large-format A2L, Sandvik exits metal AM, Creality&apos;s billion-dollar IPO, Prusa&apos;s open-source ColorMix, and a Pentagon volcanic-fiber boat fantasy.</itunes:summary>
+      <content:encoded><![CDATA[New York's mandatory gun-blocking software for 3D printers raises huge feasibility and free-speech questions, with California close behind. Plus Bambu's $469 large-format A2L, Sandvik exits metal AM, Creality's billion-dollar IPO, Prusa's open-source ColorMix, and a Pentagon volcanic-fiber boat fantasy.]]></content:encoded>
       <pubDate>Fri, 05 Jun 2026 00:00:00 GMT</pubDate>
       <enclosure url="https://github.com/szabadkai/podcastEngine/releases/download/episode-2026-06-05/episode.mp3" length="14444204" type="audio/mpeg"/>
+      <media:content url="https://github.com/szabadkai/podcastEngine/releases/download/episode-2026-06-05/episode.mp3" fileSize="14444204" type="audio/mpeg" medium="audio" duration="903"/>
+      <media:title>States Try to Code Guns Out of Your Printer</media:title>
+      <media:description>New York&apos;s mandatory gun-blocking software for 3D printers raises huge feasibility and free-speech questions, with California close behind. Plus Bambu&apos;s $469 large-format A2L, Sandvik exits metal AM, Creality&apos;s billion-dollar IPO, Prusa&apos;s open-source ColorMix, and a Pentagon volcanic-fiber boat fantasy.</media:description>
+      <media:thumbnail url="https://szabadkai.github.io/podcastEngine/artwork.png"/>
       <guid isPermaLink="false">layer-lines-weekly-2026-06-05</guid>
       <itunes:duration>903</itunes:duration>
       <itunes:episode>2</itunes:episode>
       <itunes:explicit>false</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
+      <itunes:image href="https://szabadkai.github.io/podcastEngine/artwork.png"/>
+      <yt:category id="28">Science &amp; Technology</yt:category>
+      <yt:madeForKids>false</yt:madeForKids>
       <podcast:transcript url="https://szabadkai.github.io/podcastEngine/transcripts/2026-06-05.txt" type="text/plain"/>
     </item>
     <item>
       <title>Stratasys Buys Markforged for a Song, and a $185K Metal Printer</title>
       <description>Alex and Jordan dig into the biggest AM deal of the year—Stratasys snapping up Markforged for just $42.5 million, minus the metal binder jet line. They also unpack a new dual-laser metal printer priced suspiciously low, Norsk Titanium&apos;s first real production contract with Northrop Grumman, and whether an AI that fixes prints mid-job is ready for your garage.</description>
+      <itunes:title>Stratasys Buys Markforged for a Song, and a $185K Metal Printer</itunes:title>
+      <itunes:summary>Alex and Jordan dig into the biggest AM deal of the year—Stratasys snapping up Markforged for just $42.5 million, minus the metal binder jet line. They also unpack a new dual-laser metal printer priced suspiciously low, Norsk Titanium&apos;s first real production contract with Northrop Grumman, and whether an AI that fixes prints mid-job is ready for your garage.</itunes:summary>
+      <content:encoded><![CDATA[Alex and Jordan dig into the biggest AM deal of the year—Stratasys snapping up Markforged for just $42.5 million, minus the metal binder jet line. They also unpack a new dual-laser metal printer priced suspiciously low, Norsk Titanium's first real production contract with Northrop Grumman, and whether an AI that fixes prints mid-job is ready for your garage.]]></content:encoded>
       <pubDate>Fri, 29 May 2026 00:00:00 GMT</pubDate>
       <enclosure url="https://github.com/szabadkai/podcastEngine/releases/download/episode-2026-05-29/episode.mp3" length="11740461" type="audio/mpeg"/>
+      <media:content url="https://github.com/szabadkai/podcastEngine/releases/download/episode-2026-05-29/episode.mp3" fileSize="11740461" type="audio/mpeg" medium="audio" duration="733"/>
+      <media:title>Stratasys Buys Markforged for a Song, and a $185K Metal Printer</media:title>
+      <media:description>Alex and Jordan dig into the biggest AM deal of the year—Stratasys snapping up Markforged for just $42.5 million, minus the metal binder jet line. They also unpack a new dual-laser metal printer priced suspiciously low, Norsk Titanium&apos;s first real production contract with Northrop Grumman, and whether an AI that fixes prints mid-job is ready for your garage.</media:description>
+      <media:thumbnail url="https://szabadkai.github.io/podcastEngine/artwork.png"/>
       <guid isPermaLink="false">layer-lines-weekly-2026-05-29</guid>
       <itunes:duration>733</itunes:duration>
       <itunes:episode>1</itunes:episode>
       <itunes:explicit>false</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
+      <itunes:image href="https://szabadkai.github.io/podcastEngine/artwork.png"/>
+      <yt:category id="28">Science &amp; Technology</yt:category>
+      <yt:madeForKids>false</yt:madeForKids>
       <podcast:transcript url="https://szabadkai.github.io/podcastEngine/transcripts/2026-05-29.txt" type="text/plain"/>
     </item>
   </channel>

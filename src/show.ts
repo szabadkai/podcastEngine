@@ -18,6 +18,13 @@ export interface ShowConfig {
     ownerName: string;
     ownerEmail: string;
     category: string;
+    itunesCategories?: string[];
+    rssCategory?: string;
+    youtube?: {
+      category: string;
+      categoryId: number;
+      madeForKids: boolean;
+    };
     explicit: boolean;
     podcastGuid?: string;
   };
