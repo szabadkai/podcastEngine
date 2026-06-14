@@ -39,6 +39,10 @@ export const engineConfig = {
     outputFormat: "mp3_44100_128",
     chunkMaxChars: 5000,
     delayBetweenChunksMs: 500,
+    pronunciationDictionaryLocators: [] as Array<{
+      pronunciation_dictionary_id: string;
+      version_id: string;
+    }>,
   },
 } as const;
 

@@ -30,6 +30,11 @@ export async function textToSpeech(opts: TtsOptions): Promise<TtsResult> {
     },
   };
 
+  if (config.audio.pronunciationDictionaryLocators.length) {
+    body.pronunciation_dictionary_locators =
+      config.audio.pronunciationDictionaryLocators;
+  }
+
   if (opts.previousRequestIds?.length) {
     body.previous_request_ids = opts.previousRequestIds.slice(-3);
   }

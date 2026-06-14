@@ -84,7 +84,9 @@ Configured via `ttsProvider` in `src/config.ts`:
 
 ### Pronunciation normalization
 
-Acronyms like FDM, SLA, PETG are rewritten to phonetic forms before TTS so they sound natural (e.g., `PETG` becomes `pee-tee-gee`). The map lives in `data/pronunciation.json` and is automatically extended by the pronunciation stage (04d) whenever new acronyms appear in a script.
+Acronyms and technical terms are reviewed through `data/pronunciation.json` before TTS. Ordinary initialisms stay unchanged so ElevenLabs can read them at its normal pace (e.g., `AI`, `FDM`, `GPU`), while known problem terms get spoken aliases (e.g., `PETG` becomes `pet gee`, `AM` becomes `additive manufacturing`). The map is automatically extended by the pronunciation stage (04d) whenever new acronyms appear in a script.
+
+For ElevenLabs, you can also attach pronunciation dictionaries by adding locators to `audio.pronunciationDictionaryLocators` in `src/config.ts`. ElevenLabs applies up to three dictionary locators per request; use alias rules for model-independent acronym fixes.
 
 ## Project structure
 

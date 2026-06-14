@@ -9,8 +9,10 @@ import {
 import type { EpisodeScript } from "./lib/types.js";
 
 // Matches 2+ uppercase letters optionally followed by digits (e.g. PA12),
-// or uppercase+ampersand combos (R&D).
-const ACRONYM_RE = /(?<![A-Za-z0-9])[A-Z][A-Z0-9&]{1,}(?![A-Za-z0-9])/g;
+// uppercase+ampersand combos (R&D), and a few common technical tokens that
+// affect speech but are not pure uppercase acronyms.
+const ACRONYM_RE =
+  /(?<![A-Za-z0-9])(?:[A-Z][A-Z0-9&]{1,}|\dD|[A-Z]\+\+|[Gg]-code|core-XY)(?![A-Za-z0-9])/g;
 
 // Common English words that look like acronyms but aren't.
 const IGNORE = new Set([
@@ -65,12 +67,14 @@ export async function run(episodeDir: string): Promise<void> {
         role: "system",
         content: `You are a pronunciation guide for a text-to-speech engine reading a ${config.domain} podcast.
 
-For each acronym or technical term, decide how it should be spoken aloud and return a phonetic form that a TTS engine will read naturally.
+For each acronym or technical term, decide how it should be spoken aloud and return a spoken alias that a TTS engine will read naturally.
 
 Three strategies (pick the best one for each term):
-1. **Phonetic spelling** — for terms spoken letter-by-letter. Use hyphenated syllables: "eff-dee-em" for FDM, "pee-ell-ay" for PLA. Use these phonetic letter names: A=ay, B=bee, C=see, D=dee, E=ee, F=eff, G=gee, H=aitch, I=eye, J=jay, K=kay, L=ell, M=em, N=en, O=oh, P=pee, Q=cue, R=arr, S=ess, T=tee, U=you, V=vee, W=double-you, X=ex, Y=why, Z=zee.
+1. **Leave unchanged** — for ordinary uppercase initialisms and common technical tokens that TTS engines usually spell naturally, return the original term: "FDM" for FDM, "GPU" for GPU, "AI" for AI, "3D" for 3D. This marks the term as reviewed without forcing slow letter-by-letter pacing.
 2. **Expand** — for terms better spoken as the full phrase: "additive manufacturing" for AM.
-3. **Pronounce as word** — for terms commonly said as a word: "cad" for CAD, "peek" for PEEK.
+3. **Pronounce as word or mixed form** — for terms commonly said as a word or partial word: "cad" for CAD, "peek" for PEEK, "pet gee" for PETG, "PA twelve" for PA12.
+
+Avoid hyphenated pseudo-phonetics like "eff-dee-em" or "ay-eye"; they can make ElevenLabs add or distort syllables. Use spaced letters only as a last resort for unusual terms a TTS engine is likely to read as a word, such as "R A I I" for RAII.
 
 Return JSON: { "entries": [{ "term": "ACRONYM", "spoken": "how-to-say-it" }] }`,
       },

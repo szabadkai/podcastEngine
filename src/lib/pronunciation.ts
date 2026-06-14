@@ -28,9 +28,19 @@ export function normalizeForTTS(text: string): string {
     const escaped = term.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
     result = result.replace(
       new RegExp(`(?<![A-Za-z0-9])${escaped}(?![A-Za-z0-9])`, "g"),
-      spoken,
+      (match, offset, fullText) =>
+        shouldReplaceTerm(term, fullText, offset) ? spoken : match,
     );
   }
 
   return result;
+}
+
+function shouldReplaceTerm(term: string, text: string, offset: number): boolean {
+  if (term === "AM") {
+    const before = text.slice(0, offset);
+    if (/\b\d{1,2}(?::\d{2})?\s*$/.test(before)) return false;
+  }
+
+  return true;
 }
