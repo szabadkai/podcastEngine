@@ -5,27 +5,49 @@ interface ChatMessage {
   content: string;
 }
 
+// OpenRouter's unified reasoning control. For reasoning models (e.g. Claude
+// Opus 4.8) reasoning tokens are output tokens drawn from max_tokens, so an
+// unbounded thinking pass can consume the whole budget and truncate the visible
+// answer. Bound it with `max_tokens` (a hard budget) or `effort`/`enabled`.
+interface ReasoningConfig {
+  effort?: "xhigh" | "high" | "medium" | "low" | "minimal" | "none";
+  max_tokens?: number;
+  enabled?: boolean;
+  exclude?: boolean;
+}
+
 interface ChatOptions {
   messages: ChatMessage[];
   temperature?: number;
   maxTokens?: number;
   jsonMode?: boolean;
   model?: string;
+  reasoning?: ReasoningConfig;
 }
+
+// Hard ceiling when escalating after a truncation — Claude Opus 4.8's max output.
+const MAX_OUTPUT_TOKENS = 128000;
 
 export async function chat(opts: ChatOptions): Promise<string> {
   const apiKey = process.env.OPENROUTER_API_KEY;
   if (!apiKey) throw new Error("OPENROUTER_API_KEY not set");
 
-  const body: Record<string, unknown> = {
-    model: opts.model ?? config.ai.model,
-    messages: opts.messages,
-    temperature: opts.temperature ?? 0.3,
-    max_tokens: opts.maxTokens ?? 4096,
+  // Working cap: starts at the requested value and grows if the model truncates
+  // at the limit. Re-sending the identical request after a length-truncation
+  // would just truncate again — the retry only helps if it has more room.
+  let maxTokens = opts.maxTokens ?? 4096;
+
+  const buildBody = (): Record<string, unknown> => {
+    const body: Record<string, unknown> = {
+      model: opts.model ?? config.ai.model,
+      messages: opts.messages,
+      temperature: opts.temperature ?? 0.3,
+      max_tokens: maxTokens,
+    };
+    if (opts.jsonMode) body.response_format = { type: "json_object" };
+    if (opts.reasoning) body.reasoning = opts.reasoning;
+    return body;
   };
-  if (opts.jsonMode) {
-    body.response_format = { type: "json_object" };
-  }
 
   let lastError: Error | null = null;
 
@@ -44,7 +66,7 @@ export async function chat(opts: ChatOptions): Promise<string> {
         "HTTP-Referer": config.podcast.siteUrl,
         "X-Title": config.podcast.title,
       },
-      body: JSON.stringify(body),
+      body: JSON.stringify(buildBody()),
     });
 
     if (!res.ok) {
@@ -59,11 +81,20 @@ export async function chat(opts: ChatOptions): Promise<string> {
       choices: Array<{ message: { content: string }; finish_reason?: string }>;
     };
     const choice = data.choices[0];
-    // A reasoning model can blow past max_tokens and return a truncated answer.
-    // Treat that as a retryable failure rather than handing back broken JSON.
+    // Truncated at the cap. A reasoning model spends part of max_tokens thinking,
+    // so the visible answer can run out of room. Grow the cap and retry rather
+    // than re-sending the same doomed request. (Bounding `reasoning` at the call
+    // site is the primary guard; this is the safety net if the estimate is off.)
     if (choice.finish_reason === "length") {
+      if (maxTokens >= MAX_OUTPUT_TOKENS) {
+        lastError = new Error(
+          `OpenRouter response truncated at max_tokens=${maxTokens} (model ceiling); reduce reasoning budget or shorten the request`,
+        );
+        break;
+      }
+      maxTokens = Math.min(maxTokens * 2, MAX_OUTPUT_TOKENS);
       lastError = new Error(
-        "OpenRouter response truncated (finish_reason=length); raise maxTokens",
+        `OpenRouter response truncated (finish_reason=length); retrying with max_tokens=${maxTokens}`,
       );
       continue;
     }

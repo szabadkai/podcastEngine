@@ -156,6 +156,12 @@ export async function run(episodeDir: string): Promise<void> {
     // Episodes target ~25-32 min (3800-4800 words) across 7-10 stories, so the
     // JSON script runs long — give the model room not to truncate mid-line.
     maxTokens: 32000,
+    // The script model (Claude Opus 4.8) is a reasoning model, and on OpenRouter
+    // reasoning tokens are drawn from max_tokens. Left unbounded, the thinking
+    // pass can consume the whole 32k budget and the script truncates mid-line
+    // (finish_reason=length). Cap reasoning so the ~7-9k-token script always has
+    // room: 8k thinking + ~9k output leaves comfortable headroom under 32k.
+    reasoning: { max_tokens: 8000 },
     model: config.ai.scriptModel,
   });
 
