@@ -1,6 +1,17 @@
 {
   "episodes": [
     {
+      "number": 4,
+      "date": "2026-06-20",
+      "title": "Divergent's 64-Machine Bet and the Defense AM Land Grab",
+      "description": "Divergent unveils a twelve-laser metal printer and a defense super-factory, Beehive drops $50M on EOS machines, and the C-17 microvanes go fleet-wide. Plus Bambu's 'safe' filament, an open-source revolt against the cloud, and Nano Dimension quietly walking out of the room.",
+      "duration": 1140,
+      "fileSize": 18244652,
+      "releaseUrl": "https://github.com/szabadkai/podcastEngine/releases/download/episode-2026-06-20/episode.mp3",
+      "guid": "layer-lines-weekly-2026-06-20",
+      "transcriptUrl": "https://szabadkai.github.io/podcastEngine/transcripts/2026-06-20.txt"
+    },
+    {
       "number": 3,
       "date": "2026-06-12",
       "title": "TDK Buys ECAM, the Air Force Prints 222 Planes' Worth of Vanes",

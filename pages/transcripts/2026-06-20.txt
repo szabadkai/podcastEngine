@@ -1,0 +1,168 @@
+Layer Lines Weekly — Divergent's 64-Machine Bet and the Defense AM Land Grab
+Episode 4 · 2026-06-20
+
+Alex: Okay, before we get into anything serious — TCT named their next Rising Star this week, and the winner is fourteen years old.
+
+Jordan: Fourteen. So while the rest of us were setting things on fire in the garage, this kid Neil Doherty is getting an industry award. Youngest winner they've ever named.
+
+Alex: And I love it, genuinely. When I was fourteen the most advanced thing I made was a baking soda volcano that didn't work. The barrier to entry for this stuff now is just... gone. You can be a teenager doing real design work.
+
+Jordan: It's the thing nobody saw coming about cheap printers. We argue about cloud lock-in and qualification standards — meanwhile there's a fourteen-year-old out there who's just casually better at this than half the people I went to school with. Good. Make us all look bad, kid.
+
+Alex: So here's the week in one sentence: defense is now the gravity well that all of metal AM is bending toward — and the money's finally matching the press releases. Divergent unveils a twelve-laser monster and a sixty-four-machine factory, Beehive drops fifty million on EOS, and the Air Force quietly bolts printed parts onto every C-17 it owns.
+
+Jordan: Three stories, three completely different levels of "is this real yet." One of them is a fleet rollout that's actually happening. One is a fifty-million-dollar purchase order. And one is a slide deck with some very big numbers on it.
+
+Alex: And I bet I can guess which one you've got your arms crossed about. We'll also get into Bambu's new "safe for your living room" filament — which has a wrinkle — the open-source crowd swinging back at the cloud, and Nano Dimension basically tiptoeing out the back door of the entire industry.
+
+Jordan: That last one's almost poetic. But yeah — let's start with the big slide deck.
+
+Alex: So Divergent. TCT and Breaking Defense both ran this — they've unveiled what they're calling the Monolith One. Large-format metal LPBF printer, twelve lasers, two kilowatts each. And the headline plan is a sixty-four-machine super-factory to produce structures for the Tomahawk missile.
+
+Jordan: Twelve two-kilowatt lasers is genuinely a lot of optical power in one chamber. For context — a high-end production metal machine today might run four lasers, maybe eight at the bleeding edge. Twelve at two kilowatts is them saying "we want to melt metal fast and we don't care who knows it."
+
+Alex: Quick catch-up for anyone who hasn't gone down this hole — LPBF. Laser powder bed fusion. You've got a bed of fine metal powder, a laser draws the cross-section of your part, melts that layer, the bed drops, you recoat with fresh powder, repeat. Thousands of layers. It's how most serious metal printing happens.
+
+Jordan: Right, and the reason more lasers matters is that LPBF is slow. The laser physically has to trace every square millimeter of every layer. So if you've got twelve lasers carving up one big build plate in parallel, in principle you go way faster. In principle.
+
+Alex: And that's where their number lives — they claim the system increases output 8x. Eight times. That's the figure that made me sit up.
+
+Jordan: Eight times... what, though? That's my whole problem with the claim. Eight times faster than a single-laser machine? Well, sure, you've got twelve lasers, that's almost arithmetic. Eight times their previous setup? Eight times a competitor? There's no baseline. It's a number floating in space.
+
+Alex: And in practice, multi-laser doesn't scale linearly anyway, right? You can't just say twelve lasers, twelve times the speed.
+
+Jordan: No, and this is the part that bites people. When you've got multiple lasers working the same build, you get overlap zones — where two lasers' areas meet — and the thermal history there is messy. The metallurgy at those seams is harder to control. So you trade raw throughput against keeping the part qualifiable. More lasers can absolutely mean more headaches, not just more speed.
+
+Alex: They also called it "the most advanced industrial metal printer in the U.S." Which is the kind of phrase that does nothing for me.
+
+Jordan: It's marketing language. Most advanced by what metric? Build volume? Laser count? Qualified materials? Parts shipped? There's no scoreboard for "most advanced," so it just means "we think it's cool." Fine, it probably is cool. But put a number on it that I can check.
+
+Alex: Here's where I actually do get interested though — and tell me if I'm being a sucker. Divergent's whole thing was never the printer. It was the software-defined factory. You feed in requirements, the system designs the part, prints it, and assembles it. The printer's just one tool in that pipeline. So them building their own LPBF machine is them saying "we want to own the whole stack."
+
+Jordan: And that's the genuinely interesting part, you're not being a sucker. Owning your own printer means you're not waiting on an OEM's roadmap or their lead times. For serial defense production that's a real advantage. The vertical integration is the smart bet. It's the sixty-four-machine factory that I'd hold loosely.
+
+Alex: Because announcing a factory and running a factory are very different sentences.
+
+Jordan: Divergent has a history here — big, ambitious unveils, slower real-world follow-through. There's no timeline in the sources, no confirmed Tomahawk contract volume, just "plans to." Sixty-four machines is an enormous capital and floorspace commitment. I'd love to see it. I'm just not penciling it into next year.
+
+Alex: So how do you square that against the EOS news? Because Beehive actually put money down.
+
+Jordan: That's exactly the contrast that makes this week's defense story interesting — and honestly it's a perfect bridge into the factory floor. One company unveiled a printer. Another company signed a purchase order. Guess which one I believe more.
+
+Alex: So Beehive Industries — this was on 3DPrint and VoxelMatters — placed what's being called the largest publicly announced single order in EOS history. Fifty million dollars. Thirty EOS M 400-4 ONYX machines.
+
+Jordan: And the reason this one lands differently than Divergent — it's not a number on a slide, it's a fleet. Thirty machines is real industrial capacity. The M 400-4 is a four-laser production workhorse, this is not exotic hardware. It's the boring, proven kind, which is exactly what you want when you're scaling.
+
+Alex: What are they actually printing? Jet engines?
+
+Jordan: Their Frenzy line — Frenzy 6 and Frenzy 8 jet engines for the Air Force. Small expendable-class jet engines, the kind that go in drones and cruise missiles. And that's a category where additive genuinely makes sense, because the geometries are complex, the volumes are real but not car-factory huge, and you want to iterate fast.
+
+Alex: Now — to be fair to my own skepticism reflex — that fifty million is reported, EOS presumably confirmed it, but the production itself isn't running yet. It's a buildout.
+
+Jordan: Right, the engines aren't rolling off thirty machines today. But the money's committed, the machines are real, and the application is well-suited. That's about as solid as a "we're scaling AM" story gets. I'll take a purchase order over an unveiling every single day.
+
+Alex: And then the C-17 story — which we actually flagged last week, but now there's more detail. The Air Force is going fleet-wide with these 3D printed microvanes.
+
+Jordan: Yeah, we mentioned the "222 planes' worth of vanes" thing last week. The detail that's solid now: AFRL, the Lifecycle Management Center, Air Mobility Command — they developed these little aerodynamic inserts, twelve per aircraft, bonded onto the exterior, and they're rolling them across the entire C-17 fleet.
+
+Alex: And this is the one I keep coming back to as the actual story of the week. It's not flashy. It's twelve little plastic-or-whatever bumps glued to a cargo plane. But it's fleet-wide. It's deployed. It's done.
+
+Jordan: That's the whole point. The microvane is a small drag-reduction device — it nudges the airflow at the back of the fuselage so the plane burns less fuel. Tiny part, big fleet, real fuel savings. They don't give us the exact percentage, but the part itself is verified, official, multiple sources. This is AM crossing from "we tried it once" to "it's standard equipment."
+
+Alex: It's the unsexy version of the Divergent dream, and it's the one that actually shipped.
+
+Jordan: Exactly. If you want to know whether additive is "real" in defense, don't look at the twelve-laser unveil. Look at the boring drag tab that's now on hundreds of airframes. That's the proof.
+
+Alex: Okay, let's shift gears down to the bench. Couple of material launches this week. The one everybody's talking about — Bambu Lab's new PLA Pure. Marketed as the filament for printing where you actually live.
+
+Jordan: And the framing is interesting. Bambu's blog, plus Tom's Hardware and 3DPrint covered it. It's got food-contact certification — EU 10/2011 — toy safety certs, and they specifically call out asbestos-free talc. Which, I'll be honest, the asbestos-free callout tells you something about what's been in cheaper filler PLAs.
+
+Alex: Wait, that's the bit that snagged me too. "Asbestos-free talc" implies that there was talc, in filament, that was a question mark.
+
+Jordan: Talc is a common filler, and historically talc deposits can be contaminated with asbestos if you're not careful about sourcing. So them certifying it clean is genuinely good. No notes on the certifications themselves — those are real, verifiable, and they matter.
+
+Alex: But here's my journalist itch. They're selling this as "cleaner, safer, less like a workshop, suitable for living spaces." And the certs they're pointing to are about food contact and toys. That's not the same as air quality.
+
+Jordan: That's the soft spot, yeah. When people worry about printing in their living room, they're worried about ultrafine particles and VOCs coming off the hotend. Food-contact certification tells you the finished part is safe to eat off of. It says nothing about what's in the air while you print it. Those are different problems.
+
+Alex: So the certs are real and useful — but the "safe for your living room" vibe is doing some work the certs don't actually back up.
+
+Jordan: It's leveraging a real anxiety. PLA is already one of the lower-emission filaments — far better than ABS. So PLA Pure is probably fine to print near you. But "probably fine" was already true of regular PLA. I'd want actual emissions data before I credit the marketing. Get a fume reading, not a food cert.
+
+Alex: Fair. Two more, quicker. Stratasys put out a flame-retardant FDM material — DM PA6/66-GF30-FR — for rail and transportation. Glass-filled nylon, certified for fire safety.
+
+Jordan: This one I just like. Rail has brutal fire standards — there's a European spec, EN 45545, that governs what materials can go inside trains. Getting a printable nylon certified to that opens up on-demand spare parts for trains that are decades old and out of production. That's a real, money-saving use case. No hype to poke at. It's just good.
+
+Alex: And the last one — Markforged's Onyx GF. Their chopped glass-fiber nylon, but now in six colors.
+
+Jordan: Colors for visual management. 5S, color-coded tooling on a factory floor — red means this, yellow means that. Sounds trivial until you've worked in a plant where everything's the same shade of gray and you can't find the right fixture. A glass-filled engineering material you can also color-code is a genuinely practical little launch.
+
+Alex: It's funny how the least flashy launches are the ones you're warmest on this week.
+
+Jordan: Because they solve actual problems people have. That's my whole personality, Alex.
+
+Alex: Speaking of solving problems — there's a research story I want to drag back into the factory floor, because it's the kind of thing that could matter for everything we just talked about. ORNL's mold-free composite printing.
+
+Jordan: CompositesWorld and VoxelMatters had this. Oak Ridge — who, honestly, are everywhere these days — developed a method to 3D print continuous-fiber composites into origami-inspired structures without a mold. And the headline number is a 95% cut in fabrication time.
+
+Alex: Okay, explain why mold-free is a big deal, because I print composites on a desktop machine and I've never touched a mold in my life.
+
+Jordan: Traditional aerospace composites — think a wing skin — you lay carbon fiber sheets into a precision mold, the mold is a massive expensive tool that takes weeks or months to make, and it only makes one shape. The tooling is the slow, costly part. So if you can build the complex shape directly with continuous fiber and skip the mold entirely, you've killed the most expensive step.
+
+Alex: And the continuous fiber bit is what makes it structural — not just chopped bits, actual long strands carrying load.
+
+Jordan: Right, continuous fiber is what gives composites their strength. The origami angle is clever too — you print flat-ish and the structure folds into its 3D form, which is an elegant way to make complex geometry. The research, I buy. It's the 95% I'd put an asterisk on.
+
+Alex: Here we go. Why?
+
+Jordan: Because 95% is the platonic ideal of a lab-to-press-release number. Ninety-five percent compared to what? Almost certainly against making a brand-new mold for one specific part. But nobody making thousands of parts re-mills the mold each time — you amortize it. And we don't know if the printed part's mechanical properties match a properly cured molded laminate. For a one-off prototype? Sure, 95% sounds right. For matching aerospace-qualified layup? That's a much longer road.
+
+Alex: So genuinely promising research, possibly genuinely misleading single number.
+
+Jordan: That's the ORNL pattern lately. The science is consistently strong. The press-release math is doing cartwheels. Read the paper, not the headline.
+
+Alex: Alright — back down to where most of our listeners actually live. There's a story I genuinely love this week. The community built an open-source tool called Bambuddy to cut the cord on Bambu's cloud.
+
+Jordan: Hackaday and MakeUseOf both covered it. It's a self-hosted, cloud-free alternative to Bambu Lab's cloud services. You control your printer locally — your files don't go to Bambu's servers. The MakeUseOf piece literally called it Bambu running the HP printer playbook and the community fighting back.
+
+Alex: And the HP comparison is the part that makes hobbyists' blood pressure spike. The fear is you buy this great printer and slowly the convenient features get walled behind an account and a connection and someday a subscription.
+
+Jordan: And I get why people love their Bambu machines — the out-of-box experience is fantastic, that's not in dispute. The tension is real: the thing that makes them so easy is the same cloud integration that makes you dependent on a company's servers staying up and staying friendly.
+
+Alex: I'll admit this one's personal. I had a print queued up one night, decent connection, and the cloud just... wasn't having it. Spinning. Couldn't push the job. And the printer was right there, four feet away, perfectly capable, just waiting on a server in another country to say yes.
+
+Jordan: That's the exact frustration this scratches. Here's my engineering reality-check, though — Bambuddy is real and verified, the project exists, but feature parity is the open question. These community tools usually nail the core function and lag on the polish. So know going in: you're trading some convenience for control.
+
+Alex: Which for some people is the entire point. The control is the feature.
+
+Jordan: It is. And the broader thing I respect — this community can self-organize fast. The instant the lock-in fear gets real, somebody ships an open alternative. That's a healthy pressure valve on the whole ecosystem. It keeps the vendors honest, or at least nervous.
+
+Alex: Okay. Hype-signal. And this week it's less "is this real" and more "wow, this is really happening." Nano Dimension is pivoting away from additive manufacturing. Entirely.
+
+Jordan: TCT reported they're exploring a merger with a company called Infinite Epigenetics — which, the name alone, we're going from printing circuits to gene science apparently. And it would effectively pull them out of AM completely.
+
+Alex: And remember who this is. This is the company that went on an absolute shopping spree. They bought Desktop Metal, Markforged, Fabrica — they were trying to roll up the whole industry.
+
+Jordan: And over the past year they've divested all of it. Desktop Metal, Markforged — which is how Stratasys ended up buying Markforged, the deal we covered back in episode one — Fabrica, their own AME electronics business. That part's verified, well-documented. They spent enormous money assembling an AM empire and then sold it for parts.
+
+Alex: So when I push back on the optimism here — there isn't any optimism to defend, is there? This is just the bill coming due on the consolidation hype.
+
+Jordan: It's the cautionary tale, yeah. The thesis was: buy a bunch of AM companies, integrate them, become the one-stop additive giant. The reality is that integrating wildly different technologies into one profitable business is brutally hard. Owning the companies was the easy part. Making them work together was the part nobody had a plan for.
+
+Alex: And the merger itself — that's exploratory, right? Reported, probably from filings, but not signed.
+
+Jordan: Exploring, yeah. But the divestitures already tell the story. Whatever the merger does, they're not in additive anymore in any real sense. And here's the contrast that ties the whole episode together — same week, Beehive commits fifty million to scale up AM, and Nano Dimension finishes unwinding out of it.
+
+Alex: One company finding the application that actually pays. One company that bought everything and built nothing that stuck.
+
+Jordan: The difference is focus. Beehive knows exactly what it's printing and why. Nano Dimension wanted to own "additive" as a category. Turns out the category doesn't pay rent — specific parts for specific customers do. That's the lesson, and it's been the lesson the whole time.
+
+Alex: So one thing to actually do this week — and it comes straight out of that Bambu PLA Pure conversation. Don't just trust a "safe for your living room" label. If you print in a room you spend time in, look at where your printer actually is and what's between it and you.
+
+Jordan: Concretely: an enclosure with even basic filtration does more for your air than swapping to a fancier PLA. And if you want to know what you're actually breathing, a cheap particulate sensor sitting next to the machine during a print is worth more than any food-contact certification on the box. Measure your own air. Don't outsource that judgment to marketing.
+
+Alex: Measure, don't trust the label. I love it. That's the show — defense is throwing money at metal, the boring drag tabs are the real proof, and the empire-builder quietly left the building. Go check your air, go try Bambuddy if the cloud's ever left you hanging.
+
+Jordan: And keep an eye on whether that sixty-four-machine factory ever has sixty-four machines in it. I'll be over here, arms crossed, waiting.
+
+Alex: Lovingly skeptical, as always. Talk next week, everybody.
