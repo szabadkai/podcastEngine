@@ -41,8 +41,17 @@ jobs:
           node-version: '22'
           cache: 'npm'
 
-      # ffmpeg is needed by the audio stage to concat + loudnorm the TTS chunks.
-      - uses: FedericoCarboni/setup-ffmpeg@v3.1
+      # ffmpeg + ffprobe are needed by the audio stage to concat + loudnorm the
+      # TTS chunks. Install from the Ubuntu repos rather than a downloader action:
+      # FedericoCarboni/setup-ffmpeg pulls static Linux builds from johnvansickle.com,
+      # which intermittently fails the whole job with "Failed to get latest
+      # johnvansickle ffmpeg release" when that site's release listing changes or
+      # is unreachable. The apt package ships libmp3lame + loudnorm + ffprobe,
+      # which is everything src/lib/audio.ts uses.
+      - name: Install ffmpeg
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
 
       # TTS provider is "elevenlabs" (see config.ts) — a hosted API, so no local
       # TTS engine to install. It only needs ELEVENLABS_API_KEY (set as a secret).
