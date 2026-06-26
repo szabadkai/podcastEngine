@@ -1,6 +1,17 @@
 {
   "episodes": [
     {
+      "number": 5,
+      "date": "2026-06-26",
+      "title": "ORNL Folds Composites Flat, and a Sub Gets Its Parts in Four Weeks",
+      "description": "Oak Ridge prints composites onto fabric and folds them into shape — claiming a 90% cost cut. Plus sand binder jetting for small foundries, Dow's tougher PLA, metal repair quadrupling bridge life, QinetiQ rescuing a Royal Navy sub, and a consumer 'metal laser printer' that sets off every alarm we own.",
+      "duration": 1237,
+      "fileSize": 19799085,
+      "releaseUrl": "https://github.com/szabadkai/podcastEngine/releases/download/episode-2026-06-26/episode.mp3",
+      "guid": "layer-lines-weekly-2026-06-26",
+      "transcriptUrl": "https://szabadkai.github.io/podcastEngine/transcripts/2026-06-26.txt"
+    },
+    {
       "number": 4,
       "date": "2026-06-20",
       "title": "Divergent's 64-Machine Bet and the Defense AM Land Grab",

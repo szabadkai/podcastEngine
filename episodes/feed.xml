@@ -14,8 +14,8 @@
     <language>en</language>
     <link>https://szabadkai.github.io/podcastEngine</link>
     <atom:link href="https://szabadkai.github.io/podcastEngine/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 20 Jun 2026 00:00:00 GMT</pubDate>
-    <lastBuildDate>Sat, 20 Jun 2026 00:00:00 GMT</lastBuildDate>
+    <pubDate>Fri, 26 Jun 2026 00:00:00 GMT</pubDate>
+    <lastBuildDate>Fri, 26 Jun 2026 00:00:00 GMT</lastBuildDate>
     <generator>podcast-engine</generator>
     <category>Science &amp; Technology</category>
     <itunes:author>Layer Lines Weekly</itunes:author>
@@ -38,6 +38,28 @@
     <podcast:locked>yes</podcast:locked>
     <podcast:guid>1aa65aa4-6725-411a-8b5c-a109f9cf36b6</podcast:guid>
     <copyright>© 2026 Layer Lines Weekly</copyright>
+    <item>
+      <title>ORNL Folds Composites Flat, and a Sub Gets Its Parts in Four Weeks</title>
+      <description>Oak Ridge prints composites onto fabric and folds them into shape — claiming a 90% cost cut. Plus sand binder jetting for small foundries, Dow&apos;s tougher PLA, metal repair quadrupling bridge life, QinetiQ rescuing a Royal Navy sub, and a consumer &apos;metal laser printer&apos; that sets off every alarm we own.</description>
+      <itunes:title>ORNL Folds Composites Flat, and a Sub Gets Its Parts in Four Weeks</itunes:title>
+      <itunes:summary>Oak Ridge prints composites onto fabric and folds them into shape — claiming a 90% cost cut. Plus sand binder jetting for small foundries, Dow&apos;s tougher PLA, metal repair quadrupling bridge life, QinetiQ rescuing a Royal Navy sub, and a consumer &apos;metal laser printer&apos; that sets off every alarm we own.</itunes:summary>
+      <content:encoded><![CDATA[Oak Ridge prints composites onto fabric and folds them into shape — claiming a 90% cost cut. Plus sand binder jetting for small foundries, Dow's tougher PLA, metal repair quadrupling bridge life, QinetiQ rescuing a Royal Navy sub, and a consumer 'metal laser printer' that sets off every alarm we own.]]></content:encoded>
+      <pubDate>Fri, 26 Jun 2026 00:00:00 GMT</pubDate>
+      <enclosure url="https://github.com/szabadkai/podcastEngine/releases/download/episode-2026-06-26/episode.mp3" length="19799085" type="audio/mpeg"/>
+      <media:content url="https://github.com/szabadkai/podcastEngine/releases/download/episode-2026-06-26/episode.mp3" fileSize="19799085" type="audio/mpeg" medium="audio" duration="1237"/>
+      <media:title>ORNL Folds Composites Flat, and a Sub Gets Its Parts in Four Weeks</media:title>
+      <media:description>Oak Ridge prints composites onto fabric and folds them into shape — claiming a 90% cost cut. Plus sand binder jetting for small foundries, Dow&apos;s tougher PLA, metal repair quadrupling bridge life, QinetiQ rescuing a Royal Navy sub, and a consumer &apos;metal laser printer&apos; that sets off every alarm we own.</media:description>
+      <media:thumbnail url="https://szabadkai.github.io/podcastEngine/artwork.png"/>
+      <guid isPermaLink="false">layer-lines-weekly-2026-06-26</guid>
+      <itunes:duration>1237</itunes:duration>
+      <itunes:episode>5</itunes:episode>
+      <itunes:explicit>false</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:image href="https://szabadkai.github.io/podcastEngine/artwork.png"/>
+      <yt:category id="28">Science &amp; Technology</yt:category>
+      <yt:madeForKids>false</yt:madeForKids>
+      <podcast:transcript url="https://szabadkai.github.io/podcastEngine/transcripts/2026-06-26.txt" type="text/plain"/>
+    </item>
     <item>
       <title>Divergent&apos;s 64-Machine Bet and the Defense AM Land Grab</title>
       <description>Divergent unveils a twelve-laser metal printer and a defense super-factory, Beehive drops $50M on EOS machines, and the C-17 microvanes go fleet-wide. Plus Bambu&apos;s &apos;safe&apos; filament, an open-source revolt against the cloud, and Nano Dimension quietly walking out of the room.</description>
