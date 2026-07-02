@@ -57,5 +57,18 @@
   "GPU": "GPU",
   "RAII": "R A I I",
   "UI": "UI",
-  "USB": "USB"
+  "USB": "USB",
+  "APAC": "APAC",
+  "CEO": "CEO",
+  "CFO": "CFO",
+  "DLP": "DLP",
+  "EMEA": "EMEA",
+  "GAAP": "gap",
+  "HQ": "HQ",
+  "J3": "J three",
+  "P&L": "P and L",
+  "P3": "P three",
+  "PR": "PR",
+  "Q1": "Q one",
+  "SAF": "SAF"
 }

@@ -1,0 +1,109 @@
+{
+  "profiles": [
+    {
+      "name": "Formlabs",
+      "website": "https://formlabs.com/",
+      "profileUrls": [
+        "https://formlabs.com/company/",
+        "https://formlabs.com/3d-printers/",
+        "https://formlabs.com/materials/"
+      ]
+    },
+    {
+      "name": "Bambu Lab",
+      "website": "https://bambulab.com/",
+      "profileUrls": [
+        "https://bambulab.com/",
+        "https://blog.bambulab.com/"
+      ]
+    },
+    {
+      "name": "Prusa Research",
+      "website": "https://www.prusa3d.com/",
+      "profileUrls": [
+        "https://www.prusa3d.com/about-us/",
+        "https://www.prusa3d.com/category/original-prusa-3d-printers/"
+      ]
+    },
+    {
+      "name": "3D Systems",
+      "website": "https://www.3dsystems.com/",
+      "profileUrls": [
+        "https://www.3dsystems.com/our-story",
+        "https://www.3dsystems.com/3d-printers",
+        "https://www.3dsystems.com/materials"
+      ]
+    },
+    {
+      "name": "EOS",
+      "website": "https://www.eos.info/",
+      "profileUrls": [
+        "https://www.eos.info/en/about-us",
+        "https://www.eos.info/en/industrial-3d-printer",
+        "https://www.eos.info/en/additive-manufacturing"
+      ]
+    },
+    {
+      "name": "Markforged",
+      "website": "https://markforged.com/",
+      "profileUrls": [
+        "https://markforged.com/about",
+        "https://markforged.com/3d-printers",
+        "https://markforged.com/materials"
+      ]
+    },
+    {
+      "name": "Desktop Metal",
+      "website": "https://www.desktopmetal.com/",
+      "profileUrls": [
+        "https://www.desktopmetal.com/company",
+        "https://www.desktopmetal.com/products",
+        "https://www.desktopmetal.com/materials"
+      ]
+    },
+    {
+      "name": "Carbon",
+      "website": "https://www.carbon3d.com/",
+      "profileUrls": [
+        "https://www.carbon3d.com/company",
+        "https://www.carbon3d.com/products",
+        "https://www.carbon3d.com/materials"
+      ]
+    },
+    {
+      "name": "Materialise",
+      "website": "https://www.materialise.com/",
+      "profileUrls": [
+        "https://www.materialise.com/en/about",
+        "https://www.materialise.com/en/industrial",
+        "https://www.materialise.com/en/software"
+      ]
+    },
+    {
+      "name": "UltiMaker",
+      "website": "https://ultimaker.com/",
+      "profileUrls": [
+        "https://ultimaker.com/about-us/",
+        "https://ultimaker.com/3d-printers/",
+        "https://ultimaker.com/materials/"
+      ]
+    },
+    {
+      "name": "Nikon SLM Solutions",
+      "website": "https://www.nikon-slm-solutions.com/",
+      "profileUrls": [
+        "https://www.nikon-slm-solutions.com/company/",
+        "https://www.nikon-slm-solutions.com/products-and-solutions/"
+      ]
+    },
+    {
+      "name": "Velo3D",
+      "website": "https://velo3d.com/",
+      "profileUrls": [
+        "https://velo3d.com/company/",
+        "https://velo3d.com/sapphire-printers/",
+        "https://velo3d.com/flow-software/"
+      ]
+    }
+  ]
+}

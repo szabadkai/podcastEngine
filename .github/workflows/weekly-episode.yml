@@ -14,6 +14,26 @@ on:
         required: false
         type: boolean
         default: false
+      episode_type:
+        description: 'Episode type'
+        required: false
+        type: choice
+        default: news
+        options:
+          - news
+          - company-profile
+      company_name:
+        description: 'Company name when episode_type is company-profile'
+        required: false
+        type: string
+      company_website:
+        description: 'Optional official company homepage to crawl for profile pages'
+        required: false
+        type: string
+      company_profile_urls:
+        description: 'Optional comma/newline-separated official, product, leadership, or background URLs'
+        required: false
+        type: string
 
 concurrency:
   group: podcast-generation
@@ -22,6 +42,10 @@ concurrency:
 env:
   OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
   ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+  EPISODE_TYPE: ${{ inputs.episode_type || 'news' }}
+  COMPANY_NAME: ${{ inputs.company_name }}
+  COMPANY_WEBSITE: ${{ inputs.company_website }}
+  COMPANY_PROFILE_URLS: ${{ inputs.company_profile_urls }}
 
 jobs:
   generate-episode:
@@ -106,11 +130,11 @@ jobs:
         run: |
           git config user.name "Podcast Bot"
           git config user.email "bot@podcast.dev"
-          # Only the feed, manifest, recaps, and seen-urls are committed. The MP3
-          # and intermediate JSON live in the GitHub Release (see .gitignore).
+          # Only the feed, manifest, recaps, transcripts, and seen-urls are
+          # committed. The MP3 and intermediate JSON live in the GitHub Release.
           # Use --ignore-errors so a dry run (no manifest/feed yet) or a first-ever
           # run doesn't abort on a not-yet-created pathspec.
-          git add --ignore-errors data/ episodes/manifest.json episodes/feed.xml episodes/recaps/ || true
+          git add --ignore-errors data/ episodes/manifest.json episodes/feed.xml episodes/recaps/ pages/transcripts/ || true
           if git diff --staged --quiet; then
             echo "committed=false" >> "$GITHUB_OUTPUT"
           else

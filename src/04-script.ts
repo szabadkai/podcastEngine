@@ -2,6 +2,11 @@ import fs from "node:fs";
 import path from "node:path";
 import { config } from "./config.js";
 import { chatJson } from "./lib/ai.js";
+import {
+  episodeContextFromMetadata,
+  getEpisodeContext,
+  promptPath,
+} from "./lib/episode-mode.js";
 import { loadJson, writeJson, fileExists, loadRecentRecaps } from "./lib/storage.js";
 import {
   findBestRecapMatch,
@@ -25,10 +30,9 @@ export async function run(episodeDir: string): Promise<void> {
   const factChecked = loadJson<FactCheckedStories | null>(inputPath, null);
   if (!factChecked) throw new Error("No fact-checked stories found in 03-fact-checked.json");
 
-  const systemPrompt = fs.readFileSync(
-    path.resolve("prompts", "script.md"),
-    "utf-8"
-  );
+  const episodeContext =
+    episodeContextFromMetadata(factChecked) ?? getEpisodeContext();
+  const systemPrompt = fs.readFileSync(promptPath("script", episodeContext), "utf-8");
 
   const manifest = loadJson<EpisodeManifest>(
     path.resolve("episodes", "manifest.json"),
@@ -142,15 +146,21 @@ export async function run(episodeDir: string): Promise<void> {
     })
     .join("\n\n---\n\n");
 
-  console.log("Generating two-host script...");
+  console.log(
+    episodeContext.type === "company-profile"
+      ? "Generating two-host company profile script..."
+      : "Generating two-host script..."
+  );
+
+  const userContent =
+    episodeContext.type === "company-profile"
+      ? `Write episode #${episodeNumber} for ${factChecked.episodeDate}.\n\nCompany: ${episodeContext.companyName}\n\nHere is the fact-checked company profile brief:\n\n${storyBrief}${continuityBlock}${transcriptBlock}\n\nGenerate the full podcast script as JSON.`
+      : `Write episode #${episodeNumber} for ${factChecked.episodeDate}.\n\nHere are the fact-checked stories for this episode:\n\n${storyBrief}${continuityBlock}${transcriptBlock}\n\nGenerate the full podcast script as JSON.`;
 
   const result = await chatJson<EpisodeScript>({
     messages: [
       { role: "system", content: systemPrompt },
-      {
-        role: "user",
-        content: `Write episode #${episodeNumber} for ${factChecked.episodeDate}.\n\nHere are the fact-checked stories for this episode:\n\n${storyBrief}${continuityBlock}${transcriptBlock}\n\nGenerate the full podcast script as JSON.`,
-      },
+      { role: "user", content: userContent },
     ],
     temperature: 0.7,
     // Episodes target ~25-32 min (3800-4800 words) across 7-10 stories, so the
@@ -167,6 +177,8 @@ export async function run(episodeDir: string): Promise<void> {
 
   result.episodeNumber = episodeNumber;
   result.episodeDate = factChecked.episodeDate;
+  result.episodeType = episodeContext.type;
+  if (episodeContext.companyName) result.companyName = episodeContext.companyName;
 
   const wordCount = result.lines.reduce(
     (sum, l) => sum + l.text.split(/\s+/).length,

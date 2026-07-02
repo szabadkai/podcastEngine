@@ -1,6 +1,11 @@
 import fs from "node:fs";
 import path from "node:path";
 import { chatJson } from "./lib/ai.js";
+import {
+  episodeContextFromMetadata,
+  getEpisodeContext,
+  promptPath,
+} from "./lib/episode-mode.js";
 import { loadJson, writeJson, fileExists } from "./lib/storage.js";
 import type {
   AnalyzedStories,
@@ -19,8 +24,9 @@ export async function run(episodeDir: string): Promise<void> {
   const analyzed = loadJson<AnalyzedStories | null>(inputPath, null);
   if (!analyzed) throw new Error("No analyzed stories found in 02-analyzed.json");
 
+  const episodeContext = episodeContextFromMetadata(analyzed) ?? getEpisodeContext();
   const systemPrompt = fs.readFileSync(
-    path.resolve("prompts", "fact-check.md"),
+    promptPath("fact-check", episodeContext),
     "utf-8"
   );
 
@@ -32,16 +38,17 @@ export async function run(episodeDir: string): Promise<void> {
     .join("\n\n");
 
   console.log(`Fact-checking ${analyzed.clusters.length} clusters...`);
+  const userContent =
+    episodeContext.type === "company-profile"
+      ? `Company: ${episodeContext.companyName}\n\nFact-check these ${analyzed.clusters.length} company-profile clusters:\n\n${clusterSummary}\n\nReturn JSON with fact-check results for each cluster.`
+      : `Fact-check these ${analyzed.clusters.length} story clusters:\n\n${clusterSummary}\n\nReturn JSON with fact-check results for each cluster.`;
 
   const result = await chatJson<{
     clusters: Array<{ id: string; factCheck: FactCheckResult }>;
   }>({
     messages: [
       { role: "system", content: systemPrompt },
-      {
-        role: "user",
-        content: `Fact-check these ${analyzed.clusters.length} story clusters:\n\n${clusterSummary}\n\nReturn JSON with fact-check results for each cluster.`,
-      },
+      { role: "user", content: userContent },
     ],
     temperature: 0.2,
     // Headroom for the reasoning model's trace + the JSON answer (see analyze).
@@ -51,6 +58,8 @@ export async function run(episodeDir: string): Promise<void> {
 
   const factChecked: FactCheckedStories = {
     episodeDate: analyzed.episodeDate,
+    episodeType: analyzed.episodeType ?? episodeContext.type,
+    companyName: analyzed.companyName ?? episodeContext.companyName,
     clusters: analyzed.clusters.map((cluster) => {
       const fc = result.clusters.find((r) => r.id === cluster.id);
       return {

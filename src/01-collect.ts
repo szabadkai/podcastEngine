@@ -6,6 +6,8 @@ import {
   linkToStory,
   closeProcessedIssues,
 } from "./lib/curated-fetch.js";
+import { fetchCompanyProfileSources } from "./lib/company-profile.js";
+import { getEpisodeContext } from "./lib/episode-mode.js";
 import { loadJson, writeJson, fileExists } from "./lib/storage.js";
 import type { RawStory } from "./lib/types.js";
 
@@ -20,6 +22,12 @@ export async function run(episodeDir: string): Promise<void> {
   const outputPath = path.join(episodeDir, "01-raw-stories.json");
   if (fileExists(outputPath)) {
     console.log("Stage 01: output already exists, skipping.");
+    return;
+  }
+
+  const episodeContext = getEpisodeContext();
+  if (episodeContext.type === "company-profile") {
+    await collectCompanyProfile(outputPath, episodeContext.companyName!);
     return;
   }
 
@@ -116,4 +124,27 @@ export async function run(episodeDir: string): Promise<void> {
 
   // Close processed GitHub Issues after successful write.
   await closeProcessedIssues(processedIssueNumbers);
+}
+
+async function collectCompanyProfile(
+  outputPath: string,
+  companyName: string,
+): Promise<void> {
+  console.log(`Collecting company profile sources for ${companyName}...`);
+  const stories = await fetchCompanyProfileSources(companyName);
+
+  if (stories.length < config.episode.minStories) {
+    throw new Error(
+      `Only ${stories.length} company profile source(s) found for ${companyName}. ` +
+        "Add official, leadership, product, and background URLs via COMPANY_PROFILE_URLS."
+    );
+  }
+
+  writeJson(outputPath, stories);
+  const profileCount = stories.filter((s) => s.sourceType === "profile").length;
+  console.log(
+    `Stage 01: collected ${stories.length} company profile source(s)` +
+      (profileCount > 0 ? ` (${profileCount} official/profile)` : "") +
+      "."
+  );
 }

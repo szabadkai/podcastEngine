@@ -1,4 +1,13 @@
-export type SourceType = "core" | "maker" | "research" | "discovery" | "vendor" | "community";
+export type EpisodeType = "news" | "company-profile";
+
+export type SourceType =
+  | "core"
+  | "maker"
+  | "research"
+  | "discovery"
+  | "vendor"
+  | "community"
+  | "profile";
 
 export interface RawStory {
   id: string;
@@ -32,6 +41,8 @@ export interface StoryCluster {
 
 export interface AnalyzedStories {
   episodeDate: string;
+  episodeType?: EpisodeType;
+  companyName?: string;
   clusters: StoryCluster[];
   skipped: Array<{ headline: string; reason: string }>;
 }
@@ -55,6 +66,8 @@ export interface FactCheckedCluster extends StoryCluster {
 
 export interface FactCheckedStories {
   episodeDate: string;
+  episodeType?: EpisodeType;
+  companyName?: string;
   clusters: FactCheckedCluster[];
 }
 
@@ -67,6 +80,8 @@ export interface ScriptLine {
 export interface EpisodeScript {
   episodeNumber: number;
   episodeDate: string;
+  episodeType?: EpisodeType;
+  companyName?: string;
   title: string;
   description: string;
   lines: ScriptLine[];

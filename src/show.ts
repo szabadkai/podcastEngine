@@ -31,7 +31,7 @@ export interface ShowConfig {
   sources: Array<{
     name: string;
     url: string;
-    type?: "core" | "maker" | "research" | "discovery" | "vendor" | "community";
+    type?: "core" | "maker" | "research" | "discovery" | "vendor" | "community" | "profile";
   }>;
   speakers: Speaker[];
   voices: {

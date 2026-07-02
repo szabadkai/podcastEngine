@@ -1,6 +1,17 @@
 {
   "episodes": [
     {
+      "number": 6,
+      "date": "2026-07-01",
+      "title": "Stratasys: The FDM Founder Trying to Become an Industrial Company",
+      "description": "We profile Stratasys, the 35-year-old company that invented FDM and now sits in the middle of a high-stakes pivot from prototyping to serial production. From Scott Crump's original patent to a multi-technology portfolio, CEO Yoav Zeif's industrial bet, the $42.5M Markforged deal, and a balance sheet under pressure — here's what the original incumbent actually is in 2026.",
+      "duration": 1528,
+      "fileSize": 24441043,
+      "releaseUrl": "https://github.com/szabadkai/podcastEngine/releases/download/episode-2026-07-01/episode.mp3",
+      "guid": "layer-lines-weekly-2026-07-01",
+      "transcriptUrl": "https://szabadkai.github.io/podcastEngine/transcripts/2026-07-01.txt"
+    },
+    {
       "number": 5,
       "date": "2026-06-26",
       "title": "ORNL Folds Composites Flat, and a Sub Gets Its Parts in Four Weeks",
