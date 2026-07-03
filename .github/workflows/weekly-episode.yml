@@ -2,7 +2,7 @@ name: Generate Weekly Episode
 
 on:
   schedule:
-    - cron: '0 6 * * 5' # Every Friday at 6:00 AM UTC
+    - cron: '17 6 * * 5' # Every Friday at 6:17 AM UTC
   workflow_dispatch:
     inputs:
       date_override:
@@ -65,6 +65,59 @@ jobs:
           node-version: '22'
           cache: 'npm'
 
+      - name: Preflight scheduled episode
+        id: preflight
+        env:
+          EPISODE_DATE: ${{ inputs.date_override }}
+        run: |
+          episode_date="$(
+            TARGET_WEEKDAY=5 node --input-type=module <<'NODE'
+          const override = process.env.EPISODE_DATE?.trim();
+          if (override) {
+            console.log(override);
+            process.exit(0);
+          }
+
+          const now = new Date();
+          if (process.env.GITHUB_EVENT_NAME === "schedule") {
+            const targetWeekday = Number(process.env.TARGET_WEEKDAY);
+            const daysSinceTarget = (now.getUTCDay() - targetWeekday + 7) % 7;
+            now.setUTCDate(now.getUTCDate() - daysSinceTarget);
+          }
+
+          console.log(now.toISOString().slice(0, 10));
+          NODE
+          )"
+          echo "episode_date=$episode_date" >> "$GITHUB_OUTPUT"
+
+          if [ "$GITHUB_EVENT_NAME" = "schedule" ]; then
+            if EPISODE_DATE="$episode_date" node --input-type=module <<'NODE'
+          import fs from "node:fs";
+
+          const manifestPath = "episodes/manifest.json";
+          const episodeDate = process.env.EPISODE_DATE;
+          let manifest = { episodes: [] };
+
+          try {
+            manifest = JSON.parse(fs.readFileSync(manifestPath, "utf8"));
+          } catch {
+            // Missing or unreadable manifest means there is nothing to skip yet.
+          }
+
+          const alreadyPublished = Array.isArray(manifest.episodes)
+            && manifest.episodes.some((episode) => episode.date === episodeDate);
+
+          process.exit(alreadyPublished ? 0 : 1);
+          NODE
+            then
+              echo "Episode $episode_date is already in the manifest; skipping delayed scheduled run."
+              echo "should_run=false" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+          fi
+
+          echo "should_run=true" >> "$GITHUB_OUTPUT"
+
       # ffmpeg + ffprobe are needed by the audio stage to concat + loudnorm the
       # TTS chunks. Install from the Ubuntu repos rather than a downloader action:
       # FedericoCarboni/setup-ffmpeg pulls static Linux builds from johnvansickle.com,
@@ -73,60 +126,71 @@ jobs:
       # is unreachable. The apt package ships libmp3lame + loudnorm + ffprobe,
       # which is everything src/lib/audio.ts uses.
       - name: Install ffmpeg
+        if: ${{ steps.preflight.outputs.should_run == 'true' }}
         run: |
           sudo apt-get update
           sudo apt-get install -y ffmpeg
 
       # TTS provider is "elevenlabs" (see config.ts) — a hosted API, so no local
       # TTS engine to install. It only needs ELEVENLABS_API_KEY (set as a secret).
-      - run: npm ci
+      - if: ${{ steps.preflight.outputs.should_run == 'true' }}
+        run: npm ci
 
       - name: Collect stories
+        if: ${{ steps.preflight.outputs.should_run == 'true' }}
         env:
-          EPISODE_DATE: ${{ inputs.date_override }}
+          EPISODE_DATE: ${{ steps.preflight.outputs.episode_date }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npx tsx src/pipeline.ts collect
 
       - name: Analyze stories
+        if: ${{ steps.preflight.outputs.should_run == 'true' }}
         env:
-          EPISODE_DATE: ${{ inputs.date_override }}
+          EPISODE_DATE: ${{ steps.preflight.outputs.episode_date }}
         run: npx tsx src/pipeline.ts analyze
 
       - name: Fact-check stories
+        if: ${{ steps.preflight.outputs.should_run == 'true' }}
         env:
-          EPISODE_DATE: ${{ inputs.date_override }}
+          EPISODE_DATE: ${{ steps.preflight.outputs.episode_date }}
         run: npx tsx src/pipeline.ts fact-check
 
       - name: Generate script
+        if: ${{ steps.preflight.outputs.should_run == 'true' }}
         env:
-          EPISODE_DATE: ${{ inputs.date_override }}
+          EPISODE_DATE: ${{ steps.preflight.outputs.episode_date }}
         run: npx tsx src/pipeline.ts script
 
       - name: Add expressive tags
+        if: ${{ steps.preflight.outputs.should_run == 'true' }}
         env:
-          EPISODE_DATE: ${{ inputs.date_override }}
+          EPISODE_DATE: ${{ steps.preflight.outputs.episode_date }}
         run: npx tsx src/pipeline.ts tag
 
       - name: Distill continuity recap
+        if: ${{ steps.preflight.outputs.should_run == 'true' }}
         env:
-          EPISODE_DATE: ${{ inputs.date_override }}
+          EPISODE_DATE: ${{ steps.preflight.outputs.episode_date }}
         run: npx tsx src/pipeline.ts recap
 
       - name: Generate audio
-        if: ${{ !inputs.dry_run }}
+        if: ${{ steps.preflight.outputs.should_run == 'true' && !inputs.dry_run }}
         env:
-          EPISODE_DATE: ${{ inputs.date_override }}
+          EPISODE_DATE: ${{ steps.preflight.outputs.episode_date }}
         run: npx tsx src/pipeline.ts audio
 
       - name: Publish episode
-        if: ${{ !inputs.dry_run }}
+        if: ${{ steps.preflight.outputs.should_run == 'true' && !inputs.dry_run }}
         env:
-          EPISODE_DATE: ${{ inputs.date_override }}
+          EPISODE_DATE: ${{ steps.preflight.outputs.episode_date }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npx tsx src/pipeline.ts publish
 
       - name: Commit state changes
+        if: ${{ steps.preflight.outputs.should_run == 'true' }}
         id: commit
+        env:
+          EPISODE_DATE: ${{ steps.preflight.outputs.episode_date }}
         run: |
           git config user.name "Podcast Bot"
           git config user.email "bot@podcast.dev"
@@ -138,7 +202,7 @@ jobs:
           if git diff --staged --quiet; then
             echo "committed=false" >> "$GITHUB_OUTPUT"
           else
-            git commit -m "Episode $(date +%Y-%m-%d)"
+            git commit -m "Episode ${EPISODE_DATE}"
             git push
             echo "committed=true" >> "$GITHUB_OUTPUT"
           fi

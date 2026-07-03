@@ -2,7 +2,7 @@ name: Generate Company Profile Tuesday
 
 on:
   schedule:
-    - cron: '0 6 * * 2' # Every Tuesday at 6:00 AM UTC
+    - cron: '17 6 * * 2' # Every Tuesday at 6:17 AM UTC
   workflow_dispatch:
     inputs:
       date_override:
@@ -52,14 +52,70 @@ jobs:
           node-version: '22'
           cache: 'npm'
 
+      - name: Preflight scheduled episode
+        id: preflight
+        env:
+          EPISODE_DATE: ${{ inputs.date_override }}
+        run: |
+          episode_date="$(
+            TARGET_WEEKDAY=2 node --input-type=module <<'NODE'
+          const override = process.env.EPISODE_DATE?.trim();
+          if (override) {
+            console.log(override);
+            process.exit(0);
+          }
+
+          const now = new Date();
+          if (process.env.GITHUB_EVENT_NAME === "schedule") {
+            const targetWeekday = Number(process.env.TARGET_WEEKDAY);
+            const daysSinceTarget = (now.getUTCDay() - targetWeekday + 7) % 7;
+            now.setUTCDate(now.getUTCDate() - daysSinceTarget);
+          }
+
+          console.log(now.toISOString().slice(0, 10));
+          NODE
+          )"
+          echo "episode_date=$episode_date" >> "$GITHUB_OUTPUT"
+
+          if [ "$GITHUB_EVENT_NAME" = "schedule" ]; then
+            if EPISODE_DATE="$episode_date" node --input-type=module <<'NODE'
+          import fs from "node:fs";
+
+          const manifestPath = "episodes/manifest.json";
+          const episodeDate = process.env.EPISODE_DATE;
+          let manifest = { episodes: [] };
+
+          try {
+            manifest = JSON.parse(fs.readFileSync(manifestPath, "utf8"));
+          } catch {
+            // Missing or unreadable manifest means there is nothing to skip yet.
+          }
+
+          const alreadyPublished = Array.isArray(manifest.episodes)
+            && manifest.episodes.some((episode) => episode.date === episodeDate);
+
+          process.exit(alreadyPublished ? 0 : 1);
+          NODE
+            then
+              echo "Episode $episode_date is already in the manifest; skipping delayed scheduled run."
+              echo "should_run=false" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+          fi
+
+          echo "should_run=true" >> "$GITHUB_OUTPUT"
+
       - name: Install ffmpeg
+        if: ${{ steps.preflight.outputs.should_run == 'true' }}
         run: |
           sudo apt-get update
           sudo apt-get install -y ffmpeg
 
-      - run: npm ci
+      - if: ${{ steps.preflight.outputs.should_run == 'true' }}
+        run: npm ci
 
       - name: Select company profile
+        if: ${{ steps.preflight.outputs.should_run == 'true' }}
         env:
           MANUAL_COMPANY_NAME: ${{ inputs.company_name }}
           MANUAL_COMPANY_WEBSITE: ${{ inputs.company_website }}
@@ -67,14 +123,14 @@ jobs:
         run: npx tsx scripts/select-company-profile.ts
 
       - name: Stop if queue is empty
-        if: ${{ env.COMPANY_PROFILE_SELECTED != 'true' }}
+        if: ${{ steps.preflight.outputs.should_run == 'true' && env.COMPANY_PROFILE_SELECTED != 'true' }}
         run: echo "No company profile selected. Add enabled entries to data/company-profile-queue.json."
 
       - name: Collect company research
-        if: ${{ env.COMPANY_PROFILE_SELECTED == 'true' }}
+        if: ${{ steps.preflight.outputs.should_run == 'true' && env.COMPANY_PROFILE_SELECTED == 'true' }}
         env:
           EPISODE_TYPE: company-profile
-          EPISODE_DATE: ${{ inputs.date_override }}
+          EPISODE_DATE: ${{ steps.preflight.outputs.episode_date }}
           COMPANY_NAME: ${{ env.SELECTED_COMPANY_NAME }}
           COMPANY_WEBSITE: ${{ env.SELECTED_COMPANY_WEBSITE }}
           COMPANY_PROFILE_URLS: ${{ env.SELECTED_COMPANY_PROFILE_URLS }}
@@ -82,72 +138,74 @@ jobs:
         run: npx tsx src/pipeline.ts collect
 
       - name: Analyze company profile
-        if: ${{ env.COMPANY_PROFILE_SELECTED == 'true' }}
+        if: ${{ steps.preflight.outputs.should_run == 'true' && env.COMPANY_PROFILE_SELECTED == 'true' }}
         env:
           EPISODE_TYPE: company-profile
-          EPISODE_DATE: ${{ inputs.date_override }}
+          EPISODE_DATE: ${{ steps.preflight.outputs.episode_date }}
           COMPANY_NAME: ${{ env.SELECTED_COMPANY_NAME }}
         run: npx tsx src/pipeline.ts analyze
 
       - name: Fact-check company profile
-        if: ${{ env.COMPANY_PROFILE_SELECTED == 'true' }}
+        if: ${{ steps.preflight.outputs.should_run == 'true' && env.COMPANY_PROFILE_SELECTED == 'true' }}
         env:
           EPISODE_TYPE: company-profile
-          EPISODE_DATE: ${{ inputs.date_override }}
+          EPISODE_DATE: ${{ steps.preflight.outputs.episode_date }}
           COMPANY_NAME: ${{ env.SELECTED_COMPANY_NAME }}
         run: npx tsx src/pipeline.ts fact-check
 
       - name: Generate script
-        if: ${{ env.COMPANY_PROFILE_SELECTED == 'true' }}
+        if: ${{ steps.preflight.outputs.should_run == 'true' && env.COMPANY_PROFILE_SELECTED == 'true' }}
         env:
           EPISODE_TYPE: company-profile
-          EPISODE_DATE: ${{ inputs.date_override }}
+          EPISODE_DATE: ${{ steps.preflight.outputs.episode_date }}
           COMPANY_NAME: ${{ env.SELECTED_COMPANY_NAME }}
         run: npx tsx src/pipeline.ts script
 
       - name: Add expressive tags
-        if: ${{ env.COMPANY_PROFILE_SELECTED == 'true' }}
+        if: ${{ steps.preflight.outputs.should_run == 'true' && env.COMPANY_PROFILE_SELECTED == 'true' }}
         env:
           EPISODE_TYPE: company-profile
-          EPISODE_DATE: ${{ inputs.date_override }}
+          EPISODE_DATE: ${{ steps.preflight.outputs.episode_date }}
           COMPANY_NAME: ${{ env.SELECTED_COMPANY_NAME }}
         run: npx tsx src/pipeline.ts tag
 
       - name: Distill continuity recap
-        if: ${{ env.COMPANY_PROFILE_SELECTED == 'true' }}
+        if: ${{ steps.preflight.outputs.should_run == 'true' && env.COMPANY_PROFILE_SELECTED == 'true' }}
         env:
           EPISODE_TYPE: company-profile
-          EPISODE_DATE: ${{ inputs.date_override }}
+          EPISODE_DATE: ${{ steps.preflight.outputs.episode_date }}
           COMPANY_NAME: ${{ env.SELECTED_COMPANY_NAME }}
         run: npx tsx src/pipeline.ts recap
 
       - name: Generate audio
-        if: ${{ env.COMPANY_PROFILE_SELECTED == 'true' && !inputs.dry_run }}
+        if: ${{ steps.preflight.outputs.should_run == 'true' && env.COMPANY_PROFILE_SELECTED == 'true' && !inputs.dry_run }}
         env:
           EPISODE_TYPE: company-profile
-          EPISODE_DATE: ${{ inputs.date_override }}
+          EPISODE_DATE: ${{ steps.preflight.outputs.episode_date }}
           COMPANY_NAME: ${{ env.SELECTED_COMPANY_NAME }}
         run: npx tsx src/pipeline.ts audio
 
       - name: Publish episode
-        if: ${{ env.COMPANY_PROFILE_SELECTED == 'true' && !inputs.dry_run }}
+        if: ${{ steps.preflight.outputs.should_run == 'true' && env.COMPANY_PROFILE_SELECTED == 'true' && !inputs.dry_run }}
         env:
           EPISODE_TYPE: company-profile
-          EPISODE_DATE: ${{ inputs.date_override }}
+          EPISODE_DATE: ${{ steps.preflight.outputs.episode_date }}
           COMPANY_NAME: ${{ env.SELECTED_COMPANY_NAME }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npx tsx src/pipeline.ts publish
 
       - name: Mark company profile complete
-        if: ${{ env.COMPANY_PROFILE_SELECTED == 'true' && !inputs.dry_run }}
+        if: ${{ steps.preflight.outputs.should_run == 'true' && env.COMPANY_PROFILE_SELECTED == 'true' && !inputs.dry_run }}
         env:
-          EPISODE_DATE: ${{ inputs.date_override }}
+          EPISODE_DATE: ${{ steps.preflight.outputs.episode_date }}
           COMPANY_NAME: ${{ env.SELECTED_COMPANY_NAME }}
         run: npx tsx scripts/select-company-profile.ts --mark-complete
 
       - name: Commit state changes
-        if: ${{ env.COMPANY_PROFILE_SELECTED == 'true' && !inputs.dry_run }}
+        if: ${{ steps.preflight.outputs.should_run == 'true' && env.COMPANY_PROFILE_SELECTED == 'true' && !inputs.dry_run }}
         id: commit
+        env:
+          EPISODE_DATE: ${{ steps.preflight.outputs.episode_date }}
         run: |
           git config user.name "Podcast Bot"
           git config user.email "bot@podcast.dev"
@@ -155,7 +213,7 @@ jobs:
           if git diff --staged --quiet; then
             echo "committed=false" >> "$GITHUB_OUTPUT"
           else
-            git commit -m "Company profile: ${SELECTED_COMPANY_NAME} ($(date +%Y-%m-%d))"
+            git commit -m "Company profile: ${SELECTED_COMPANY_NAME} (${EPISODE_DATE})"
             git push
             echo "committed=true" >> "$GITHUB_OUTPUT"
           fi
