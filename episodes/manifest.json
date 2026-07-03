@@ -1,6 +1,17 @@
 {
   "episodes": [
     {
+      "number": 7,
+      "date": "2026-07-03",
+      "title": "Rocket Lab Buys Iridium — and Did 3D Printing Really Do It?",
+      "description": "An $8 billion space mega-deal gets sold as a win for 3D printing — but was it? Plus Velo3D's giant new metal factory, a defense-and-maritime AM surge, recycled scrap becoming LPBF powder, Bambu's 'safer' filament, and the week's most gloriously silly headline: a 3D-printed steak coming to your backyard grill.",
+      "duration": 1212,
+      "fileSize": 19387080,
+      "releaseUrl": "https://github.com/szabadkai/podcastEngine/releases/download/episode-2026-07-03/episode.mp3",
+      "guid": "layer-lines-weekly-2026-07-03",
+      "transcriptUrl": "https://szabadkai.github.io/podcastEngine/transcripts/2026-07-03.txt"
+    },
+    {
       "number": 6,
       "date": "2026-07-01",
       "title": "Stratasys: The FDM Founder Trying to Become an Industrial Company",

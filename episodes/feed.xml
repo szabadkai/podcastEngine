@@ -14,8 +14,8 @@
     <language>en</language>
     <link>https://szabadkai.github.io/podcastEngine</link>
     <atom:link href="https://szabadkai.github.io/podcastEngine/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 01 Jul 2026 00:00:00 GMT</pubDate>
-    <lastBuildDate>Wed, 01 Jul 2026 00:00:00 GMT</lastBuildDate>
+    <pubDate>Fri, 03 Jul 2026 00:00:00 GMT</pubDate>
+    <lastBuildDate>Fri, 03 Jul 2026 00:00:00 GMT</lastBuildDate>
     <generator>podcast-engine</generator>
     <category>Science &amp; Technology</category>
     <itunes:author>Layer Lines Weekly</itunes:author>
@@ -38,6 +38,28 @@
     <podcast:locked>yes</podcast:locked>
     <podcast:guid>1aa65aa4-6725-411a-8b5c-a109f9cf36b6</podcast:guid>
     <copyright>© 2026 Layer Lines Weekly</copyright>
+    <item>
+      <title>Rocket Lab Buys Iridium — and Did 3D Printing Really Do It?</title>
+      <description>An $8 billion space mega-deal gets sold as a win for 3D printing — but was it? Plus Velo3D&apos;s giant new metal factory, a defense-and-maritime AM surge, recycled scrap becoming LPBF powder, Bambu&apos;s &apos;safer&apos; filament, and the week&apos;s most gloriously silly headline: a 3D-printed steak coming to your backyard grill.</description>
+      <itunes:title>Rocket Lab Buys Iridium — and Did 3D Printing Really Do It?</itunes:title>
+      <itunes:summary>An $8 billion space mega-deal gets sold as a win for 3D printing — but was it? Plus Velo3D&apos;s giant new metal factory, a defense-and-maritime AM surge, recycled scrap becoming LPBF powder, Bambu&apos;s &apos;safer&apos; filament, and the week&apos;s most gloriously silly headline: a 3D-printed steak coming to your backyard grill.</itunes:summary>
+      <content:encoded><![CDATA[An $8 billion space mega-deal gets sold as a win for 3D printing — but was it? Plus Velo3D's giant new metal factory, a defense-and-maritime AM surge, recycled scrap becoming LPBF powder, Bambu's 'safer' filament, and the week's most gloriously silly headline: a 3D-printed steak coming to your backyard grill.]]></content:encoded>
+      <pubDate>Fri, 03 Jul 2026 00:00:00 GMT</pubDate>
+      <enclosure url="https://github.com/szabadkai/podcastEngine/releases/download/episode-2026-07-03/episode.mp3" length="19387080" type="audio/mpeg"/>
+      <media:content url="https://github.com/szabadkai/podcastEngine/releases/download/episode-2026-07-03/episode.mp3" fileSize="19387080" type="audio/mpeg" medium="audio" duration="1212"/>
+      <media:title>Rocket Lab Buys Iridium — and Did 3D Printing Really Do It?</media:title>
+      <media:description>An $8 billion space mega-deal gets sold as a win for 3D printing — but was it? Plus Velo3D&apos;s giant new metal factory, a defense-and-maritime AM surge, recycled scrap becoming LPBF powder, Bambu&apos;s &apos;safer&apos; filament, and the week&apos;s most gloriously silly headline: a 3D-printed steak coming to your backyard grill.</media:description>
+      <media:thumbnail url="https://szabadkai.github.io/podcastEngine/artwork.png"/>
+      <guid isPermaLink="false">layer-lines-weekly-2026-07-03</guid>
+      <itunes:duration>1212</itunes:duration>
+      <itunes:episode>7</itunes:episode>
+      <itunes:explicit>false</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:image href="https://szabadkai.github.io/podcastEngine/artwork.png"/>
+      <yt:category id="28">Science &amp; Technology</yt:category>
+      <yt:madeForKids>false</yt:madeForKids>
+      <podcast:transcript url="https://szabadkai.github.io/podcastEngine/transcripts/2026-07-03.txt" type="text/plain"/>
+    </item>
     <item>
       <title>Stratasys: The FDM Founder Trying to Become an Industrial Company</title>
       <description>We profile Stratasys, the 35-year-old company that invented FDM and now sits in the middle of a high-stakes pivot from prototyping to serial production. From Scott Crump&apos;s original patent to a multi-technology portfolio, CEO Yoav Zeif&apos;s industrial bet, the $42.5M Markforged deal, and a balance sheet under pressure — here&apos;s what the original incumbent actually is in 2026.</description>
