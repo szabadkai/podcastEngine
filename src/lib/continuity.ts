@@ -54,14 +54,14 @@ export interface RecapMatch {
   sharedTerms: string[];
 }
 
-// Picks the single recent recap whose topics/threads overlap most strongly with
-// this week's stories, provided it clears `minShared` significant shared terms.
+// Picks the single recap whose topics/threads overlap most strongly with this
+// week's stories, provided it clears `minShared` significant shared terms.
 // Returns null when nothing is a genuine match — the common case, since callbacks
 // are meant to be rare.
 export function findBestRecapMatch(
   recaps: EpisodeRecap[],
   factChecked: FactCheckedStories,
-  minShared = 2
+  minShared = 3
 ): RecapMatch | null {
   const current = currentTokens(factChecked);
   let best: RecapMatch | null = null;

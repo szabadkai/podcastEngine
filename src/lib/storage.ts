@@ -44,17 +44,55 @@ export function recapPath(episodeDate: string): string {
   return path.join(getRecapsDir(), `${episodeDate}.json`);
 }
 
-// Returns the most recent `limit` recaps, oldest-first (ready to render into a
-// prompt). Reads the recaps directory, ignores anything that isn't a dated JSON,
-// and never throws if the directory doesn't exist yet (first episode).
-export function loadRecentRecaps(limit: number): EpisodeRecap[] {
+export interface RecentRecapOptions {
+  beforeDate?: string;
+  minAgeDays?: number;
+}
+
+const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
+const DAY_MS = 24 * 60 * 60 * 1000;
+
+function dateToUtcMs(date: string): number | null {
+  if (!DATE_RE.test(date)) return null;
+  const [year, month, day] = date.split("-").map(Number);
+  return Date.UTC(year, month - 1, day);
+}
+
+// Returns the most recent `limit` eligible recaps, oldest-first (ready to render
+// into a prompt). Reads the recaps directory, ignores anything that isn't a
+// dated JSON, and never throws if the directory doesn't exist yet (first
+// episode).
+export function loadRecentRecaps(
+  limit: number,
+  options: RecentRecapOptions = {}
+): EpisodeRecap[] {
+  if (limit <= 0) return [];
+
   const dir = getRecapsDir();
   let files: string[];
   try {
-    files = fs.readdirSync(dir).filter((f) => f.endsWith(".json"));
+    files = fs
+      .readdirSync(dir)
+      .filter((f) => f.endsWith(".json") && DATE_RE.test(path.basename(f, ".json")));
   } catch {
     return [];
   }
+
+  const beforeMs = options.beforeDate ? dateToUtcMs(options.beforeDate) : null;
+  const minAgeDays = options.minAgeDays ?? 0;
+  if (options.beforeDate || minAgeDays > 0) {
+    files = files.filter((f) => {
+      const recapDate = path.basename(f, ".json");
+      const recapMs = dateToUtcMs(recapDate);
+      if (recapMs === null) return false;
+      if (beforeMs !== null && recapMs >= beforeMs) return false;
+      if (beforeMs !== null && minAgeDays > 0) {
+        return (beforeMs - recapMs) / DAY_MS >= minAgeDays;
+      }
+      return true;
+    });
+  }
+
   files.sort(); // chronological for YYYY-MM-DD names
   const recent = files.slice(-limit);
   const recaps: EpisodeRecap[] = [];

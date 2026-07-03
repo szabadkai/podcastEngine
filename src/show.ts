@@ -59,6 +59,8 @@ export interface ShowConfig {
     minStories: number;
     maxSeenUrls: number;
     continuityWindow: number;
+    continuityMinAgeDays: number;
+    continuityMinSharedTerms: number;
   };
   guidPrefix: string;
   domain: string;

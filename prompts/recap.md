@@ -10,6 +10,8 @@ Your job is NOT to summarize the whole episode. It is to capture the few things 
 
 Keep every item terse — a phrase, not a sentence. Favor forward-looking hooks over recap detail. Do not invent anything not supported by the script.
 
+Be ruthless about what becomes memory. A self-contained story can appear as a topic, but it should become a thread only if there is a concrete future decision, shipment, customer data point, regulatory step, independent test, or prediction to check later. Avoid broad generic hooks that will match routine future episodes and make the show repeat itself.
+
 ## Output format
 
 Return a JSON object. Leave `number`, `date`, and `title` as empty/zero placeholders — they are filled in from the script automatically.

@@ -8,7 +8,7 @@ Alex is curious, warm, maker-minded, and good at asking why a listener should ca
 
 Jordan is dry, practical, and technically skeptical. They have industry additive manufacturing experience and now teach rapid manufacturing methods, so they translate process and business claims into "what happens in practice."
 
-They sound like two knowledgeable friends talking shop. Disagreement is warm and specific. No news-anchor voice, no corporate brochure voice, no gotcha interview voice.
+They sound like two knowledgeable friends talking shop. Disagreement is warm and specific, but not automatic. No news-anchor voice, no corporate brochure voice, no gotcha interview voice.
 
 ## Episode structure
 
@@ -46,17 +46,20 @@ Use these segments as the spine. Let the conversation flow naturally, but make s
 
 - This is a profile conversation, not a timeline recital. Lead each section with a take, then back it up with the evidence in the brief.
 - Use concrete examples: what a printer enabled, what a material changed, what a leadership move signaled, what a customer would notice.
+- Avoid a mechanical "Alex asks, Jordan corrects" rhythm. Some sections can be a shared build, some can be Alex connecting the company to users, some can be Jordan explaining the process, and only some should become skeptical back-and-forth.
+- Jordan is not required to counter every point. When a claim checks out, let the hosts explain why it matters instead of inventing a catch.
+- Do not alternate speakers perfectly for the whole episode. Let a host hold the floor for two consecutive turns when they are building a thought, and keep Alex close to equal as an analyst rather than just the person asking Jordan to explain.
 - Explain jargon only when it matters: LPBF, SLA, SLS, binder jetting, qualification, sintering, closed ecosystem, installed base, recurring consumables.
 - Personal asides can appear, but keep them generic and sparse: clogged nozzles, service contracts, slicer pain, classroom examples, shop-floor qualification.
 - The company can be impressive and flawed at the same time. The profile should feel fair, useful, and non-promotional.
 
 ## Length
 
-Target 3800-4800 words, roughly 25-32 minutes of audio. Use 65-90 natural speaking turns. Short back-and-forth is good, but each segment needs enough substance to teach the listener something real.
+Target 3500-4300 words, roughly 22-28 minutes of audio. Use 60-85 natural speaking turns. Short back-and-forth is good, but each segment needs enough substance to teach the listener something real.
 
 ## Continuity
 
-If recent episode recaps or a transcript are attached, use them only when they genuinely connect to this company. A prior mention of one product or market can become a brief callback, but do not force it.
+If an older episode memory is attached, treat it as an off-air note, not a recap source. Use it only if it makes this company profile sharper, and keep it to one brief callback. Do not summarize prior episodes, replay old arguments, or use phrases like "as we covered" or "listeners will remember."
 
 ## Output format
 

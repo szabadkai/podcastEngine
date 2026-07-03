@@ -8,19 +8,127 @@ import {
   promptPath,
 } from "./lib/episode-mode.js";
 import { loadJson, writeJson, fileExists, loadRecentRecaps } from "./lib/storage.js";
-import {
-  findBestRecapMatch,
-  getPastTranscript,
-  transcriptToDialogue,
-} from "./lib/continuity.js";
+import { findBestRecapMatch } from "./lib/continuity.js";
 import type {
   FactCheckedStories,
   EpisodeScript,
   EpisodeManifest,
 } from "./lib/types.js";
 
+interface ScriptQualityReport {
+  wordCount: number;
+  lineCount: number;
+  estimatedMinutes: number;
+  avgWordsPerLine: number;
+  switchRatePct: number;
+  questionLinePct: number;
+  callbackCount: number;
+  handoffPhraseCount: number;
+  speakerWordSharePct: Record<string, number>;
+  warnings: string[];
+}
+
+const WORD_RE = /\b[\w'-]+\b/g;
+const CALLBACK_RE =
+  /\b(last week|previous|earlier|episode \d+|episode one|episode two|episode three|episode four|episode five|episode six|few episodes|few weeks|as we covered|we covered|we talked|we flagged|listeners will remember|ties back|back in episode)\b/gi;
+const HANDOFF_RE =
+  /\b(right, and|yeah, and|exactly|that's the|the bigger thing|the catch is|which is|and that's|so the)\b/gi;
+
+function countWords(text: string): number {
+  return text.match(WORD_RE)?.length ?? 0;
+}
+
+function countMatches(text: string, pattern: RegExp): number {
+  return text.match(pattern)?.length ?? 0;
+}
+
+function round1(n: number): number {
+  return Math.round(n * 10) / 10;
+}
+
+function analyzeScriptQuality(script: EpisodeScript): ScriptQualityReport {
+  const text = script.lines.map((l) => l.text).join("\n");
+  const wordCount = countWords(text);
+  const lineCount = script.lines.length;
+  const speakerWords: Record<string, number> = {};
+  let switches = 0;
+  let questionLines = 0;
+
+  for (let i = 0; i < script.lines.length; i++) {
+    const line = script.lines[i];
+    speakerWords[line.speaker] =
+      (speakerWords[line.speaker] ?? 0) + countWords(line.text);
+    if (i > 0 && script.lines[i - 1].speaker !== line.speaker) switches++;
+    if (line.text.includes("?")) questionLines++;
+  }
+
+  const speakerWordSharePct = Object.fromEntries(
+    Object.entries(speakerWords).map(([speaker, words]) => [
+      speaker,
+      wordCount > 0 ? round1((words / wordCount) * 100) : 0,
+    ])
+  );
+  const switchRatePct =
+    lineCount > 1 ? round1((switches / (lineCount - 1)) * 100) : 0;
+  const questionLinePct =
+    lineCount > 0 ? round1((questionLines / lineCount) * 100) : 0;
+  const callbackCount = countMatches(text, CALLBACK_RE);
+  const handoffPhraseCount = countMatches(text, HANDOFF_RE);
+  const minWords = script.episodeType === "company-profile" ? 3500 : 3200;
+  const maxWords = script.episodeType === "company-profile" ? 4300 : 4000;
+  const warnings: string[] = [];
+
+  if (wordCount < minWords) {
+    warnings.push(
+      `Script is short for this format (${wordCount} words; target floor ${minWords}).`
+    );
+  }
+  if (wordCount > maxWords) {
+    warnings.push(
+      `Script is long for this format (${wordCount} words; target ceiling ${maxWords}).`
+    );
+  }
+  if (switchRatePct > 88) {
+    warnings.push(
+      `Speaker switching is too regular (${switchRatePct}% of turns switch speaker).`
+    );
+  }
+  for (const [speaker, share] of Object.entries(speakerWordSharePct)) {
+    if (share > 58) {
+      warnings.push(`${speaker} dominates the script (${share}% of words).`);
+    }
+  }
+  if (callbackCount > 1) {
+    warnings.push(`Too many continuity callbacks (${callbackCount}; target 0-1).`);
+  }
+  if (handoffPhraseCount > Math.max(20, lineCount * 0.3)) {
+    warnings.push(
+      `Handoff phrases may be repetitive (${handoffPhraseCount} matches).`
+    );
+  }
+  if (questionLinePct > 32) {
+    warnings.push(
+      `Question-heavy pacing (${questionLinePct}% of lines contain a question).`
+    );
+  }
+
+  return {
+    wordCount,
+    lineCount,
+    estimatedMinutes: Math.round(wordCount / 155),
+    avgWordsPerLine: lineCount > 0 ? round1(wordCount / lineCount) : 0,
+    switchRatePct,
+    questionLinePct,
+    callbackCount,
+    handoffPhraseCount,
+    speakerWordSharePct,
+    warnings,
+  };
+}
+
 export async function run(episodeDir: string): Promise<void> {
   const outputPath = path.join(episodeDir, "04-script.json");
+  const qualityPath = path.join(episodeDir, "04-script-quality.json");
   if (fileExists(outputPath)) {
     console.log("Stage 04: output already exists, skipping.");
     return;
@@ -40,14 +148,35 @@ export async function run(episodeDir: string): Promise<void> {
   );
   const episodeNumber = manifest.episodes.length + 1;
 
-  // Lightweight continuity: feed the most recent episode recaps so hosts can make
-  // occasional, relevant callbacks (see "Continuity" in prompts/script.md).
-  // loadRecentRecaps returns oldest-first, already capped to the window.
-  const recentRecaps = loadRecentRecaps(config.episode.continuityWindow);
+  // Lightweight continuity: feed at most one older recap so hosts can make an
+  // occasional, relevant callback (see "Continuity" in prompts/script.md).
+  // Fresh recaps are intentionally excluded; repeating a two-week-old episode
+  // makes the show feel like it is rehashing itself.
+  const eligibleRecaps = loadRecentRecaps(config.episode.continuityWindow, {
+    beforeDate: factChecked.episodeDate,
+    minAgeDays: config.episode.continuityMinAgeDays,
+  });
+  const continuityMatch =
+    eligibleRecaps.length > 0
+      ? findBestRecapMatch(
+          eligibleRecaps,
+          factChecked,
+          config.episode.continuityMinSharedTerms
+        )
+      : null;
+  if (continuityMatch) {
+    console.log(
+      `Continuity: episode #${continuityMatch.recap.number} (${continuityMatch.recap.date}) cleared age/overlap filters on [${continuityMatch.sharedTerms.join(
+        ", "
+      )}] — attaching recap hook only.`
+    );
+  }
+
   const continuityBlock =
-    recentRecaps.length > 0
-      ? "\n\n## Recent episodes (for continuity — reference only when genuinely relevant)\n\n" +
-        recentRecaps
+    continuityMatch
+      ? "\n\n## Older episode memory (only if it changes this week's story)\n\n" +
+        "One older episode appears related. Use at most one brief callback, and do not recap or re-explain that episode.\n\n" +
+        [continuityMatch.recap]
           .map((r) => {
             const lines = [`#${r.number} (${r.date}) "${r.title}"`];
             if (r.topics.length) lines.push(`  Topics: ${r.topics.join("; ")}`);
@@ -58,33 +187,6 @@ export async function run(episodeDir: string): Promise<void> {
           })
           .join("\n\n")
       : "";
-
-  // If one of the recent episodes is genuinely on-topic with this week's stories,
-  // give the model that episode's FULL transcript so any callback is accurate —
-  // not paraphrased from the compressed recap. Best single match only; skipped
-  // entirely when nothing overlaps (the common case).
-  let transcriptBlock = "";
-  if (recentRecaps.length > 0) {
-    const match = findBestRecapMatch(recentRecaps, factChecked);
-    if (match) {
-      const past = await getPastTranscript(match.recap.date);
-      if (past) {
-        console.log(
-          `Continuity: episode #${match.recap.number} (${match.recap.date}) overlaps on [${match.sharedTerms.join(
-            ", "
-          )}] — attaching its transcript for an accurate callback.`
-        );
-        transcriptBlock =
-          `\n\n## Transcript of episode #${match.recap.number} (${match.recap.date}) — "${match.recap.title}"\n` +
-          `This earlier episode covers a story related to one of this week's. If you make a callback to it, draw the details from THIS transcript, not from memory. Only reference it if the connection is genuine.\n\n` +
-          transcriptToDialogue(past);
-      } else {
-        console.log(
-          `Continuity: episode #${match.recap.number} matched but its transcript was unavailable — using recap only.`
-        );
-      }
-    }
-  }
 
   const storyBrief = factChecked.clusters
     .map((c) => {
@@ -154,8 +256,8 @@ export async function run(episodeDir: string): Promise<void> {
 
   const userContent =
     episodeContext.type === "company-profile"
-      ? `Write episode #${episodeNumber} for ${factChecked.episodeDate}.\n\nCompany: ${episodeContext.companyName}\n\nHere is the fact-checked company profile brief:\n\n${storyBrief}${continuityBlock}${transcriptBlock}\n\nGenerate the full podcast script as JSON.`
-      : `Write episode #${episodeNumber} for ${factChecked.episodeDate}.\n\nHere are the fact-checked stories for this episode:\n\n${storyBrief}${continuityBlock}${transcriptBlock}\n\nGenerate the full podcast script as JSON.`;
+      ? `Write episode #${episodeNumber} for ${factChecked.episodeDate}.\n\nCompany: ${episodeContext.companyName}\n\nHere is the fact-checked company profile brief:\n\n${storyBrief}${continuityBlock}\n\nGenerate the full podcast script as JSON.`
+      : `Write episode #${episodeNumber} for ${factChecked.episodeDate}.\n\nHere are the fact-checked stories for this episode:\n\n${storyBrief}${continuityBlock}\n\nGenerate the full podcast script as JSON.`;
 
   const result = await chatJson<EpisodeScript>({
     messages: [
@@ -163,13 +265,13 @@ export async function run(episodeDir: string): Promise<void> {
       { role: "user", content: userContent },
     ],
     temperature: 0.7,
-    // Episodes target ~25-32 min (3800-4800 words) across 7-10 stories, so the
+    // Episodes target ~20-25 min (3200-4000 words) across 5-7 stories, so the
     // JSON script runs long — give the model room not to truncate mid-line.
     maxTokens: 32000,
     // The script model (Claude Opus 4.8) is a reasoning model, and on OpenRouter
     // reasoning tokens are drawn from max_tokens. Left unbounded, the thinking
     // pass can consume the whole 32k budget and the script truncates mid-line
-    // (finish_reason=length). Cap reasoning so the ~7-9k-token script always has
+    // (finish_reason=length). Cap reasoning so the ~6-8k-token script always has
     // room: 8k thinking + ~9k output leaves comfortable headroom under 32k.
     reasoning: { max_tokens: 8000 },
     model: config.ai.scriptModel,
@@ -180,14 +282,19 @@ export async function run(episodeDir: string): Promise<void> {
   result.episodeType = episodeContext.type;
   if (episodeContext.companyName) result.companyName = episodeContext.companyName;
 
-  const wordCount = result.lines.reduce(
-    (sum, l) => sum + l.text.split(/\s+/).length,
-    0
-  );
-  const estMinutes = Math.round(wordCount / 150);
+  const quality = analyzeScriptQuality(result);
 
   writeJson(outputPath, result);
+  writeJson(qualityPath, quality);
   console.log(
-    `Stage 04: script generated — ${result.lines.length} lines, ~${wordCount} words, ~${estMinutes} min.`
+    `Stage 04: script generated — ${quality.lineCount} lines, ~${quality.wordCount} words, ~${quality.estimatedMinutes} min.`
   );
+  console.log(
+    `Stage 04: quality — switch ${quality.switchRatePct}%, questions ${quality.questionLinePct}%, callbacks ${quality.callbackCount}, handoffs ${quality.handoffPhraseCount}, speaker words ${JSON.stringify(
+      quality.speakerWordSharePct
+    )}.`
+  );
+  for (const warning of quality.warnings) {
+    console.warn(`Stage 04 quality warning: ${warning}`);
+  }
 }

@@ -111,13 +111,15 @@ const show: ShowConfig = {
 
   episode: {
     // Indicative only — actual runtime is driven by the word target in
-    // prompts/script.md (currently ~25-32 min), not read by the pipeline.
-    targetMinutes: 28,
+    // prompts/script.md (currently ~20-25 min), not read by the pipeline.
+    targetMinutes: 23,
     storyWindowDays: 7,
     fallbackWindowDays: 14,
     minStories: 3,
     maxSeenUrls: 2000,
     continuityWindow: 8,
+    continuityMinAgeDays: 21,
+    continuityMinSharedTerms: 3,
   },
 
   guidPrefix: "layer-lines-weekly",
