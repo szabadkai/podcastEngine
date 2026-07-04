@@ -2,7 +2,7 @@ name: Generate Company Profile Tuesday
 
 on:
   schedule:
-    - cron: '17 6 * * 2' # Every Tuesday at 6:17 AM UTC
+    - cron: '17 1 * * 2' # Every Tuesday at 1:17 AM UTC / 3:17 AM Budapest summer time
   workflow_dispatch:
     inputs:
       date_override:
