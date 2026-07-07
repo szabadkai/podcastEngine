@@ -14,8 +14,8 @@
     <language>en</language>
     <link>https://szabadkai.github.io/podcastEngine</link>
     <atom:link href="https://szabadkai.github.io/podcastEngine/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 03 Jul 2026 00:00:00 GMT</pubDate>
-    <lastBuildDate>Fri, 03 Jul 2026 00:00:00 GMT</lastBuildDate>
+    <pubDate>Tue, 07 Jul 2026 00:00:00 GMT</pubDate>
+    <lastBuildDate>Tue, 07 Jul 2026 00:00:00 GMT</lastBuildDate>
     <generator>podcast-engine</generator>
     <category>Science &amp; Technology</category>
     <itunes:author>Layer Lines Weekly</itunes:author>
@@ -38,6 +38,28 @@
     <podcast:locked>yes</podcast:locked>
     <podcast:guid>1aa65aa4-6725-411a-8b5c-a109f9cf36b6</podcast:guid>
     <copyright>© 2026 Layer Lines Weekly</copyright>
+    <item>
+      <title>Formlabs - The Accessible Industrialist</title>
+      <description>We profile Formlabs, the MIT-born SLA and SLS company that turned a Kickstarter desktop resin printer into a dual-technology manufacturing ecosystem. From the Form 1 to the $84,999 Fuse X1, we dig into its material moat, its move onto the factory floor, and the IPO question hanging over its next chapter.</description>
+      <itunes:title>Formlabs - The Accessible Industrialist</itunes:title>
+      <itunes:summary>We profile Formlabs, the MIT-born SLA and SLS company that turned a Kickstarter desktop resin printer into a dual-technology manufacturing ecosystem. From the Form 1 to the $84,999 Fuse X1, we dig into its material moat, its move onto the factory floor, and the IPO question hanging over its next chapter.</itunes:summary>
+      <content:encoded><![CDATA[We profile Formlabs, the MIT-born SLA and SLS company that turned a Kickstarter desktop resin printer into a dual-technology manufacturing ecosystem. From the Form 1 to the $84,999 Fuse X1, we dig into its material moat, its move onto the factory floor, and the IPO question hanging over its next chapter.]]></content:encoded>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 GMT</pubDate>
+      <enclosure url="https://github.com/szabadkai/podcastEngine/releases/download/episode-2026-07-07/episode.mp3" length="21759417" type="audio/mpeg"/>
+      <media:content url="https://github.com/szabadkai/podcastEngine/releases/download/episode-2026-07-07/episode.mp3" fileSize="21759417" type="audio/mpeg" medium="audio" duration="1360"/>
+      <media:title>Formlabs - The Accessible Industrialist</media:title>
+      <media:description>We profile Formlabs, the MIT-born SLA and SLS company that turned a Kickstarter desktop resin printer into a dual-technology manufacturing ecosystem. From the Form 1 to the $84,999 Fuse X1, we dig into its material moat, its move onto the factory floor, and the IPO question hanging over its next chapter.</media:description>
+      <media:thumbnail url="https://szabadkai.github.io/podcastEngine/artwork.png"/>
+      <guid isPermaLink="false">layer-lines-weekly-2026-07-07</guid>
+      <itunes:duration>1360</itunes:duration>
+      <itunes:episode>8</itunes:episode>
+      <itunes:explicit>false</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:image href="https://szabadkai.github.io/podcastEngine/artwork.png"/>
+      <yt:category id="28">Science &amp; Technology</yt:category>
+      <yt:madeForKids>false</yt:madeForKids>
+      <podcast:transcript url="https://szabadkai.github.io/podcastEngine/transcripts/2026-07-07.txt" type="text/plain"/>
+    </item>
     <item>
       <title>Rocket Lab Buys Iridium — and Did 3D Printing Really Do It?</title>
       <description>An $8 billion space mega-deal gets sold as a win for 3D printing — but was it? Plus Velo3D&apos;s giant new metal factory, a defense-and-maritime AM surge, recycled scrap becoming LPBF powder, Bambu&apos;s &apos;safer&apos; filament, and the week&apos;s most gloriously silly headline: a 3D-printed steak coming to your backyard grill.</description>
