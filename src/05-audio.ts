@@ -129,10 +129,16 @@ export async function run(episodeDir: string): Promise<void> {
     throw new Error("No script found in 04-script.json");
   }
 
-  const chunks = chunkScript(script);
-  for (const chunk of chunks) {
-    chunk.text = normalizeForTTS(chunk.text);
-  }
+  // Normalize before splitting so spoken-out prices and quantities still obey
+  // the per-request cap used to prevent incomplete generations.
+  const normalizedScript: EpisodeScript = {
+    ...script,
+    lines: script.lines.map((line) => ({
+      ...line,
+      text: normalizeForTTS(line.text),
+    })),
+  };
+  const chunks = chunkScript(normalizedScript);
   const totalChars = chunks.reduce((sum, c) => sum + c.text.length, 0);
   console.log(
     `Stage 05: ${chunks.length} audio chunks, ${totalChars} total characters.`
