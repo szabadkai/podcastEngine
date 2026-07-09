@@ -73,12 +73,20 @@ async function normalizeChunks(
   return leveledChunkPaths;
 }
 
-export async function getAudioDuration(filePath: string): Promise<number> {
+export async function getAudioDurationSeconds(filePath: string): Promise<number> {
   const { stdout } = await execFileAsync("ffprobe", [
     "-v", "error",
     "-show_entries", "format=duration",
     "-of", "default=noprint_wrappers=1:nokey=1",
     filePath,
   ]);
-  return Math.round(parseFloat(stdout.trim()));
+  const duration = parseFloat(stdout.trim());
+  if (!Number.isFinite(duration) || duration < 0) {
+    throw new Error(`Unable to read audio duration for ${filePath}`);
+  }
+  return duration;
+}
+
+export async function getAudioDuration(filePath: string): Promise<number> {
+  return Math.round(await getAudioDurationSeconds(filePath));
 }

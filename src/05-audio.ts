@@ -6,11 +6,10 @@ import { synthesize as piperSynthesize } from "./lib/piper.js";
 import { synthesize as edgeSynthesize } from "./lib/edge-tts.js";
 import { synthesizeBatch as kokoroSynthesizeBatch } from "./lib/kokoro.js";
 import { synthesizeBatch as chatterboxSynthesizeBatch } from "./lib/chatterbox.js";
-import { concatAndNormalize } from "./lib/audio.js";
+import { concatAndNormalize, getAudioDurationSeconds } from "./lib/audio.js";
 import { normalizeForTTS } from "./lib/pronunciation.js";
 import { stripTags } from "./lib/tags.js";
 import { loadJson, fileExists, ensureDir } from "./lib/storage.js";
-import { getSpeakerIds } from "./show.js";
 import type {
   EpisodeScript,
   TaggedEpisodeScript,
@@ -19,22 +18,69 @@ import type {
 
 function chunkScript(script: EpisodeScript): TtsChunk[] {
   const chunks: TtsChunk[] = [];
-  let current: TtsChunk | null = null;
 
   for (const line of script.lines) {
-    if (
-      !current ||
-      current.speaker !== line.speaker ||
-      current.text.length + line.text.length + 2 > config.audio.chunkMaxChars
-    ) {
-      if (current) chunks.push(current);
-      current = { index: chunks.length, speaker: line.speaker, text: line.text };
-    } else {
-      current.text += "\n\n" + line.text;
+    for (const text of splitTtsText(line.text, config.audio.chunkMaxChars)) {
+      chunks.push({ index: chunks.length, speaker: line.speaker, text });
     }
   }
-  if (current) chunks.push(current);
   return chunks;
+}
+
+// Splitting only at speaker changes leaves some very long monologues for the
+// model. Keep those requests short, but preserve complete sentences whenever
+// possible so neither the input nor an audio join bisects a thought.
+function splitTtsText(text: string, maxChars: number): string[] {
+  const segmenter = new Intl.Segmenter("en", { granularity: "sentence" });
+  const sentences = Array.from(segmenter.segment(text), ({ segment }) =>
+    segment.trim()
+  ).filter(Boolean);
+  const chunks: string[] = [];
+  let current = "";
+
+  for (const sentence of sentences) {
+    for (const part of splitLongSentence(sentence, maxChars)) {
+      if (current && current.length + part.length + 1 > maxChars) {
+        chunks.push(current);
+        current = part;
+      } else {
+        current = current ? `${current} ${part}` : part;
+      }
+    }
+  }
+
+  if (current) chunks.push(current);
+  return chunks.length ? chunks : [text.trim()];
+}
+
+function splitLongSentence(sentence: string, maxChars: number): string[] {
+  if (sentence.length <= maxChars) return [sentence];
+
+  const parts: string[] = [];
+  let current = "";
+  for (const word of sentence.split(/\s+/)) {
+    if (current && current.length + word.length + 1 > maxChars) {
+      parts.push(current);
+      current = word;
+    } else {
+      current = current ? `${current} ${word}` : word;
+    }
+  }
+  if (current) parts.push(current);
+  return parts;
+}
+
+function wordCount(text: string): number {
+  return text.match(/[\p{L}\p{N}]+(?:['’-][\p{L}\p{N}]+)*/gu)?.length ?? 0;
+}
+
+async function hasPlausibleDuration(
+  audioPath: string,
+  text: string
+): Promise<{ valid: boolean; duration: number; minimum: number }> {
+  const duration = await getAudioDurationSeconds(audioPath);
+  const minimum = Math.max(0.5, wordCount(text) * config.audio.minSecondsPerWord);
+  return { valid: duration >= minimum, duration, minimum };
 }
 
 export async function run(episodeDir: string): Promise<void> {
@@ -139,16 +185,24 @@ export async function run(episodeDir: string): Promise<void> {
     return finalize(chunkPaths, chunksDir, outputPath);
   }
 
-  const requestIds: Record<string, string[]> = Object.fromEntries(
-    getSpeakerIds().map((id) => [id, []])
-  );
-
   for (const chunk of chunks) {
     const chunkPath = chunkPaths[chunk.index];
 
     if (fs.existsSync(chunkPath)) {
-      console.log(`  Chunk ${chunk.index}: already exists, skipping.`);
-      continue;
+      if (provider !== "elevenlabs") {
+        console.log(`  Chunk ${chunk.index}: already exists, skipping.`);
+        continue;
+      }
+
+      const quality = await hasPlausibleDuration(chunkPath, chunk.text);
+      if (quality.valid) {
+        console.log(`  Chunk ${chunk.index}: already exists, skipping.`);
+        continue;
+      }
+      console.warn(
+        `  Chunk ${chunk.index}: only ${quality.duration.toFixed(2)}s for ${wordCount(chunk.text)} words; regenerating.`
+      );
+      fs.unlinkSync(chunkPath);
     }
 
     console.log(
@@ -174,16 +228,41 @@ export async function run(episodeDir: string): Promise<void> {
       });
     } else {
       const voice = config.voices.elevenlabs[chunk.speaker];
-      const result = await textToSpeech({
-        voiceId: voice.voiceId,
-        text: chunk.text,
-        stability: voice.stability,
-        similarityBoost: voice.similarityBoost,
-        style: voice.style,
-        previousRequestIds: requestIds[chunk.speaker],
-      });
-      fs.writeFileSync(chunkPath, result.audio);
-      if (result.requestId) requestIds[chunk.speaker].push(result.requestId);
+      const previousText = chunks[chunk.index - 1]?.text;
+      const nextText = chunks[chunk.index + 1]?.text;
+      let accepted = false;
+
+      for (let attempt = 0; attempt <= config.audio.shortAudioRetries; attempt++) {
+        if (attempt > 0) {
+          console.warn(`  Chunk ${chunk.index}: retrying short audio (${attempt}/${config.audio.shortAudioRetries}).`);
+        }
+        const result = await textToSpeech({
+          voiceId: voice.voiceId,
+          text: chunk.text,
+          stability: voice.stability,
+          similarityBoost: voice.similarityBoost,
+          style: voice.style,
+          previousText,
+          nextText,
+        });
+        fs.writeFileSync(chunkPath, result.audio);
+
+        const quality = await hasPlausibleDuration(chunkPath, chunk.text);
+        if (quality.valid) {
+          accepted = true;
+          break;
+        }
+        console.warn(
+          `  Chunk ${chunk.index}: ${quality.duration.toFixed(2)}s is below the ${quality.minimum.toFixed(2)}s minimum for ${wordCount(chunk.text)} words.`
+        );
+        fs.unlinkSync(chunkPath);
+      }
+
+      if (!accepted) {
+        throw new Error(
+          `TTS chunk ${chunk.index} remained implausibly short after ${config.audio.shortAudioRetries + 1} attempts.`
+        );
+      }
 
       if (chunk.index < chunks.length - 1) {
         await new Promise((r) =>

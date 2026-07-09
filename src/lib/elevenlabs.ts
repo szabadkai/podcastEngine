@@ -8,6 +8,8 @@ interface TtsOptions {
   stability?: number;
   similarityBoost?: number;
   style?: number;
+  previousText?: string;
+  nextText?: string;
   previousRequestIds?: string[];
 }
 
@@ -34,6 +36,9 @@ export async function textToSpeech(opts: TtsOptions): Promise<TtsResult> {
     body.pronunciation_dictionary_locators =
       config.audio.pronunciationDictionaryLocators;
   }
+
+  if (opts.previousText) body.previous_text = opts.previousText;
+  if (opts.nextText) body.next_text = opts.nextText;
 
   if (opts.previousRequestIds?.length) {
     body.previous_request_ids = opts.previousRequestIds.slice(-3);

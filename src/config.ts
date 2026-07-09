@@ -37,7 +37,14 @@ export const engineConfig = {
   audio: {
     model: "eleven_multilingual_v2",
     outputFormat: "mp3_44100_128",
-    chunkMaxChars: 5000,
+    // Keep individual TTS generations short enough that a provider can finish
+    // a complete thought reliably. The audio stage only splits at sentence and
+    // word boundaries, never in the middle of a word.
+    chunkMaxChars: 280,
+    // A clip this short for its text almost certainly lost part of the
+    // generation. 0.20 seconds per word is a deliberately generous 300 WPM.
+    minSecondsPerWord: 0.2,
+    shortAudioRetries: 2,
     delayBetweenChunksMs: 500,
     pronunciationDictionaryLocators: [] as Array<{
       pronunciation_dictionary_id: string;

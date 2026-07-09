@@ -1,0 +1,65 @@
+name: Repair Published Episode Audio
+
+on:
+  workflow_dispatch:
+    inputs:
+      episode_date:
+        description: Published episode date (YYYY-MM-DD)
+        required: true
+        type: string
+
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  repair-audio:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      EPISODE_DATE: ${{ inputs.episode_date }}
+      ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install ffmpeg
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+
+      - run: npm ci
+
+      - name: Recover the preserved script
+        run: |
+          mkdir -p "episodes/${EPISODE_DATE}"
+          gh release download "episode-${EPISODE_DATE}" \
+            --pattern '04-script.json' \
+            --dir "episodes/${EPISODE_DATE}"
+
+      - name: Render and replace the audio asset
+        run: npx tsx scripts/repair-published-audio.ts
+
+      - name: Commit corrected enclosure metadata
+        id: commit
+        run: |
+          git config user.name "Podcast Bot"
+          git config user.email "bot@podcast.dev"
+          git add episodes/manifest.json episodes/feed.xml
+          if git diff --staged --quiet; then
+            echo "committed=false" >> "$GITHUB_OUTPUT"
+          else
+            git commit -m "Repair episode audio ${EPISODE_DATE}"
+            git push
+            echo "committed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Trigger Pages deploy
+        if: ${{ steps.commit.outputs.committed == 'true' }}
+        run: gh workflow run deploy-pages.yml --ref main
