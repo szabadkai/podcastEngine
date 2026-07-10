@@ -14,8 +14,8 @@
     <language>en</language>
     <link>https://szabadkai.github.io/podcastEngine</link>
     <atom:link href="https://szabadkai.github.io/podcastEngine/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 07 Jul 2026 00:00:00 GMT</pubDate>
-    <lastBuildDate>Tue, 07 Jul 2026 00:00:00 GMT</lastBuildDate>
+    <pubDate>Fri, 10 Jul 2026 00:00:00 GMT</pubDate>
+    <lastBuildDate>Fri, 10 Jul 2026 00:00:00 GMT</lastBuildDate>
     <generator>podcast-engine</generator>
     <category>Science &amp; Technology</category>
     <itunes:author>Layer Lines Weekly</itunes:author>
@@ -38,6 +38,28 @@
     <podcast:locked>yes</podcast:locked>
     <podcast:guid>1aa65aa4-6725-411a-8b5c-a109f9cf36b6</podcast:guid>
     <copyright>© 2026 Layer Lines Weekly</copyright>
+    <item>
+      <title>Bioprinting Goes to Orbit — and the 20-Second Miracle</title>
+      <description>Auxilium says it bioprinted kidney and liver tissue on the ISS — we dig into what that actually proves. Plus Venus Aerospace&apos;s $91M detonation-engine round, Framatome&apos;s nuclear WAAM center, DAIHEN and EOS on the materials front, a clever single-AMS color trick, and a University of Utah claim that objects can print in a single 20-second laser shot.</description>
+      <itunes:title>Bioprinting Goes to Orbit — and the 20-Second Miracle</itunes:title>
+      <itunes:summary>Auxilium says it bioprinted kidney and liver tissue on the ISS — we dig into what that actually proves. Plus Venus Aerospace&apos;s $91M detonation-engine round, Framatome&apos;s nuclear WAAM center, DAIHEN and EOS on the materials front, a clever single-AMS color trick, and a University of Utah claim that objects can print in a single 20-second laser shot.</itunes:summary>
+      <content:encoded><![CDATA[Auxilium says it bioprinted kidney and liver tissue on the ISS — we dig into what that actually proves. Plus Venus Aerospace's $91M detonation-engine round, Framatome's nuclear WAAM center, DAIHEN and EOS on the materials front, a clever single-AMS color trick, and a University of Utah claim that objects can print in a single 20-second laser shot.]]></content:encoded>
+      <pubDate>Fri, 10 Jul 2026 00:00:00 GMT</pubDate>
+      <enclosure url="https://github.com/szabadkai/podcastEngine/releases/download/episode-2026-07-10/episode.mp3" length="14777826" type="audio/mpeg"/>
+      <media:content url="https://github.com/szabadkai/podcastEngine/releases/download/episode-2026-07-10/episode.mp3" fileSize="14777826" type="audio/mpeg" medium="audio" duration="924"/>
+      <media:title>Bioprinting Goes to Orbit — and the 20-Second Miracle</media:title>
+      <media:description>Auxilium says it bioprinted kidney and liver tissue on the ISS — we dig into what that actually proves. Plus Venus Aerospace&apos;s $91M detonation-engine round, Framatome&apos;s nuclear WAAM center, DAIHEN and EOS on the materials front, a clever single-AMS color trick, and a University of Utah claim that objects can print in a single 20-second laser shot.</media:description>
+      <media:thumbnail url="https://szabadkai.github.io/podcastEngine/artwork.png"/>
+      <guid isPermaLink="false">layer-lines-weekly-2026-07-10</guid>
+      <itunes:duration>924</itunes:duration>
+      <itunes:episode>9</itunes:episode>
+      <itunes:explicit>false</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:image href="https://szabadkai.github.io/podcastEngine/artwork.png"/>
+      <yt:category id="28">Science &amp; Technology</yt:category>
+      <yt:madeForKids>false</yt:madeForKids>
+      <podcast:transcript url="https://szabadkai.github.io/podcastEngine/transcripts/2026-07-10.txt" type="text/plain"/>
+    </item>
     <item>
       <title>Formlabs - The Accessible Industrialist</title>
       <description>We profile Formlabs, the MIT-born SLA and SLS company that turned a Kickstarter desktop resin printer into a dual-technology manufacturing ecosystem. From the Form 1 to the $84,999 Fuse X1, we dig into its material moat, its move onto the factory floor, and the IPO question hanging over its next chapter.</description>

@@ -1,6 +1,17 @@
 {
   "episodes": [
     {
+      "number": 9,
+      "date": "2026-07-10",
+      "title": "Bioprinting Goes to Orbit — and the 20-Second Miracle",
+      "description": "Auxilium says it bioprinted kidney and liver tissue on the ISS — we dig into what that actually proves. Plus Venus Aerospace's $91M detonation-engine round, Framatome's nuclear WAAM center, DAIHEN and EOS on the materials front, a clever single-AMS color trick, and a University of Utah claim that objects can print in a single 20-second laser shot.",
+      "duration": 924,
+      "fileSize": 14777826,
+      "releaseUrl": "https://github.com/szabadkai/podcastEngine/releases/download/episode-2026-07-10/episode.mp3",
+      "guid": "layer-lines-weekly-2026-07-10",
+      "transcriptUrl": "https://szabadkai.github.io/podcastEngine/transcripts/2026-07-10.txt"
+    },
+    {
       "number": 8,
       "date": "2026-07-07",
       "title": "Formlabs - The Accessible Industrialist",
