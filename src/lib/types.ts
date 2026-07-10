@@ -111,6 +111,7 @@ export interface EpisodeEntry {
   fileSize: number;
   releaseUrl: string;
   guid: string;
+  imageUrl?: string;
   transcriptUrl?: string;
 }
 

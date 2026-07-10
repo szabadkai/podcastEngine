@@ -81,6 +81,7 @@ export function generateFeedXml(manifest: EpisodeManifest): string {
 
   const items = manifest.episodes
     .map((ep) => {
+      const episodeImageUrl = ep.imageUrl ?? config.podcast.imageUrl;
       const transcript = ep.transcriptUrl
         ? `\n      <podcast:transcript url="${escapeXml(ep.transcriptUrl)}" type="text/plain"/>`
         : "";
@@ -97,13 +98,13 @@ export function generateFeedXml(manifest: EpisodeManifest): string {
       <media:content url="${escapeXml(ep.releaseUrl)}" fileSize="${ep.fileSize}" type="audio/mpeg" medium="audio" duration="${ep.duration}"/>
       <media:title>${escapeXml(ep.title)}</media:title>
       <media:description>${mediaDescription}</media:description>
-      <media:thumbnail url="${escapeXml(config.podcast.imageUrl)}"/>
+      <media:thumbnail url="${escapeXml(episodeImageUrl)}"/>
       <guid isPermaLink="false">${escapeXml(ep.guid)}</guid>
       <itunes:duration>${ep.duration}</itunes:duration>
       <itunes:episode>${ep.number}</itunes:episode>
       <itunes:explicit>false</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:image href="${escapeXml(config.podcast.imageUrl)}"/>${youtubeItemTags}${transcript}
+      <itunes:image href="${escapeXml(episodeImageUrl)}"/>${youtubeItemTags}${transcript}
     </item>`;
     })
     .join("\n");
