@@ -1,6 +1,17 @@
 {
   "episodes": [
     {
+      "number": 10,
+      "date": "2026-07-14",
+      "title": "Bambu Lab - The Walled Garden That Ate Desktop 3D Printing",
+      "description": "We profile Bambu Lab, the company that turned 'it just works' into a market-leading strategy for desktop 3D printing. From the X1 Carbon to an integrated ecosystem, a Stratasys lawsuit, and an open-source backlash, we sort what's confirmed from what's hype - including a valuation rumor that does not survive contact with reality.",
+      "duration": 1332,
+      "fileSize": 21307603,
+      "releaseUrl": "https://github.com/szabadkai/podcastEngine/releases/download/episode-2026-07-14/episode.mp3",
+      "guid": "layer-lines-weekly-2026-07-14",
+      "transcriptUrl": "https://szabadkai.github.io/podcastEngine/transcripts/2026-07-14.txt"
+    },
+    {
       "number": 9,
       "date": "2026-07-10",
       "title": "Bioprinting Goes to Orbit — and the 20-Second Miracle",
