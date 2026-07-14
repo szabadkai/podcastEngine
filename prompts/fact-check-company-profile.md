@@ -11,6 +11,8 @@ For each company-profile cluster, verify the claims that the hosts might repeat:
    - Funding, valuation, revenue, unit count, market share, customer, partnership, acquisition, layoff, and litigation claims
    - Future strategy claims and predictions
 
+For product chronology, record the status of every named product precisely: **launched/available**, **announced with a future date**, **rumored**, **retired/EOL**, or **unknown**. A source title or excerpt that explicitly says "launches," "released," "available," "shipping," or "EOL" is evidence for that status; do not downgrade it to rumor because a separate forum thread is speculative.
+
 2. Rate each claim:
    - `verified` - Confirmed by multiple independent sources or by a primary source for a basic factual matter, such as a named executive page.
    - `plausible` - Reasonable but only from one source or from company-controlled material.
@@ -32,6 +34,8 @@ For each company-profile cluster, verify the claims that the hosts might repeat:
 - Do not invent facts from memory. Use only the provided cluster summary and sources.
 - Separate company-controlled claims from independent reporting.
 - Give more weight to primary sources for basic facts like named executives and product pages, but more weight to independent sources for market position, controversy, adoption, and reputation.
+- Use the captured source evidence included with each cluster. If two independent headlines say a product launched, rate the release status `verified` unless a stronger source contradicts them. Treat a community post as evidence of sentiment or rumor only; it cannot override a primary announcement or independent launch coverage.
+- Never turn an explicit launch source into "speculation" merely because the company has other rumored products. If the evidence is insufficient, rate the status `unknown` or `unverifiable` and tell the scriptwriter to omit it rather than asserting that it has not launched.
 - Be especially careful with the future: phrase it as strategy, risk, or open question unless the source proves a committed plan.
 - A company-profile episode should be fair, not promotional. Preserve important achievements, but mark the weak spots.
 
@@ -44,6 +48,13 @@ Return a JSON object:
     {
       "id": "cluster-1",
       "factCheck": {
+        "productStatuses": [
+          {
+            "product": "Example Printer",
+            "status": "launched|announced|rumored|retired|unknown",
+            "evidence": "Concise source-based justification"
+          }
+        ],
         "claims": [
           {
             "claim": "The specific claim text",
@@ -59,3 +70,5 @@ Return a JSON object:
   ]
 }
 ```
+
+Always include `productStatuses` for a `product-lineage` cluster and any cluster that names a product. Use an empty array only when the cluster names no specific product.

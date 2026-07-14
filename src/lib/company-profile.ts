@@ -60,6 +60,10 @@ function profileQueries(companyName: string): ProfileQuery[] {
       query: `${quoted} (printer OR material OR resin OR software OR platform OR technology)`,
     },
     {
+      label: "product releases and availability",
+      query: `${quoted} (launch OR launched OR release OR released OR available OR shipping OR "end of life" OR retired)`,
+    },
+    {
       label: "customers and market",
       query: `${quoted} (customer OR partnership OR case study OR aerospace OR medical OR dental OR industrial)`,
     },
@@ -490,6 +494,7 @@ function scoreProfileUrl(url: string): number {
     [/about|company|who-we-are|our-story|story|history|mission/, 14],
     [/founder|leadership|management|executive|team|board|ceo/, 13],
     [/product|printer|material|resin|filament|software|platform|technology|process/, 11],
+    [/launch|released|release|announcement|announc|available|shipping|eol|retir/, 11],
     [/solution|industr|customer|case-stud|application|market/, 8],
     [/investor|press|news|media|financial|annual|quarterly|sec|reports/, 7],
     [/partnership|acquisition|funding|ipo|expansion|roadmap|strategy/, 7],
@@ -503,7 +508,7 @@ function classifyProfileUrl(url: string): string {
   const lower = url.toLowerCase();
   if (/founder|leadership|management|executive|team|board|ceo/.test(lower)) return "leadership";
   if (/about|company|who-we-are|our-story|story|history|mission/.test(lower)) return "origin/history";
-  if (/product|printer|material|resin|filament|software|platform|technology|process/.test(lower)) return "products/technology";
+  if (/product|printer|material|resin|filament|software|platform|technology|process|launch|released|release|announcement|announc|available|shipping|eol|retir/.test(lower)) return "products/technology";
   if (/solution|industr|customer|case-stud|application|market/.test(lower)) return "market/customers";
   if (/investor|press|news|media|financial|annual|quarterly|sec|reports/.test(lower)) return "strategy/turning points";
   return "company profile";

@@ -27,6 +27,8 @@ The input is intentionally mixed: official company pages, discovered internal pa
    - `community` - Useful only for sentiment and practical reputation, not as factual proof.
    - `research` - Useful for technical context, but do not overstate commercial readiness.
 
+For product-lineage clusters, preserve the evidence's exact status language. A source title or excerpt that says "launches," "released," "available," "shipping," or "EOL" is a concrete chronology fact, not a rumor. Keep the source that establishes each product's status in the cluster, and never let a community speculation item override an explicit official or independent launch report.
+
 5. Skip source items that are duplicates, irrelevant to the company, too thin to support a profile point, or pure marketing with no concrete claim. Give a one-line reason for each skip. Do not skip older sources merely because they are old; old sources are often valuable for origin and product-lineage sections.
 
 6. Surface research gaps. If a major expected area is under-sourced, say so in the relevant cluster summary or include it as a `future-watch` cluster only if you can state the gap clearly from the provided sources. Do not invent missing history, leadership details, product dates, customer names, or future plans.

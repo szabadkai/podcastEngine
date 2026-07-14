@@ -53,8 +53,25 @@ export interface Claim {
   note: string;
 }
 
+export type ProductStatus =
+  | "launched"
+  | "announced"
+  | "rumored"
+  | "retired"
+  | "unknown";
+
+export interface ProductStatusFact {
+  product: string;
+  status: ProductStatus;
+  evidence: string;
+}
+
 export interface FactCheckResult {
   claims: Claim[];
+  // Optional for backwards compatibility with archived fact-check artifacts.
+  // New company-profile checks should always return this explicit chronology
+  // ledger so later stages cannot turn an established product into a rumor.
+  productStatuses?: ProductStatusFact[];
   hypeFlags: string[];
   missingContext: string[];
   skepticalAngles: string[];

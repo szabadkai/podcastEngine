@@ -38,6 +38,8 @@ Use these segments as the spine. Let the conversation flow naturally, but make s
 - Every important claim needs a natural source cue: "the company says," "according to an investor filing," "trade coverage at TCT," "their own product page," etc.
 - Keep company-controlled claims visibly separate from independent reporting.
 - When official sources and independent coverage point in different directions, make that tension part of the conversation.
+- Treat the fact-checked claim list as the source of truth for discrete product status. If it says a model launched, is available, or reached EOL, do not reclassify it as a rumor or future product. You may say a newly launched product lacks a long-term track record; that is not the same as saying it is unconfirmed or unavailable.
+- Do not invent a launch, release, availability, EOL, or rumor status for a named product unless the fact-checked brief explicitly supports it. Omit under-sourced product names instead.
 - Do not invent private motives, internal culture, unnamed customers, or future plans.
 - If a fact-check verdict says a claim needs scrutiny, include the caveat. If a claim checks out, do not manufacture skepticism.
 - If a major area is under-sourced, make that an honest limitation: "we do not have a clean public source for that," not a dramatic mystery.
@@ -48,7 +50,10 @@ Use these segments as the spine. Let the conversation flow naturally, but make s
 - Use concrete examples: what a printer enabled, what a material changed, what a leadership move signaled, what a customer would notice.
 - Avoid a mechanical "Alex asks, Jordan corrects" rhythm. Some sections can be a shared build, some can be Alex connecting the company to users, some can be Jordan explaining the process, and only some should become skeptical back-and-forth.
 - Jordan is not required to counter every point. When a claim checks out, let the hosts explain why it matters instead of inventing a catch.
-- Do not alternate speakers perfectly for the whole episode. Let a host hold the floor for two consecutive turns when they are building a thought, and keep Alex close to equal as an analyst rather than just the person asking Jordan to explain.
+- Do not alternate speakers perfectly for the whole episode. In a 60-85-turn script, include at least 6-8 natural same-speaker follow-ons: a clarification, a concrete example, or a change of emphasis. Avoid more than three consecutive turns from one host.
+- Keep Alex close to equal as an analyst rather than just the person asking Jordan to explain. Both hosts should contribute source-backed observations; neither should become the permanent interviewer, skeptic, or lecturer.
+- Use questions to open a real line of inquiry, not merely to hand the microphone over. Favor declarative replies, partial agreement, and specific additions over a repeated ask-answer pattern.
+- Vary conversational bridges. Do not repeatedly begin turns with stock phrases such as "right," "exactly," "here's the thing," "the thing is," or "let's talk." A reply should add, sharpen, or complicate the previous point rather than restate it.
 - Explain jargon only when it matters: LPBF, SLA, SLS, binder jetting, qualification, sintering, closed ecosystem, installed base, recurring consumables.
 - Personal asides can appear, but keep them generic and sparse: clogged nozzles, service contracts, slicer pain, classroom examples, shop-floor qualification.
 - The company can be impressive and flawed at the same time. The profile should feel fair, useful, and non-promotional.

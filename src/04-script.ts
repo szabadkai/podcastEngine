@@ -13,6 +13,7 @@ import type {
   FactCheckedStories,
   EpisodeScript,
   EpisodeManifest,
+  ProductStatusFact,
 } from "./lib/types.js";
 
 interface ScriptQualityReport {
@@ -21,6 +22,8 @@ interface ScriptQualityReport {
   estimatedMinutes: number;
   avgWordsPerLine: number;
   switchRatePct: number;
+  sameSpeakerFollowUpCount: number;
+  maxSameSpeakerRun: number;
   questionLinePct: number;
   callbackCount: number;
   handoffPhraseCount: number;
@@ -46,19 +49,69 @@ function round1(n: number): number {
   return Math.round(n * 10) / 10;
 }
 
+function escapeRegex(text: string): string {
+  return text.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+// A script should be allowed to say that a new product is unproven, but never
+// that it is a rumor or unavailable when the fact-checker has documented it as
+// launched. Keep this narrow and fail before audio/publish rather than letting
+// a single generated line undo a source-backed product chronology.
+function findLaunchedProductContradictions(
+  script: EpisodeScript,
+  factChecked: FactCheckedStories
+): string[] {
+  const statuses = factChecked.clusters.flatMap(
+    (cluster) => cluster.factCheck.productStatuses ?? []
+  );
+  const launched = new Map<string, ProductStatusFact>();
+  for (const status of statuses) {
+    if (status.status === "launched" && status.product.trim()) {
+      launched.set(status.product.toLowerCase(), status);
+    }
+  }
+
+  const contradiction =
+    /\b(?:rumou?red|leak(?:\s+thread)?|speculat(?:ion|ive)|unconfirmed|not\s+(?:yet\s+)?(?:released|available|shipping)|can(?:not|'t)\s+confirm\s+(?:is|are|it(?:'s)?|they(?:'re)?|shipping))\b/i;
+  const failures: string[] = [];
+
+  for (const [key, status] of launched) {
+    const product = new RegExp(`\\b${escapeRegex(status.product)}\\b`, "i");
+    for (const line of script.lines) {
+      if (product.test(line.text) && contradiction.test(line.text)) {
+        failures.push(
+          `${status.product} is documented as launched (${status.evidence}); contradictory line: ${line.text}`
+        );
+      }
+    }
+  }
+
+  return failures;
+}
+
 function analyzeScriptQuality(script: EpisodeScript): ScriptQualityReport {
   const text = script.lines.map((l) => l.text).join("\n");
   const wordCount = countWords(text);
   const lineCount = script.lines.length;
   const speakerWords: Record<string, number> = {};
   let switches = 0;
+  let sameSpeakerFollowUpCount = 0;
+  let currentSpeakerRun = 0;
+  let maxSameSpeakerRun = 0;
   let questionLines = 0;
 
   for (let i = 0; i < script.lines.length; i++) {
     const line = script.lines[i];
     speakerWords[line.speaker] =
       (speakerWords[line.speaker] ?? 0) + countWords(line.text);
-    if (i > 0 && script.lines[i - 1].speaker !== line.speaker) switches++;
+    if (i === 0 || script.lines[i - 1].speaker !== line.speaker) {
+      if (i > 0) switches++;
+      currentSpeakerRun = 1;
+    } else {
+      sameSpeakerFollowUpCount++;
+      currentSpeakerRun++;
+    }
+    maxSameSpeakerRun = Math.max(maxSameSpeakerRun, currentSpeakerRun);
     if (line.text.includes("?")) questionLines++;
   }
 
@@ -93,6 +146,17 @@ function analyzeScriptQuality(script: EpisodeScript): ScriptQualityReport {
       `Speaker switching is too regular (${switchRatePct}% of turns switch speaker).`
     );
   }
+  const minSameSpeakerFollowUps = Math.max(3, Math.floor(lineCount / 12));
+  if (lineCount >= 30 && sameSpeakerFollowUpCount < minSameSpeakerFollowUps) {
+    warnings.push(
+      `Conversation is too strictly alternating (${sameSpeakerFollowUpCount} same-speaker follow-ups; target at least ${minSameSpeakerFollowUps}).`
+    );
+  }
+  if (maxSameSpeakerRun > 4) {
+    warnings.push(
+      `One speaker holds the floor for ${maxSameSpeakerRun} consecutive turns; check that it still sounds like a dialogue.`
+    );
+  }
   for (const [speaker, share] of Object.entries(speakerWordSharePct)) {
     if (share > 58) {
       warnings.push(`${speaker} dominates the script (${share}% of words).`);
@@ -118,6 +182,8 @@ function analyzeScriptQuality(script: EpisodeScript): ScriptQualityReport {
     estimatedMinutes: Math.round(wordCount / 155),
     avgWordsPerLine: lineCount > 0 ? round1(wordCount / lineCount) : 0,
     switchRatePct,
+    sameSpeakerFollowUpCount,
+    maxSameSpeakerRun,
     questionLinePct,
     callbackCount,
     handoffPhraseCount,
@@ -282,6 +348,15 @@ export async function run(episodeDir: string): Promise<void> {
   result.episodeType = episodeContext.type;
   if (episodeContext.companyName) result.companyName = episodeContext.companyName;
 
+  if (episodeContext.type === "company-profile") {
+    const contradictions = findLaunchedProductContradictions(result, factChecked);
+    if (contradictions.length > 0) {
+      throw new Error(
+        `Script contradicts documented product release status:\n- ${contradictions.join("\n- ")}`
+      );
+    }
+  }
+
   const quality = analyzeScriptQuality(result);
 
   writeJson(outputPath, result);
@@ -290,7 +365,7 @@ export async function run(episodeDir: string): Promise<void> {
     `Stage 04: script generated — ${quality.lineCount} lines, ~${quality.wordCount} words, ~${quality.estimatedMinutes} min.`
   );
   console.log(
-    `Stage 04: quality — switch ${quality.switchRatePct}%, questions ${quality.questionLinePct}%, callbacks ${quality.callbackCount}, handoffs ${quality.handoffPhraseCount}, speaker words ${JSON.stringify(
+    `Stage 04: quality — switch ${quality.switchRatePct}%, same-speaker follow-ups ${quality.sameSpeakerFollowUpCount}, max run ${quality.maxSameSpeakerRun}, questions ${quality.questionLinePct}%, callbacks ${quality.callbackCount}, handoffs ${quality.handoffPhraseCount}, speaker words ${JSON.stringify(
       quality.speakerWordSharePct
     )}.`
   );
