@@ -1,6 +1,17 @@
 {
   "episodes": [
     {
+      "number": 11,
+      "date": "2026-07-17",
+      "title": "The Shakeout Week — BigRep Sold, Würth Closes, and Desktop Metal Hits the Wall",
+      "description": "Three companies exit additive manufacturing in a single week, and Alex and Jordan dig into what the shakeout actually means for anyone who prints. Plus: the Navy's at-sea printing exercise, BMW's refreshingly boring scaling blueprint, Prusa's INDX toolchanger, a free Blender tool for resin supports, and whether 'vibe coding' your CAD is a real thing or just a vibe.",
+      "duration": 993,
+      "fileSize": 15882911,
+      "releaseUrl": "https://github.com/szabadkai/podcastEngine/releases/download/episode-2026-07-17/episode.mp3",
+      "guid": "layer-lines-weekly-2026-07-17",
+      "transcriptUrl": "https://szabadkai.github.io/podcastEngine/transcripts/2026-07-17.txt"
+    },
+    {
       "number": 10,
       "date": "2026-07-14",
       "title": "Bambu Lab - The Walled Garden That Ate Desktop 3D Printing",

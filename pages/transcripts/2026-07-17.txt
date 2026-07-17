@@ -1,0 +1,110 @@
+Layer Lines Weekly — The Shakeout Week — BigRep Sold, Würth Closes, and Desktop Metal Hits the Wall
+Episode 11 · 2026-07-17
+
+Alex: Before we get into it — did you see the Black Enterprise story making the rounds this week? Twelve-year-old kid takes six hundred dollars, buys a printer, and now runs what they're calling a growing 3D printing business. Designing and selling custom stuff. At twelve.
+
+Jordan: I did see that. And my first thought was — at twelve, my manufacturing operation was a lemonade stand that ran at a loss. This kid has a product line.
+
+Alex: Now, 'growing business' at that age could mean a few hundred bucks in sales, we don't really know the scale. But honestly, who cares? The remarkable part is that a middle schooler can go from zero to actual manufacturing with pocket money and a YouTube tutorial. That was not a thing when either of us started.
+
+Jordan: No, when we started it was a kit, a soldering iron, and a lot of crying. The entry cost of making real things has just... collapsed. Which is a funny note to open on, given what happened to the grown-up end of the industry this week.
+
+Alex: Yeah, let's get into it. Welcome to Layer Lines Weekly, episode eleven. Here's my thesis for the week: the industry did its growing up in public — three companies exited in seven days, and the ones still standing are the ones talking about boring things like process chains and automation. We've got the shakeout, the Navy printing parts at sea, Prusa's toolchanger finally shipping, a lovely little Blender tool for resin printers, and something called vibe coding.
+
+Jordan: Vibe coding is the one I've been sharpening a pencil for. Any time a term that vague shows up in our industry, someone is about to sell something. But the shakeout is the real story — so start there.
+
+Alex: Right. Three exits in one week is not a coincidence, it's a correction. In order: BigRep has been sold and delisted from the Frankfurt Stock Exchange, Würth Additive Group confirmed it's closing, and there's a report that Desktop Metal — once the poster child of the whole metal AM boom — has filed for bankruptcy. TCT had the first two; the Desktop Metal one is thinner, and we'll get to that.
+
+Jordan: Take them one at a time, because they're actually three different stories wearing the same headline. BigRep — the TCT piece has real detail. Sold to a group of investors — De Krassny, Koehler Invest, Hage Holding — shares off the Frankfurt exchange, and the holding company filing for liquidation. Which sounds apocalyptic, but read it again: that's a going-private transaction, not necessarily a funeral.
+
+Alex: For anyone who doesn't know them — BigRep is the large-format FDM company. The meter-cube build volume machines, the ones where a single print can be a piece of furniture. They were one of the early German success stories.
+
+Jordan: And honestly, going private might be the sanest move available to them. Public markets have been brutal to AM companies — you've got long industrial sales cycles, lumpy revenue, and a shareholder base that wants a growth story every quarter. Private owners who understand industrial equipment can just... let the business be a business.
+
+Alex: Würth is the one that got me, though. Not because of what they said — because of how little. TCT basically ran the entire statement, because the entire statement is fifty words. A company that size closes a whole division and the eulogy fits in a tweet.
+
+Jordan: And that's the story with a real signal in it. Würth Additive wasn't a startup running out of runway — it was the AM arm of an enormous industrial supplier. When a company with pockets that deep shuts the unit down, it's not a cash problem. It's a demand verdict. They looked at what their industrial customers were actually buying and decided the math didn't work.
+
+Alex: Then Desktop Metal. And here's where my old reporter instincts kick in — this one's a single secondary report so far. No court filing we've seen, no press release from the company. So file it under 'reported, not confirmed.'
+
+Jordan: Right — that's one outlet's claim until there's paperwork. But I'll say this: even unconfirmed, it's completely consistent with the trajectory. This is the company that went public in the SPAC frenzy at a valuation north of two billion, went on an acquisition spree, and has been shedding altitude ever since. And Nano Dimension just walked out of additive entirely last month — the exits are stacking up in the same corner of the market.
+
+Alex: So let me ask the question I always ask — why should someone with a printer on their desk care? My machine works the same today as it did last week. But if you're a shop that bought industrial hardware from any of these companies, you're suddenly asking who supplies your spare parts, who supports your materials, whether your six-figure machine just became an orphan.
+
+Jordan: That was literally the first question on every purchase justification back when I was in industry — 'will this vendor exist in five years?' And that question just got harder to answer and easier at the same time. Harder because look around. Easier because the companies that make it through a shakeout like this come out the other side genuinely healthier.
+
+Jordan: And I want to be precise about what's dying here, because it's not the technology. More AM parts are being made right now than ever. What's dying is a set of business models built on the 2021 promise — a metal printer in every machine shop, hockey-stick growth forever. The market that actually exists is qualified production parts and services. That market is fine. It just doesn't support forty vendors.
+
+Alex: Which is basically the 'shift from hype to sustainable business' framing that's floating around this week — and yeah, that's interpretation, not fact. But it rhymes awfully well with the evidence. And meanwhile, the companies that are fine? They just kept quietly shipping stuff this week, which is a nice segue.
+
+Alex: Two materials items, both genuinely good news. First: EOS added Constellium's Aheadd CP1 aluminium alloy to its portfolio — 3DPrint.com covered it. Jordan, you actually perked up when I put this in the rundown, which is rare for you and a press release.
+
+Jordan: Because CP1 solves a real problem. Quick catch-up for anyone who hasn't gone down this rabbit hole: laser powder bed fusion — the industrial process where a laser melts metal powder layer by layer — is essentially thousands of tiny welds. And the classic high-strength aluminium alloys, the aerospace ones, crack when you weld them. So for years your choices were weak-but-printable aluminium or strong-but-cracked.
+
+Jordan: CP1 was designed from scratch for the process. It prints fast, it takes a simple heat treatment instead of a multi-stage ordeal, and you get good strength plus really nice thermal and electrical conductivity. Heat exchangers, motor components — parts people actually want. Having it officially in the EOS ecosystem, with their parameter sets, means shops can just... use it.
+
+Alex: The second one's on the desktop side of the fence — Lyten's filament, the lightweight conductive stuff, is now available through 3DSHQ as an official reseller. Which mostly matters because 'available' is doing a lot of work. Before this it was one of those materials you read about but couldn't just order.
+
+Jordan: And availability is where interesting materials become useful ones. Once regular people can put a spool in a cart, you get real-world testing, shared print profiles, someone building an actual EMI shield or sensor housing and writing up how it went. That community feedback loop does more for a material than any datasheet.
+
+Alex: Okay, and the one that lit up every group chat I'm in — Prusa is shipping the INDX. Founder Edition, one thousand units, a toolchanger mod for existing printers. Actual multiple physical tools, not one nozzle juggling five filaments.
+
+Jordan: And that distinction matters. The filament-switching systems everyone has now — one hotend, lots of purging, the little pile of poop growing next to your printer. Separate tools means no purge waste, and you can run genuinely dissimilar materials, different nozzle sizes, dedicated support material. Toolchangers are the real deal. My only eyebrow-raise: a thousand-unit 'Founder Edition' is a paid beta with a commemorative badge on it. Let's be honest about that.
+
+Alex: Sure — but I'd argue that's the honest way to launch something this mechanically ambitious? Small run, enthusiast buyers who know exactly what they're signing up for, and Prusa's community will document every failure mode within a month. That beats promising general availability and slipping three quarters.
+
+Jordan: No, that's fair — I'd rather buy a labeled beta than an unlabeled one. Just go in with your eyes open: you're a test pilot, and the coverage calling it 'revolutionary' is the headline talking, not a review. Nobody outside Prusa has lived with this thing yet.
+
+Alex: Factory floor time — and this week the factory floor is a ship. 3DPrint.com covered the USS Essex at RIMPAC 2026, billed as the centerpiece of the largest at-sea additive manufacturing demonstration the Department of Defense has done. Multiple vessels printing spare parts on demand, files moving over a mobile network between ships. As a concept, I love this.
+
+Jordan: The concept is the strongest use case in all of additive, honestly. You're deployed, a bracket or an impeller fails, and the alternative to printing it is waiting weeks for a resupply chain that assumes you're near a port. But — I went and read the coverage, and it reads like a pre-event announcement. Lots of 'will test' and 'aims to.' I couldn't find the part where anyone says what actually got printed.
+
+Alex: And 'largest ever' — largest by what? Number of printers? Number of vessels? Parts produced? Nobody defines it. My journalism brain twitches at a superlative with no denominator.
+
+Jordan: Same. And I want the after-action report, because printing at sea is genuinely hard in ways a press release glosses over — salt air, humidity, vibration, the whole platform is moving. If they ran real machines through a real exercise and hit acceptable part quality, that's a huge result. If it was a planned demo we're reporting in the past tense... less huge.
+
+Alex: To be fair, the direction of travel is real — the DoD has been pushing on this for years, and it's exactly the right experiment to run. I'm not doubting the ambition, just holding my applause for the results.
+
+Jordan: Right verdict: right experiment, grade it after the exercise. And speaking of organizations that have earned the right to be believed — BMW gave TCT what might be my favorite story of the week, precisely because it's boring.
+
+Jordan: Their whole message on scaling AM into series production: automated, digitally networked process chains. Not a new laser, not a miracle alloy — workflow. And they specifically called out maturing Wire Arc Additive Manufacturing for production.
+
+Alex: Okay, pause — wire arc? For anyone who hasn't gone down that rabbit hole, what are we actually talking about?
+
+Jordan: Picture a welding robot with ambitions. WAAM feeds metal wire through an arc welding torch and builds parts up bead by bead. The results are not pretty — you get near-net shapes you machine to final dimensions afterward. But the deposition rate is enormous and the feedstock is welding wire, which is dirt cheap compared to metal powder. For big, chunky structural parts, the economics are completely different from powder bed.
+
+Alex: What strikes me about BMW's framing is how little the printer features in it. Their bottleneck list is all the stuff around the machine — data handoffs, automation, repeatability. Which, after this week's big story, feels like the tell. The companies that died were selling printers. BMW is describing the actual problem.
+
+Jordan: Because at production scale, the machine is maybe a third of your cost per part. The rest is powder handling, post-processing, inspection, and the paperwork proving part ten thousand matches part one. BMW has pushed more AM parts into real vehicles than almost anyone, so when they say the workflow is the constraint — believe them. That's not a pitch, that's a scar report.
+
+Alex: Okay, desktop corner, and this one's for my resin people. A maker posted a free tool on r/resinprinting — a Blender Geometry Nodes setup that auto-generates SLA supports right inside Blender, GitHub repo and all. If you don't live in Blender that might sound like a niche of a niche, but hear me out.
+
+Jordan: Sell me on it, because my instinct says the slicer already does supports.
+
+Alex: It does — but if you sculpt or kitbash in Blender, the loop is miserable. Export, import to slicer, support, notice the pose needs fixing, go back, re-export, re-support from scratch. Every iteration, all your support work evaporates. Doing supports as part of the model means they travel with the design.
+
+Alex: And I have lost real hours to this. Miniatures are the worst case — you get one support tip landing on a face, and suddenly you're doing forensic scar removal on a twenty-eight-millimeter figure, or re-slicing the same model five times chasing the perfect contact points. Anything that makes that loop shorter is a gift.
+
+Jordan: The Geometry Nodes part is what makes it actually clever, not just convenient. That system is parametric and non-destructive — change the model, and the supports recompute. That's the same philosophy as good engineering CAD, showing up in a free community tool. Usual footnote applies: 'saves time' is the creator's claim, nobody's benchmarked it against slicer auto-supports yet.
+
+Alex: But it's free, it's on GitHub, and the resin community will bang on it hard within weeks. That's the beautiful thing about tools like this — the testing does itself.
+
+Alex: Alright, hype check. Fabbaloo ran a piece this week: vibe coding is coming to 3D printing. The idea — natural language prompts straight to 3D models. Describe the part, the AI makes the part. Jordan, I could hear your eye twitch from here when I sent you the link.
+
+Jordan: So the term started as a half-joke in software — letting an AI write code you don't actually read. And now we're applying that philosophy to physical objects. Objects you're going to bolt to things. Load-bearing vibes.
+
+Alex: Let me steelman it, though, because there's something real underneath. Text-to-model for decorative stuff already works and it's genuinely fun. And the barrier argument matters — I spent years covering this space and the number of people who bounced off CAD entirely, who had ideas and just couldn't get them into a file? Huge. If prompting gets even some of those people making things, that's not nothing.
+
+Jordan: Agreed — for decorative parts. A vibe-coded vase fails by being ugly. A vibe-coded bracket fails by dropping your shelf. Functional parts live and die on dimensions, tolerances, load paths, and a language model has no idea what your printer's shrinkage is. One of my students asked me this exact thing — could they just prompt their coursework part? I said sure, the moment the model can tell me why it chose a three-millimeter wall.
+
+Alex: And here's the meta-problem: the article itself is a trend observation, not a test. No worked examples we could verify — and honestly, even the criticisms of vibe coding floating around aren't backed by systematic testing either. We are, at this moment, debating vibes about vibe coding.
+
+Jordan: Which is the tell, right? Here's the honest version of this future: AI-assisted CAD — where the AI works inside a real parametric system, respects constraints, and shows its reasoning — that's coming, and it'll be genuinely great. The prompt-and-pray version sets everyone up to be disappointed and then blame the whole category.
+
+Alex: So the verdict: real trend, terrible name, keep your calipers handy. If an AI designs your part this year, measure it twice.
+
+Alex: Which brings us to the thing to try this week, and it's an easy call: if you resin print and you've ever opened Blender, grab that Geometry Nodes support tool from the Reddit post — the GitHub link's right there. Here's the actual experiment: take a model you've already printed, support it with the tool, support it with your slicer's auto-supports, and compare. Same model, two philosophies.
+
+Jordan: And be a good scientist about it — test on something small and cheap first, not your forty-hour centerpiece, and pay attention to tip contact sizes before you commit resin. Then file an issue on GitHub with whatever you find, good or bad. That feedback loop is exactly how free tools become great ones.
+
+Alex: A week of exits, and somehow I feel better about the industry than I did last Friday — the stuff that's left is the stuff that works. That's the show. Go print something, and we'll see you next week.

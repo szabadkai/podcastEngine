@@ -14,8 +14,8 @@
     <language>en</language>
     <link>https://szabadkai.github.io/podcastEngine</link>
     <atom:link href="https://szabadkai.github.io/podcastEngine/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 14 Jul 2026 00:00:00 GMT</pubDate>
-    <lastBuildDate>Tue, 14 Jul 2026 00:00:00 GMT</lastBuildDate>
+    <pubDate>Fri, 17 Jul 2026 00:00:00 GMT</pubDate>
+    <lastBuildDate>Fri, 17 Jul 2026 00:00:00 GMT</lastBuildDate>
     <generator>podcast-engine</generator>
     <category>Science &amp; Technology</category>
     <itunes:author>Layer Lines Weekly</itunes:author>
@@ -38,6 +38,28 @@
     <podcast:locked>yes</podcast:locked>
     <podcast:guid>1aa65aa4-6725-411a-8b5c-a109f9cf36b6</podcast:guid>
     <copyright>© 2026 Layer Lines Weekly</copyright>
+    <item>
+      <title>The Shakeout Week — BigRep Sold, Würth Closes, and Desktop Metal Hits the Wall</title>
+      <description>Three companies exit additive manufacturing in a single week, and Alex and Jordan dig into what the shakeout actually means for anyone who prints. Plus: the Navy&apos;s at-sea printing exercise, BMW&apos;s refreshingly boring scaling blueprint, Prusa&apos;s INDX toolchanger, a free Blender tool for resin supports, and whether &apos;vibe coding&apos; your CAD is a real thing or just a vibe.</description>
+      <itunes:title>The Shakeout Week — BigRep Sold, Würth Closes, and Desktop Metal Hits the Wall</itunes:title>
+      <itunes:summary>Three companies exit additive manufacturing in a single week, and Alex and Jordan dig into what the shakeout actually means for anyone who prints. Plus: the Navy&apos;s at-sea printing exercise, BMW&apos;s refreshingly boring scaling blueprint, Prusa&apos;s INDX toolchanger, a free Blender tool for resin supports, and whether &apos;vibe coding&apos; your CAD is a real thing or just a vibe.</itunes:summary>
+      <content:encoded><![CDATA[Three companies exit additive manufacturing in a single week, and Alex and Jordan dig into what the shakeout actually means for anyone who prints. Plus: the Navy's at-sea printing exercise, BMW's refreshingly boring scaling blueprint, Prusa's INDX toolchanger, a free Blender tool for resin supports, and whether 'vibe coding' your CAD is a real thing or just a vibe.]]></content:encoded>
+      <pubDate>Fri, 17 Jul 2026 00:00:00 GMT</pubDate>
+      <enclosure url="https://github.com/szabadkai/podcastEngine/releases/download/episode-2026-07-17/episode.mp3" length="15882911" type="audio/mpeg"/>
+      <media:content url="https://github.com/szabadkai/podcastEngine/releases/download/episode-2026-07-17/episode.mp3" fileSize="15882911" type="audio/mpeg" medium="audio" duration="993"/>
+      <media:title>The Shakeout Week — BigRep Sold, Würth Closes, and Desktop Metal Hits the Wall</media:title>
+      <media:description>Three companies exit additive manufacturing in a single week, and Alex and Jordan dig into what the shakeout actually means for anyone who prints. Plus: the Navy&apos;s at-sea printing exercise, BMW&apos;s refreshingly boring scaling blueprint, Prusa&apos;s INDX toolchanger, a free Blender tool for resin supports, and whether &apos;vibe coding&apos; your CAD is a real thing or just a vibe.</media:description>
+      <media:thumbnail url="https://szabadkai.github.io/podcastEngine/artwork.png"/>
+      <guid isPermaLink="false">layer-lines-weekly-2026-07-17</guid>
+      <itunes:duration>993</itunes:duration>
+      <itunes:episode>11</itunes:episode>
+      <itunes:explicit>false</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:image href="https://szabadkai.github.io/podcastEngine/artwork.png"/>
+      <yt:category id="28">Science &amp; Technology</yt:category>
+      <yt:madeForKids>false</yt:madeForKids>
+      <podcast:transcript url="https://szabadkai.github.io/podcastEngine/transcripts/2026-07-17.txt" type="text/plain"/>
+    </item>
     <item>
       <title>Bambu Lab - The Walled Garden That Ate Desktop 3D Printing</title>
       <description>We profile Bambu Lab, the company that turned &apos;it just works&apos; into a market-leading strategy for desktop 3D printing. From the X1 Carbon to an integrated ecosystem, a Stratasys lawsuit, and an open-source backlash, we sort what&apos;s confirmed from what&apos;s hype - including a valuation rumor that does not survive contact with reality.</description>
