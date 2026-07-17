@@ -27,7 +27,7 @@ const show: ShowConfig = {
   sources: [
     // ── Core AM news ────────────────────────────────────────────────────
     { name: "3D Printing Industry", url: "https://3dprintingindustry.com/feed/" },
-    { name: "VoxelMatters", url: "https://www.voxelmatters.com/feed/" },
+    // { name: "VoxelMatters", url: "https://www.voxelmatters.com/feed/" },
     { name: "TCT Magazine", url: "https://www.tctmagazine.com/feed/" },
     { name: "3DPrint.com", url: "https://3dprint.com/feed/" },
     { name: "Fabbaloo", url: "https://www.fabbaloo.com/feed" },
