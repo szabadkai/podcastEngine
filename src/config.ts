@@ -4,7 +4,7 @@ export const engineConfig = {
   ai: {
     baseUrl: "https://openrouter.ai/api/v1",
     model: "deepseek/deepseek-v4-pro",
-    scriptModel: "anthropic/claude-opus-4.8",
+    scriptModel: "moonshotai/kimi-k3",
     recapModel: "deepseek/deepseek-v4-pro",
     maxRetries: 3,
     retryDelayMs: 2000,
