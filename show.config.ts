@@ -27,10 +27,12 @@ const show: ShowConfig = {
   sources: [
     // ── Core AM news ────────────────────────────────────────────────────
     { name: "3D Printing Industry", url: "https://3dprintingindustry.com/feed/" },
-    // { name: "VoxelMatters", url: "https://www.voxelmatters.com/feed/" },
+    { name: "VoxelMatters", url: "https://www.voxelmatters.com/feed/" },
     { name: "TCT Magazine", url: "https://www.tctmagazine.com/feed/" },
     { name: "3DPrint.com", url: "https://3dprint.com/feed/" },
-    { name: "Fabbaloo", url: "https://www.fabbaloo.com/feed" },
+    // Their site feed blocks GitHub Actions, but this is Fabbaloo's published
+    // FeedBlitz endpoint (linked from https://www.fabbaloo.com/subscribe).
+    { name: "Fabbaloo", url: "http://feeds.fabbaloo.com/fabbaloo/default/" },
     { name: "3Dnatives", url: "https://www.3dnatives.com/en/feed/" },
 
     // ── Maker / practical ───────────────────────────────────────────────
@@ -40,7 +42,8 @@ const show: ShowConfig = {
     { name: "Prusa Blog", url: "https://blog.prusa3d.com/feed/", type: "vendor" },
     { name: "Bambu Lab Blog", url: "https://blog.bambulab.com/feed/", type: "vendor" },
     { name: "Stratasys IR", url: "https://investors.stratasys.com/rss/news-releases.xml", type: "vendor" },
-    { name: "Slant 3D Blog", url: "https://www.slant3d.com/blog-feed.xml", type: "vendor" },
+    // Slant 3D's former RSS endpoint returns 4xx/5xx and the current blog has
+    // no published feed. Google News discovery still surfaces their updates.
     { name: "ELEGOO Blog", url: "https://www.elegoo.com/blogs/news.atom", type: "vendor" },
     { name: "Anycubic Blog", url: "https://store.anycubic.com/blogs/news.atom", type: "vendor" },
     // MatterHackers: feed returns malformed XML, skipped for now

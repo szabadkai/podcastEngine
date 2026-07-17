@@ -4,7 +4,41 @@ import type { RawStory, SourceType } from "./types.js";
 
 let _parser: Parser | null = null;
 
-const MANUAL_FETCH_HOSTS = new Set(["www.reddit.com", "reddit.com"]);
+const FETCH_TIMEOUT_MS = 20_000;
+
+function isValidXmlCodePoint(codePoint: number): boolean {
+  return (
+    codePoint === 0x9 ||
+    codePoint === 0xa ||
+    codePoint === 0xd ||
+    (codePoint >= 0x20 && codePoint <= 0xd7ff) ||
+    (codePoint >= 0xe000 && codePoint <= 0xfffd) ||
+    (codePoint >= 0x10000 && codePoint <= 0x10ffff)
+  );
+}
+
+/**
+ * XML 1.0 rejects control characters, including when they appear as numeric
+ * entities.  A single invalid character otherwise makes rss-parser reject an
+ * entire feed, so remove only the characters that XML cannot represent.
+ */
+export function sanitizeXml(xml: string): string {
+  const withoutInvalidCharacters = Array.from(xml)
+    .filter((character) => isValidXmlCodePoint(character.codePointAt(0)!))
+    .join("");
+
+  return withoutInvalidCharacters.replace(
+    /&#(?:x([0-9a-f]+)|([0-9]+));/gi,
+    (entity, hexadecimal: string | undefined, decimal: string | undefined) => {
+      const numericValue = hexadecimal ?? decimal;
+      if (!numericValue) return "";
+      const codePoint = Number.parseInt(numericValue, hexadecimal ? 16 : 10);
+      return Number.isSafeInteger(codePoint) && isValidXmlCodePoint(codePoint)
+        ? entity
+        : "";
+    },
+  );
+}
 
 function getParser(): Parser {
   if (!_parser) {
@@ -20,20 +54,16 @@ function getParser(): Parser {
 }
 
 async function parseFeed(url: string): Promise<Parser.Output<Record<string, unknown>>> {
-  let host: string | undefined;
-  try { host = new URL(url).hostname; } catch { /* fall through */ }
+  // rss-parser's parseURL timeout does not cover every network phase. Fetching
+  // ourselves gives every source the same hard deadline, including Reddit and
+  // feeds that keep a response body open indefinitely.
+  const res = await fetch(url, {
+    headers: { "User-Agent": "Mozilla/5.0 (compatible; LayerLinesWeekly/1.0)" },
+    signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
+  });
+  if (!res.ok) throw new Error(`Status code ${res.status}`);
 
-  if (host && MANUAL_FETCH_HOSTS.has(host)) {
-    const res = await fetch(url, {
-      headers: { "User-Agent": "Mozilla/5.0 (compatible; LayerLinesWeekly/1.0)" },
-      signal: AbortSignal.timeout(15000),
-    });
-    if (!res.ok) throw new Error(`Status code ${res.status}`);
-    const xml = await res.text();
-    return getParser().parseString(xml);
-  }
-
-  return getParser().parseURL(url);
+  return getParser().parseString(sanitizeXml(await res.text()));
 }
 
 export async function fetchFeed(

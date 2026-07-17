@@ -13,6 +13,31 @@ import type { RawStory } from "./lib/types.js";
 
 const SEEN_URLS_PATH = path.resolve("data", "seen-urls.json");
 
+function isRedditFeed(url: string): boolean {
+  try {
+    const hostname = new URL(url).hostname;
+    return hostname === "reddit.com" || hostname === "www.reddit.com";
+  } catch {
+    return false;
+  }
+}
+
+function sourcesForEpisode() {
+  const redditSources = config.sources.filter((source) => isRedditFeed(source.url));
+  if (redditSources.length === 0) return config.sources;
+
+  // Anonymous Reddit RSS access permits only a very small request budget. Use
+  // one community per episode and rotate weekly, rather than requesting all
+  // communities at once and receiving a run of HTTP 429 responses.
+  const episodeDate = process.env.EPISODE_DATE || new Date().toISOString().slice(0, 10);
+  const dayNumber = Math.floor(new Date(`${episodeDate}T00:00:00Z`).getTime() / 86400000);
+  const activeRedditSource = redditSources[Math.abs(dayNumber) % redditSources.length];
+
+  return config.sources.filter(
+    (source) => !isRedditFeed(source.url) || source === activeRedditSource,
+  );
+}
+
 function isWithinDays(dateStr: string, days: number): boolean {
   const cutoff = Date.now() - days * 86400000;
   return new Date(dateStr).getTime() >= cutoff;
@@ -32,16 +57,17 @@ export async function run(episodeDir: string): Promise<void> {
   }
 
   // ── RSS feeds ──────────────────────────────────────────────────────────
-  console.log(`Fetching ${config.sources.length} RSS feeds...`);
+  const sources = sourcesForEpisode();
+  console.log(`Fetching ${sources.length} RSS feeds...`);
 
   const results = await Promise.allSettled(
-    config.sources.map((s) => fetchFeed(s.url, s.name, s.type ?? "core"))
+    sources.map((source) => fetchFeed(source.url, source.name, source.type ?? "core")),
   );
 
   const rssStories: RawStory[] = [];
   for (let i = 0; i < results.length; i++) {
     const result = results[i];
-    const source = config.sources[i];
+    const source = sources[i];
     if (result.status === "fulfilled") {
       console.log(`  ${source.name}: ${result.value.length} items`);
       rssStories.push(...result.value);
