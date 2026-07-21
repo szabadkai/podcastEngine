@@ -1,6 +1,17 @@
 {
   "episodes": [
     {
+      "number": 12,
+      "date": "2026-07-21",
+      "title": "Prusa Research - The Open-Source Idealist at a Crossroads",
+      "description": "Alex and Jordan profile Prusa Research: from RepRap roots and the beloved i3 MK2 to enclosed CoreXY machines, the INDX toolchanger, and a licensing pivot that has the maker community arguing. Can the company that built its brand on openness survive a commoditized market by becoming more closed?",
+      "duration": 1297,
+      "fileSize": 20749627,
+      "releaseUrl": "https://github.com/szabadkai/podcastEngine/releases/download/episode-2026-07-21/episode.mp3",
+      "guid": "layer-lines-weekly-2026-07-21",
+      "transcriptUrl": "https://szabadkai.github.io/podcastEngine/transcripts/2026-07-21.txt"
+    },
+    {
       "number": 11,
       "date": "2026-07-17",
       "title": "The Shakeout Week — BigRep Sold, Würth Closes, and Desktop Metal Hits the Wall",
