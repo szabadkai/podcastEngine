@@ -1,6 +1,17 @@
 {
   "episodes": [
     {
+      "number": 13,
+      "date": "2026-07-24",
+      "title": "Square Footage Isn't Output — Velo3D's Forge 1 and the Defense Metal Boom",
+      "description": "Velo3D opens a massive metal AM campus in Livermore while defense money floods into additive — but does a big building mean big production? Plus: aerospace giants gang up on the F135 engine, the Navy prints metal at sea, Polymaker's HT-PLA Pro talks a big game, and Apple hinge rumors get the hype treatment.",
+      "duration": 1155,
+      "fileSize": 18480527,
+      "releaseUrl": "https://github.com/szabadkai/podcastEngine/releases/download/episode-2026-07-24/episode.mp3",
+      "guid": "layer-lines-weekly-2026-07-24",
+      "transcriptUrl": "https://szabadkai.github.io/podcastEngine/transcripts/2026-07-24.txt"
+    },
+    {
       "number": 12,
       "date": "2026-07-21",
       "title": "Prusa Research - The Open-Source Idealist at a Crossroads",

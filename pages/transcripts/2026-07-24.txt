@@ -1,0 +1,114 @@
+Layer Lines Weekly — Square Footage Isn't Output — Velo3D's Forge 1 and the Defense Metal Boom
+Episode 13 · 2026-07-24
+
+Alex: Okay, before we do anything serious — did you see the flying umbrella? John Xu, the 'I Build Stuff' guy on YouTube, built a 3D printed autonomous drone umbrella that just... hovers over you and follows you around in the rain. 3Dnatives covered it this week and I have watched the video three times.
+
+Jordan: It's the most gloriously unnecessary thing I've seen all year. A drone, loud enough to wake the neighborhood, burning through batteries, to solve a problem that a stick with fabric on it solved five thousand years ago. I love it unreservedly.
+
+Alex: That's the thing though — nobody builds that to solve a problem. You build it because the printer's sitting there and the idea won't leave you alone. The frame parts, the mounting hardware, the little tracking module housing — all printed. It's the whole hobby in one ridiculous object.
+
+Jordan: And honestly, prop wash pushing the rain sideways into your face is a design constraint I would pay to watch someone iterate on. Ten out of ten, no notes... which is more than I can say for some of the press releases this week.
+
+Alex: Nice segue, because here's my thesis for the week: additive's growth spurt is being measured in square feet, and square footage is the easy part — filling it with qualified production is the hard part. Velo3D opened a giant metal AM campus in California, aerospace heavyweights are lining up to print an F135 engine case, and the Navy put a metal printer on an aircraft carrier.
+
+Jordan: And at the other end of the credibility spectrum, there's an Apple foldable iPhone hinge rumor that supposedly pits liquid metal against 3D printing. I have opinions. But the story I actually want to dig into is Velo3D — because a big building announcement is exactly the kind of thing that sounds like more than it is.
+
+Alex: Plus some genuinely good materials news, a full-color printer on Kickstarter that has my miniatures brain very interested, and a try-this at the end. Let's get into it.
+
+Alex: So the headline: Velo3D has opened what it's calling Forge 1 — a 289,000-square-foot production campus in Livermore, California, billed as one of North America's largest metal additive manufacturing facilities. And it's landing in the middle of a genuine wave of defense money flowing into metal AM. My take up front: the wave is real, the building is probably real, but the word 'production' is doing a lot of unpaid labor in that press release.
+
+Jordan: Yeah, and let me put my industry hat on for a second, because I've been inside a few grand openings like this. The ribbon-cutting comes first. The machines come second. The qualified, contracted, repeatable production comes a distant third — sometimes years later, sometimes never at full capacity. 289,000 square feet tells me how big the lease is. It tells me nothing about output.
+
+Alex: And that's what jumped out at me reading the coverage — there's no machine count anywhere. No installed printer number, no capacity figure, no throughput. When I was writing about this industry, that was always the tell. If the release leads with square footage instead of machines, someone in marketing made a choice.
+
+Jordan: The 'one of North America's largest' claim bugs me too. Largest by what? Floor area? Number of laser powder bed machines? Metal output per year? Without a metric, it's unfalsifiable — which is exactly why it's phrased that way. Nobody can call you wrong.
+
+Alex: It's funny, we were wondering earlier this summer how many printers Velo3D actually had running in Livermore. Big opening event later... and we still don't have a number. Which — draw your own conclusions.
+
+Jordan: But — and this matters — I don't want to be purely sour on this, because the context around it is genuinely significant. Beehive Industries announced a seventy-million-dollar expansion in Ohio, that was in TCT this week. And Tekna is reporting a sixfold increase in titanium powder orders from a U.S. defense customer.
+
+Jordan: And the powder number is the one I trust most, honestly. Nobody buys six times more titanium powder to look impressive at an opening event. Powder gets bought when parts are actually getting built. That's a consumption signal, not a real estate signal.
+
+Alex: That's a good distinction — leading indicators versus lagging ones. Though I'll flag that both of those figures are single-sourced right now, coming through company announcements. Nobody's independently audited Tekna's order book. Still, three separate defense-adjacent expansions in one week isn't a coincidence.
+
+Jordan: No, the macro story is real. Defense procurement has fallen in love with additive for exactly the reasons you'd expect — legacy suppliers are backlogged, cast and forged parts have brutal lead times, and additive lets you compress that. Munitions, engine components, drone hardware. The demand pull is genuine.
+
+Alex: So why does this matter to someone like me, who's never going to set foot in a defense factory? I think it's this: for years the question hanging over metal AM was 'is anyone actually going to pay for this at scale?' And defense is answering yes, loudly, with real money. That trickles down — cheaper powder, more trained operators, better machines eventually.
+
+Jordan: That's the optimistic read and I mostly buy it. The skeptical read is that Velo3D specifically has had a rocky few years, and a splashy campus opening is a classic confidence move. What I want to see in six months isn't the building — it's delivered parts under contract. Named programs, part numbers, quantities.
+
+Alex: Right. The tie-in with Beehive and Tekna also feels a bit like the coverage bundling separate stories into one 'boom' narrative — those expansions don't necessarily involve Velo3D machines at all. Rising tide, sure. But three boats floating doesn't mean they're the same boat.
+
+Jordan: Verdict: real trend, unproven flagship. The defense-driven metal AM buildout is happening. Whether Forge 1 becomes a genuine production powerhouse or a very large, very quiet room... we'll know when they start talking about output instead of floor plans.
+
+Alex: Materials time. Polymaker dropped HT-PLA Pro this week — Fabbaloo covered it — and the claim is a spicy one: it supposedly outperforms PLA, ABS, PETG, and even polycarbonate in, quote, key mechanical properties. And I read that sentence and immediately heard your voice in my head going 'which properties.'
+
+Jordan: Which properties! Tensile strength? Impact resistance? Heat deflection temperature? Under what test standard, at what conditions, printed how? 'Key mechanical properties' is what you write when the specific numbers don't make the headline. PC is genuinely tough stuff — beating it across the board with a PLA derivative would be remarkable, and remarkable claims come with data sheets or they don't come at all.
+
+Jordan: There's also a structural question with these high-temp PLAs. Most of them get their heat resistance from annealing — you print the part, then bake it so the crystal structure changes. Which works, but annealing typically shrinks the part and can warp it. So 'easy to print like PLA' is true right up until the post-processing step reintroduces all the dimensional headaches you were trying to avoid.
+
+Alex: I learned that one the expensive way — annealed a bracket that had to fit around an existing pipe, and it came out of the oven a beautiful, useless two percent smaller. So yeah: interesting material, but 'outperforms everything' stays in the marketing column until someone independent runs the tests. Meanwhile Prusa launched something that's the opposite of vague — Prusament PA11 Natural.
+
+Jordan: And that one I like on paper. PA11 is a nylon, and unusually it's derived from castor oil rather than petroleum, which is a nice bonus. Nylons are what you reach for when a part has to survive actual abuse — gears, hinges, snap fits, anything that flexes or rubs. Chemical resistance too, so it shrugs off oils and solvents that turn PLA to mush. Prusa's blog post is a straightforward product announcement, no wild comparative claims, which I appreciate.
+
+Alex: The catch with nylon is always moisture, right? It drinks water out of the air.
+
+Jordan: Ferociously. Dry it before printing, keep it in a drybox during printing, or enjoy your foamy, stringy, brittle disappointment. PA11 is a bit more forgiving than PA12 there, but 'more forgiving nylon' is like 'friendlier wasp.' Anyway — second materials item, and this one's just clean good news for once. Sinterit and DyeMansion announced a partnership.
+
+Alex: Yeah, this was in both TCT and 3D Printing Industry — Sinterit's going to sell DyeMansion's VX1 vapor smoothing and DM60 coloring systems alongside its BIANCO2 benchtop SLS printer. So a matched print-and-finish workflow at compact scale.
+
+Jordan: And this genuinely solves the right problem. Raw SLS parts come out with this grainy, slightly porous surface — they feel powdery, they stain, they trap grime. Vapor smoothing melts that outer skin chemically so you get a sealed, almost injection-molded finish, and the dyeing gives you consistent color all the way into the surface. That's historically been big-facility equipment. Pairing it with a benchtop SLS machine means a small design studio or a dental lab can go from powder to finished end-use part in one room. No catch on this one — it's just two companies whose products fit together admitting it.
+
+Alex: See, we can do it. We can just like a thing. Okay — factory floor, and this week it's basically an aerospace episode.
+
+Jordan: It really is. TCT ran a cluster of stories on the F135 — that's the engine in the F-35 fighter. Pratt & Whitney and GKN Aerospace are collaborating to 3D print a large-scale engine case for it, and separately Safran Aero Boosters and BMT Aerospace have joined the broader large-scale printing effort. My honest reaction: the roster is more impressive than the milestone.
+
+Alex: Meaning the names signing up matter more than what's actually been achieved so far?
+
+Jordan: Exactly. What's been announced is a development collaboration and a validation milestone — not certified parts flying on engines. And the gap between those two things is enormous. Quick detour for anyone who hasn't gone down this rabbit hole: when we say a part is 'flight qualified,' it means you've proven — through exhaustive, documented testing — that every part off the line behaves identically and survives worst-case conditions with margin. For an engine case on a fighter jet, that process routinely takes years and costs more than developing the printing process did. Announcing a collaboration is mile one of a marathon.
+
+Alex: But here's my genuine observation on the other side: four established aerospace suppliers don't co-sign a marathon they think is unwinnable. These companies have burned money on additive dead-ends before — they know what a dead-end smells like. The fact that they're pooling effort on a structural case, not a bracket, tells you where they think the technology actually is now.
+
+Jordan: That's fair, and 'large-scale engine case' is the phrase doing real work there. Brackets were the gateway drug for a decade. A case is a big, structural, geometrically gnarly component that's traditionally cast or forged with lead times measured in quarters. If additive can take that on, the business case writes itself. Related note — Eaton opened its third global additive manufacturing center, this one in the UK, aimed at certified aerospace production. Same trajectory, different company.
+
+Alex: Though 'at scale' in aerospace still means what, hundreds of parts a year? It's not exactly Bambu Lab volumes.
+
+Jordan: Hundreds, sometimes low thousands — and that's fine, because each part is worth thousands of dollars and the alternative supply chain is slower. Scale is relative. Okay, second floor story, and this one's more fun: the USS Theodore Roosevelt deployed an ADDiTEC HYBRiD-X during the RIMPAC exercises — that's a containerized metal manufacturing system, essentially a shipping container with a metal printer and machining capability inside — and TCT says it's the first such system used aboard a U.S. Navy carrier.
+
+Alex: The logic is so compelling. A carrier group in the middle of the Pacific can't order a spare part and wait three weeks for delivery — and in an actual conflict the supply line might not exist at all. Print the part on the boat. Fabbaloo also had a piece on the Navy testing a distributed printing network for spares, so this is clearly a deliberate strategy, not a one-off stunt.
+
+Jordan: It's a strategy I believe in, with one asterisk. The coverage talks about producing 'critical metal components,' and the question I'd love answered is: did anything printed at sea actually get installed on an aircraft, or was this a capability demonstration during an exercise? Because printing a part on a rolling ship is impressive. Printing a part that's cleared to bolt onto a Super Hornet is a different sport — same qualification problem we just talked about, plus salt air and a moving floor. The 'distributed network' piece is vaguer still — right now it sounds more like sharing files between sites than a qualified part-delivery pipeline.
+
+Alex: Still — the Navy keeps escalating these tests instead of quietly shelving them, which is its own kind of evidence. You don't put a metal printer on your flagship carrier for a photo op. Well... okay, you might. But not repeatedly.
+
+Alex: Desktop corner, and this one hit me right in the hobby: HeyGears launched its G1 Series on Kickstarter this week — 3D Printing Industry and 3Dnatives both covered it. It's pitched as full-color 3D printing, plus 3D-textured UV printing, plus regular 2D printing, in one desktop machine, starting at $1,999. And look — I paint Warhammer miniatures. Badly, and slowly. The phrase 'production-quality color parts without hand-painting' is aimed directly at my wallet.
+
+Jordan: I could hear your resolve crumbling from here.
+
+Alex: But — and I'll do the skeptic's job myself this time, because I covered enough crowdfunding campaigns as a reporter to have scars — the pattern with ambitious Kickstarter printers is depressingly consistent. The renders are gorgeous, the demo units are hand-tuned, the shipping date slips, and the machine backers receive does maybe two-thirds of what the video showed. And this one is promising three distinct printing technologies in a single box at two grand.
+
+Jordan: Which is the part that makes me squint. Any one of those — full-color 3D, textured UV printing — is a serious engineering problem on its own. Integrating them means shared motion systems, shared software, compounded failure modes. HeyGears isn't a nobody, to be fair; they've got real history in dental and resin printing, so this isn't three students and a render. But 'production-quality' is an untestable claim until independent reviewers get retail units. Nobody outside the company has printed on one.
+
+Alex: So my position is: fascinated, watching, wallet holstered. If real full-color prints at hobbyist prices actually materialize, that changes the miniatures and tabletop world overnight — no more painting bottlenecks, print your army in color. That's a genuinely big deal if it ships as advertised.
+
+Jordan: 'If it ships as advertised' — the six most expensive words in crowdfunding. Let's put a pin in it and revisit when backers have units in hand.
+
+Jordan: Alright, hype signal, and this week's contestant arrived pre-marinated. A leak claims Apple is weighing liquid metal against 3D printing for the hinge of its rumored foldable iPhone Ultra, with a decision supposedly coming by end of July. 3D Printing Industry covered it — and to their credit, their piece was actually about the contradictions in the leak. The entire sourcing is one Weibo post from a tipster.
+
+Alex: One post. For a story that, if true, would be maybe the biggest consumer-electronics validation metal AM has ever gotten. Apple volumes are tens of millions of units — that's not a market for printed metal parts, that's THE market.
+
+Jordan: And that asymmetry is exactly why the story spreads. Notice the anatomy of it: unverifiable source, huge implication, and — this is the tell — a suspiciously precise deadline. 'Decision by end of July.' Real supply chain decisions at Apple are gated processes with fallbacks, not a calendar date someone in Cupertino circled. Precise-sounding details are how thin rumors dress up as intel.
+
+Alex: Let me push on the other side though, because I don't think it's zero. Apple has a documented history with liquid metal — they've held licenses on that technology for years. And the wider industry has been printing watch cases and small structural parts in titanium for a while now. So the ingredients of the rumor are individually plausible. Apple prototyping a printed hinge? I'd bet money that's happened.
+
+Jordan: Sure — Apple prototypes everything. They've almost certainly printed hinges, machined hinges, cast hinges, and probably whittled one from artisanal driftwood. The leap from 'a prototype exists' to 'it's a finalist for a production decision this month' is the entire distance of the claim, and the Weibo post can't carry it. Most prototypes die quietly. That's what prototypes are for.
+
+Alex: The consequences if it were true are worth one more beat, though. A printed hinge at iPhone volumes would mean throughput and cost numbers metal AM has never hit — it would drag the whole industrial ecosystem forward. Which is why every AM outlet ran the story. We all want it to be true.
+
+Jordan: Wanting it to be true is precisely when you should double your sourcing standards. Verdict: file under 'delightful if real, no reason to believe it yet.' If Apple actually ships a printed hinge, we'll dedicate half an episode to it and I will eat something ceremonial. Until then — it's a Weibo post.
+
+Alex: One thing to try this week, and it comes straight out of the HT-PLA Pro conversation. Before you spend money on any high-temp PLA — Polymaker's or anyone's — run your own annealing experiment with the regular PLA already on your shelf. Print two identical test parts, something with known dimensions. Anneal one in the oven, low temperature, and then compare them: dimensions, and how each behaves left in a hot car or dunked in hot water. You'll learn exactly what annealing buys you and what it costs you.
+
+Jordan: And measure with calipers before and after, not by eye — you'll typically see the part shrink a percent or two in X and Y and sometimes grow slightly in Z, and it's rarely uniform. If your application can't tolerate that, no marketing copy about beating polycarbonate matters. Also: an oven thermometer, not the dial. Kitchen oven dials lie like Kickstarter shipping dates.
+
+Alex: Cheap experiment, real answer, and you'll read every HT-PLA spec sheet differently afterward. That's the show — go build something unnecessary, ideally one that flies. Talk next week.
