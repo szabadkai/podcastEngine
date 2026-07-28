@@ -1,6 +1,17 @@
 {
   "episodes": [
     {
+      "number": 14,
+      "date": "2026-07-28",
+      "title": "3D Systems: The Old Guard Bets Everything on Mission-Critical Printing",
+      "description": "Alex and Jordan profile 3D Systems, one of the oldest names in additive manufacturing, as it recasts itself around defense, healthcare, and dental production. From Figure 4 hearing aids to hypersonic metal parts and a Saudi joint venture, the hosts weigh a genuine strategic shift against lawsuits, revenue whiplash, and a leadership picture that's harder to see than it should be.",
+      "duration": 1332,
+      "fileSize": 21306767,
+      "releaseUrl": "https://github.com/szabadkai/podcastEngine/releases/download/episode-2026-07-28/episode.mp3",
+      "guid": "layer-lines-weekly-2026-07-28",
+      "transcriptUrl": "https://szabadkai.github.io/podcastEngine/transcripts/2026-07-28.txt"
+    },
+    {
       "number": 13,
       "date": "2026-07-24",
       "title": "Square Footage Isn't Output — Velo3D's Forge 1 and the Defense Metal Boom",
