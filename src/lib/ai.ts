@@ -58,29 +58,62 @@ export async function chat(opts: ChatOptions): Promise<string> {
       await new Promise((r) => setTimeout(r, delay));
     }
 
-    const res = await fetch(`${config.ai.baseUrl}/chat/completions`, {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${apiKey}`,
-        "Content-Type": "application/json",
-        "HTTP-Referer": config.podcast.siteUrl,
-        "X-Title": config.podcast.title,
-      },
-      body: JSON.stringify(buildBody()),
-    });
+    let res: Response;
+    try {
+      res = await fetch(`${config.ai.baseUrl}/chat/completions`, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${apiKey}`,
+          "Content-Type": "application/json",
+          "HTTP-Referer": config.podcast.siteUrl,
+          "X-Title": config.podcast.title,
+        },
+        body: JSON.stringify(buildBody()),
+      });
+    } catch (err) {
+      lastError = new Error(
+        `OpenRouter request failed: ${err instanceof Error ? err.message : String(err)}`,
+      );
+      continue;
+    }
+
+    // Read the body once and parse it ourselves. A provider or proxy can
+    // occasionally close a nominally successful response mid-transfer; calling
+    // res.json() would throw outside the retry path and abort the whole episode.
+    let responseText: string;
+    try {
+      responseText = await res.text();
+    } catch (err) {
+      lastError = new Error(
+        `OpenRouter response body failed while reading: ${err instanceof Error ? err.message : String(err)}`,
+      );
+      continue;
+    }
 
     if (!res.ok) {
-      const text = await res.text();
-      lastError = new Error(`OpenRouter ${res.status}: ${text}`);
+      lastError = new Error(`OpenRouter ${res.status}: ${responseText}`);
 
       if (res.status === 429 || res.status >= 500) continue;
       throw lastError;
     }
 
-    const data = (await res.json()) as {
+    let data: {
       choices: Array<{ message: { content: string }; finish_reason?: string }>;
     };
-    const choice = data.choices[0];
+    try {
+      data = JSON.parse(responseText) as typeof data;
+    } catch (err) {
+      lastError = new Error(
+        `OpenRouter returned malformed response JSON: ${err instanceof Error ? err.message : String(err)}`,
+      );
+      continue;
+    }
+
+    const choice = Array.isArray(data.choices) ? data.choices[0] : undefined;
+    if (!choice || typeof choice.message?.content !== "string") {
+      lastError = new Error("OpenRouter response did not contain a message choice");
+      continue;
+    }
     // Truncated at the cap. A reasoning model spends part of max_tokens thinking,
     // so the visible answer can run out of room. Grow the cap and retry rather
     // than re-sending the same doomed request. (Bounding `reasoning` at the call
