@@ -1,0 +1,23 @@
+{
+  "number": 15,
+  "date": "2026-07-31",
+  "title": "Three Shutdowns and a Skull Plate — Additive's Sorting Week",
+  "topics": [
+    "3DEO and Fusion3 liquidation",
+    "BigRep wind-down after failed SPAC",
+    "HP 600 HT high-temp filament printer tease",
+    "Prusa CORE One soft-steel nozzle defect (Nozzlegate)",
+    "Walter Reed FDA clearance for point-of-care cranial implant",
+    "Sovol M1D seven-tool IDEX spec launch",
+    "ChatGPT–FreeCAD MCP integration demo"
+  ],
+  "threads": [
+    "3DEO IP sale and potential technology survival under new owner",
+    "Orphaned machine support for Fusion3 and BigRep owners",
+    "HP 600 HT — announcement without specs, price, or ship date",
+    "Sovol M1D swap-time and waste claims awaiting independent testing"
+  ],
+  "predictions": [
+    "Jordan: ChatGPT parametric editing (not scratch generation) will be the useful AI CAD tool; current demo is a party trick on the way there"
+  ]
+}

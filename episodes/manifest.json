@@ -1,6 +1,17 @@
 {
   "episodes": [
     {
+      "number": 15,
+      "date": "2026-07-31",
+      "title": "Three Shutdowns and a Skull Plate — Additive's Sorting Week",
+      "description": "3DEO, Fusion3, and BigRep all wind down in the same week that Walter Reed lands the first FDA clearance for a hospital-printed cranial implant. Alex and Jordan sort the survivors from the science projects, plus HP's mysterious high-temp printer, Prusa's nozzlegate, Sovol's seven-toolhead IDEX, and ChatGPT trying its hand at CAD.",
+      "duration": 1011,
+      "fileSize": 16179244,
+      "releaseUrl": "https://github.com/szabadkai/podcastEngine/releases/download/episode-2026-07-31/episode.mp3",
+      "guid": "layer-lines-weekly-2026-07-31",
+      "transcriptUrl": "https://szabadkai.github.io/podcastEngine/transcripts/2026-07-31.txt"
+    },
+    {
       "number": 14,
       "date": "2026-07-28",
       "title": "3D Systems: The Old Guard Bets Everything on Mission-Critical Printing",

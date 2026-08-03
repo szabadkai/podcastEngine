@@ -1,0 +1,114 @@
+Layer Lines Weekly — Three Shutdowns and a Skull Plate — Additive's Sorting Week
+Episode 15 · 2026-07-31
+
+Alex: Before we get into what is honestly a heavy news week — Jordan, eSUN is putting coffee in filament now. PLA with recycled coffee grounds blended in. Prints come out this speckled, warm brown, and supposedly there's a faint coffee smell while it's printing. Which is either delightful or deeply cursed, I can't decide.
+
+Jordan: My two main consumables, finally merged. My only real question is how much coffee is actually in there. The launch coverage says 'sustainable,' but nobody's published a percentage. Could be five percent grounds and ninety-five percent regular PLA, in which case it's less 'circular economy' and more 'brown speckles.'
+
+Alex: Even if it's just speckles, though — wood-fill made this exact journey. Started as a gimmick, and now it's a legitimate aesthetic choice. A ruined tavern terrain piece in coffee PLA? I would print that tonight. It probably comes off the plate pre-weathered.
+
+Jordan: Oh, as a material it sounds fun. I'd just call it a fun material rather than an environmental statement until someone shows their math on the recycled content. Anyway — you said heavy week. You weren't kidding.
+
+Alex: Yeah. Here's my read on the week: additive isn't shrinking, it's sorting — sorting the survivors from the science projects. Three printer companies went into liquidation within days of each other... and in the same seven days, a US hospital got FDA clearance to print titanium skull implants in-house. Contraction and legitimacy, simultaneously.
+
+Jordan: Plus HP wading into high-temperature filament printing, Prusa having a genuinely rough hardware week, Sovol claiming a five-second toolhead swap, and ChatGPT attempting CAD. The one I want to spend real time on is the shutdowns — because a lot of people are going to read that headline as 'the industry's dying,' and I think that's exactly the wrong lesson.
+
+Alex: Then let's start there, because I mostly agree with you — but I want to make you defend it.
+
+Alex: So the facts first. Fabbaloo reported this week that 3DEO and Fusion3 — both US companies — entered liquidation. TCT confirmed the 3DEO side and added that its IP assets are already up for sale. And then BigRep, the German large-format company, began winding down after its SPAC listing failed. Three closures, three completely different companies.
+
+Alex: And here's my take: the common thread isn't bad technology. It's that none of the three ever found a business that outran its burn rate. Different markets, same math.
+
+Jordan: 3DEO is the one that stings from an engineering standpoint. They had a proprietary metal process — genuinely their own approach, not a me-too laser machine — and they'd been at it for years. Clever process, real parts. But clever process has never been the hard part in metal AM. Finding customers who'll pay for it at volume is.
+
+Alex: Fusion3 is almost the opposite story. Solid, US-made professional desktop FDM machines. No exotic technology — just good, reliable printers at a professional price point. And that middle of the market has been getting squeezed to death from below.
+
+Jordan: That's the brutal one, honestly. Five years ago, a well-built enclosed FDM machine at a few thousand dollars was a defensible product. Now a consumer machine at a third of the price does ninety percent of the job, and 'reliable and American-made' isn't a moat when the spec sheets look identical. Fusion3 didn't get out-engineered. They got out-priced.
+
+Alex: And BigRep's the third flavor of the same problem. They went public through a SPAC — one of those shell-company mergers that was the fashionable shortcut to the stock market a few years back — and per the reporting, the listing just didn't deliver. Now they're winding down.
+
+Jordan: Half the industrial AM sector went public that way in the 2021 wave, and almost none of it went well. The SPAC hangover has been working through the industry ever since. BigRep is just the latest company to sober up and find the money gone.
+
+Alex: Okay, so here's my 'why should I care' question. If I'm not an investor — if I'm someone with a printer on a bench or a print farm in a shop — what does three companies liquidating actually change for me?
+
+Jordan: Orphaned machines. That's the real-world consequence. If you own a Fusion3 or a BigRep, you now have to think about spare parts, firmware updates, service contracts — everything that quietly assumes the manufacturer still exists. Back in my industry days we qualified a machine for production and the vendor evaporated eighteen months later. The machine kept working. Everything around it got hard.
+
+Alex: And this isn't happening in isolation — the industrial side has been reshuffling for a while. Sandvik offloading its metal AM unit earlier this summer was the polite version of this. This week was the impolite version.
+
+Jordan: Which is why the distinction matters between consolidation and destruction. 3DEO's IP being up for sale means the process might survive under a stronger owner — the technology moves, the company dies. That's consolidation. It's ugly for the employees, and I don't want to gloss over that, but it's not the technology failing.
+
+Alex: So the practical lesson, if you're buying anything above hobby price right now: vendor health is a spec. And open ecosystems, commodity spare parts, standard firmware — that stuff isn't ideology, it's insurance. A machine built from parts anyone can source survives its manufacturer. A proprietary one doesn't.
+
+Jordan: Right, and to land my original point — demand for printed parts keeps growing. It's the number of companies selling printers that was never going to stay this big. The parts business is fine. The box-selling business is a knife fight.
+
+Alex: Which makes the next story genuinely funny to me. The same week three companies walk out of the room... HP walks in.
+
+Alex: So — HP announced the 600 HT, an industrial filament printer aimed at high-temperature engineering polymers. PEEK, PEKK, that family. And my honest take is that this is the announcement with no announcement. One source so far — 3D Printing Industry had the piece — no specs, no price, no ship date that I could find.
+
+Jordan: And PEEK is not a casual promise. You need a seriously hot chamber, a nozzle north of four hundred degrees, dried material handling — the whole machine has to be built around thermal management. HP has the resources, obviously. But they've flirted with extrusion before without it going anywhere, so my first question is whether this is an in-house machine or a partnership wearing an HP badge.
+
+Alex: I've written up enough product launches in my reporting days to know what a thin press release smells like, and this one is thin. Which doesn't mean the machine is vaporware — it means right now we have a statement of intent, not a product.
+
+Jordan: Strategically it makes complete sense, though. HP's polymer customers ask for high-temp parts all the time, and the industrial extrusion space — the market Stratasys has owned forever — could genuinely use another serious competitor. So: take it seriously as a direction. Judge it as a machine when there's a machine to judge.
+
+Alex: Okay, other hardware story, and this one's rougher because it's about machines already in people's homes. Nozzlegate. Early Prusa CORE One kits shipped with soft steel nozzles — a manufacturing error at Bondtech, their supplier. Tom's Hardware covered it, and Bondtech has actually admitted the machining flaws, which, credit to them.
+
+Jordan: And for anyone wondering why soft steel is a big deal — the nozzle is the one part of the printer where geometry is everything. If the steel isn't properly hardened, the bore opens up, the tip flat wears down, and your extrusion width quietly drifts. Your prints get gradually worse and nothing obvious looks broken. It's the most insidious kind of failure.
+
+Alex: I lived this once. Ran a carbon-fiber filament through a brass nozzle — which, yes, I know — and over two weeks my prints got slowly blobbier while I blamed the slicer, the filament, the humidity, the alignment of the planets. It was the nozzle the whole time. Wear failures gaslight you.
+
+Jordan: The frustrating part for CORE One kit owners is that there's no quick fix yet — Prusa and Bondtech are working on it, but replacements aren't just flowing out the door. The honest part is that nobody's spinning it. A supplier defect, publicly owned. That's about the best version of a bad situation, but it's still a bad week to be an early kit buyer.
+
+Alex: Alright, the good news of the week — and I mean genuinely good, this is the story that made me sit up. Walter Reed Medical Center got FDA clearance for a patient-specific 3D printed titanium cranial plate. TCT covered it, and here's the milestone part: it's believed to be the first time a point-of-care institution has been granted that kind of clearance.
+
+Jordan: And quick, for anyone who hasn't gone down this rabbit hole — 'point-of-care' means the hospital itself is the manufacturer. Not a hospital ordering a custom implant from a medical device company. The scanning, the design, the titanium printing, the quality control — all under the hospital's own roof, with the hospital holding regulatory responsibility for the device. That's a completely different thing, legally and practically.
+
+Alex: And the reason that matters is time. Right now, if you need a custom cranial plate, that geometry goes out to an external manufacturer and comes back in weeks. For cranial reconstruction, weeks matter. Collapse that loop to inside one building and you've changed something real for actual patients.
+
+Jordan: I'll admit this one lands close to home. I get asked in lectures, basically every term, 'when will hospitals just print implants themselves?' And my answer has always been — when a regulator is willing to let one institution own that entire chain. That answer changed this week. The hospital is taking on the quality-system burden of a device manufacturer, and the FDA said yes. That's enormous.
+
+Alex: The only asterisk — and it's a small one — is that even TCT hedges with 'believed to be the first.' Nobody's popped up to contest it, but firsts in this industry have a way of getting relitigated.
+
+Jordan: Sure, but honestly the 'first' matters less than the precedent. It's one implant type at one institution — this is a door opening, not a floodgate. But every major hospital system with an AM lab now has a regulatory pathway to point at. That's how point-of-care manufacturing stops being a conference talk and starts being a department.
+
+Alex: Staying on the industrial side — Velo3D opened Forge 1 this week, a metal AM production campus in Livermore, California. Fabbaloo had it. And it's an interesting shape of announcement: a printer company opening a facility to make parts, with the whole pitch built around process repeatability for aerospace and defense.
+
+Jordan: Repeatability is the right word to lead with, because in serial metal production the question is never 'can you print one good part' — it's 'can you print the four-hundredth part identical to the first, with the paperwork to prove it.' That's the actual product aerospace buyers pay for. So the pitch is aimed correctly.
+
+Alex: Here's my hesitation, though. Velo3D has had a genuinely rough couple of years financially — that's well documented. So is Forge 1 a scaling move or a survival reposition? And 'growing demand from aerospace and defense' is their phrase. The coverage doesn't include a single named customer or order. That's their number, essentially, without a number.
+
+Jordan: Fair — and honestly, given this week's other headlines, maybe both things are true at once. Pivoting from selling machines to selling qualified parts is exactly what the market's been rewarding, and the three liquidations we just talked about are what happens if you don't. If Forge 1 works, it'll be because parts, not printers, is where the money actually is.
+
+Alex: Which is my thesis for the week eating its own tail. Alright — down to the desktop, because there's a hobbyist machine this week with a spec sheet that made me giggle.
+
+Alex: The Sovol M1D. Tom's Hardware covered it — an open-source IDEX printer with an integrated tool-changer. Seven toolheads, swaps claimed at under five seconds. IDEX, if you haven't met one, means two fully independent print carriages on the X axis — so two hotends that can work simultaneously or take turns. Bolting a seven-head tool-changer onto that is... a lot of machine.
+
+Jordan: It's genuinely ambitious, and I want to like it — IDEX plus a tool-changer is the belt-and-braces approach to multi-material. But two claims on that spec sheet itch at me. 'Zero-waste multi-color,' and the five seconds. Neither has independent testing behind it — this is manufacturer numbers relayed through a launch article.
+
+Alex: The zero-waste framing at least has a real idea underneath it, to be fair. The AMS-style systems most of us use for multi-color push the old filament out through one nozzle every swap — that's the poop chute, that's the pile of purge slugs. A tool-changer keeps each color loaded in its own head, so the waste genuinely drops through the floor.
+
+Jordan: Drops through the floor, yes. Zero, no. Every tool-changing system I've ever touched still oozes at the parked heads, still needs a prime or a wipe before the head rejoins the print. 'Ninety-five percent less waste' would be an impressive, believable claim. 'Zero' is marketing rounding down, and it makes me trust the rest of the sheet a little less.
+
+Alex: The part I'd actually buy it for is the open-source angle. A seven-tool machine the community can mod, fork, and hang weird toolheads off — laser here, plotter pen there — that's the kind of platform that grows a scene around it. But yeah, this is spec-sheet coverage, not a review. Nobody outside Sovol has timed that swap.
+
+Jordan: If it ships as described at typical Sovol pricing, it's legitimately a big deal for the multi-material tinkerer crowd — that combination hasn't existed at hobby prices. So: excited, waiting for someone independent to put a stopwatch on it.
+
+Alex: Okay, hype check time, and this week it's AI's turn. Fabbaloo covered a new MCP integration that lets ChatGPT talk directly to FreeCAD. Type 'make me a bracket with four M4 holes,' and the model appears in your CAD window. The demos are legitimately fun to watch. Jordan, you're twitching.
+
+Jordan: I'm twitching because a bracket from a text prompt and engineering CAD are two different sports that happen to share a window. Real CAD work is design intent — constraints that survive changes, tolerances, how parts mate in an assembly. Ask this thing to handle GD&T or a fifty-part assembly and I suspect the demo gets very quiet.
+
+Alex: Come on, though — you're grading it against your day job. Think about who FreeCAD's audience actually is. There are thousands of makers who never climbed the CAD learning curve, and for them, 'a hook that fits over a 32-millimeter rail' in plain English is the difference between designing the part and not making it at all. Barrier-lowering counts for something.
+
+Jordan: For the fix-it print use case? Genuinely, yes — I'll give you that one. But even there, you have to check its work. An LLM will very confidently hand you a hook where the 32 millimeters is somewhere unexpected. Nothing in this pipeline measures anything. The confidence is real; the calipers are still on you.
+
+Alex: And to be fair to Fabbaloo, their own write-up is cautious — they're pretty explicit that practical utility for real engineering work is unproven. This isn't a case of the press overselling it; it's a case of a demo being genuinely cool and genuinely unfinished at the same time.
+
+Jordan: Here's the version of this I'd actually get excited about, by the way: not generating models from scratch, but conversational editing of parametric models. 'Make that wall two millimeters thicker and rerun the fillets.' The human owns the design intent, the AI does the tedium. That's a tool. What shipped this week is a very good party trick on the road to that tool.
+
+Alex: So the verdict is: hype, but hype with a pulse. Watch it, play with it, don't ship a part from it.
+
+Alex: Alright, one thing to try this week, and it comes straight out of nozzlegate. If you've got an early CORE One kit, obviously go check the Prusa and Bondtech announcements about affected batches. But for everyone else — that story is a decent excuse to spend five minutes actually looking at the nozzle you've been running abrasives through since who knows when.
+
+Jordan: And since you can't eyeball hardness, watch behavior instead. Print a single-wall test and measure the wall thickness — if your extrusion width has drifted from what the slicer thinks, the bore has opened up. Worn tips also show up as inconsistent first layers. And a tip for next time: keep the test print from when the nozzle was new. Future you gets a baseline instead of a vibe.
+
+Alex: Baseline instead of a vibe — that's the whole hobby, honestly. Alright, that's the week: three funerals, one skull plate, and a nozzle worth checking. Go poke at yours, and we'll talk next week.
