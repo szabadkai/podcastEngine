@@ -14,8 +14,8 @@
     <language>en</language>
     <link>https://szabadkai.github.io/podcastEngine</link>
     <atom:link href="https://szabadkai.github.io/podcastEngine/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 31 Jul 2026 00:00:00 GMT</pubDate>
-    <lastBuildDate>Fri, 31 Jul 2026 00:00:00 GMT</lastBuildDate>
+    <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
+    <lastBuildDate>Tue, 04 Aug 2026 00:00:00 GMT</lastBuildDate>
     <generator>podcast-engine</generator>
     <category>Science &amp; Technology</category>
     <itunes:author>Layer Lines Weekly</itunes:author>
@@ -38,6 +38,28 @@
     <podcast:locked>yes</podcast:locked>
     <podcast:guid>1aa65aa4-6725-411a-8b5c-a109f9cf36b6</podcast:guid>
     <copyright>© 2026 Layer Lines Weekly</copyright>
+    <item>
+      <title>Materialise: The Company That Bet on Software Before Anyone Knew Software Was the Bet</title>
+      <description>Alex and Jordan profile Materialise, the Belgian veteran that decided decades ago that the money in 3D printing wasn&apos;t in printers. From Magics and Build Processors to custom PEEK skull implants, they trace how a 1990 founding turned into a dual software-and-medical business, and ask whether a margin-first strategy can survive flat revenue.</description>
+      <itunes:title>Materialise: The Company That Bet on Software Before Anyone Knew Software Was the Bet</itunes:title>
+      <itunes:summary>Alex and Jordan profile Materialise, the Belgian veteran that decided decades ago that the money in 3D printing wasn&apos;t in printers. From Magics and Build Processors to custom PEEK skull implants, they trace how a 1990 founding turned into a dual software-and-medical business, and ask whether a margin-first strategy can survive flat revenue.</itunes:summary>
+      <content:encoded><![CDATA[Alex and Jordan profile Materialise, the Belgian veteran that decided decades ago that the money in 3D printing wasn't in printers. From Magics and Build Processors to custom PEEK skull implants, they trace how a 1990 founding turned into a dual software-and-medical business, and ask whether a margin-first strategy can survive flat revenue.]]></content:encoded>
+      <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
+      <enclosure url="https://github.com/szabadkai/podcastEngine/releases/download/episode-2026-08-04/episode.mp3" length="19866897" type="audio/mpeg"/>
+      <media:content url="https://github.com/szabadkai/podcastEngine/releases/download/episode-2026-08-04/episode.mp3" fileSize="19866897" type="audio/mpeg" medium="audio" duration="1242"/>
+      <media:title>Materialise: The Company That Bet on Software Before Anyone Knew Software Was the Bet</media:title>
+      <media:description>Alex and Jordan profile Materialise, the Belgian veteran that decided decades ago that the money in 3D printing wasn&apos;t in printers. From Magics and Build Processors to custom PEEK skull implants, they trace how a 1990 founding turned into a dual software-and-medical business, and ask whether a margin-first strategy can survive flat revenue.</media:description>
+      <media:thumbnail url="https://szabadkai.github.io/podcastEngine/artwork.png"/>
+      <guid isPermaLink="false">layer-lines-weekly-2026-08-04</guid>
+      <itunes:duration>1242</itunes:duration>
+      <itunes:episode>16</itunes:episode>
+      <itunes:explicit>false</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:image href="https://szabadkai.github.io/podcastEngine/artwork.png"/>
+      <yt:category id="28">Science &amp; Technology</yt:category>
+      <yt:madeForKids>false</yt:madeForKids>
+      <podcast:transcript url="https://szabadkai.github.io/podcastEngine/transcripts/2026-08-04.txt" type="text/plain"/>
+    </item>
     <item>
       <title>Three Shutdowns and a Skull Plate — Additive&apos;s Sorting Week</title>
       <description>3DEO, Fusion3, and BigRep all wind down in the same week that Walter Reed lands the first FDA clearance for a hospital-printed cranial implant. Alex and Jordan sort the survivors from the science projects, plus HP&apos;s mysterious high-temp printer, Prusa&apos;s nozzlegate, Sovol&apos;s seven-toolhead IDEX, and ChatGPT trying its hand at CAD.</description>

@@ -1,6 +1,17 @@
 {
   "episodes": [
     {
+      "number": 16,
+      "date": "2026-08-04",
+      "title": "Materialise: The Company That Bet on Software Before Anyone Knew Software Was the Bet",
+      "description": "Alex and Jordan profile Materialise, the Belgian veteran that decided decades ago that the money in 3D printing wasn't in printers. From Magics and Build Processors to custom PEEK skull implants, they trace how a 1990 founding turned into a dual software-and-medical business, and ask whether a margin-first strategy can survive flat revenue.",
+      "duration": 1242,
+      "fileSize": 19866897,
+      "releaseUrl": "https://github.com/szabadkai/podcastEngine/releases/download/episode-2026-08-04/episode.mp3",
+      "guid": "layer-lines-weekly-2026-08-04",
+      "transcriptUrl": "https://szabadkai.github.io/podcastEngine/transcripts/2026-08-04.txt"
+    },
+    {
       "number": 15,
       "date": "2026-07-31",
       "title": "Three Shutdowns and a Skull Plate — Additive's Sorting Week",
