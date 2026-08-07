@@ -14,8 +14,8 @@
     <language>en</language>
     <link>https://szabadkai.github.io/podcastEngine</link>
     <atom:link href="https://szabadkai.github.io/podcastEngine/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
-    <lastBuildDate>Tue, 04 Aug 2026 00:00:00 GMT</lastBuildDate>
+    <pubDate>Fri, 07 Aug 2026 00:00:00 GMT</pubDate>
+    <lastBuildDate>Fri, 07 Aug 2026 00:00:00 GMT</lastBuildDate>
     <generator>podcast-engine</generator>
     <category>Science &amp; Technology</category>
     <itunes:author>Layer Lines Weekly</itunes:author>
@@ -38,6 +38,28 @@
     <podcast:locked>yes</podcast:locked>
     <podcast:guid>1aa65aa4-6725-411a-8b5c-a109f9cf36b6</podcast:guid>
     <copyright>© 2026 Layer Lines Weekly</copyright>
+    <item>
+      <title>The Hospital Is the Factory Now — Walter Reed&apos;s FDA First</title>
+      <description>Walter Reed becomes the first hospital cleared by the FDA to print its own titanium implants, and Alex and Jordan dig into what it actually takes to turn a medical center into a manufacturer. Plus: Renishaw goes after supports in metal printing, $9 million against the defense qualification wall, a carbon-fiber trick for your desktop prints, and a Florida 3D-printed house that has the New York Post rolling its eyes.</description>
+      <itunes:title>The Hospital Is the Factory Now — Walter Reed&apos;s FDA First</itunes:title>
+      <itunes:summary>Walter Reed becomes the first hospital cleared by the FDA to print its own titanium implants, and Alex and Jordan dig into what it actually takes to turn a medical center into a manufacturer. Plus: Renishaw goes after supports in metal printing, $9 million against the defense qualification wall, a carbon-fiber trick for your desktop prints, and a Florida 3D-printed house that has the New York Post rolling its eyes.</itunes:summary>
+      <content:encoded><![CDATA[Walter Reed becomes the first hospital cleared by the FDA to print its own titanium implants, and Alex and Jordan dig into what it actually takes to turn a medical center into a manufacturer. Plus: Renishaw goes after supports in metal printing, $9 million against the defense qualification wall, a carbon-fiber trick for your desktop prints, and a Florida 3D-printed house that has the New York Post rolling its eyes.]]></content:encoded>
+      <pubDate>Fri, 07 Aug 2026 00:00:00 GMT</pubDate>
+      <enclosure url="https://github.com/szabadkai/podcastEngine/releases/download/episode-2026-08-07/episode.mp3" length="19534202" type="audio/mpeg"/>
+      <media:content url="https://github.com/szabadkai/podcastEngine/releases/download/episode-2026-08-07/episode.mp3" fileSize="19534202" type="audio/mpeg" medium="audio" duration="1221"/>
+      <media:title>The Hospital Is the Factory Now — Walter Reed&apos;s FDA First</media:title>
+      <media:description>Walter Reed becomes the first hospital cleared by the FDA to print its own titanium implants, and Alex and Jordan dig into what it actually takes to turn a medical center into a manufacturer. Plus: Renishaw goes after supports in metal printing, $9 million against the defense qualification wall, a carbon-fiber trick for your desktop prints, and a Florida 3D-printed house that has the New York Post rolling its eyes.</media:description>
+      <media:thumbnail url="https://szabadkai.github.io/podcastEngine/artwork.png"/>
+      <guid isPermaLink="false">layer-lines-weekly-2026-08-07</guid>
+      <itunes:duration>1221</itunes:duration>
+      <itunes:episode>17</itunes:episode>
+      <itunes:explicit>false</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:image href="https://szabadkai.github.io/podcastEngine/artwork.png"/>
+      <yt:category id="28">Science &amp; Technology</yt:category>
+      <yt:madeForKids>false</yt:madeForKids>
+      <podcast:transcript url="https://szabadkai.github.io/podcastEngine/transcripts/2026-08-07.txt" type="text/plain"/>
+    </item>
     <item>
       <title>Materialise: The Company That Bet on Software Before Anyone Knew Software Was the Bet</title>
       <description>Alex and Jordan profile Materialise, the Belgian veteran that decided decades ago that the money in 3D printing wasn&apos;t in printers. From Magics and Build Processors to custom PEEK skull implants, they trace how a 1990 founding turned into a dual software-and-medical business, and ask whether a margin-first strategy can survive flat revenue.</description>

@@ -1,6 +1,17 @@
 {
   "episodes": [
     {
+      "number": 17,
+      "date": "2026-08-07",
+      "title": "The Hospital Is the Factory Now — Walter Reed's FDA First",
+      "description": "Walter Reed becomes the first hospital cleared by the FDA to print its own titanium implants, and Alex and Jordan dig into what it actually takes to turn a medical center into a manufacturer. Plus: Renishaw goes after supports in metal printing, $9 million against the defense qualification wall, a carbon-fiber trick for your desktop prints, and a Florida 3D-printed house that has the New York Post rolling its eyes.",
+      "duration": 1221,
+      "fileSize": 19534202,
+      "releaseUrl": "https://github.com/szabadkai/podcastEngine/releases/download/episode-2026-08-07/episode.mp3",
+      "guid": "layer-lines-weekly-2026-08-07",
+      "transcriptUrl": "https://szabadkai.github.io/podcastEngine/transcripts/2026-08-07.txt"
+    },
+    {
       "number": 16,
       "date": "2026-08-04",
       "title": "Materialise: The Company That Bet on Software Before Anyone Knew Software Was the Bet",
