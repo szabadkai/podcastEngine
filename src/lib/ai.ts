@@ -98,7 +98,8 @@ export async function chat(opts: ChatOptions): Promise<string> {
     }
 
     let data: {
-      choices: Array<{ message: { content: string }; finish_reason?: string }>;
+      choices?: Array<{ message: { content: string }; finish_reason?: string }>;
+      error?: string | { message?: string; code?: string | number };
     };
     try {
       data = JSON.parse(responseText) as typeof data;
@@ -111,7 +112,17 @@ export async function chat(opts: ChatOptions): Promise<string> {
 
     const choice = Array.isArray(data.choices) ? data.choices[0] : undefined;
     if (!choice || typeof choice.message?.content !== "string") {
-      lastError = new Error("OpenRouter response did not contain a message choice");
+      const providerError =
+        typeof data.error === "string"
+          ? data.error
+          : data.error?.message || data.error?.code
+            ? [data.error.message, data.error.code && `code=${data.error.code}`]
+                .filter(Boolean)
+                .join("; ")
+            : "no provider error details";
+      lastError = new Error(
+        `OpenRouter response did not contain a message choice (${providerError})`,
+      );
       continue;
     }
     // Truncated at the cap. A reasoning model spends part of max_tokens thinking,
