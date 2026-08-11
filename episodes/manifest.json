@@ -1,6 +1,17 @@
 {
   "episodes": [
     {
+      "number": 18,
+      "date": "2026-08-11",
+      "title": "UltiMaker - The Open Desktop Pioneer Trying to Grow Up Industrial",
+      "description": "Alex and Jordan profile UltiMaker, the company stitched together from two desktop 3D printing pioneers that's now betting on factories, defense, and an open materials ecosystem. From open-source roots and the MakerBot merger to the Factor line and the Bambu Lab squeeze, this is a look at whether a desktop legend can survive by going upmarket.",
+      "duration": 1338,
+      "fileSize": 21405823,
+      "releaseUrl": "https://github.com/szabadkai/podcastEngine/releases/download/episode-2026-08-11/episode.mp3",
+      "guid": "layer-lines-weekly-2026-08-11",
+      "transcriptUrl": "https://szabadkai.github.io/podcastEngine/transcripts/2026-08-11.txt"
+    },
+    {
       "number": 17,
       "date": "2026-08-07",
       "title": "The Hospital Is the Factory Now — Walter Reed's FDA First",
