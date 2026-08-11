@@ -57,7 +57,7 @@ function escapeRegex(text: string): string {
 // that it is a rumor or unavailable when the fact-checker has documented it as
 // launched. Keep this narrow and fail before audio/publish rather than letting
 // a single generated line undo a source-backed product chronology.
-function findLaunchedProductContradictions(
+export function findLaunchedProductContradictions(
   script: EpisodeScript,
   factChecked: FactCheckedStories
 ): string[] {
@@ -75,13 +75,43 @@ function findLaunchedProductContradictions(
     /\b(?:rumou?red|leak(?:\s+thread)?|speculat(?:ion|ive)|unconfirmed|not\s+(?:yet\s+)?(?:released|available|shipping)|can(?:not|'t)\s+confirm\s+(?:is|are|it(?:'s)?|they(?:'re)?|shipping))\b/i;
   const failures: string[] = [];
 
-  for (const [key, status] of launched) {
-    const product = new RegExp(`\\b${escapeRegex(status.product)}\\b`, "i");
+  // Keep contradiction terms scoped to the sentence/clause that actually
+  // mentions the product. A line such as "Confirmed versus speculative.
+  // Confirmed: Factor 4 Plus is shipping" must not make the second sentence
+  // look speculative merely because both sentences share one dialogue turn.
+  const clauses = (text: string): string[] =>
+    text.match(/[^.!?;]+(?:[.!?;]+|$)/g) ?? [text];
+
+  // Product families often use prefix names (for example, "Factor 4" and
+  // "Factor 4 Plus"). A regex for the shorter name also matches the longer
+  // one, so only count an occurrence when it is not the start of a known,
+  // longer launched-product name.
+  const mentionsExactProduct = (text: string, status: ProductStatusFact): boolean => {
+    const product = new RegExp(`\\b${escapeRegex(status.product)}\\b`, "gi");
+    const statusName = status.product.toLowerCase();
+    const longerNames = [...launched.values()]
+      .map((candidate) => candidate.product.toLowerCase())
+      .filter((candidate) => candidate.startsWith(`${statusName} `));
+
+    for (const match of text.matchAll(product)) {
+      const at = match.index ?? 0;
+      const shadowed = longerNames.some(
+        (candidate) => text.slice(at, at + candidate.length).toLowerCase() === candidate
+      );
+      if (!shadowed) return true;
+    }
+    return false;
+  };
+
+  for (const status of launched.values()) {
     for (const line of script.lines) {
-      if (product.test(line.text) && contradiction.test(line.text)) {
-        failures.push(
-          `${status.product} is documented as launched (${status.evidence}); contradictory line: ${line.text}`
-        );
+      for (const clause of clauses(line.text)) {
+        if (mentionsExactProduct(clause, status) && contradiction.test(clause)) {
+          failures.push(
+            `${status.product} is documented as launched (${status.evidence}); contradictory line: ${line.text}`
+          );
+          break;
+        }
       }
     }
   }
