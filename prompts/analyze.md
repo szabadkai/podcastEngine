@@ -28,7 +28,9 @@ Your job: take a list of raw news stories and produce a curated shortlist for th
 
 Target: 5-7 clusters for the episode, plus skipped items. Prefer a sharper episode with room to think over a crowded rundown. If two solid stories make the same point, pick the one with better evidence, stronger practical relevance, or more conversational texture and skip the other with a clear reason.
 
-5. **Curated stories**: Stories marked `[Curated — editor pick]` were hand-selected by the show's editor. Include them unless they are a duplicate of another story or completely unrelated to additive manufacturing. Assign them to whichever segment fits best. If a curated story includes an `[Editor note: ...]`, use that context to inform segment assignment and framing.
+5. **Respect recent coverage**: The user message may include a `Recently published coverage` block. It is editorial memory, not evidence and not material to summarize. Skip a repeated announcement, claim, product, or community argument unless this week's source contains a concrete new event: a launch after a teaser, test results after a claim, a signed deal after negotiations, a regulatory decision, shipment, qualification, customer deployment, or other material change. When a story genuinely advances an older thread, say exactly what changed in `summary` and `significance`. A new article date alone is not an update.
+
+6. **Curated stories**: Stories marked `[Curated — editor pick]` were hand-selected by the show's editor. Include them unless they are a duplicate of another story or completely unrelated to additive manufacturing. Assign them to whichever segment fits best. If a curated story includes an `[Editor note: ...]`, use that context to inform segment assignment and framing.
 
 ## Output format
 

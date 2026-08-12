@@ -53,6 +53,55 @@ export interface Claim {
   note: string;
 }
 
+export interface ResearchRequest {
+  question: string;
+  reason: string;
+  priority: "critical" | "useful";
+  query: string;
+  preferredSources: string[];
+  publicAnswerLikely: boolean;
+}
+
+export type ResearchFindingStatus =
+  | "resolved"
+  | "partially-resolved"
+  | "not-found"
+  | "not-public";
+
+export interface ResearchSource {
+  url: string;
+  title: string;
+  publisher: string;
+  sourceClass: "primary" | "independent" | "community";
+  evidence: string;
+}
+
+export interface ResearchFinding {
+  requestId: string;
+  clusterId: string;
+  question: string;
+  status: ResearchFindingStatus;
+  answer: string;
+  sources: ResearchSource[];
+  residualUncertainty: string;
+}
+
+export interface EpisodeResearchRequest extends ResearchRequest {
+  id: string;
+  clusterId: string;
+  clusterHeadline: string;
+}
+
+export interface EpisodeResearch {
+  episodeDate: string;
+  episodeType: EpisodeType;
+  companyName?: string;
+  completed: boolean;
+  failure?: string;
+  requests: EpisodeResearchRequest[];
+  findings: ResearchFinding[];
+}
+
 export type ProductStatus =
   | "launched"
   | "announced"
@@ -75,6 +124,9 @@ export interface FactCheckResult {
   hypeFlags: string[];
   missingContext: string[];
   skepticalAngles: string[];
+  // Present on the first-pass audit. The final fact-check intentionally clears
+  // this field after the selected public-web questions have been researched.
+  researchRequests?: ResearchRequest[];
 }
 
 export interface FactCheckedCluster extends StoryCluster {

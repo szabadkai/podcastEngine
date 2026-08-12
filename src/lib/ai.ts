@@ -16,6 +16,31 @@ interface ReasoningConfig {
   exclude?: boolean;
 }
 
+interface OpenRouterWebSearchTool {
+  type: "openrouter:web_search";
+  parameters?: {
+    engine?: "auto" | "native" | "exa" | "firecrawl" | "parallel" | "perplexity";
+    max_results?: number;
+    max_total_results?: number;
+    search_context_size?: "low" | "medium" | "high";
+    allowed_domains?: string[];
+    excluded_domains?: string[];
+  };
+}
+
+interface OpenRouterWebFetchTool {
+  type: "openrouter:web_fetch";
+  parameters?: {
+    engine?: "auto" | "native" | "exa" | "openrouter" | "firecrawl" | "parallel";
+    max_uses?: number;
+    max_content_tokens?: number;
+    allowed_domains?: string[];
+    blocked_domains?: string[];
+  };
+}
+
+type OpenRouterTool = OpenRouterWebSearchTool | OpenRouterWebFetchTool;
+
 interface ChatOptions {
   messages: ChatMessage[];
   temperature?: number;
@@ -23,6 +48,8 @@ interface ChatOptions {
   jsonMode?: boolean;
   model?: string;
   reasoning?: ReasoningConfig;
+  tools?: OpenRouterTool[];
+  toolChoice?: "auto" | "required" | "none";
 }
 
 // Hard ceiling when escalating after a truncation — Claude Opus 4.8's max output.
@@ -46,6 +73,8 @@ export async function chat(opts: ChatOptions): Promise<string> {
     };
     if (opts.jsonMode) body.response_format = { type: "json_object" };
     if (opts.reasoning) body.reasoning = opts.reasoning;
+    if (opts.tools?.length) body.tools = opts.tools;
+    if (opts.toolChoice) body.tool_choice = opts.toolChoice;
     return body;
   };
 

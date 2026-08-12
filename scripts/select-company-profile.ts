@@ -67,9 +67,19 @@ function parseUrlInput(value: string | undefined): string[] {
 
 function manifestMentionsCompany(manifest: Manifest, companyName: string): boolean {
   const normalized = normalizeName(companyName);
-  return manifest.episodes.some((episode) =>
-    normalizeName(`${episode.title} ${episode.description}`).includes(normalized),
-  );
+  return manifest.episodes.some((episode) => {
+    const title = normalizeName(episode.title);
+    const description = normalizeName(episode.description);
+    // A weekly news description may mention a company without profiling it.
+    // History remains the primary completion ledger; this manifest fallback
+    // only recognizes the title/description patterns used by profile episodes.
+    const isProfileDescription =
+      description.includes("weprofile") || description.includes("companyprofile");
+    return (
+      isProfileDescription &&
+      (title.includes(normalized) || description.includes(normalized))
+    );
+  });
 }
 
 function writeGitHubEnv(vars: Record<string, string>): void {

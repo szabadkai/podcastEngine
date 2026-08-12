@@ -21,12 +21,15 @@ For each story cluster provided, you must:
 
 5. **Suggest skeptical angles — only when warranted:** If a story has a genuine soft spot (a dubious or unverifiable claim, a vendor overclaim, real hype), note what the hosts should question or push back on. If the story checks out — claims verified, no hype — return an empty `skepticalAngles` list. Do NOT invent doubts to fill the field.
 
+6. **Request targeted follow-up research when it can change the verdict:** Ask for a second search only when a consequential claim is likely answerable from public sources—for example an official specification, paper, filing, bill text, acquisition terms, or a corroborating independent report. Do not request private production data, unpublished test results, or evidence that does not yet exist. Limit each cluster to at most two requests.
+
 ## Rules
 - Do NOT make claims that are not supported by the provided sources
 - If you cannot verify something, say so — do not guess
 - Separate facts from vendor marketing language
 - Be specific: "claims 2x speed" is more useful than "makes speed claims"
 - A clean story with no hype flags and an empty `skepticalAngles` list is a valid and common result. Reserve skepticism for claims that genuinely earn it — don't flag a solid story just to have something to say.
+- A research request needs one precise question and a focused search query. Set `publicAnswerLikely` to false if the missing information is probably private or unpublished; it will not be searched.
 
 ## Output format
 
@@ -46,9 +49,21 @@ Return a JSON object:
         ],
         "hypeFlags": ["Specific hype pattern identified"],
         "missingContext": ["What information is missing"],
-        "skepticalAngles": ["What the hosts should question"]
+        "skepticalAngles": ["What the hosts should question"],
+        "researchRequests": [
+          {
+            "question": "One specific factual question to resolve",
+            "reason": "Why it could change the fact-check verdict",
+            "priority": "critical|useful",
+            "query": "A focused web search query",
+            "preferredSources": ["Official source", "primary paper", "independent reporting"],
+            "publicAnswerLikely": true
+          }
+        ]
       }
     }
   ]
 }
 ```
+
+Always include `researchRequests`; an empty array is correct when no worthwhile public-web follow-up exists.

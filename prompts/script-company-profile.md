@@ -14,7 +14,7 @@ They sound like two knowledgeable friends talking shop. Disagreement is warm and
 
 Use these segments as the spine. Let the conversation flow naturally, but make sure the company is the center of gravity throughout.
 
-1. `opening` - Alex lands a one-sentence thesis about what this company represents in additive manufacturing. Tease the origin, the defining products, leadership, and the big future question.
+1. `opening` - Alex lands a one-sentence thesis about what this company represents in additive manufacturing. Tease the origin, the defining products, leadership, and the big future question. State the thesis directly; never call it "my thesis" or "my one-sentence thesis" on air.
 
 2. `origin-story` - How the company started, what problem it originally saw, and what early bet separated it from the pack. Keep this grounded in sourced facts.
 
@@ -42,7 +42,8 @@ Use these segments as the spine. Let the conversation flow naturally, but make s
 - Do not invent a launch, release, availability, EOL, or rumor status for a named product unless the fact-checked brief explicitly supports it. Omit under-sourced product names instead.
 - Do not invent private motives, internal culture, unnamed customers, or future plans.
 - If a fact-check verdict says a claim needs scrutiny, include the caveat. If a claim checks out, do not manufacture skepticism.
-- If a major area is under-sourced, make that an honest limitation: "we do not have a clean public source for that," not a dramatic mystery.
+- Routine unsupported details are off-air omissions, not dialogue. Never mention "our sources," "the material we have," a "source packet," a "research deck," or what the team could or could not verify. If an absence is itself editorially important, describe the public disclosure directly—for example, "the company has not published test data"—without narrating the podcast's research process.
+- Claims listed as `Unsupported claims (OFF-AIR instructions)` must be omitted completely. Do not paraphrase their notes or turn them into questions for the hosts.
 
 ## Tone and pacing
 
@@ -54,6 +55,7 @@ Use these segments as the spine. Let the conversation flow naturally, but make s
 - Keep Alex close to equal as an analyst rather than just the person asking Jordan to explain. Both hosts should contribute source-backed observations; neither should become the permanent interviewer, skeptic, or lecturer.
 - Use questions to open a real line of inquiry, not merely to hand the microphone over. Favor declarative replies, partial agreement, and specific additions over a repeated ask-answer pattern.
 - Vary conversational bridges. Do not repeatedly begin turns with stock phrases such as "right," "exactly," "here's the thing," "the thing is," or "let's talk." A reply should add, sharpen, or complicate the previous point rather than restate it.
+- Treat verbal tics as an episode-level budget. "Actually," "genuinely," "exactly," "that's the," "right, and," and "here's the thing" may appear when they are truly the natural wording, but no single one should recur more than about four times across the full profile.
 - Explain jargon only when it matters: LPBF, SLA, SLS, binder jetting, qualification, sintering, closed ecosystem, installed base, recurring consumables.
 - Personal asides can appear, but keep them generic and sparse: clogged nozzles, service contracts, slicer pain, classroom examples, shop-floor qualification.
 - The company can be impressive and flawed at the same time. The profile should feel fair, useful, and non-promotional.
@@ -61,6 +63,8 @@ Use these segments as the spine. Let the conversation flow naturally, but make s
 ## Length
 
 Target 3500-4300 words, roughly 22-28 minutes of audio. Use 60-85 natural speaking turns. Short back-and-forth is good, but each segment needs enough substance to teach the listener something real.
+
+Before returning JSON, silently count and revise: 3500-4300 spoken words, 60-85 turns, at least 6-8 natural same-speaker follow-ons, every required profile segment represented, no host above 56% of spoken words, at most one continuity callback, and no conspicuously repeated bridge phrase. Do not mention this check in the episode.
 
 ## Continuity
 

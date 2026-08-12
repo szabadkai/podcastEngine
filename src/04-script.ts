@@ -7,47 +7,17 @@ import {
   getEpisodeContext,
   promptPath,
 } from "./lib/episode-mode.js";
+import { analyzeScriptQuality } from "./lib/script-quality.js";
 import { loadJson, writeJson, fileExists, loadRecentRecaps } from "./lib/storage.js";
+import { getSpeakerIds } from "./show.js";
 import { findBestRecapMatch } from "./lib/continuity.js";
+import { supportedAndUnsupportedClaims } from "./lib/research.js";
 import type {
   FactCheckedStories,
   EpisodeScript,
   EpisodeManifest,
   ProductStatusFact,
 } from "./lib/types.js";
-
-interface ScriptQualityReport {
-  wordCount: number;
-  lineCount: number;
-  estimatedMinutes: number;
-  avgWordsPerLine: number;
-  switchRatePct: number;
-  sameSpeakerFollowUpCount: number;
-  maxSameSpeakerRun: number;
-  questionLinePct: number;
-  callbackCount: number;
-  handoffPhraseCount: number;
-  speakerWordSharePct: Record<string, number>;
-  warnings: string[];
-}
-
-const WORD_RE = /\b[\w'-]+\b/g;
-const CALLBACK_RE =
-  /\b(last week|previous|earlier|episode \d+|episode one|episode two|episode three|episode four|episode five|episode six|few episodes|few weeks|as we covered|we covered|we talked|we flagged|listeners will remember|ties back|back in episode)\b/gi;
-const HANDOFF_RE =
-  /\b(right, and|yeah, and|exactly|that's the|the bigger thing|the catch is|which is|and that's|so the)\b/gi;
-
-function countWords(text: string): number {
-  return text.match(WORD_RE)?.length ?? 0;
-}
-
-function countMatches(text: string, pattern: RegExp): number {
-  return text.match(pattern)?.length ?? 0;
-}
-
-function round1(n: number): number {
-  return Math.round(n * 10) / 10;
-}
 
 function escapeRegex(text: string): string {
   return text.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
@@ -119,109 +89,6 @@ export function findLaunchedProductContradictions(
   return failures;
 }
 
-function analyzeScriptQuality(script: EpisodeScript): ScriptQualityReport {
-  const text = script.lines.map((l) => l.text).join("\n");
-  const wordCount = countWords(text);
-  const lineCount = script.lines.length;
-  const speakerWords: Record<string, number> = {};
-  let switches = 0;
-  let sameSpeakerFollowUpCount = 0;
-  let currentSpeakerRun = 0;
-  let maxSameSpeakerRun = 0;
-  let questionLines = 0;
-
-  for (let i = 0; i < script.lines.length; i++) {
-    const line = script.lines[i];
-    speakerWords[line.speaker] =
-      (speakerWords[line.speaker] ?? 0) + countWords(line.text);
-    if (i === 0 || script.lines[i - 1].speaker !== line.speaker) {
-      if (i > 0) switches++;
-      currentSpeakerRun = 1;
-    } else {
-      sameSpeakerFollowUpCount++;
-      currentSpeakerRun++;
-    }
-    maxSameSpeakerRun = Math.max(maxSameSpeakerRun, currentSpeakerRun);
-    if (line.text.includes("?")) questionLines++;
-  }
-
-  const speakerWordSharePct = Object.fromEntries(
-    Object.entries(speakerWords).map(([speaker, words]) => [
-      speaker,
-      wordCount > 0 ? round1((words / wordCount) * 100) : 0,
-    ])
-  );
-  const switchRatePct =
-    lineCount > 1 ? round1((switches / (lineCount - 1)) * 100) : 0;
-  const questionLinePct =
-    lineCount > 0 ? round1((questionLines / lineCount) * 100) : 0;
-  const callbackCount = countMatches(text, CALLBACK_RE);
-  const handoffPhraseCount = countMatches(text, HANDOFF_RE);
-  const minWords = script.episodeType === "company-profile" ? 3500 : 3200;
-  const maxWords = script.episodeType === "company-profile" ? 4300 : 4000;
-  const warnings: string[] = [];
-
-  if (wordCount < minWords) {
-    warnings.push(
-      `Script is short for this format (${wordCount} words; target floor ${minWords}).`
-    );
-  }
-  if (wordCount > maxWords) {
-    warnings.push(
-      `Script is long for this format (${wordCount} words; target ceiling ${maxWords}).`
-    );
-  }
-  if (switchRatePct > 88) {
-    warnings.push(
-      `Speaker switching is too regular (${switchRatePct}% of turns switch speaker).`
-    );
-  }
-  const minSameSpeakerFollowUps = Math.max(3, Math.floor(lineCount / 12));
-  if (lineCount >= 30 && sameSpeakerFollowUpCount < minSameSpeakerFollowUps) {
-    warnings.push(
-      `Conversation is too strictly alternating (${sameSpeakerFollowUpCount} same-speaker follow-ups; target at least ${minSameSpeakerFollowUps}).`
-    );
-  }
-  if (maxSameSpeakerRun > 4) {
-    warnings.push(
-      `One speaker holds the floor for ${maxSameSpeakerRun} consecutive turns; check that it still sounds like a dialogue.`
-    );
-  }
-  for (const [speaker, share] of Object.entries(speakerWordSharePct)) {
-    if (share > 58) {
-      warnings.push(`${speaker} dominates the script (${share}% of words).`);
-    }
-  }
-  if (callbackCount > 1) {
-    warnings.push(`Too many continuity callbacks (${callbackCount}; target 0-1).`);
-  }
-  if (handoffPhraseCount > Math.max(20, lineCount * 0.3)) {
-    warnings.push(
-      `Handoff phrases may be repetitive (${handoffPhraseCount} matches).`
-    );
-  }
-  if (questionLinePct > 32) {
-    warnings.push(
-      `Question-heavy pacing (${questionLinePct}% of lines contain a question).`
-    );
-  }
-
-  return {
-    wordCount,
-    lineCount,
-    estimatedMinutes: Math.round(wordCount / 155),
-    avgWordsPerLine: lineCount > 0 ? round1(wordCount / lineCount) : 0,
-    switchRatePct,
-    sameSpeakerFollowUpCount,
-    maxSameSpeakerRun,
-    questionLinePct,
-    callbackCount,
-    handoffPhraseCount,
-    speakerWordSharePct,
-    warnings,
-  };
-}
-
 export async function run(episodeDir: string): Promise<void> {
   const outputPath = path.join(episodeDir, "04-script.json");
   const qualityPath = path.join(episodeDir, "04-script-quality.json");
@@ -242,7 +109,9 @@ export async function run(episodeDir: string): Promise<void> {
     path.resolve("episodes", "manifest.json"),
     { episodes: [] }
   );
-  const episodeNumber = manifest.episodes.length + 1;
+  const episodeNumber =
+    Math.max(0, ...manifest.episodes.map((episode) => episode.number)) + 1;
+  const publishedDates = new Set(manifest.episodes.map((episode) => episode.date));
 
   // Lightweight continuity: feed at most one older recap so hosts can make an
   // occasional, relevant callback (see "Continuity" in prompts/script.md).
@@ -251,6 +120,7 @@ export async function run(episodeDir: string): Promise<void> {
   const eligibleRecaps = loadRecentRecaps(config.episode.continuityWindow, {
     beforeDate: factChecked.episodeDate,
     minAgeDays: config.episode.continuityMinAgeDays,
+    includeDates: publishedDates,
   });
   const continuityMatch =
     eligibleRecaps.length > 0
@@ -287,7 +157,8 @@ export async function run(episodeDir: string): Promise<void> {
   const storyBrief = factChecked.clusters
     .map((c) => {
       const fc = c.factCheck;
-      const claimLines = fc.claims
+      const { supported, unsupported } = supportedAndUnsupportedClaims(fc);
+      const claimLines = supported
         .map((cl) => `  - [${cl.rating}] ${cl.claim}: ${cl.note}`)
         .join("\n");
 
@@ -296,11 +167,9 @@ export async function run(episodeDir: string): Promise<void> {
       // genuinely earn a caveat. Without this, every cluster carried a
       // "skeptical angle" into the brief and the script grew a predictable
       // "but here's the catch" beat in every single segment.
-      const hasDubious = fc.claims.some((cl) => cl.rating === "dubious");
+      const hasDubious = supported.some((cl) => cl.rating === "dubious");
       const hasHype = fc.hypeFlags.length > 0;
-      const hasSoft = fc.claims.some(
-        (cl) => cl.rating === "plausible" || cl.rating === "unverifiable"
-      );
+      const hasSoft = supported.some((cl) => cl.rating === "plausible");
 
       let verdict: string;
       if (hasDubious || hasHype) {
@@ -329,6 +198,13 @@ export async function run(episodeDir: string): Promise<void> {
               .join("\n")
           : "";
 
+      const unsupportedLines = unsupported.length
+        ? "Unsupported claims (OFF-AIR instructions: omit these claims; do not discuss the research gap):\n" +
+          unsupported
+            .map((claim) => `  - ${claim.claim}: ${claim.note}`)
+            .join("\n")
+        : "";
+
       return [
         `### ${c.segment.toUpperCase()}: ${c.headline}`,
         `Summary: ${c.summary}`,
@@ -336,8 +212,9 @@ export async function run(episodeDir: string): Promise<void> {
         `Sources: ${c.sources.join(", ")}`,
         `Fact-check verdict: ${verdict}`,
         `Claims:`,
-        claimLines,
+        claimLines || "  - No supported discrete claims were returned; stay within the sourced summary.",
         concernLines,
+        unsupportedLines,
       ]
         .filter(Boolean)
         .join("\n");
@@ -355,7 +232,7 @@ export async function run(episodeDir: string): Promise<void> {
       ? `Write episode #${episodeNumber} for ${factChecked.episodeDate}.\n\nCompany: ${episodeContext.companyName}\n\nHere is the fact-checked company profile brief:\n\n${storyBrief}${continuityBlock}\n\nGenerate the full podcast script as JSON.`
       : `Write episode #${episodeNumber} for ${factChecked.episodeDate}.\n\nHere are the fact-checked stories for this episode:\n\n${storyBrief}${continuityBlock}\n\nGenerate the full podcast script as JSON.`;
 
-  const result = await chatJson<EpisodeScript>({
+  let result = await chatJson<EpisodeScript>({
     messages: [
       { role: "system", content: systemPrompt },
       { role: "user", content: userContent },
@@ -364,19 +241,84 @@ export async function run(episodeDir: string): Promise<void> {
     // Episodes target ~20-25 min (3200-4000 words) across 5-7 stories, so the
     // JSON script runs long — give the model room not to truncate mid-line.
     maxTokens: 32000,
-    // The script model (Claude Opus 4.8) is a reasoning model, and on OpenRouter
-    // reasoning tokens are drawn from max_tokens. Left unbounded, the thinking
-    // pass can consume the whole 32k budget and the script truncates mid-line
-    // (finish_reason=length). Cap reasoning so the ~6-8k-token script always has
-    // room: 8k thinking + ~9k output leaves comfortable headroom under 32k.
+    // Reasoning tokens are drawn from max_tokens for several OpenRouter models.
+    // Cap thinking so the full JSON script still has comfortable output room.
     reasoning: { max_tokens: 8000 },
     model: config.ai.scriptModel,
   });
 
-  result.episodeNumber = episodeNumber;
-  result.episodeDate = factChecked.episodeDate;
-  result.episodeType = episodeContext.type;
-  if (episodeContext.companyName) result.companyName = episodeContext.companyName;
+  const applyAuthoritativeMetadata = (script: EpisodeScript): void => {
+    script.episodeNumber = episodeNumber;
+    script.episodeDate = factChecked.episodeDate;
+    script.episodeType = episodeContext.type;
+    if (episodeContext.companyName) script.companyName = episodeContext.companyName;
+  };
+  applyAuthoritativeMetadata(result);
+
+  const requiredSegments = [
+    "opening",
+    ...factChecked.clusters.map((cluster) => cluster.segment),
+    ...(episodeContext.type === "company-profile" ? ["closing"] : []),
+  ];
+  const qualityOptions = {
+    expectedSpeakers: getSpeakerIds(),
+    requiredSegments,
+  };
+  const initialQuality = analyzeScriptQuality(result, qualityOptions);
+  const initialContradictions =
+    episodeContext.type === "company-profile"
+      ? findLaunchedProductContradictions(result, factChecked)
+      : [];
+  const revisionReasons = [
+    ...initialQuality.blockingIssues,
+    ...initialQuality.warnings,
+    ...initialContradictions.map(
+      (contradiction) => `Factual product-status contradiction: ${contradiction}`,
+    ),
+  ];
+
+  // The old engine recorded warnings and published anyway. A single focused
+  // revision is cheaper and safer than letting a 15-minute, one-sided, or
+  // clockwork-alternating episode reach TTS. The original brief remains in the
+  // conversation so the reviser has no reason to invent facts.
+  if (revisionReasons.length > 0) {
+    console.warn(
+      `Stage 04: first draft needs revision (${revisionReasons.length} quality issue(s)).`,
+    );
+    for (const reason of revisionReasons) console.warn(`  - ${reason}`);
+
+    result = await chatJson<EpisodeScript>({
+      messages: [
+        { role: "system", content: systemPrompt },
+        { role: "user", content: userContent },
+        { role: "assistant", content: JSON.stringify(result) },
+        {
+          role: "user",
+          content:
+            "Revise the draft and return the complete EpisodeScript JSON. " +
+            "Preserve every factual claim, source cue, product status, and required story from the brief; do not add facts. " +
+            "Fix every quality issue below through substantive editing, not padding. Deepen useful context and practical implications if the draft is short. " +
+            "Keep both hosts analytical, vary turn shapes, include natural same-speaker follow-ons, and replace repeated verbal tics with direct language.\n\n" +
+            revisionReasons.map((reason) => `- ${reason}`).join("\n"),
+        },
+      ],
+      temperature: 0.45,
+      maxTokens: 32000,
+      reasoning: { max_tokens: 6000 },
+      model: config.ai.scriptModel,
+    });
+    applyAuthoritativeMetadata(result);
+  }
+
+  const quality = analyzeScriptQuality(result, qualityOptions);
+  quality.revisionAttempted = revisionReasons.length > 0;
+  if (revisionReasons.length > 0) quality.initialWarnings = revisionReasons;
+
+  if (quality.blockingIssues.length > 0) {
+    throw new Error(
+      `Script failed the post-revision quality gate:\n- ${quality.blockingIssues.join("\n- ")}`,
+    );
+  }
 
   if (episodeContext.type === "company-profile") {
     const contradictions = findLaunchedProductContradictions(result, factChecked);
@@ -386,8 +328,6 @@ export async function run(episodeDir: string): Promise<void> {
       );
     }
   }
-
-  const quality = analyzeScriptQuality(result);
 
   writeJson(outputPath, result);
   writeJson(qualityPath, quality);
@@ -400,6 +340,6 @@ export async function run(episodeDir: string): Promise<void> {
     )}.`
   );
   for (const warning of quality.warnings) {
-    console.warn(`Stage 04 quality warning: ${warning}`);
+    console.warn(`Stage 04 residual quality warning: ${warning}`);
   }
 }

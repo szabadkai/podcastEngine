@@ -32,6 +32,14 @@ export interface ShowConfig {
     name: string;
     url: string;
     type?: "core" | "maker" | "research" | "discovery" | "vendor" | "community" | "profile";
+    /** Keep only items whose title or summary contains one of these terms. */
+    include?: string[];
+    /** Drop items whose title or summary contains one of these terms. */
+    exclude?: string[];
+    /** Drop items by title only, useful when release notes mention prereleases. */
+    excludeTitle?: string[];
+    /** Bound broad or high-volume feeds before episode freshness filtering. */
+    maxItems?: number;
   }>;
   speakers: Speaker[];
   voices: {

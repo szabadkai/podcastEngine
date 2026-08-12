@@ -1,9 +1,15 @@
 import fs from "node:fs";
 import path from "node:path";
+import { config } from "./config.js";
 import { chatJson } from "./lib/ai.js";
 import { getEpisodeContext, promptPath } from "./lib/episode-mode.js";
-import { loadJson, writeJson, fileExists } from "./lib/storage.js";
-import type { RawStory, AnalyzedStories } from "./lib/types.js";
+import {
+  loadJson,
+  writeJson,
+  fileExists,
+  loadRecentRecaps,
+} from "./lib/storage.js";
+import type { RawStory, AnalyzedStories, EpisodeManifest } from "./lib/types.js";
 
 export async function run(episodeDir: string): Promise<void> {
   const outputPath = path.join(episodeDir, "02-analyzed.json");
@@ -20,6 +26,29 @@ export async function run(episodeDir: string): Promise<void> {
   const systemPrompt = fs.readFileSync(promptPath("analyze", episodeContext), "utf-8");
 
   const today = path.basename(episodeDir);
+  const manifest = loadJson<EpisodeManifest>(
+    path.resolve("episodes", "manifest.json"),
+    { episodes: [] },
+  );
+  const publishedDates = new Set(manifest.episodes.map((episode) => episode.date));
+  const recentPublishedRecaps =
+    episodeContext.type === "news"
+      ? loadRecentRecaps(config.episode.continuityWindow, {
+          beforeDate: today,
+          includeDates: publishedDates,
+        })
+      : [];
+  const recentCoverageBlock =
+    recentPublishedRecaps.length > 0
+      ? "\n\nRecently published coverage (editorial memory, not source material):\n" +
+        recentPublishedRecaps
+          .map(
+            (recap) =>
+              `- ${recap.date}: ${[...recap.topics, ...recap.threads].join("; ")}`,
+          )
+          .join("\n") +
+        "\n\nDo not select a story merely because it resembles one above. Reuse a topic only when this week's item is a concrete new event or materially advances an unresolved thread; make that advancement explicit in the cluster summary and significance."
+      : "";
   const storyList = stories
     .map(
       (s, i) =>
@@ -31,7 +60,7 @@ export async function run(episodeDir: string): Promise<void> {
   const userContent =
     episodeContext.type === "company-profile"
       ? `Today's date: ${today}\nEpisode type: company-profile\nCompany: ${episodeContext.companyName}\n\nHere are ${stories.length} source items for a company-profile episode:\n\n${storyList}\n\nAnalyze, organize into profile segments, rank, and return JSON.`
-      : `Today's date: ${today}\n\nHere are ${stories.length} stories from this week:\n\n${storyList}\n\nAnalyze, cluster, rank, and assign segments. Return JSON.`;
+      : `Today's date: ${today}${recentCoverageBlock}\n\nHere are ${stories.length} stories from this week:\n\n${storyList}\n\nAnalyze, cluster, rank, and assign segments. Return JSON.`;
 
   const result = await chatJson<AnalyzedStories>({
     messages: [

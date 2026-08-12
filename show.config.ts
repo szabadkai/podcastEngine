@@ -34,9 +34,63 @@ const show: ShowConfig = {
     // FeedBlitz endpoint (linked from https://www.fabbaloo.com/subscribe).
     { name: "Fabbaloo", url: "http://feeds.fabbaloo.com/fabbaloo/default/" },
     { name: "3Dnatives", url: "https://www.3dnatives.com/en/feed/" },
+    {
+      name: "DEVELOP3D AM",
+      url: "https://develop3d.com/feed/",
+      include: [
+        "3d print",
+        "additive",
+        "generative design",
+        "implicit model",
+        "lattice",
+        "topology optimization",
+      ],
+      maxItems: 8,
+    },
+    {
+      name: "The Cool Parts Show",
+      url: "https://www.youtube.com/feeds/videos.xml?channel_id=UC-8kYw3osuUjTmfn7tWY-MA",
+      maxItems: 5,
+    },
+
+    // ── Primary research ────────────────────────────────────────────────
+    {
+      name: "Additive Manufacturing Journal",
+      url: "https://rss.sciencedirect.com/publication/science/22148604",
+      type: "research",
+      maxItems: 18,
+    },
 
     // ── Maker / practical ───────────────────────────────────────────────
     { name: "Hackaday 3DP", url: "https://hackaday.com/category/3d-printer-hacks/feed/", type: "maker" },
+    {
+      name: "Tom's Hardware 3DP",
+      url: "https://www.tomshardware.com/feeds/tag/3d-printing",
+      type: "maker",
+      exclude: ["deal", "save $", "coupon", "discount"],
+      maxItems: 20,
+    },
+    {
+      name: "OrcaSlicer Releases",
+      url: "https://github.com/OrcaSlicer/OrcaSlicer/releases.atom",
+      type: "maker",
+      excludeTitle: ["nightly", "alpha", "beta", "release candidate", "-rc"],
+      maxItems: 5,
+    },
+    {
+      name: "PrusaSlicer Releases",
+      url: "https://github.com/prusa3d/PrusaSlicer/releases.atom",
+      type: "maker",
+      excludeTitle: ["alpha", "beta", "release candidate", "-rc"],
+      maxItems: 5,
+    },
+    {
+      name: "Marlin Releases",
+      url: "https://github.com/MarlinFirmware/Marlin/releases.atom",
+      type: "maker",
+      excludeTitle: ["latest-", "alpha", "beta", "release candidate", "-rc"],
+      maxItems: 5,
+    },
 
     // ── Vendor blogs ────────────────────────────────────────────────────
     { name: "Prusa Blog", url: "https://blog.prusa3d.com/feed/", type: "vendor" },
@@ -46,6 +100,9 @@ const show: ShowConfig = {
     // no published feed. Google News discovery still surfaces their updates.
     { name: "ELEGOO Blog", url: "https://www.elegoo.com/blogs/news.atom", type: "vendor" },
     { name: "Anycubic Blog", url: "https://store.anycubic.com/blogs/news.atom", type: "vendor" },
+    { name: "SPEE3D", url: "https://www.spee3d.com/feed/", type: "vendor", maxItems: 8 },
+    { name: "Lithoz", url: "https://www.lithoz.com/en/feed/", type: "vendor", maxItems: 8 },
+    { name: "3MF Consortium", url: "https://www.3mf.io/feed/", type: "vendor", maxItems: 5 },
     // MatterHackers: feed returns malformed XML, skipped for now
 
     // ── Community (Reddit top/week) ─────────────────────────────────────
@@ -71,6 +128,24 @@ const show: ShowConfig = {
       name: "GNews AM Companies",
       url: "https://news.google.com/rss/search?q=%22Formlabs%22+OR+%22Bambu+Lab%22+OR+%22Prusa%22+OR+%22Stratasys%22+OR+%22Desktop+Metal%22+OR+%22EOS%22+OR+%223D+Systems%22&hl=en-US&gl=US&ceid=US:en",
       type: "discovery",
+    },
+    {
+      name: "GNews AM Expanded Companies",
+      url: "https://news.google.com/rss/search?q=%22Creality%22+OR+%22HP+Multi+Jet+Fusion%22+OR+%22Divergent+Adaptive+Production%22+OR+%22nTop%22+OR+%22BICO%22+OR+%22COBOD%22+OR+%22SPEE3D%22+OR+%22Lithoz%22+OR+%22DyeMansion%22+OR+%22Protolabs%22&hl=en-US&gl=US&ceid=US:en",
+      type: "discovery",
+      maxItems: 20,
+    },
+    {
+      name: "GNews AM Government",
+      url: "https://news.google.com/rss/search?q=(%22additive+manufacturing%22+OR+%223D+printing%22)+(site%3Afda.gov+OR+site%3Anist.gov+OR+site%3Aornl.gov+OR+site%3Anasa.gov+OR+site%3Afederalregister.gov)&hl=en-US&gl=US&ceid=US:en",
+      type: "research",
+      maxItems: 15,
+    },
+    {
+      name: "GNews AM Regulation",
+      url: "https://news.google.com/rss/search?q=(%223D+printing%22+OR+%22additive+manufacturing%22)+(regulation+OR+law+OR+legislation+OR+FDA+OR+%22Federal+Register%22)&hl=en-US&gl=US&ceid=US:en",
+      type: "discovery",
+      maxItems: 15,
     },
   ],
 

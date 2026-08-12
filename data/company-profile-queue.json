@@ -18,6 +18,97 @@
       ]
     },
     {
+      "name": "Creality",
+      "website": "https://www.creality.com/",
+      "profileUrls": [
+        "https://www.creality.com/about",
+        "https://www.creality.com/investor-relations",
+        "https://www.creality.com/open-source"
+      ]
+    },
+    {
+      "name": "HP 3D Printing",
+      "website": "https://www.hp.com/us-en/printers/3d-printers.html",
+      "profileUrls": [
+        "https://www.hp.com/us-en/printers/3d-printers.html",
+        "https://www.hp.com/us-en/printers/3d-printers/products/multi-jet-technology.html",
+        "https://www.hp.com/us-en/printers/3d-printers/resources/case-studies-resources.html",
+        "https://www.hp.com/us-en/newsroom/press-releases/2016/hp-delivers-worlds-first-production-ready-3d-printing-system.html"
+      ]
+    },
+    {
+      "name": "nTop",
+      "website": "https://www.ntop.com/",
+      "profileUrls": [
+        "https://www.ntop.com/company/about-us/",
+        "https://www.ntop.com/resources/blog/re-introducing-ntop/",
+        "https://www.ntop.com/resources/blog/ntopology-secures-65m-in-series-d-funding/"
+      ]
+    },
+    {
+      "name": "Divergent Technologies",
+      "website": "https://www.divergent.us/",
+      "profileUrls": [
+        "https://www.divergent.us/",
+        "https://www.axios.com/2026/03/23/divergent-3d-printing-missiles-pentagon",
+        "https://time.com/7023380/czinger-3d-print-ai-sports-car/"
+      ]
+    },
+    {
+      "name": "BICO",
+      "website": "https://bico.com/",
+      "profileUrls": [
+        "https://bico.com/about-us/",
+        "https://bico.com/investors/",
+        "https://www.cellink.com/"
+      ]
+    },
+    {
+      "name": "COBOD",
+      "website": "https://cobod.com/",
+      "profileUrls": [
+        "https://cobod.com/company/",
+        "https://cobod.com/about-us/our-purpose/",
+        "https://cobod.com/holcim-invests-in-3d-construction-printing-leader-cobod/"
+      ]
+    },
+    {
+      "name": "SPEE3D",
+      "website": "https://www.spee3d.com/",
+      "profileUrls": [
+        "https://www.spee3d.com/about/",
+        "https://www.spee3d.com/technology/",
+        "https://www.spee3d.com/press-center/"
+      ]
+    },
+    {
+      "name": "Lithoz",
+      "website": "https://www.lithoz.com/",
+      "profileUrls": [
+        "https://www.lithoz.com/en/all-about-us/mission/",
+        "https://www.lithoz.com/en/3d-printer/overview/",
+        "https://www.lithoz.com/en/materials/materialoverview/"
+      ]
+    },
+    {
+      "name": "DyeMansion",
+      "website": "https://dyemansion.com/",
+      "profileUrls": [
+        "https://dyemansion.com/about-us/",
+        "https://dyemansion.com/products/",
+        "https://dyemansion.com/post-processing-3d-printing/"
+      ]
+    },
+    {
+      "name": "Protolabs",
+      "website": "https://www.protolabs.com/",
+      "profileUrls": [
+        "https://www.protolabs.com/about-us/",
+        "https://www.protolabs.com/services/3d-printing/",
+        "https://www.protolabs.com/about-us/press/"
+      ]
+    },
+    {
       "name": "Prusa Research",
       "website": "https://www.prusa3d.com/",
       "profileUrls": [

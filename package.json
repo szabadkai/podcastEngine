@@ -13,7 +13,9 @@
     "audio": "tsx --env-file-if-exists=.env src/pipeline.ts audio",
     "publish": "tsx --env-file-if-exists=.env src/pipeline.ts publish",
     "profile:select": "tsx scripts/select-company-profile.ts",
-    "dry-run": "tsx --env-file-if-exists=.env src/pipeline.ts --dry-run"
+    "dry-run": "tsx --env-file-if-exists=.env src/pipeline.ts --dry-run",
+    "test": "tsx --test src/lib/*.test.ts",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "rss-parser": "^3.13.0",

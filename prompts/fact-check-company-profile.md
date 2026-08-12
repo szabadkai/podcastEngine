@@ -29,6 +29,8 @@ For product chronology, record the status of every named product precisely: **la
 
 5. Suggest skeptical angles only when warranted. A clean leadership fact or well-sourced product history can have an empty `skepticalAngles` list.
 
+6. Create targeted follow-up research requests for consequential gaps that are likely answerable on the public web. Good requests include a missing founding date, named leadership, product launch status, certification, court filing, partnership scope, or a basic financial transaction detail. Do not request private financials, unpublished test data, unnamed customers, or proof that would require new laboratory work. Limit each cluster to at most two requests.
+
 ## Rules
 
 - Do not invent facts from memory. Use only the provided cluster summary and sources.
@@ -38,6 +40,7 @@ For product chronology, record the status of every named product precisely: **la
 - Never turn an explicit launch source into "speculation" merely because the company has other rumored products. If the evidence is insufficient, rate the status `unknown` or `unverifiable` and tell the scriptwriter to omit it rather than asserting that it has not launched.
 - Be especially careful with the future: phrase it as strategy, risk, or open question unless the source proves a committed plan.
 - A company-profile episode should be fair, not promotional. Preserve important achievements, but mark the weak spots.
+- A research request must contain one specific question and one focused search query. Mark `publicAnswerLikely` false when the information is probably private or genuinely unpublished; those requests will not be searched.
 
 ## Output format
 
@@ -64,7 +67,17 @@ Return a JSON object:
         ],
         "hypeFlags": ["Specific hype pattern identified"],
         "missingContext": ["What information is missing"],
-        "skepticalAngles": ["What the hosts should question"]
+        "skepticalAngles": ["What the hosts should question"],
+        "researchRequests": [
+          {
+            "question": "One specific factual question to resolve",
+            "reason": "Why resolving it materially improves the episode",
+            "priority": "critical|useful",
+            "query": "A focused web search query",
+            "preferredSources": ["Official company page", "court filing", "independent trade reporting"],
+            "publicAnswerLikely": true
+          }
+        ]
       }
     }
   ]
@@ -72,3 +85,4 @@ Return a JSON object:
 ```
 
 Always include `productStatuses` for a `product-lineage` cluster and any cluster that names a product. Use an empty array only when the cluster names no specific product.
+Always include `researchRequests`; an empty array is correct when no worthwhile public-web follow-up exists.

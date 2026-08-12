@@ -47,6 +47,10 @@ export function recapPath(episodeDate: string): string {
 export interface RecentRecapOptions {
   beforeDate?: string;
   minAgeDays?: number;
+  // When supplied, drafts/orphaned recaps are excluded before the window is
+  // sliced. The script and analysis stages pass dates from the published
+  // manifest so off-air test episodes cannot leak into continuity.
+  includeDates?: ReadonlySet<string>;
 }
 
 const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
@@ -71,18 +75,40 @@ export function loadRecentRecaps(
   const dir = getRecapsDir();
   let files: string[];
   try {
-    files = fs
-      .readdirSync(dir)
-      .filter((f) => f.endsWith(".json") && DATE_RE.test(path.basename(f, ".json")));
+    files = fs.readdirSync(dir);
   } catch {
     return [];
   }
 
+  files = selectRecentRecapFiles(files, limit, options);
+
+  const recaps: EpisodeRecap[] = [];
+  for (const f of files) {
+    const recap = loadJson<EpisodeRecap | null>(path.join(dir, f), null);
+    if (recap) recaps.push(recap);
+  }
+  return recaps;
+}
+
+// Pure filename selection kept separate from disk I/O so continuity window and
+// published-manifest filtering can be tested without mutating the real archive.
+export function selectRecentRecapFiles(
+  files: string[],
+  limit: number,
+  options: RecentRecapOptions = {},
+): string[] {
+  if (limit <= 0) return [];
+
+  let eligible = files.filter(
+    (file) => file.endsWith(".json") && DATE_RE.test(path.basename(file, ".json")),
+  );
+
   const beforeMs = options.beforeDate ? dateToUtcMs(options.beforeDate) : null;
   const minAgeDays = options.minAgeDays ?? 0;
-  if (options.beforeDate || minAgeDays > 0) {
-    files = files.filter((f) => {
+  if (options.beforeDate || minAgeDays > 0 || options.includeDates) {
+    eligible = eligible.filter((f) => {
       const recapDate = path.basename(f, ".json");
+      if (options.includeDates && !options.includeDates.has(recapDate)) return false;
       const recapMs = dateToUtcMs(recapDate);
       if (recapMs === null) return false;
       if (beforeMs !== null && recapMs >= beforeMs) return false;
@@ -93,12 +119,6 @@ export function loadRecentRecaps(
     });
   }
 
-  files.sort(); // chronological for YYYY-MM-DD names
-  const recent = files.slice(-limit);
-  const recaps: EpisodeRecap[] = [];
-  for (const f of recent) {
-    const recap = loadJson<EpisodeRecap | null>(path.join(dir, f), null);
-    if (recap) recaps.push(recap);
-  }
-  return recaps;
+  eligible.sort(); // chronological for YYYY-MM-DD names
+  return eligible.slice(-limit);
 }
