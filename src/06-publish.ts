@@ -6,34 +6,56 @@ import { config } from "./config.js";
 import { getSpeakerLabel } from "./show.js";
 import { loadJson, writeJson, fileExists, recapPath } from "./lib/storage.js";
 import { getAudioDuration } from "./lib/audio.js";
-import type { EpisodeScript, EpisodeManifest, EpisodeEntry } from "./lib/types.js";
+import {
+  collectTranscriptReferences,
+  formatTranscriptReferences,
+  type TranscriptReference,
+} from "./lib/transcript.js";
+import type {
+  EpisodeScript,
+  EpisodeManifest,
+  EpisodeEntry,
+  FactCheckedStories,
+  RawStory,
+} from "./lib/types.js";
 
 const execFileAsync = promisify(execFile);
 
 const MANIFEST_PATH = path.resolve("episodes", "manifest.json");
 const FEED_PATH = path.resolve("episodes", "feed.xml");
 const TRANSCRIPTS_DIR = path.resolve("pages", "transcripts");
+const REFERENCES_DIR = path.resolve("pages", "references");
 
 // Builds a plain-text, speaker-labelled transcript from the script. No
 // timestamps — the TTS pipeline produces no word-level timing — but this is a
 // valid text/plain transcript for the <podcast:transcript> tag.
-function buildTranscriptText(script: EpisodeScript): string {
+export function buildTranscriptText(
+  script: EpisodeScript,
+  references: TranscriptReference[] = [],
+): string {
   const header = `${config.podcast.title} — ${script.title}\nEpisode ${script.episodeNumber} · ${script.episodeDate}\n\n`;
   const body = script.lines
     .map((l) => `${getSpeakerLabel(l.speaker)}: ${l.text}`)
     .join("\n\n");
-  return header + body + "\n";
+  return header + body + formatTranscriptReferences(references) + "\n";
 }
 
 // Writes the transcript to pages/transcripts/<date>.txt (served by GitHub
 // Pages) and returns its public URL.
-function writeTranscript(script: EpisodeScript): string {
+function writeTranscript(
+  script: EpisodeScript,
+  references: TranscriptReference[],
+): string {
   fs.mkdirSync(TRANSCRIPTS_DIR, { recursive: true });
   const fileName = `${script.episodeDate}.txt`;
   fs.writeFileSync(
     path.join(TRANSCRIPTS_DIR, fileName),
-    buildTranscriptText(script)
+    buildTranscriptText(script, references)
   );
+  writeJson(path.join(REFERENCES_DIR, `${script.episodeDate}.json`), {
+    episodeDate: script.episodeDate,
+    references,
+  });
   return `${config.podcast.siteUrl}/transcripts/${fileName}`;
 }
 
@@ -235,7 +257,16 @@ export async function run(episodeDir: string): Promise<void> {
     releaseUrl = `${config.podcast.siteUrl}/releases/tag/${tag}`;
   }
 
-  const transcriptUrl = writeTranscript(script);
+  const rawStories = loadJson<RawStory[]>(
+    path.join(episodeDir, "01-raw-stories.json"),
+    [],
+  );
+  const factChecked = loadJson<FactCheckedStories | null>(
+    path.join(episodeDir, "03-fact-checked.json"),
+    null,
+  );
+  const references = collectTranscriptReferences(rawStories, factChecked);
+  const transcriptUrl = writeTranscript(script, references);
 
   const entry: EpisodeEntry = {
     number: script.episodeNumber,

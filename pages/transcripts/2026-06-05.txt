@@ -1,0 +1,102 @@
+Layer Lines Weekly — States Try to Code Guns Out of Your Printer
+Episode 2 · 2026-06-05
+
+Alex: Welcome back to Layer Lines Weekly. I'm Alex, and I spent my week re-leveling a bed that did not need re-leveling, which is the most maker thing I can possibly confess to. But here's the thesis for this week, and it's a strange one: this is the week regulators tried to write code into your printer, the market reminded us money and viability aren't the same thing, and somebody pitched the Navy a fleet of lava boats.
+
+Jordan: Lava boats. We'll get there, and it's exactly as ridiculous as it sounds. But the one I actually care about is New York — a law that says every printer sold in the state has to block firearm files in software. As an engineer, my first reaction wasn't political, it was just... how? How do you even build that?
+
+Alex: Right, and that's the centerpiece today. Then we've got Bambu dropping a big-format printer for under five hundred bucks, Sandvik bailing out of metal AM entirely, Creality going public at over a billion, a free Prusa color tool, and yeah — the Pentagon's volcanic fiber boats closing us out in hype-signal. Let's start with New York.
+
+Alex: So here's my take walking in: this is the most aggressive thing anyone's tried against printed guns in the U.S., and it might also be one of the least enforceable. New York's enacted a law requiring 3D printers — and CNC machines — sold in the state to include gun-blocking software that stops you printing firearm components. Fabbaloo had a piece this week basically going, hang on, how is this supposed to work?
+
+Jordan: And that's the whole ballgame. Because before we get worked up either direction — let's be careful with the word 'enacted.' New York reportedly signed theirs. California's version, per Tom's Hardware, passed the Assembly — that's one chamber. That's not law yet. The California bill would make it a crime to bypass the mandated software. So they're at different stages, and the secondary reporting smushes that together.
+
+Alex: Okay so for someone like me who prints brackets and minis — why should I care about a law aimed at guns? It doesn't affect my Warhammer terrain, right?
+
+Jordan: It might, and here's why. The only way to block a firearm file is to inspect what you're printing. So either the printer phones home and a server checks your model against some database, or there's local detection trying to recognize gun-shaped geometry. Both of those mean something is now looking at every single file you send. Your bracket, your mini, all of it. That's the part that should make a hobbyist sit up.
+
+Alex: Oh, that's the thing I hadn't connected. It's not a gun filter, it's a surveillance layer that happens to be aimed at guns.
+
+Jordan: And it doesn't even work well. Geometry detection is genuinely hard — a gun part is just a chunk of plastic with some holes and channels. You can split it into pieces, rename the file, scale it, tweak it five percent, and any naive detector falls apart. Meanwhile it'll false-positive on a perfectly innocent functional part and refuse to print your shelf bracket. I've watched detection systems in industry struggle with way more constrained problems than 'is this a gun.'
+
+Alex: And the law supposedly reaches existing machines too — anything still getting firmware updates. That's the detail that got the forums going. So my three-year-old printer pushes an update and suddenly it's policing me?
+
+Jordan: That's the claim in the Fabbaloo piece, and I'd flag it's a single-source detail — somebody needs to read the actual bill text. But if true, it's wild, because here's the open-source problem. A huge chunk of this hobby runs Klipper, Marlin, custom firmware you compile yourself. You cannot mandate a feature into firmware that the user literally builds from source. They'll just... not include it. The law assumes a closed, vendor-controlled box, and that's not how a lot of this hardware works.
+
+Alex: And the CNC angle is almost funnier. A manual mill from 1985 with a retrofitted controller — what's blocking software even doing there?
+
+Jordan: Nothing. There's no firmware to update on a lot of those. A Bridgeport doesn't know what it's cutting. So you've written a rule that's technically impossible for a whole category of the machines it names. That's the tell that this was drafted by people who pictured 'a printer' as one specific consumer appliance.
+
+Alex: There's also a First Amendment argument floating around — code as speech, files as speech. Is that the strong angle here?
+
+Jordan: Honestly I think it's the messier one, and I'd be careful repeating it as settled. There's real precedent that source code can be protected expression. But this law isn't only about distributing files — it's about mandating a feature in physical hardware sold in a state. Regulating a product you sell is on firmer legal ground than regulating speech. So the strongest challenge might actually be the practical one, not the constitutional one: you can't enforce what you can't implement.
+
+Alex: So where does this land for the average listener? Don't panic, but watch it?
+
+Jordan: Watch it. Because even if the gun-blocking part is unworkable, the precedent of 'your printer must inspect your files' is the thing that could stick and spread. That's the watershed — not whether it stops a single firearm, which I doubt, but whether 'printers watch what you make' becomes normal. That's worth keeping an eye on regardless of where you sit on the gun question.
+
+Alex: Let's lighten it up. Bambu launched the A2L this week — and the headline that grabbed me: a 300 by 300 by 350 build volume for four hundred sixty-nine dollars. That's confirmed across TCT, Fabbaloo, 3DNatives. Large-format, bed-slinger, under five hundred bucks. Bambu's calling it an 'H2S Lite at half the price.'
+
+Jordan: The price is real and the volume is real, and that's a good deal. But 'H2S Lite' is Bambu's phrase, not a reviewer's — and 'Lite' is doing a lot of work. Lite means they took stuff out. The interesting question isn't the price, it's what's missing versus the H2S, and nobody's published a teardown yet.
+
+Alex: The thing being hyped is 'adaptive vibration compensation' and 'granular dampers.' Some coverage spun that into 'this proves you don't need CoreXY for big prints.' Is that fair?
+
+Jordan: No, and that one bugs me. Bed-slingers at 300 millimeters have existed for years — the CR-10 was huge and ancient. They didn't displace CoreXY then and a marketing term won't now. 'Adaptive vibration compensation' is almost certainly input shaping with nice branding. The physics of slinging a heavy bed back and forth at speed hasn't changed. It might be good! But 'redefines the category' is a press release talking.
+
+Alex: Fair. The other materials story is meatier — Oak Ridge revealed a high-temperature aluminum alloy designed for additive. TCT framed it as a near holy-grail for aerospace and automotive.
+
+Jordan: And this is where I want a number. 'High temperature' for aluminum could mean 200 degrees C, could mean 400. Those are completely different worlds. The TCT piece — single source — doesn't give a threshold, doesn't give composition, doesn't compare to existing high-temp aluminums like Scalmalloy or A20X that already exist for this exact reason. Aluminum's heat limits are well understood. 'New alloy' might mean genuinely new, or it might mean optimized process parameters for something known.
+
+Alex: So the holy-grail framing is the tell again.
+
+Jordan: ORNL's credible, so I'm not dismissing it — they do real work. But until there's a peer-reviewed paper with a temperature figure and a printability window, it's a lab result, not a product. I'd love to run it. I'm just not retooling around a TCT paragraph.
+
+Jordan: Two big industrial moves this week, opposite directions. First — Sandvik is selling its entire additive manufacturing business unit to a Swedish investment firm called Mimir. Both TCT and 3D Printing Industry confirm it, closing Q3 2026. The unit makes metal powders and controlled-expansion alloys. So a massive engineering company that spent years building up AM is just... handing it off.
+
+Alex: And some of the coverage called it a 'bellwether' — a sign of a consolidation wave. Should I read it that way?
+
+Jordan: I'd push back on that hard. One company divesting one unit is not a wave — nobody cited a second example. And here's the thing people miss about a sale to an investment firm: it's not necessarily 'AM is dying.' It's often 'this doesn't fit our core portfolio anymore.' Sandvik does an enormous amount of cutting tools and mining gear. A powder unit might just be a strategic mismatch, not a referendum on the market.
+
+Alex: And we don't know the price, so we can't even tell if it was a win or a write-down.
+
+Jordan: Exactly. No financials disclosed. For practitioners the real question is supply chain — if you buy Sandvik powders, you've now got new ownership, and you want to know whether material specs, certifications, and lot consistency stay stable through the handover. That's the unglamorous thing that actually matters on a shop floor. Qualified powder is qualified to a supplier's process; new owner, you re-check everything.
+
+Alex: Now the opposite story — Creality went public. Oversubscribed IPO, raised 177 million, valued at one-point-one-two billion. Both numbers confirmed. A desktop printer company is worth over a billion dollars.
+
+Jordan: Which is genuinely notable — that's one of the larger consumer 3D printing IPOs, twelve years in. But I'll gently deflate the 'validates the market, pressures Bambu and Prusa' narrative. An IPO raises capital, sure. It can also be early investors cashing out. We don't have Creality's revenue or profitability, so 'investor confidence' is one read; 'founders getting liquidity' is another. Both can be true.
+
+Alex: And they're saying they'll 'double down on AI-driven features.' Which... means what, exactly?
+
+Jordan: That's the line in every deck now. AI slicing, AI failure detection, AI support generation. Some of it's real and useful — camera-based spaghetti detection genuinely works. Some of it is a sticker. Money in the bank doesn't auto-convert to innovation; plenty of well-funded companies ship nothing interesting. I'll judge it by what ships, not by the valuation.
+
+Alex: Okay, this is my favorite this week — Prusa open-sourced ColorMix. Free workflow for PrusaSlicer and EasyPrint that blends up to five loaded filaments into dozens of tones, plus a companion web app, ColorMix Shading, that adds studio lighting to your model preview. Runs locally in the browser, MIT-licensed. All confirmed on Prusa's blog and Fabbaloo.
+
+Jordan: Open-source and MIT-licensed is the part I respect — that's a real gift to the community, not a walled garden. But I want to manage expectations on the word 'colors.' This is blending — it's not multi-material. You can make a teal out of blue and green filament. You cannot mix PLA and PETG and get a magic hybrid; their properties don't average like that.
+
+Alex: Right, and 'dozens of tones' is a little vague — I want to know how many you can actually get to land predictably. Color mixing on a printer is fussy. The transition zones are where it gets ugly.
+
+Jordan: And the unspoken cost is purge. Every time you shift the blend ratio, you've got to flush the old mix out of the hotend, and that's wasted filament — the poop bucket. So 'no waste like multi-material' is a stretch. It's less waste than swapping spools maybe, but a gradient print can still throw a surprising amount in the bin.
+
+Alex: I lost an afternoon once to a color-change print where the transition never fully purged, so every layer had this ghost of the previous color bleeding through. Looked like it was haunted. So my advice to anyone trying ColorMix: dial your purge volumes before you commit to a twelve-hour gradient.
+
+Jordan: That's the right instinct. Run a small swatch tower first — a stack of little blocks stepping through the ratios — so you see the real colors your specific filaments make, because the on-screen preview and the actual plastic never match. Cheap test, saves the haunted twelve-hour disaster.
+
+Jordan: Okay. Hype-signal. The Pentagon is reportedly eyeing 3D-printed military boats made from 'volcanic fiber' — and the claim is they could scale to 25,000 vessels a year at forward bases, replacing a 6,545-mile supply chain. My verdict before we even start: this is a concept, not a program. Let's say that up top.
+
+Alex: Twenty-five thousand boats a year. Let me do the math — that's sixty-eight boats a day. Every single day. With no prototype. From a single Tom's Hardware piece reporting on a report.
+
+Jordan: And the source itself basically admits there's no demonstration, no funded contract. The '6,545 miles' is my favorite tell — that suspicious precision on a thing with zero hardware. You don't measure a supply chain to the mile for a concept you haven't built. That's a number designed to sound studied.
+
+Alex: Let me play optimist though, because there's a real grain here. The DoD genuinely is investing in forward-deployed additive manufacturing — that part's well documented. Printing parts near the front instead of shipping them across the planet is a serious, funded idea. So the direction isn't crazy.
+
+Jordan: The direction's real — and I'll give you that fully. Forward manufacturing of brackets, fittings, replacement parts? Happening. But there's a chasm between 'print a clamp at a base' and 'print twenty-five thousand seaworthy hulls a year.' And 'non-conductive equals stealth' is just wrong — stealth is radar cross-section, not whether the hull conducts electricity. Someone heard two cool words and welded them.
+
+Alex: And 'volcanic fiber' — basalt fiber is a real material, to be fair. But at the volume to build a fleet?
+
+Jordan: Basalt fiber exists, yeah. Scaling it to fleet volume at a forward base, where the whole pitch is you don't have a supply chain — but you somehow have endless feedstock? The logic eats itself. So: file it as a signal of where defense AM ambitions point, not as anything near-term. Fun white paper. Not a boat.
+
+Alex: One thing to try this week — and it ties right into ColorMix. Even if you've got a single-toolhead machine and no fancy blending, go print a color-transition swatch tower. Load two filaments, step the ratios, and see what your actual plastic does versus the screen. It's the cheapest way to learn your printer's real palette.
+
+Jordan: And tune your purge volume while you're at it — go higher than you think on the first pass, then dial it down until the colors start bleeding into each other. That number's specific to your hotend and your filaments, so find it once on a swatch, not on a real print. Cheap insurance against the haunted gradient.
+
+Alex: Perfect. That's the show — New York's coding guns out of printers, a billion-dollar Creality, Sandvik heading for the exit, and a lava-boat fever dream. Go run a swatch tower, keep an eye on that surveillance precedent, and we'll catch you next week. Take care of each other.

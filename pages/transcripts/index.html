@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07131d">
+  <meta name="description" content="Read an episode transcript from Layer Lines Weekly.">
+  <link rel="icon" href="../artwork.png">
+  <title>Transcript — Layer Lines Weekly</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #07131d;
+      --panel: #0d1d29;
+      --line: rgba(156, 206, 218, 0.18);
+      --text: #edf3f5;
+      --muted: #9db0b9;
+      --cyan: #42dbea;
+      --orange: #ff8a32;
+      --measure: 780px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; }
+
+    .shell {
+      width: min(calc(100% - 32px), 1080px);
+      margin-inline: auto;
+    }
+
+    header {
+      position: sticky;
+      z-index: 2;
+      top: 0;
+      border-bottom: 1px solid var(--line);
+      background: rgba(7, 19, 29, 0.92);
+      backdrop-filter: blur(16px);
+    }
+
+    .header-row {
+      display: flex;
+      min-height: 70px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .back,
+    .raw-link {
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .back:hover,
+    .raw-link:hover { color: var(--text); }
+
+    .brand {
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    main { padding: 72px 0 110px; }
+
+    .episode-header {
+      display: grid;
+      grid-template-columns: 128px minmax(0, 1fr);
+      gap: 30px;
+      align-items: center;
+      width: min(100%, var(--measure));
+      margin: 0 auto 58px;
+      padding-bottom: 42px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .episode-art {
+      display: block;
+      width: 128px;
+      height: 128px;
+      border-radius: 15px;
+      object-fit: contain;
+    }
+
+    .kicker {
+      margin: 0 0 11px;
+      color: var(--cyan);
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2rem, 5vw, 3.3rem);
+      letter-spacing: -0.045em;
+      line-height: 1.03;
+    }
+
+    .episode-meta {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .transcript {
+      width: min(100%, var(--measure));
+      margin-inline: auto;
+    }
+
+    .dialogue {
+      display: grid;
+      grid-template-columns: 82px minmax(0, 1fr);
+      gap: 20px;
+      padding: 23px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .speaker {
+      padding-top: 3px;
+      color: var(--cyan);
+      font-size: 0.72rem;
+      font-weight: 850;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .dialogue:nth-child(even) .speaker { color: var(--orange); }
+
+    .speech,
+    .prose {
+      margin: 0;
+      color: #dce6e9;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.08rem, 2.2vw, 1.2rem);
+      line-height: 1.72;
+    }
+
+    .prose { padding: 20px 0; border-bottom: 1px solid var(--line); }
+
+    .references {
+      width: min(100%, var(--measure));
+      margin: 76px auto 0;
+      padding-top: 42px;
+      border-top: 2px solid var(--line);
+    }
+
+    .references h2 {
+      margin: 0 0 10px;
+      font-size: clamp(1.7rem, 4vw, 2.4rem);
+      letter-spacing: -0.035em;
+    }
+
+    .references-intro {
+      margin: 0 0 30px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+
+    .reference-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      counter-reset: references;
+    }
+
+    .reference-item {
+      position: relative;
+      padding: 20px 0 20px 46px;
+      border-bottom: 1px solid var(--line);
+      counter-increment: references;
+    }
+
+    .reference-item::before {
+      content: counter(references, decimal-leading-zero);
+      position: absolute;
+      top: 23px;
+      left: 0;
+      color: var(--orange);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.68rem;
+      font-weight: 800;
+    }
+
+    .reference-link {
+      display: inline;
+      font-size: 0.98rem;
+      font-weight: 750;
+      line-height: 1.4;
+      text-decoration: none;
+    }
+
+    .reference-link:hover { color: var(--cyan); }
+
+    .reference-source {
+      display: block;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+
+    .status {
+      width: min(100%, var(--measure));
+      margin: 60px auto;
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    :focus-visible { outline: 2px solid var(--cyan); outline-offset: 4px; }
+
+    @media (max-width: 600px) {
+      main { padding-top: 44px; }
+      .brand { display: none; }
+      .episode-header { grid-template-columns: 80px minmax(0, 1fr); gap: 18px; }
+      .episode-art { width: 80px; height: 80px; border-radius: 10px; }
+      .dialogue { grid-template-columns: 1fr; gap: 8px; }
+      .speaker { padding-top: 0; }
+    }
+
+    @media print {
+      :root { color-scheme: light; }
+      body { background: white; color: #111; }
+      header, .episode-art { display: none; }
+      main { padding: 0; }
+      .episode-header { grid-template-columns: 1fr; }
+      .speech, .prose { color: #222; }
+      .dialogue { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-row shell">
+      <a class="back" href="../">← Back to episodes</a>
+      <span class="brand">Layer Lines Weekly</span>
+      <a class="raw-link" id="raw-link" href="#" hidden>Raw text ↗</a>
+    </div>
+  </header>
+
+  <main class="shell">
+    <div id="status" class="status">Loading transcript…</div>
+    <article id="reader" hidden>
+      <div class="episode-header">
+        <img class="episode-art" src="../artwork.png" width="3000" height="3000" alt="">
+        <div>
+          <p class="kicker">Episode transcript</p>
+          <h1 id="title"></h1>
+          <p class="episode-meta" id="meta"></p>
+        </div>
+      </div>
+      <div class="transcript" id="transcript"></div>
+      <section class="references" id="references" hidden>
+        <h2>References</h2>
+        <p class="references-intro">Sources used in the research and fact-checking for this episode.</p>
+        <ol class="reference-list" id="reference-list"></ol>
+      </section>
+    </article>
+  </main>
+
+  <script>
+    (() => {
+      const params = new URLSearchParams(window.location.search);
+      const episode = params.get("episode") || "";
+      const status = document.querySelector("#status");
+      const reader = document.querySelector("#reader");
+      const rawLink = document.querySelector("#raw-link");
+
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(episode)) {
+        status.innerHTML = 'Choose a transcript from the <a href="../#transcripts">episode archive</a>.';
+        return;
+      }
+
+      const isLocalPreview = ["localhost", "127.0.0.1", "::1"].includes(window.location.hostname);
+      const rawUrl = isLocalPreview
+        ? `https://szabadkai.github.io/podcastEngine/transcripts/${episode}.txt`
+        : `${episode}.txt`;
+      rawLink.href = rawUrl;
+      rawLink.hidden = false;
+
+      fetch(rawUrl)
+        .then((response) => {
+          if (!response.ok) throw new Error("Transcript unavailable");
+          return response.text();
+        })
+        .then((content) => {
+          const [heading = "", metadata = "", ...rest] = content.trim().split("\n");
+          const title = heading.includes(" — ") ? heading.split(" — ").slice(1).join(" — ") : heading;
+          const transcript = document.querySelector("#transcript");
+
+          document.title = `${title} — Transcript`;
+          document.querySelector("#title").textContent = title;
+          document.querySelector("#meta").textContent = metadata;
+
+          rest.join("\n").trim().split(/\n\s*\n/).forEach((block) => {
+            const match = block.match(/^([^:\n]{1,30}):\s+([\s\S]+)$/);
+            if (!match) {
+              const paragraph = document.createElement("p");
+              paragraph.className = "prose";
+              paragraph.textContent = block;
+              transcript.append(paragraph);
+              return;
+            }
+
+            const row = document.createElement("section");
+            row.className = "dialogue";
+            const speaker = document.createElement("div");
+            speaker.className = "speaker";
+            speaker.textContent = match[1];
+            const speech = document.createElement("p");
+            speech.className = "speech";
+            speech.textContent = match[2];
+            row.append(speaker, speech);
+            transcript.append(row);
+          });
+
+          status.hidden = true;
+          reader.hidden = false;
+
+          fetch(`../references/${episode}.json`, { cache: "no-store" })
+            .then((response) => response.ok ? response.json() : Promise.reject())
+            .then((data) => {
+              const references = Array.isArray(data.references) ? data.references : [];
+              const list = document.querySelector("#reference-list");
+              references.forEach((reference) => {
+                let url;
+                try {
+                  url = new URL(reference.url);
+                  if (!["http:", "https:"].includes(url.protocol)) return;
+                } catch { return; }
+
+                const item = document.createElement("li");
+                item.className = "reference-item";
+                const link = document.createElement("a");
+                link.className = "reference-link";
+                link.href = url.href;
+                link.target = "_blank";
+                link.rel = "noopener noreferrer";
+                link.textContent = reference.title || reference.source || url.hostname;
+                const source = document.createElement("span");
+                source.className = "reference-source";
+                source.textContent = reference.source || url.hostname;
+                item.append(link, source);
+                list.append(item);
+              });
+              if (list.children.length) document.querySelector("#references").hidden = false;
+            })
+            .catch(() => {});
+        })
+        .catch(() => {
+          status.innerHTML = 'This transcript could not be loaded. Return to the <a href="../#transcripts">episode archive</a>.';
+          rawLink.hidden = true;
+        });
+    })();
+  </script>
+</body>
+</html>

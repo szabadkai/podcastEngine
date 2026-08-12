@@ -198,7 +198,7 @@ jobs:
           # committed. The MP3 and intermediate JSON live in the GitHub Release.
           # Use --ignore-errors so a dry run (no manifest/feed yet) or a first-ever
           # run doesn't abort on a not-yet-created pathspec.
-          git add --ignore-errors data/ episodes/manifest.json episodes/feed.xml episodes/recaps/ pages/transcripts/ || true
+          git add --ignore-errors data/ episodes/manifest.json episodes/feed.xml episodes/recaps/ pages/transcripts/ pages/references/ || true
           if git diff --staged --quiet; then
             echo "committed=false" >> "$GITHUB_OUTPUT"
           else

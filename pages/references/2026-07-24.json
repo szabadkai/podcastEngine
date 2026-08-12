@@ -1,0 +1,85 @@
+{
+  "episodeDate": "2026-07-24",
+  "references": [
+    {
+      "title": "Velo3D Opens Livermore Production Campus, Forge 1, One of North America's Largest Metal Additive Manufacturing Facilities - PR Newswire",
+      "source": "GNews Metal AM",
+      "url": "https://news.google.com/rss/articles/CBMihAJBVV95cUxORHJDMUNpZDNLb2tIN1VDY0ZtemhNUHRMb3dyZEpZV3ozZHZhdGNBUGdrLXJ4SG8xeVY0WXQzRFJWeDJ6UUk1enh4bU1IX2V1VG1fNjY2dEY2X3JqUUNsdFZNcDd6V3BGZDJ0c0k0NUNtQVJyRXd2VkJxSlNIVnc2RWU0NHZFSVdmQXNVbG5nSGx6MXBaeG9GSUQzbV9VWFFLMTlpd3Q4Y2NtOGl5a2ozcWlDLXVVWDNMcWlLZmY0RS16eWVTN3ZiLVQ1U0NLd0RJNXNKUVNZdWRlZmZWLUtRd0ljeFVISVpjOWwwOUloZ0V0Qkp0RUNJX0VGekhTMGpLZ195dQ"
+    },
+    {
+      "title": "Beehive Industries announces $70 million expansion",
+      "source": "TCT Magazine",
+      "url": "https://www.tctmagazine.com/beehive-industries-announces-70-million-expansion/"
+    },
+    {
+      "title": "Tekna’s titanium powder orders from a U.S. defense customer rise sixfold - VoxelMatters",
+      "source": "GNews Metal AM",
+      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxORndSRlMxN1FFcTNpM01MY2QxNDlCc3RBaEV6SjZOdl9kQ2dUVWE3emJScVNZMVF2V0lUOWZOQmx4ME9kMGRBZ3IzVVgxb1p6ZzBVa3hickpaV3pLNlZZSUFkVy1ua0Z3VWxNemUxemlJaUp1Q3VHUlh3LTRSajhHMFhnQXB4ai1OYkRMaFBpRzhNazJiSTBYbWU2SDJzMkdEa3fSAacBQVVfeXFMTldMZk1ia25VWHh6bmJ5ZXpEcWFIZk1ESXJieENTX2dnUWhHOW55TWdVcF80Z2l1VVVqdTRpLTY2dFZ1RFdMd2otMVprb1BUczhRc0tvRWthVEx5RGlZQWh1amhJb3hsRlhkUk16MzZ0aUJrSWY3WVNCRkJnOUhsMG9VSzFRcU9MVDNRUmhlc0tKTDEtU25nLXlzV05kSUJOWHZpdUJYdFE"
+    },
+    {
+      "title": "Pratt & Whitney and GKN Aerospace to 3D print large-scale F135 engine case",
+      "source": "TCT Magazine",
+      "url": "https://www.tctmagazine.com/pratt-whitney-and-gkn-aerospace-to-3d-print-large-scale-f135-engine-case/"
+    },
+    {
+      "title": "Safran Aero Boosters and BMT Aerospace join large-scale 3D printing effort for F135 engine",
+      "source": "TCT Magazine",
+      "url": "https://www.tctmagazine.com/safran-aero-boosters-and-bmt-aerospace-join-large-scale-3d-printing-effort-for-f135-engine/"
+    },
+    {
+      "title": "Eaton opens third global additive manufacturing site",
+      "source": "TCT Magazine",
+      "url": "https://www.tctmagazine.com/eaton-opens-third-global-additive-manufacturing-site/"
+    },
+    {
+      "title": "USS Theodore Roosevelt deploys ADDiTEC HYBRiD-X system in Exercise Rim of the Pacific 2026",
+      "source": "TCT Magazine",
+      "url": "https://www.tctmagazine.com/uss-theodore-roosevelt-deploys-additec-hybrid-x-system-in-exercise-rim-of-the-pacific-2026/"
+    },
+    {
+      "title": "US Navy Tests Distributed 3D Printing Network for Spare Parts",
+      "source": "Fabbaloo",
+      "url": "http://feeds.fabbaloo.com/~/961051922/0/fabbaloo/default~US-Navy-Tests-Distributed-D-Printing-Network-for-Spare-Parts"
+    },
+    {
+      "title": "Polymaker’s New HT-PLA Pro Outperforms PLA, ABS, PETG, and PC",
+      "source": "Fabbaloo",
+      "url": "http://feeds.fabbaloo.com/~/962207960/0/fabbaloo/default~Polymaker%e2%80%99s-New-HTPLA-Pro-Outperforms-PLA-ABS-PETG-and-PC"
+    },
+    {
+      "title": "Prusament PA11 Natural: The perfect choice for printing gears and moving parts",
+      "source": "Prusa Blog",
+      "url": "https://blog.prusa3d.com/prusament-pa11-natural-material-with-extreme-mechanical-and-chemical-resistance_137458/"
+    },
+    {
+      "title": "HeyGears G1 Series Brings Full-Color 3D and UV Printing to Kickstarter",
+      "source": "3dprintingindustry.com",
+      "url": "https://3dprintingindustry.com/news/heygears-unveils-its-g1-series-on-kickstarter-starting-at-1999-253289/"
+    },
+    {
+      "title": "HeyGears G1 Series Goes Live on Kickstarter: Pricing, Rewards, and Print Showcases",
+      "source": "3Dnatives",
+      "url": "https://www.3dnatives.com/en/heygears-g1-series-live-on-kickstarter-23072026/"
+    },
+    {
+      "title": "Sinterit and DyeMansion Partner for Compact SLS Post-Processing",
+      "source": "3dprintingindustry.com",
+      "url": "https://3dprintingindustry.com/news/sinterit-and-dyemansion-partner-on-compact-sls-post-processing-workflow-253279/"
+    },
+    {
+      "title": "Sinterit to sell DyeMansion post-processing systems alongside BIANCO2 SLS 3D printer",
+      "source": "TCT Magazine",
+      "url": "https://www.tctmagazine.com/sinterit-to-sell-dyemansion-post-processing-systems-alongside-bianco2-sls-3d-printer/"
+    },
+    {
+      "title": "Apple's Foldable iPhone Hinge: Liquid Metal vs. 3D Printing Showdown",
+      "source": "3dprintingindustry.com",
+      "url": "https://3dprintingindustry.com/news/new-leak-on-iphone-ultra-hinge-exposes-key-contradictions-253246/"
+    },
+    {
+      "title": "3D Printed Autonomous Flying Umbrella That Follows You Automatically",
+      "source": "3Dnatives",
+      "url": "https://www.3dnatives.com/en/3d-printed-autonomous-flying-umbrella-20072026/"
+    }
+  ]
+}

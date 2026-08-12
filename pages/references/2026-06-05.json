@@ -1,0 +1,75 @@
+{
+  "episodeDate": "2026-06-05",
+  "references": [
+    {
+      "title": "New York’s New 3D Printing Legislation Raises Questions About Feasibility",
+      "source": "Fabbaloo",
+      "url": "https://www.fabbaloo.com/news/new-yorks-new-3d-printing-legislation-raises-questions-about-feasibility"
+    },
+    {
+      "title": "New York Passes Mandatory Gun-Blocking Software for 3D Printers; California Follows with Similar Bill",
+      "source": "tomshardware.com",
+      "url": "https://www.tomshardware.com/news/california-assembly-passes-3d-printer-bill"
+    },
+    {
+      "title": "PSA: New York 3D Printing Law Passed",
+      "source": "r/prusa3d",
+      "url": "https://www.reddit.com/r/prusa3d/comments/1tx8mh1/psa_new_york_3d_printing_law_passed/"
+    },
+    {
+      "title": "Bambu Lab launches A2L 3D printer for larger creative projects",
+      "source": "TCT Magazine",
+      "url": "https://www.tctmagazine.com/bambu-lab-launches-a2l-3d-printer-for-larger-creative-projects/"
+    },
+    {
+      "title": "Bambu Lab Unveils A2L Large-Format Desktop 3D Printer",
+      "source": "Fabbaloo",
+      "url": "https://www.fabbaloo.com/news/bambu-lab-unveils-a2l-large-format-desktop-3d-printer"
+    },
+    {
+      "title": "Bambu Lab Launches the A2L: A “Creative Playground” with Larger Build Volume and Modular Add-Ons",
+      "source": "3Dnatives",
+      "url": "https://www.3dnatives.com/en/bambu-lab-launches-the-a2l-01062026/"
+    },
+    {
+      "title": "ORNL reveals new high-temp additive manufacturing aluminium alloy",
+      "source": "TCT Magazine",
+      "url": "https://www.tctmagazine.com/ornl-reveals-new-high-temp-additive-manufacturing-aluminium-alloy/"
+    },
+    {
+      "title": "Sandvik exits additive manufacturing business",
+      "source": "TCT Magazine",
+      "url": "https://www.tctmagazine.com/sandvik-exits-additive-manufacturing-business/"
+    },
+    {
+      "title": "Sandvik Exits Additive Manufacturing, Sells Business Unit to Investment Firm Mimir",
+      "source": "3dprintingindustry.com",
+      "url": "https://3dprintingindustry.com/news/sandvik-steps-back-from-am-a-strategic-exit-after-years-of-am-investment-252080/"
+    },
+    {
+      "title": "AMPulse Asia: Creality IPO Headlines APAC 3D Printing Market Roundup",
+      "source": "3DPrint.com",
+      "url": "https://3dprint.com/326412/ampulse-asia-creality-ipo-headlines-apac-3d-printing-market-roundup/"
+    },
+    {
+      "title": "Creality IPO Raises $177M, Valuing Desktop 3D Printing Company at $1.12 Billion",
+      "source": "3dprintingindustry.com",
+      "url": "https://3dprintingindustry.com/news/twelve-years-in-creality-goes-public-and-doubles-down-on-an-ai-driven-future-252069/"
+    },
+    {
+      "title": "Fake Studio Lighting on your 3D Prints using Filament Mixing and a Free App",
+      "source": "Prusa Blog",
+      "url": "https://blog.prusa3d.com/introducing-the-colormix-shading-app-make-your-models-pop-with-realistic-lighting_136716/"
+    },
+    {
+      "title": "Prusa Open-Sources ColorMix For Dozens Of Tones",
+      "source": "Fabbaloo",
+      "url": "https://www.fabbaloo.com/news/prusa-open-sources-colormix-for-dozens-of-tones"
+    },
+    {
+      "title": "Pentagon Eyes 3D-Printed Military Boats Made from Volcanic Fiber, Claiming 25,000 Vessels Per Year",
+      "source": "tomshardware.com",
+      "url": "https://www.tomshardware.com/news/pentagon-eyes-3d-printed-military-boats-volcanic-fiber"
+    }
+  ]
+}

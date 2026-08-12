@@ -209,7 +209,7 @@ jobs:
         run: |
           git config user.name "Podcast Bot"
           git config user.email "bot@podcast.dev"
-          git add --ignore-errors data/ episodes/manifest.json episodes/feed.xml episodes/recaps/ pages/transcripts/ || true
+          git add --ignore-errors data/ episodes/manifest.json episodes/feed.xml episodes/recaps/ pages/transcripts/ pages/references/ || true
           if git diff --staged --quiet; then
             echo "committed=false" >> "$GITHUB_OUTPUT"
           else
