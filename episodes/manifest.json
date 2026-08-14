@@ -1,6 +1,17 @@
 {
   "episodes": [
     {
+      "number": 19,
+      "date": "2026-08-14",
+      "title": "The $1.4 Billion Question — Hadrian's Mega-Raise, Hyundai Goes All-In, and Bambu Teases a Laser",
+      "description": "A record-shattering funding round for Hadrian lands with a curious lack of confirmation, Hyundai and Kia open a dedicated additive manufacturing center after 30 years of quiet practice, and Prusa refreshes its whole lineup for free. Plus: a QIDI Plus5 review worth reading, Bambu Lab's mysterious R1 laser teaser, and a 13-year-old in Utah who spent his summer printing a wheelchair for a toddler.",
+      "duration": 1311,
+      "fileSize": 20976997,
+      "releaseUrl": "https://github.com/szabadkai/podcastEngine/releases/download/episode-2026-08-14/episode.mp3",
+      "guid": "layer-lines-weekly-2026-08-14",
+      "transcriptUrl": "https://szabadkai.github.io/podcastEngine/transcripts/2026-08-14.txt"
+    },
+    {
       "number": 18,
       "date": "2026-08-11",
       "title": "UltiMaker - The Open Desktop Pioneer Trying to Grow Up Industrial",
