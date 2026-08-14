@@ -249,8 +249,16 @@ export async function run(episodeDir: string): Promise<void> {
       } catch (error) {
         research.findings = sanitizeResearchFindings(requests, []);
         research.failure = (error as Error).message;
+        // Targeted web research is supplemental. If the provider returns an
+        // empty or malformed response, preserve that failure as "not found"
+        // evidence and let the final fact-check remove unsupported claims.
+        // Blocking here makes an optional enrichment outage suppress the
+        // entire episode even though the first-pass audit is already usable.
+        research.completed = true;
         writeJson(researchPath, research);
-        throw new Error(`Targeted research pass failed: ${(error as Error).message}`);
+        console.warn(
+          `Targeted research pass failed; continuing without supplemental evidence: ${(error as Error).message}`,
+        );
       }
     } else {
       research.completed = true;
