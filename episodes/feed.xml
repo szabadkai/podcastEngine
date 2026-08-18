@@ -14,8 +14,8 @@
     <language>en</language>
     <link>https://szabadkai.github.io/podcastEngine</link>
     <atom:link href="https://szabadkai.github.io/podcastEngine/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 14 Aug 2026 00:00:00 GMT</pubDate>
-    <lastBuildDate>Fri, 14 Aug 2026 00:00:00 GMT</lastBuildDate>
+    <pubDate>Tue, 18 Aug 2026 00:00:00 GMT</pubDate>
+    <lastBuildDate>Tue, 18 Aug 2026 00:00:00 GMT</lastBuildDate>
     <generator>podcast-engine</generator>
     <category>Science &amp; Technology</category>
     <itunes:author>Layer Lines Weekly</itunes:author>
@@ -38,6 +38,28 @@
     <podcast:locked>yes</podcast:locked>
     <podcast:guid>1aa65aa4-6725-411a-8b5c-a109f9cf36b6</podcast:guid>
     <copyright>© 2026 Layer Lines Weekly</copyright>
+    <item>
+      <title>Creality - The Volume King Trying to Become a Platform</title>
+      <description>Alex and Jordan profile Creality, the Shenzhen company whose cheap, hackable Ender-3 put 3D printers on millions of desks. They trace the line from the 2014 CR-3 to high-speed K series machines, a nozzle-changing printer called KliTek, a filament recycler, an e-commerce platform, and the signals that Creality wants to go public.</description>
+      <itunes:title>Creality - The Volume King Trying to Become a Platform</itunes:title>
+      <itunes:summary>Alex and Jordan profile Creality, the Shenzhen company whose cheap, hackable Ender-3 put 3D printers on millions of desks. They trace the line from the 2014 CR-3 to high-speed K series machines, a nozzle-changing printer called KliTek, a filament recycler, an e-commerce platform, and the signals that Creality wants to go public.</itunes:summary>
+      <content:encoded><![CDATA[Alex and Jordan profile Creality, the Shenzhen company whose cheap, hackable Ender-3 put 3D printers on millions of desks. They trace the line from the 2014 CR-3 to high-speed K series machines, a nozzle-changing printer called KliTek, a filament recycler, an e-commerce platform, and the signals that Creality wants to go public.]]></content:encoded>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 GMT</pubDate>
+      <enclosure url="https://github.com/szabadkai/podcastEngine/releases/download/episode-2026-08-18/episode.mp3" length="24535502" type="audio/mpeg"/>
+      <media:content url="https://github.com/szabadkai/podcastEngine/releases/download/episode-2026-08-18/episode.mp3" fileSize="24535502" type="audio/mpeg" medium="audio" duration="1533"/>
+      <media:title>Creality - The Volume King Trying to Become a Platform</media:title>
+      <media:description>Alex and Jordan profile Creality, the Shenzhen company whose cheap, hackable Ender-3 put 3D printers on millions of desks. They trace the line from the 2014 CR-3 to high-speed K series machines, a nozzle-changing printer called KliTek, a filament recycler, an e-commerce platform, and the signals that Creality wants to go public.</media:description>
+      <media:thumbnail url="https://szabadkai.github.io/podcastEngine/artwork.png"/>
+      <guid isPermaLink="false">layer-lines-weekly-2026-08-18</guid>
+      <itunes:duration>1533</itunes:duration>
+      <itunes:episode>20</itunes:episode>
+      <itunes:explicit>false</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:image href="https://szabadkai.github.io/podcastEngine/artwork.png"/>
+      <yt:category id="28">Science &amp; Technology</yt:category>
+      <yt:madeForKids>false</yt:madeForKids>
+      <podcast:transcript url="https://szabadkai.github.io/podcastEngine/transcripts/2026-08-18.txt" type="text/plain"/>
+    </item>
     <item>
       <title>The $1.4 Billion Question — Hadrian&apos;s Mega-Raise, Hyundai Goes All-In, and Bambu Teases a Laser</title>
       <description>A record-shattering funding round for Hadrian lands with a curious lack of confirmation, Hyundai and Kia open a dedicated additive manufacturing center after 30 years of quiet practice, and Prusa refreshes its whole lineup for free. Plus: a QIDI Plus5 review worth reading, Bambu Lab&apos;s mysterious R1 laser teaser, and a 13-year-old in Utah who spent his summer printing a wheelchair for a toddler.</description>

@@ -1,6 +1,17 @@
 {
   "episodes": [
     {
+      "number": 20,
+      "date": "2026-08-18",
+      "title": "Creality - The Volume King Trying to Become a Platform",
+      "description": "Alex and Jordan profile Creality, the Shenzhen company whose cheap, hackable Ender-3 put 3D printers on millions of desks. They trace the line from the 2014 CR-3 to high-speed K series machines, a nozzle-changing printer called KliTek, a filament recycler, an e-commerce platform, and the signals that Creality wants to go public.",
+      "duration": 1533,
+      "fileSize": 24535502,
+      "releaseUrl": "https://github.com/szabadkai/podcastEngine/releases/download/episode-2026-08-18/episode.mp3",
+      "guid": "layer-lines-weekly-2026-08-18",
+      "transcriptUrl": "https://szabadkai.github.io/podcastEngine/transcripts/2026-08-18.txt"
+    },
+    {
       "number": 19,
       "date": "2026-08-14",
       "title": "The $1.4 Billion Question — Hadrian's Mega-Raise, Hyundai Goes All-In, and Bambu Teases a Laser",
