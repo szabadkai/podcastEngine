@@ -1,6 +1,17 @@
 {
   "episodes": [
     {
+      "number": 21,
+      "date": "2026-08-21",
+      "title": "A Texas Judge, a V8 Block, and Two Imaginary Dimensions",
+      "description": "A federal court strikes down the ATF's ghost gun rule and Alex and Jordan untangle what it actually changes for people who print. Plus: Creality's suspiciously cheap four-color announcement, Bosch and Nikon SLM print a V8 engine block, a two-year-old Indian startup test-fires a printed cryogenic rocket engine, and IBM claims to have invented '5D printing.'",
+      "duration": 1185,
+      "fileSize": 18961180,
+      "releaseUrl": "https://github.com/szabadkai/podcastEngine/releases/download/episode-2026-08-21/episode.mp3",
+      "guid": "layer-lines-weekly-2026-08-21",
+      "transcriptUrl": "https://szabadkai.github.io/podcastEngine/transcripts/2026-08-21.txt"
+    },
+    {
       "number": 20,
       "date": "2026-08-18",
       "title": "Creality - The Volume King Trying to Become a Platform",

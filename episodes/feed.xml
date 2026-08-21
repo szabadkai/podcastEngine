@@ -14,8 +14,8 @@
     <language>en</language>
     <link>https://szabadkai.github.io/podcastEngine</link>
     <atom:link href="https://szabadkai.github.io/podcastEngine/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 18 Aug 2026 00:00:00 GMT</pubDate>
-    <lastBuildDate>Tue, 18 Aug 2026 00:00:00 GMT</lastBuildDate>
+    <pubDate>Fri, 21 Aug 2026 00:00:00 GMT</pubDate>
+    <lastBuildDate>Fri, 21 Aug 2026 00:00:00 GMT</lastBuildDate>
     <generator>podcast-engine</generator>
     <category>Science &amp; Technology</category>
     <itunes:author>Layer Lines Weekly</itunes:author>
@@ -38,6 +38,28 @@
     <podcast:locked>yes</podcast:locked>
     <podcast:guid>1aa65aa4-6725-411a-8b5c-a109f9cf36b6</podcast:guid>
     <copyright>© 2026 Layer Lines Weekly</copyright>
+    <item>
+      <title>A Texas Judge, a V8 Block, and Two Imaginary Dimensions</title>
+      <description>A federal court strikes down the ATF&apos;s ghost gun rule and Alex and Jordan untangle what it actually changes for people who print. Plus: Creality&apos;s suspiciously cheap four-color announcement, Bosch and Nikon SLM print a V8 engine block, a two-year-old Indian startup test-fires a printed cryogenic rocket engine, and IBM claims to have invented &apos;5D printing.&apos;</description>
+      <itunes:title>A Texas Judge, a V8 Block, and Two Imaginary Dimensions</itunes:title>
+      <itunes:summary>A federal court strikes down the ATF&apos;s ghost gun rule and Alex and Jordan untangle what it actually changes for people who print. Plus: Creality&apos;s suspiciously cheap four-color announcement, Bosch and Nikon SLM print a V8 engine block, a two-year-old Indian startup test-fires a printed cryogenic rocket engine, and IBM claims to have invented &apos;5D printing.&apos;</itunes:summary>
+      <content:encoded><![CDATA[A federal court strikes down the ATF's ghost gun rule and Alex and Jordan untangle what it actually changes for people who print. Plus: Creality's suspiciously cheap four-color announcement, Bosch and Nikon SLM print a V8 engine block, a two-year-old Indian startup test-fires a printed cryogenic rocket engine, and IBM claims to have invented '5D printing.']]></content:encoded>
+      <pubDate>Fri, 21 Aug 2026 00:00:00 GMT</pubDate>
+      <enclosure url="https://github.com/szabadkai/podcastEngine/releases/download/episode-2026-08-21/episode.mp3" length="18961180" type="audio/mpeg"/>
+      <media:content url="https://github.com/szabadkai/podcastEngine/releases/download/episode-2026-08-21/episode.mp3" fileSize="18961180" type="audio/mpeg" medium="audio" duration="1185"/>
+      <media:title>A Texas Judge, a V8 Block, and Two Imaginary Dimensions</media:title>
+      <media:description>A federal court strikes down the ATF&apos;s ghost gun rule and Alex and Jordan untangle what it actually changes for people who print. Plus: Creality&apos;s suspiciously cheap four-color announcement, Bosch and Nikon SLM print a V8 engine block, a two-year-old Indian startup test-fires a printed cryogenic rocket engine, and IBM claims to have invented &apos;5D printing.&apos;</media:description>
+      <media:thumbnail url="https://szabadkai.github.io/podcastEngine/artwork.png"/>
+      <guid isPermaLink="false">layer-lines-weekly-2026-08-21</guid>
+      <itunes:duration>1185</itunes:duration>
+      <itunes:episode>21</itunes:episode>
+      <itunes:explicit>false</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:image href="https://szabadkai.github.io/podcastEngine/artwork.png"/>
+      <yt:category id="28">Science &amp; Technology</yt:category>
+      <yt:madeForKids>false</yt:madeForKids>
+      <podcast:transcript url="https://szabadkai.github.io/podcastEngine/transcripts/2026-08-21.txt" type="text/plain"/>
+    </item>
     <item>
       <title>Creality - The Volume King Trying to Become a Platform</title>
       <description>Alex and Jordan profile Creality, the Shenzhen company whose cheap, hackable Ender-3 put 3D printers on millions of desks. They trace the line from the 2014 CR-3 to high-speed K series machines, a nozzle-changing printer called KliTek, a filament recycler, an e-commerce platform, and the signals that Creality wants to go public.</description>
