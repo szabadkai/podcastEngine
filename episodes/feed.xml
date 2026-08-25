@@ -14,8 +14,8 @@
     <language>en</language>
     <link>https://szabadkai.github.io/podcastEngine</link>
     <atom:link href="https://szabadkai.github.io/podcastEngine/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 21 Aug 2026 00:00:00 GMT</pubDate>
-    <lastBuildDate>Fri, 21 Aug 2026 00:00:00 GMT</lastBuildDate>
+    <pubDate>Tue, 25 Aug 2026 00:00:00 GMT</pubDate>
+    <lastBuildDate>Tue, 25 Aug 2026 00:00:00 GMT</lastBuildDate>
     <generator>podcast-engine</generator>
     <category>Science &amp; Technology</category>
     <itunes:author>Layer Lines Weekly</itunes:author>
@@ -38,6 +38,28 @@
     <podcast:locked>yes</podcast:locked>
     <podcast:guid>1aa65aa4-6725-411a-8b5c-a109f9cf36b6</podcast:guid>
     <copyright>© 2026 Layer Lines Weekly</copyright>
+    <item>
+      <title>HP 3D Printing - The Inkjet Giant&apos;s Ten-Year Manufacturing Bet</title>
+      <description>Alex and Jordan profile HP&apos;s 3D printing business, from the 2016 Multi Jet Fusion launch with Nike and BMW watching, to a top-tier polymer AM position, a metal binder jetting push, and a decade-old question that still hasn&apos;t been answered: is HP&apos;s inkjet moat real? Plus the MJF 1200, Craftcloud, and what one reseller exit does and doesn&apos;t tell you.</description>
+      <itunes:title>HP 3D Printing - The Inkjet Giant&apos;s Ten-Year Manufacturing Bet</itunes:title>
+      <itunes:summary>Alex and Jordan profile HP&apos;s 3D printing business, from the 2016 Multi Jet Fusion launch with Nike and BMW watching, to a top-tier polymer AM position, a metal binder jetting push, and a decade-old question that still hasn&apos;t been answered: is HP&apos;s inkjet moat real? Plus the MJF 1200, Craftcloud, and what one reseller exit does and doesn&apos;t tell you.</itunes:summary>
+      <content:encoded><![CDATA[Alex and Jordan profile HP's 3D printing business, from the 2016 Multi Jet Fusion launch with Nike and BMW watching, to a top-tier polymer AM position, a metal binder jetting push, and a decade-old question that still hasn't been answered: is HP's inkjet moat real? Plus the MJF 1200, Craftcloud, and what one reseller exit does and doesn't tell you.]]></content:encoded>
+      <pubDate>Tue, 25 Aug 2026 00:00:00 GMT</pubDate>
+      <enclosure url="https://github.com/szabadkai/podcastEngine/releases/download/episode-2026-08-25/episode.mp3" length="23457167" type="audio/mpeg"/>
+      <media:content url="https://github.com/szabadkai/podcastEngine/releases/download/episode-2026-08-25/episode.mp3" fileSize="23457167" type="audio/mpeg" medium="audio" duration="1466"/>
+      <media:title>HP 3D Printing - The Inkjet Giant&apos;s Ten-Year Manufacturing Bet</media:title>
+      <media:description>Alex and Jordan profile HP&apos;s 3D printing business, from the 2016 Multi Jet Fusion launch with Nike and BMW watching, to a top-tier polymer AM position, a metal binder jetting push, and a decade-old question that still hasn&apos;t been answered: is HP&apos;s inkjet moat real? Plus the MJF 1200, Craftcloud, and what one reseller exit does and doesn&apos;t tell you.</media:description>
+      <media:thumbnail url="https://szabadkai.github.io/podcastEngine/artwork.png"/>
+      <guid isPermaLink="false">layer-lines-weekly-2026-08-25</guid>
+      <itunes:duration>1466</itunes:duration>
+      <itunes:episode>22</itunes:episode>
+      <itunes:explicit>false</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:image href="https://szabadkai.github.io/podcastEngine/artwork.png"/>
+      <yt:category id="28">Science &amp; Technology</yt:category>
+      <yt:madeForKids>false</yt:madeForKids>
+      <podcast:transcript url="https://szabadkai.github.io/podcastEngine/transcripts/2026-08-25.txt" type="text/plain"/>
+    </item>
     <item>
       <title>A Texas Judge, a V8 Block, and Two Imaginary Dimensions</title>
       <description>A federal court strikes down the ATF&apos;s ghost gun rule and Alex and Jordan untangle what it actually changes for people who print. Plus: Creality&apos;s suspiciously cheap four-color announcement, Bosch and Nikon SLM print a V8 engine block, a two-year-old Indian startup test-fires a printed cryogenic rocket engine, and IBM claims to have invented &apos;5D printing.&apos;</description>

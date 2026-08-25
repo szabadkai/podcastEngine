@@ -1,0 +1,261 @@
+Layer Lines Weekly — HP 3D Printing - The Inkjet Giant's Ten-Year Manufacturing Bet
+Episode 22 · 2026-08-25
+
+Alex: HP's 3D printing business is what happens when a company that already dominates one printing technology decides manufacturing is just printing with higher stakes — and ten years in, it's one of the biggest polymer additive companies on Earth without ever quite proving the bet is finished. That's the company we're profiling today.
+
+Jordan: And it's a weird profile, because HP 3D Printing is a division inside a computing giant, not a startup. Most companies we cover would kill for HP's balance sheet. Most divisions inside a company like HP would've been killed by now if the numbers weren't defensible.
+
+Alex: So today: how a 2D printing company walked into RAPID in 2016 with a machine it called production-ready, the Jet Fusion lineage that followed, the executive running the show now, the inkjet moat everyone talks about, and the big open question — whether metal and software can carry HP beyond polymer powder.
+
+Alex: And the scale is worth stating up front, because it frames everything. VoxelMatters has ranked HP among the top polymer AM companies by revenue in both 2024 and 2025, and by HP's own 2022 numbers, reported through 3D Printing Industry, they'd printed over 130 million parts. We'll pick at that parts number later, but the footprint itself isn't in dispute.
+
+Jordan: Fortune literally called this HP's biggest gamble back in 2015, before the first machine shipped. So the question hanging over the whole episode is: did the gamble pay off, or is it still on the table?
+
+Alex: Let's rewind to the start, because the entry was legitimately dramatic. May 2016, RAPID trade show, HP unveils the Jet Fusion 3D 4200 — its first commercial 3D printer — and the press release names Nike and BMW as early partners. That's not a startup showing a prototype in a booth. That's a Fortune 50 company arriving with brand names attached, at the industry's biggest North American show, telling everyone the prototyping era was over.
+
+Jordan: And the headline on that press release was, quote, the world's first production-ready 3D printing system. Which — no. That's marketing language. There were production-grade additive systems running before 2016. SLS machines had been making end-use parts for years. What HP meant was production-ready by HP's definition of throughput and cost, and even that deserved a stopwatch.
+
+Alex: What was the actual pitch, though? Because they weren't inventing powder bed fusion from scratch.
+
+Jordan: The pitch was leverage. HP had decades of thermal inkjet expertise — printheads that fire millions of droplets with precision — and Multi Jet Fusion applies that to a polymer powder bed. Instead of tracing a laser point by point, you jet agents across a whole layer at once. That's the core premise, confirmed by HP's own technology pages and independent technical coverage. It's a clever transfer of a core competency.
+
+Alex: Which is why Fortune's gamble framing was fair, I think. HP wasn't betting on 3D printing generically the way a lot of 2014-era money did. It was betting that one specific thing it already did better than anyone — inkjet — would translate into a manufacturing advantage. Narrower bet, but a bet you can actually lose in a visible way.
+
+Alex: And validation did come. All3DP reported Proto Labs adopting the technology as early as June 2016 — which matters, because a service bureau like Proto Labs runs machines hard and doesn't keep ones that lose money. Bureaus are the least sentimental customers in this industry. If MJF survived a bureau floor in year one, the economics weren't fantasy.
+
+Jordan: But look at the second big adoption story people cite: Oakley. That partnership, per 3D Printing Industry, is from 2019 — three years after launch. So the honest timeline is: launch with huge names watching in 2016, bureaus adopt for prototyping fairly quickly, and the marquee end-use consumer stories take years to materialize. Production-ready on day one is doing a lot of work in that press release.
+
+Alex: Fair. Though I'd argue the slower version is still a success story. Three years from launch to a name-brand consumer application is about what qualification and product development cycles take in the real world. Plenty of 2016-era launches never got to the Oakley phase at all.
+
+Jordan: Agreed. My complaint is with the adjective, not the trajectory.
+
+Alex: Okay, the product family. The lineage starts with that 4200 and its sibling the 3200 in 2016, per HP's launch release. Then the line grows upward — the 5200, 5400, and 5600 series, which are all on HP's current 3D printers page. That's a decade of iterating on essentially one polymer platform, which tells you something about the strategy before you read a single spec sheet.
+
+Jordan: It's unusual discipline for this industry. A lot of AM companies sprawl — five processes, three material families, nothing mature. HP spent most of a decade making one process faster, more consistent, and more industrial. From a manufacturing engineer's view, that's the right call. Repeatability is what gets you into production, not novelty.
+
+Alex: There's a buyer-side version of that argument too. If you qualified parts on a 4200 in 2017, the successor machines run the same fundamental process — your material knowledge and your process qualification carry forward instead of resetting. For a production customer, that continuity is worth real money. Requalifying a part on a new process can cost more than the printer.
+
+Alex: Then two expansions break the pattern. First, metal: the Metal Jet system, and more recently the IF-600HT, both in HP's portfolio and covered independently. Second, going smaller instead of bigger — the MJF 1200, a compact machine that launched in 2026, confirmed by both All3DP in April and VoxelMatters in July.
+
+Alex: The 1200 interests me most. HP's whole identity in AM has been big industrial throughput. A compact MJF machine says they want a wider funnel — design teams, smaller shops, maybe schools with serious budgets, buyers who could never justify a 5200-class system but who might eventually specify MJF parts for production because it's the process they know.
+
+Jordan: It's a classic installed-base play. Get the process into more buildings, and some fraction of those buyers grow into the big machines and the powder contracts. It just launched, so there's no long-term track record yet — but strategically it reads as HP admitting the top of the market alone isn't enough.
+
+Jordan: Materials expanded too. Arkema announced a bio-based PA11 Gen2 for the platform in November 2025 — that's from Arkema's own press release, so file it as a partner announcement, but it shows serious chemistry companies investing in MJF as a destination.
+
+Alex: And the software and services side: in April 2026, per VoxelMatters and All3DP, HP launched an on-demand portal built on Craftcloud. Meaning if you don't own a printer, HP still wants to route your parts to someone who does. Hardware, materials, and now the order flow itself.
+
+Jordan: That last one is subtle but important. Whoever owns the order flow influences which machines get bought. It's a hedge against being just a hardware vendor.
+
+Alex: Who's actually running this? Because HP 3D Printing doesn't have a celebrity founder — it has an org chart, and I'd argue that's one of the most defining facts about the company.
+
+Jordan: The name to know is Didier Deltort, appointed President of Personalization and 3D Printing in 2021, per VoxelMatters. So 3D printing at HP sits inside a broader personalization portfolio — it's a division president role, not a founder-CEO role.
+
+Alex: And the honest caveat here is that public coverage of HP's 3D printing leadership is thin. We know the appointment; we don't have reporting on the internal reasoning behind the 2021 change or how Deltort personally operates. So we're not going to invent a character study.
+
+Jordan: What you can do is read the output. Since 2021, the observable moves are the metal push, the materials partnerships, the compact 1200, the Craftcloud portal. That's consistent with a leader broadening the business — though I'll flag that no source attributes that strategy to Deltort personally. It's the division's direction under his tenure, which isn't quite the same thing.
+
+Alex: There's also a structural point that matters more than any individual: this business answers to HP corporate. Every year, someone in Palo Alto looks at this division next to PCs and 2D printing and decides whether it earns its keep. That shapes strategy in a way founder-led AM companies never experience. A founder can bet the company on a decade-long qualification cycle. A division president has to show progress on a corporate calendar.
+
+Jordan: It cuts both ways. Corporate patience gave them a decade to build. Corporate scrutiny means the decade has to keep justifying itself.
+
+Jordan: So let's do the moat question properly, because I have opinions. The technical claim, again: MJF jets fusing and detailing agents across a powder bed via inkjet arrays, layer by layer. HP's argument is that this is faster than laser-based sintering because you're processing a full layer width at once rather than tracing a point.
+
+Alex: Translate that for someone who's only run a desktop machine. What does an MJF part buyer notice?
+
+Jordan: Nylon parts that feel injection-molded-adjacent. No support structures, because the surrounding powder holds everything — so you nest hundreds of parts in one build. Consistent mechanical properties in volume. That's why bureaus liked it: quote a thousand brackets, pack a build chamber, ship. But I want to be careful with high-speed and production-grade as phrases, because in the coverage we have, those are HP's comparative claims without independent benchmarking against, say, a modern SLS machine from EOS or 3D Systems.
+
+Alex: The nesting point deserves a beat, because it's where the economics live. If you're paying per build rather than per part in any meaningful sense, the game becomes filling the chamber — and a densely packed build of small nylon parts is where a process like this stops competing with other printers and starts competing with injection molding at low volumes. That's the pitch a bureau makes to its customers, anyway.
+
+Alex: What about the openness angle? HP launched a Material Development Kit back in 2017 — that's confirmed by 3D Printing Industry — explicitly to bring third-party materials onto the platform. The Arkema PA11 work is downstream of that posture.
+
+Jordan: An MDK is open-ish. HP still controls the hardware, the agents, the certification path. A materials company can develop for the platform; that's different from a customer loading any powder they want. It's a curated ecosystem with a visible front door — more open than some competitors, much less open than the word suggests.
+
+Jordan: And there's a fun contradiction in the old coverage. That same 2017 3D Printing Industry piece floated HP as the Apple of 3D printing. Think about that analogy for two seconds. Apple's whole model is a closed ecosystem. HP's whole pitch is openness. Both framings can't be right, and I'd argue neither aged well — HP is neither the closed juggernaut nor the open commons. It's a platform company that keeps the important levers.
+
+Alex: Here's my version of the skeptical question, then. If inkjet expertise is such a decisive moat, why does HP sit among the top polymer AM companies instead of towering over them the way it towers over 2D printing? Competition from other powder bed fusion players clearly persists — that's not in dispute, it's an observable fact of the market.
+
+Jordan: Because the moat is real but narrow. It protects HP within polymer powder bed fusion economics. It does nothing about the fact that a customer choosing a manufacturing process is also weighing SLS, injection molding, machining, and now cheap high-quality FDM farms. A moat inside one process family doesn't make you the market. In 2D printing, HP's moat covered basically the whole way people put ink on paper. There's no equivalent chokepoint in AM.
+
+Alex: So the honest summary: real, durable technical differentiation — printhead engineering is brutally hard to replicate, and ten years in nobody has cloned MJF — but it buys HP a strong seat at the table, not the table. Which is rarer in this industry than people give it credit for. Most process advantages here get copied or leapfrogged inside five years.
+
+Jordan: That's where I land too. Durability is the underrated half of the story.
+
+Alex: Now, where the parts actually go — and the spread here is impressively wide. Medical is the striking one: prosthetics, orthotics, dental aligners, and radiation therapy applications show up in HP's case studies, and the radiation therapy piece is anchored by partnerships with Varian and Adaptiiv that Fierce Biotech covered independently. There's also work with the Superhumans Center on prosthetics, per HP's own content.
+
+Alex: And medical is strategically interesting beyond the headlines, because it's the vertical where per-part value is highest and where a patient-specific geometry is the whole point. If additive has a structural advantage anywhere, it's parts-of-one at clinical quality. That's not a market injection molding can take back.
+
+Jordan: The Fierce Biotech sourcing matters there, because healthcare is where company case studies most need outside verification. My standing caveat on medical AM: regulated applications live or die on clearances and qualification, and the coverage we have doesn't detail regulatory status for each application. Impressive vertical, but read partnership and cleared, revenue-generating clinical product as different milestones.
+
+Alex: Consumer goods gives you Oakley, confirmed by 3D Printing Industry, and golf clubs — though the golf story comes from HP's own content, so that one's company-told. Then aerospace and drones: Avular, and the Firestorm partnership for drone manufacturing, which both 3D Printing Industry and VoxelMatters covered.
+
+Alex: And the aggregate numbers: double-digit revenue growth reported in the first half of 2022 per 3D Printing Industry, that 130-million-parts cumulative figure from the same report, and the VoxelMatters top-polymer-AM rankings in 2024 and 2025.
+
+Jordan: Let me sort those, because they're not equally useful. The VoxelMatters rankings are recent, independent, and comparative — that's your best evidence of position. The growth figure is four years old; it tells you 2022 was good, not what 2026 looks like. And 130 million parts is a cumulative vanity metric. It doesn't tell you part size, part value, or — the question I care about — how many were end-use production parts versus prototypes. HP's whole narrative is manufacturing, and that number alone can't prove the narrative.
+
+Alex: Although a bureau printing prototype batches on MJF is still real revenue for HP. Powder gets consumed either way, and consumables are the business model HP understands better than anyone.
+
+Jordan: The money's green, sure. But prototyping demand is cyclical and fickle. Production programs are sticky — a qualified part on your machine keeps running for years. The mix determines how defensible the revenue is, and we can't see the mix from outside.
+
+Jordan: One more filter for the partnership list: named logos don't equal scaled revenue. Some of these are deep manufacturing relationships; some may be closer to co-marketing. The coverage rarely distinguishes, so neither should our confidence.
+
+Alex: Even filtered hard, though, the breadth says something. Medical devices, eyewear, drones, industrial parts — that's not one anchor customer propping up a division. That's a process that generalizes, which was always the promise of the platform play. And breadth is a defensive asset: concentration risk has killed more AM companies than bad technology has. HP doesn't appear to have it.
+
+Jordan: That might be HP's most under-appreciated strength, honestly. Diversification you build over a decade is hard for a competitor to replicate in a funding cycle.
+
+Alex: Segment I always find most revealing: the hard parts. And I'll say upfront, HP's turning points are milder than most companies we profile. The arc in the record is: 2016 launch, bureau adoption, the 2021 Deltort appointment, double-digit growth and the parts milestone in 2022, top-ten polymer ranking by 2024. Mostly up and to the right.
+
+Jordan: Then 2026 gives us the one visible wobble: TPM, a reseller, exited the HP 3D printing business, selling it to Master Graphics. That's confirmed by 3D Printing Industry and PR Newswire from June. And I want to size this correctly, because it's easy to over-read.
+
+Alex: Why does a reseller exit matter at all, for listeners who don't think about channel?
+
+Jordan: Industrial printers don't sell themselves off a website. Resellers do the demos, the installs, the service contracts, the hand-holding through qualification. If your channel partners stop believing the product line pays their bills, your sales engine seizes up. So a reseller walking away is a legitimate signal to check. But — the reported framing is that TPM exited to sharpen its own focus, and crucially, the business was sold to Master Graphics, not shut down. Those customers still have a partner. One exit-by-sale could just as easily read as continuity.
+
+Alex: So the fair statement is: one data point, open question. It becomes a story if a second and third reseller follow, or if the coverage ever ties the exit to problems with HP's channel economics. Nothing in the public record does either. Businesses change hands for their own reasons all the time.
+
+Alex: On the other side of the ledger, 3DPrint.com reported HP's stock jumping on 3D printing buzz in April 2026. Which I'd handle carefully. Stock moves have many parents, and a pop attributed to buzz tells you Wall Street noticed the division exists — it doesn't tell you anything held or anything operational changed.
+
+Jordan: Agreed, and I'd go further: buzz is precisely the kind of evidence this industry has burned people with before. Interesting as sentiment, worthless as fundamentals until it shows up in shipped machines and consumed powder.
+
+Alex: It's a funny contrast with the rest of the industry, though. We've watched AM companies go through public-market carnage — the 3D Systems profile a few weeks back was practically a survival story. HP's 3D printing turbulence, as far as the public record shows, amounts to one reseller transition and a stock blip. Being a division inside a giant has insulated it from the drama pure-plays can't escape.
+
+Jordan: Insulated from public drama, exposed to private judgment. The quietness cuts both ways — if HP corporate ever sours on the division, we might not see it coming in headlines. We'd see it in a strategy review footnote.
+
+Jordan: Which brings us to what's next, and the biggest swing on the board is metal. The IF-600HT is HP's current metal binder jetting statement — and Develop3D's coverage is notably double-edged. It reads the machine as HP reaffirming its additive ambitions, while explicitly saying the product raises questions about differentiation and market readiness.
+
+Alex: Raises questions is frustratingly vague, though. Questions about what — price, performance, timing?
+
+Jordan: The coverage doesn't itemize, so I won't invent specifics. But I can tell you what the generic hard questions are for any metal binder jetting entrant, because they're structural. Binder jetting prints a green part that then has to be sintered in a furnace, and the part shrinks — predicting and compensating for that shrinkage across geometries is the whole game. Several well-funded companies have struggled with exactly that. So the burden of proof for any newcomer is: show me qualified end-use metal parts shipping at volume. Until there's independent reporting of that for HP's metal line, ambitions is the accurate noun.
+
+Alex: Is HP late to metal, or a fast follower? Because they've watched other people's binder jetting mistakes for years, and Metal Jet has been in the portfolio a while.
+
+Jordan: Unclear, and I mean that as the honest answer rather than a dodge. The fast-follower case: HP has the printhead IP, the manufacturing muscle, and it didn't burn capital on the first generation of metal binder jetting hype. The late-entrant case: qualification cycles in metal are long, incumbents have years of installed process knowledge, and showing up late means every prospective customer already has a comparison point. Watch for named production customers, not spec sheets.
+
+Alex: Other confirmed signals: the Firestorm expeditionary manufacturing partnership — defense drone production, covered by 3D Printing Industry and VoxelMatters in July 2025 — plus the MJF 1200 pushing downmarket and the Craftcloud portal pulling in order flow. Those are real, announced moves, not speculation, and together they sketch a company trying to widen the business in three directions at once: new metal capability, new customer tiers, new revenue that doesn't require selling a machine at all.
+
+Jordan: On Firestorm, keep expectations calibrated — expeditionary manufacturing is a niche defense application, and the open question is whether it's a scalable revenue line or a strategically flashy pilot. Defense money is patient but slow, and pilots are cheap to announce.
+
+Alex: I also want to push back on a framing that floats around this story: that HP must win metal or the whole additive venture stalls. I don't buy the binary. If polymer MJF keeps its top-tier ranking and the 1200 widens the installed base, that's a healthy business even if metal only ever simmers.
+
+Jordan: Same read. Metal is upside, not survival. The must-prove-or-fail narrative makes for better headlines than analysis.
+
+Alex: My watch list, then: whether the polymer revenue rankings hold when VoxelMatters publishes the next round, whether any independent outlet reports a real production customer on the IF-600HT, how the MJF 1200's first year of adoption goes, and whether the reseller channel stays quiet or produces a second TPM.
+
+Jordan: Add one: whether HP ever publishes a fresher parts-and-growth disclosure than 2022. Companies update milestone numbers when the update flatters them. A four-year-old headline figure that never gets refreshed is its own kind of signal — not proof of anything, but worth noticing.
+
+Alex: Let's land it. Ten years after Fortune called this HP's biggest gamble, my read is: the gamble worked as a business and remains unresolved as a thesis. Top-tier polymer AM company by independent rankings, a process nobody has cloned in a decade, real customers across seriously diverse verticals — and still an open question whether the inkjet advantage extends beyond the polymer niche where it was born.
+
+Jordan: For practitioners, the takeaway is simpler. If you need repeatable nylon parts in volume, MJF earned its seat at the quoting table years ago, and the ecosystem — materials partners like Arkema, the bureau network, now the on-demand portal — keeps deepening. Just walk in knowing open platform means HP's definition of open, and price the ecosystem accordingly.
+
+Alex: Who should be paying attention? Anyone buying production polymer capacity, obviously. But also anyone watching whether corporate-backed additive divisions age better than the venture-backed pure-plays — because HP is the cleanest test case we have of the patient-giant model, and so far the quiet decade looks a lot better than the loud ones elsewhere in the industry.
+
+Jordan: And the one question to track: does independent coverage ever show HP metal parts in real qualified production? Not a launch, not a partnership announcement — shipping parts, named customer. The day that story runs, this profile gets a very different final act.
+
+Alex: That's the episode. HP 3D Printing — a decade in, still betting. We'll see you next week on Layer Lines.
+
+References
+
+1. HP’s Biggest Gamble Is 3D Printing - Fortune — Google News: strategy and future
+   https://news.google.com/rss/articles/CBMiWkFVX3lxTE1tVGlPaTZMM3BCc0k2WU5xbXkzSVN1RU41SC0teWljNnpZT1hiRklGUldKekItVzRjV09YRUdicDl4aTJnWXBzU2tuMkFtVWpZWVpSRmRObWhTQQ?oc=5
+
+2. HP marks 10 years of 3D printing with the MJF 1200 and a growing business - VoxelMatters — Google News: company overview
+   https://news.google.com/rss/articles/CBMipgFBVV95cUxOTkNVckt0QXNNY3l3RkE4WWNEdFZMWU1LVGhkOUw2eWM5MVpEeHByTWR1ZXdvb0F0bkNFc2V5T0dRaHZlYUw1czNrNFlObU9XcmRBbTRrbHNDRG43Yk5EY3d6Y3pTUWtXSXFXOUJWM1JNME5sSGhKeXFIREE1cTh3ME5iRG0yZi1fOWZqNEViQnlwWk9YNURTNmhrMDhDRjhTSHdFNjZn0gGrAUFVX3lxTE1kOXFXSXlRc09pWHF2WkpZTUdzWHVwZllwWGQtNTRFWWR0Z05yNFh3WXFLb0J2M0hnOVA3NEpsWVByVzdzUnQyQm9mcEM5MTREWGpxVzRMcFhTLUZXM2tGY09lOE50cnQ5MjEwWDFfT0JiLVBoRlJESGMyM0xVU2w3REpONGdjeDNLQ29JeDM2Sk5UOFdDLVVuVDlKR2VfU3VpbGhFajNWSHFYcw?oc=5
+
+3. These are the top 10 polymer AM companies by revenue in 2024 - VoxelMatters — Google News: turning points
+   https://news.google.com/rss/articles/CBMilAFBVV95cUxOSUNjZGJrZ2xHbVdmY3hzcUNCX1VEb2dxc0NTVHBlUTd2R2xjLVlFNWtxZEtYOXZhTUhDXy11VEFMY3U2MHE2OW93WXNDTHNJOElDWk1Na2NkdFpOdHAzel9mOUtrLW4zTlhidGRVVHBqeEg0cVJacEZob3dFSXZwdzBfSlVSMDVaLTg3VzM3VlIwcGVt0gGaAUFVX3lxTE5fM0wxZllLb0x2UW55ZnkyUzRSeEoyMFJ4cmlYc1RIeENoTGcySVBvcUFCSl93V2ZnUG5IeTVRelBOTUxWS2tvbWt6UGg0eG90YzFNYk4zaW8weFplcVQxYi1TMWt2NnFhaDFoX2JjTVZlMXEzYzk5QldtV0stUXlwWkh1WEdsYmRJNUpRZHltUUlfdi01eDdJRmc?oc=5
+
+4. The top 10 companies in the Polymer AM market - VoxelMatters — Google News: turning points
+   https://news.google.com/rss/articles/CBMigAFBVV95cUxQLV9QS2ZhS2NnR0dZcEVsQ1ZxU0wwbzdVMk1KRXQ0M2RoMGstYi01QjlpTHBxeGpMOVliWlBrTmFLaXJrRm9DeVVqQlNoNlgxU3ZFRldiVzZDeHg0S2ktcXE3R0xrRkZVeXBtajZhR25ONWRlMzZWOW0wOExLYzZTMdIBhgFBVV95cUxPaUFzVXJzV0kzbFBlSkxsenZZZ3NfN01JTGxCd0E2REFDZC11alItR3g3M21WQ295MmN5d0ttZnh1ZUk5MV9IcjNkQnpzTWMwbVVlTkNPb0piOVpfY3V4TlU4SUd6Q2dYM1MtekIwMnlmQ0FVR1NvSDNtR3lJWEVXS1h4ZkFDdw?oc=5
+
+5. HP Stock Jumps on 3D Printing Buzz - 3DPrint.com — Google News: company overview
+   https://news.google.com/rss/articles/CBMib0FVX3lxTE1OUFhqQzV3SFFvc1JKaXlGS2VYUEdRX0FBNGlyeGpqbXNNR3pzbkJGN2l3UXlWRkJOckcwQXJFbkFiTjY2SnhtYklaY19DZVdxLXZZTzc0LXZIRExaNWdBc25BSHNlS2pEbEh6aHAyONIBdEFVX3lxTE1xLUlDY3lPcnVYODRtbnZULXVDcURxcU5MVFdEM2ZicTRoRElBVWZEZW9yai1XcmYzVTEwYUhRMWxVdExQZkN5OWxYVGNNLTZlS25yamJrZWNfYVJzV0syTmgwV1B1UTdMODV4S0U3ZXhTcGhy?oc=5
+
+6. HP Delivers World’s First Production-Ready 3D Printing System — hp.com
+   https://www.hp.com/us-en/newsroom/press-releases/2016/hp-delivers-worlds-first-production-ready-3d-printing-system.html
+
+7. Proto Labs Using New HP Jet Fusion 3D Printers - All3DP — Google News: history and founders
+   https://news.google.com/rss/articles/CBMiZkFVX3lxTE5iZTFGTThkOUtsWS0xVXh6OHY0ZkJuY0c5TmtnQ0NxazVIRFJUN3ZnNWRHUUctZkJnS1VLMlRxNDVZUWxkcjRuZS1HcnRySEx6TmFUcVdOQkxwOUdsZGJkUEVDMzF5QQ?oc=5
+
+8. Oakley selects HP 3D printing as prototyping partner for sports equipment - 3D Printing Industry — Google News: history and founders
+   https://news.google.com/rss/articles/CBMiuAFBVV95cUxORDZIMXpoTHZpZWFwTHB0MTVzUTc0N0dWcFRFZHNrNUtsN3dBWlotNzZvQUR6NUtpaGxYZmk1cGhlZUY0QVBUc2FSdTVTNkZ2aWN0MC1ZeTRxTnpOcE1QQ1BKQkFVXy1CMUlYQlRzSG1nUkw4M0xmeUFKOW55dlJFbmJwWDdWSE9pdkhEMEUxVUNUWUVnQW42OUdNUy1FXzVtc2dPQkdSbGFMUV9hUTJvT0VoUkd1b1k3?oc=5
+
+9. Didier Deltort is the new President of Personalization & 3D Printing at HP - VoxelMatters — Google News: strategy and future
+   https://news.google.com/rss/articles/CBMiqgFBVV95cUxPVXY2RGpvV0hjcDlRZWlmUndyZHk5cW9XRHh3RGNLc1dja09XNHFodmMzank0OGNxZzdJdG9FMXNEenpmeVFqakhDYWZKUGJkMmZvR1FaX1BTQ2Nkc3czNHYwSWRqMWlkQ0hBRngtZlZpSk41Y3hMVkhJaVVFVnVUNHZUTlBhZGhrcEZpdFkweDlfVlJpejF6cmdvNVlaWWVNTFIwYXNvQkZGQdIBrwFBVV95cUxQdGdGS2tuOVFRYW8yTmllcjctV1poRjY0OVJrS2Q3eDBZMkJrcFJRdFJKV2xPVDF5ZE5OcDVHUnJyUDlYcHhXMUZlazVGS29WWlB2MmowYllqMnFPZldGRmZ3SE56SS1JdFMzOV9hamNELTZRYTc1d2VOeEdabDVDUkh3b09wWXo5UXU3WmIwWl9lNGhPZlJ1cWhvWlpoT0xuRFFkSDJSOGU1c0daNF9r?oc=5
+
+10. HP 3D Printing Solutions - MJF, Filament, and Metal — hp.com
+   https://www.hp.com/us-en/printers/3d-printers.html
+
+11. HP’s New MJF 1200 Is Smaller, Faster, Cheaper & Built for Every Workshop - All3DP — Google News: products and technology
+   https://news.google.com/rss/articles/CBMikwFBVV95cUxNdXZCS2FueEhfR0M5YjVNWFE5em9DNWI5WmxXbktTZzR2a2k0cXhQTmRHdTdlU0JMbHEzRjh6Q1ZQdmdnTF9BX0hLeWlXaUV5VVhKdFZNMHVrcG5WV1hlUURJRmQ0SmVROF90ZHpqLTR3WWV3UzBNanhlREE5NTBELUVweFhMRXIzV3dHdWxsQnNKdkE?oc=5
+
+12. HP IF-600HT reaffirms AM ambitions, but raises questions - Develop3D — Google News: company overview
+   https://news.google.com/rss/articles/CBMidEFVX3lxTE11cG53NktaNGs5ZXVMaVA1QU52eFd0WUFONXFEemNnODBDVTJrc0RRWUsxNHdvb1lxUjdHenhQUUhramNpX0lDN0Z0Sm9jMWxELXhIclJKX1BpUjVBS1U5SzU5ajl1UGdYWThUdVlrSUpQdHpW?oc=5
+
+13. Arkema and HP AM Solutions Launch Bio-Based PA11 Gen2 For Advanced 3D Printing - Arkema Global — Google News: products and technology
+   https://news.google.com/rss/articles/CBMivwFBVV95cUxQVDBtLURWMXhodFlwZ091NXNPSGJTSElEeE9GVktWeDNHUnFrV2NPLUVwTmFfbm1rd2t6ZDJzZ200QzlMUFdHb21JbmFmdDR5ZFNWbHg5MHZnZmNDOTBVSW1ZX0JIa3lXNHFYYk9ROG1jeXFIM1NZVmJaOElmYnNmVlRfT2lwRWlkZXRHMURadFNaOW91SlZBMHlOMGJWOFJybkZuQkhmRU8yOVZ5YTBaWFpodEVmZDlyMEdhVFFpZw?oc=5
+
+14. HP and Craftcloud launch on-demand MJF parts portal with instant quoting - VoxelMatters — Google News: product releases and availability
+   https://news.google.com/rss/articles/CBMipAFBVV95cUxPempWVmtvdnF5WndOVG1TVHRUdXZPZUliUDFBU1NvM3oxSGdnUTdXdlV6NDlkM0JRWlM5VktTTGZra2JzNnZQWWF1RE9ieDZkemM2SzhuY3IzQktLWFpiOGpkTFdpQ2dUdFdFUDFqX2IwUVRsNDQxelVwM01Qcm5DbU5OdjE4RFcyR2NqSzc1a0ZDR3hBUFd0Y0R3ZTR6elpEUU50ddIBqgFBVV95cUxPb0twVGU2TGdNYjZGdU5sdlh2UGNJWm96YmJpOFVtUGdNWFcxRldqYy1QNkdZZS14MnhWeFd2NEZUci0wOFFHMnhhd1E4SWF0YkFjc1d1WjVUY1NnaTh2XzBrOXpQQ1JCNUhfU3FydVhCck5qaGZRSGxQQkIxNlpsejJKRXZQc0drTGhDQWc5ZUdUb1BmQms4Qmp0M2M5R1ZGZktPeWE0X0Vydw?oc=5
+
+15. Craftcloud & HP Launch New On-Demand 3D Printing Service to Accelerate MJF Part Sourcing - All3DP — Google News: company overview
+   https://news.google.com/rss/articles/CBMisgFBVV95cUxPV3hudDZiamVjcDhPWGducENVZ3JaSmZndTN4dTZaa3RVRDBjSGxkOGRZWUR2X0FpelZYWUl0QXdhS05RdThBQ3RHRVQ1eGRYNVF0cGlMeXFnOVhUbDZrbmxnTFZ4MXZSYVNFZHpIOWs3ZUpGeTJHWDRZSzg1VFlCTWFXZkd0dUFpU2thMXN1Y1lqRDVkQ0g1T1lyd2M0NlNsTWJZWFV5VURJOHhVSDdWc1ZB?oc=5
+
+16. HP SitePrint Autonomous Robotic Layout Solution Leverages HP's Multi Jet Fusion 3D Printing to Reduce Cost and lnefficiencies in Construction - Robotics Tomorrow — Google News: customers and market
+   https://news.google.com/rss/articles/CBMioAJBVV95cUxNUVpUcEhTSUNVTVU3ZDJWeTZVcGluT2pNLTgyeUtYVFpEWlE5am5Jb3RhLXhUZ1oyZTZ5d2F1UkdIWHM4RWoycms2dlU3TDY1ZTFxMFFpTFNWc29aMU1wVHUwX1NQUnRITlo4ZHZuTGpLd3BrVDRrOXdoeVl0U3VldFV0VnlmdEtXQVoyMlBRdVcyMHVLTXFyMG1FV0JndlFSZi1nOWZ0dHNReHdUenloc0NSdDd4cWxKWnp2V3BqVmpDemhvTXBteHQ0czV1cjhrZFRKd1ZaTmpvQWtpSkpnLWRuUF9yTmR6elh0ekFwazFOLUlJUUprUWkta2tfcTlFMlZ5QzIybWxWbE8zWXNKb0V6OTEwRG9qSnBhbWVRY2w?oc=5
+
+17. Firestorm to Deploy HP’s 3D Printing Technology in Field-Ready Mobile Units - 3D Printing Industry — Google News: product releases and availability
+   https://news.google.com/rss/articles/CBMiugFBVV95cUxQcDJPeGNvQ2FXdnVWSUlLTFkyOEh3ZjhSV1d0MEx1clFITUEzUDNweVN6alBBVGRscHpOM19PQWNadjN4b0NWSWNWY2lBWmluejJGdHRzOU9NencxS1BBcUFrNEZLTDZrR0N2bGdoZWdIU2hNaXdES0l5RGJYSENpQUR2bG5HcDc2dkdXM1FaUEVWU2lEbzdQUHhBeDRaQWgxRnZzZy1XQVp1UEpveTExLUt1aHh0VWFXeHc?oc=5
+
+18. HP Accelerates 3D Printing Adoption with New Innovations and Collaborations at Formnext 2024 - HP — Google News: leadership
+   https://news.google.com/rss/articles/CBMigAFBVV95cUxNdEs4a3hCbW5NYjQtelhvZjZoLXlFUzlNdVFWMTVnLUlNMUVoRW9MeGNkblRRamQ0SHhuT0xHSkRNZ1RHNTJ1Unh5bTdtWHdjQ1BDc3lleExmQkRCYWZwU2RQOEhDNVhZaWoxQWV4NWxVSlJYY25wMmtZMnF5WWZhUw?oc=5
+
+19. HP Multi Jet Fusion 3D Printing Technology — hp.com
+   https://www.hp.com/us-en/printers/3d-printers/products/multi-jet-technology.html
+
+20. HP launches Material Development Kit to accelerate the next industrial revolution as the Apple of 3D printing - 3D Printing Industry — Google News: strategy and future
+   https://news.google.com/rss/articles/CBMi0gFBVV95cUxQSTRhWktKNC1fWjdhaGFkWmoxLUNiajNQbkppSGg0X0VnNW9PVzdTcEFfZU5wUmp3dW5VMWxiNC1VOVA5TXdEQlphekY0S3RpTnFIWWpFTXpjd2FnOEVJRzU4Q1RpVWpwMkpVTGVROEd3OFRPOGU2UVA5a1lvSjF6UmFnZXJoWlpITlBQRU9PTi1FWm01TVNNeC1Ody1keWE5aXVORmkxYUN0Zk5SSXlocHktbm5DYWEwdUxpdE1tZ1Fja1hnV3JuZE5UbUtGZi1id2c?oc=5
+
+21. The Future of HP’s Multi Jet Fusion 3D Printing - Engineering.com — Google News: strategy and future
+   https://news.google.com/rss/articles/CBMigAFBVV95cUxOV2JMZFd1b2k2QUxhRTRfMUJzVTRpclZqYWFsaGpoR3VnVjdmNkwwbkdqQm82M2xScGprUjI2RzcxRUJ3aldOa1Z6RTBwZmdHbE9XOTlpMFM3V3lSaEduTHNHbC1UME1NZUhyNjhyZFVDSlI2cjBpU2lKSWxSQWlQMg?oc=5
+
+22. HP sees double-digit 3D printing revenue growth in H1 2022 as printed parts top 130 million - 3D Printing Industry — Google News: customers and market
+   https://news.google.com/rss/articles/CBMi0AFBVV95cUxQeDE4eFVieHBWOGpMXzRJRGJlc2JGSDR0dE4wNDB5MkIwX215WUNGd1M4UnhOTzRtQy0ybm9yWWZ0U3VTNXY2X1k2M2toWFBWOWxWQnZieGJmRFZRcGc2SzFrall4cHp1SXl6cW5qNnVRMDVfX3N1UUVZZGUzelBiTG1sUHV4MkRFYlBlVE5qLVpwYjE5S1RaSlBCVDVfU09kX2NDTUZ6bEtWbDdYZ1kxNWI0eGR4MW1pQlloaVU5c2tQTnVHV195M0p1NlRhNzBv?oc=5
+
+23. Triple threat: Varian, HP and Adaptiiv form 3D printing pact to improve radiation therapy - Fierce Biotech — Google News: customers and market
+   https://news.google.com/rss/articles/CBMivwFBVV95cUxNNHA1T2dnaDFpYnNsa0lwMFN3dmlteG1zdE9nTWlwLWZ2MFRQbGRZT2FENkN2dm1DS3dCSHZGRlN0TzlBd1dQTmVjZXVXTlhNYkFxeEpiMUc2WDRWeEx4bm5KLVprZE93SGx5WjlsbjA5WDl2czZzSWFBV2oxU1ZBREd0QUdTY1FEN0hFVDVLVjkyN09DUjUtX0k4TWpmMEpUNDh4YkZNTlctM3gyYWI4Mm42UjVQa1gwdDFtaVgzQQ?oc=5
+
+24. Revolutionizing clear aligners in 3D printing dental: MJF's breakthrough in mass customization - HP — Google News: customers and market
+   https://news.google.com/rss/articles/CBMijgFBVV95cUxQTXJ4UWt4NVI0dDhDX2tyRDVKWGZpeWwxSUJzZEpqWUdRZmJUT1FMc1NyWVliQVZkczZHYTkwRFNSZmgzRWZLdWRmVjFqLVFPN0VpLTd4M00yZjJaRS1GWEIxMEF3cWY1ZUNkVUFZbkRDY1ZOYllXUmlvYXRYZkZ6dTZRb0JsLXVZampkV2VB?oc=5
+
+25. How 3D printing prosthetics is changing the face of medicine - HP — Google News: customers and market
+   https://news.google.com/rss/articles/CBMilAFBVV95cUxNelFXSHVMRmMyd1dURWtwOXY3cVhBdk5vLWVrMGM4dGdDTVBvaWRwV0Z6cGFiRnlaVnlwNy1JV2lMaFU0RzdWR3g5eHBlZ0t0MUMtVVRFalNIY1R6R0JKazNvUWhCOHNYbFVXN25yOVZkbm1uQTg1SHp1Ykl3enhDdng4U2U1ZlVuYTNIRnpDLUY3cXE5?oc=5
+
+26. 3D printing golf clubs revolutionizes club making - HP — Google News: history and founders
+   https://news.google.com/rss/articles/CBMikwFBVV95cUxNWXRWbzl2dnB3RUJEZ3dNSmFaVzVzWnh0SE5WRC1lSEJQRmIwQWVjZU4tRGdnTEx3VURUb1c3cWdsWG13SnpPbmhBSExEZmVPYkRvN2RfVU1QdjQzN2ozM1djMHUyR3NFQ3UzckNUMjJZcXlNWnd1ampneHJyV3EwX0NxejloSEdrMXlRXzczTGpTSnM?oc=5
+
+27. Advancing UAV & Drone Manufacturing with HP 3D Printing at XPONENTIAL 2025 - Unmanned Systems Technology — Google News: history and founders
+   https://news.google.com/rss/articles/CBMivgFBVV95cUxPNkw1SXRxY3RNeGxBNnpoME4xTnBSTmF1V2l2U3VTU3ctWWxFY01WSDhnWnVycnI4V3FBZFFUSmFDVUU2Wkw4RFdEeGczVy1RMklFWjRINE9BMlBRSDh1WElzemFURTBIX2NBVXRfYlhvQ0JIVnBzZzlHQl96cmZsRG13U3NBRjNtbC1VSFJPVllKRmprYTZjVlg5akhtUWR4dWZXNV8tWDVuX0ZQcXExSlg4M3RIMkZjY0x1aE9n?oc=5
+
+28. Superhumans Center uses HP 3D printers to support the injured in Ukraine - VoxelMatters — Google News: history and founders
+   https://news.google.com/rss/articles/CBMipAFBVV95cUxNLVlORnhnenRXMjJMdnhtMjlURHNxSUlsN1lQVWt2cXRZV0VUaWxRZ2lMUTRFcU1UTTExbUhxY09sbnphaHBpRFNIbUNPLVIxazhKTG52YnNoSktXTmQ5dW43cFBacWVUazBmWVIwa2FsYm5IS1Q3Q0pNWWdaQUt5WFh3NUFBNWJFd1pwSjNLRUpKSmx4clFEOWxUVkJrLWpvNGVXUdIBqgFBVV95cUxQRE80V2toR2d3MWFXQkxKd0p4V09tU2ozdXRaR21lMlF2ajJrSlM1Q3NiZ05OZzBQeVVWR2k5ejJhSzVUZ1VRWER1amxFbzB0bjVyQ2VlZEk3d0JlNzQ5eW5FQnIyVVU0QkdyczdFZFpLdXJFTXM4dFVpLWZNNlc1aGRRUVU4TWpDaTA2RVlVdHpfbkdzYjEyT3R2VDJMRklPbVdVV2ZHczFldw?oc=5
+
+29. Firestorm and HP partner on expeditionary manufacturing - VoxelMatters — Google News: customers and market
+   https://news.google.com/rss/articles/CBMijgFBVV95cUxQWUNTbnZuWUhzTzhheFpsUnFqMW5KeWtTQTIzRjBtWXJwVkoxUG9RR0NraHFYWkI2Wk9vRmlCSVZ6SU9IS3hXajlWZkZ4TUZMM09aXzAtQ09OWHJfU1dDSHBNU1JHRDFicC1fQ3hOR3NUazFtdjVZRVZqMGFiMEZYR1Q0NEdQVWo2QnQ1QTl30gGTAUFVX3lxTE50TXZ5aXFINThpWlhSaFJHRGRNcFgyeFNtdXZ0WW1uRWloOXZKdXVmZVZOYnR6SkNnVnp6TFIxLWJWUW8wMlRZZUtLRFotY0pfc25faHg3Xy1vX1dkWHdNYzhUYkgxLTVFZl9rS3pWcWFEX2RGLThuYWMtY0dqdVlrR2RxQ2NMbG5kT2o2OVJrOGpLYw?oc=5
+
+30. HP showcases breakthrough orthotics and prosthetics case studies - Medical Design & Outsourcing — Google News: product releases and availability
+   https://news.google.com/rss/articles/CBMilgFBVV95cUxPekZVU243R2FkSG9abEZ4YVIzSzVWelB3STZXM1lUT3Y2M1RYT0R4aWRzdTNseDZTRXY5b0xMdVNXVXA2QjZYZ2lhN0toSDlwMU0wNUVoZnpaSU4tVVdyX0t6VXpQek5xcFlRZF90aDBPZk4xdWFoWnB4blVVcEduVEMwWVpkODBGWGVMNGZBN3JOcEZETVE?oc=5
+
+31. HP 3D Printing Case Studies and Resources — hp.com
+   https://www.hp.com/us-en/printers/3d-printers/resources/case-studies-resources.html
+
+32. Top 10 3D printing companies - Manufacturing Digital Magazine — Google News: leadership
+   https://news.google.com/rss/articles/CBMifEFVX3lxTE1LV19oMUlKQ2JacmdRVlBvVVEzbGY4Zm5PaEJ1Z1plbTZER1dTbHJpQzhyVE1MeEg2ay1KdjlzckRBX3JxbWhUNkZ4dWJvM3VvS2o0SFNKVm1mOXRKX0xta09XSFQyaWFBQzc3cDRNV2ZtWUFVUk5GaDRMTWM?oc=5
+
+33. TPM Exits HP 3D Printing to Sharpen Focus, Hands Business to Master Graphics - 3D Printing Industry — Google News: company overview
+   https://news.google.com/rss/articles/CBMiuwFBVV95cUxQMFdJQXJqU1VXN3BGbXRaazJzc09qa2I2bHYzOVpPXzdQY3RhazhoUS1KM0ZrWDNnWVRXTGMtY2ZCNFBFemxSbW1wOFJyQmMyUzlLdGZkczMteFZLRXBNb3JWUlMwWUo3YzF5d1pGbldJQ0hsUjVMQklUcTRoOHZDcmhnZ1hhVmZISVpleDJVUEZxSmQ3elhDNGFIeUJpakI2TGpmR3dlOFByc2o2R19TWHRkQlVzbHNZSDRz?oc=5
+
+34. TPM Completes Sale of HP 3D and AMT Business to Master Graphics (M5D) - PR Newswire — Google News: company overview
+   https://news.google.com/rss/articles/CBMiwAFBVV95cUxPZUtpcTE5X1VqMWw4RlZDaDZmTTlwdW9rSTBTT3NobHAzY1FGNjdoeG9OdUN3Y3lhTHF1ck01SFB6dDNZbENwVnlpVkNhX19LUDJ4RUhhYkZkTG9mTEVhaUJMWFNyOGF3dFlldzRQWmJvR08yUWh1T0pQZzZ2UTA1VnRkMTZ6MS01WlE2T1UydkxrenJNbkFmelZWWEJFWU5EU0djMzdoWVJnUkd5UVU5NkVJZDZnVUNiTGxrdnZpaDE?oc=5
+
+35. 3D Printing in 2026: The Companies, Machines, and AI Tools to Watch - Medium — Google News: company overview
+   https://news.google.com/rss/articles/CBMirAFBVV95cUxOR3pJa3VOUTZQZExuRjN6bHRXZnI5MzVPOTVzVGpmS0QtVG9oTTM5Ty02YUpycUZoZWM5T2liZ1Y5MEZrSURtUTFaUXRNM3dZTlVlNzdTa3NSd19pTURqQkNBb1hpR3R1TlU2MTcxSEU3OUxqLWpWbGtLckluVzJXRWpoNzVyWGttT1l1UlBveVR6bUF5eVAyal9maDNDbTVTbHF0UjMwYnVSeHZB?oc=5

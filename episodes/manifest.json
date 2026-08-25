@@ -1,6 +1,17 @@
 {
   "episodes": [
     {
+      "number": 22,
+      "date": "2026-08-25",
+      "title": "HP 3D Printing - The Inkjet Giant's Ten-Year Manufacturing Bet",
+      "description": "Alex and Jordan profile HP's 3D printing business, from the 2016 Multi Jet Fusion launch with Nike and BMW watching, to a top-tier polymer AM position, a metal binder jetting push, and a decade-old question that still hasn't been answered: is HP's inkjet moat real? Plus the MJF 1200, Craftcloud, and what one reseller exit does and doesn't tell you.",
+      "duration": 1466,
+      "fileSize": 23457167,
+      "releaseUrl": "https://github.com/szabadkai/podcastEngine/releases/download/episode-2026-08-25/episode.mp3",
+      "guid": "layer-lines-weekly-2026-08-25",
+      "transcriptUrl": "https://szabadkai.github.io/podcastEngine/transcripts/2026-08-25.txt"
+    },
+    {
       "number": 21,
       "date": "2026-08-21",
       "title": "A Texas Judge, a V8 Block, and Two Imaginary Dimensions",
