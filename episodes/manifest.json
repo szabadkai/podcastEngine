@@ -1,6 +1,17 @@
 {
   "episodes": [
     {
+      "number": 24,
+      "date": "2026-09-01",
+      "title": "nTop: The Software Company That Thinks CAD Is the Bottleneck",
+      "description": "Alex and Jordan profile nTop, the New York software company betting that traditional CAD, not printers, is what's holding back advanced manufacturing. From its 2015 founding as nTopology through NVIDIA's backing and a push into GPU-native simulation, this is the story of a geometry engine trying to become a platform.",
+      "duration": 1361,
+      "fileSize": 21771537,
+      "releaseUrl": "https://github.com/szabadkai/podcastEngine/releases/download/episode-2026-09-01/episode.mp3",
+      "guid": "layer-lines-weekly-2026-09-01",
+      "transcriptUrl": "https://szabadkai.github.io/podcastEngine/transcripts/2026-09-01.txt"
+    },
+    {
       "number": 23,
       "date": "2026-08-28",
       "title": "The $2.3 Billion Signal — Defense Goes All-In on Additive",

@@ -1,0 +1,20 @@
+{
+  "number": 24,
+  "date": "2026-09-01",
+  "title": "nTop: The Software Company That Thinks CAD Is the Bottleneck",
+  "topics": [
+    "nTop company profile",
+    "implicit modeling vs. B-Rep",
+    "nTop product lineage (3.0 to Fluids)",
+    "NVIDIA investment and GPU-native strategy",
+    "cloudfluid acquisition and simulation push",
+    "market position and revenue estimate"
+  ],
+  "threads": [
+    "nTop's revenue growth vs. platform ambition",
+    "nTop Fluids customer traction",
+    "implicit-to-print workflow maturation",
+    "incumbent CAD vendors' implicit modeling moves"
+  ],
+  "predictions": []
+}

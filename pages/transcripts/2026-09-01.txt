@@ -1,0 +1,212 @@
+Layer Lines Weekly — nTop: The Software Company That Thinks CAD Is the Bottleneck
+Episode 24 · 2026-09-01
+
+Alex: nTop is the company that looked at additive manufacturing and decided the printers were fine — the real problem was the design software. For a decade now they've been building a fundamentally different way to describe geometry, and it's carried them from a niche latticing tool to an engineering platform with NVIDIA money behind it.
+
+Alex: The plan for today: the 2015 founding as nTopology, the rebrand, the product releases that turned a geometry engine into something much bigger, the founder who's still running it eleven years later, an acquisition that pulled simulation in-house — and then the question hanging over all of it, which is whether a company this specialized can become broad.
+
+Jordan: An unusual subject for us, because they don't make a printer and they don't sell a material. But anyone who's tried to model a lattice-filled heat exchanger in a mainstream CAD package and watched it grind to a halt already understands, at a gut level, why this company exists.
+
+Jordan: There's also a revenue estimate floating around that's much smaller than the ambition. Keep that in the back of your mind through all the impressive parts, because the gap between the two is the real story of this profile.
+
+Alex: One ground rule before we start: a lot of what's said about nTop comes from nTop. We'll flag what's company-sourced versus independently reported as we go, and with this particular profile that distinction does a lot of work.
+
+Alex: The origin first. The company was founded in 2015 as nTopology by Bradley Rothenberg — his own words, from the blog post announcing the later rebrand: 'In 2015, we started nTopology.' His founding premise, again in his telling, was that manufacturing was no longer the bottleneck. Software was holding back design.
+
+Jordan: That premise was correct in 2015, whatever else you make of the retelling. I was in industry then. Printers could already build geometry that no mainstream CAD tool could reliably model — you'd have a machine capable of producing a conformal lattice, paired with design software that fell over before you ever reached slicing.
+
+Jordan: Some background for anyone who hasn't lived this. Traditional CAD is built on boundary representation, or B-Rep — the computer stores your part as a stitched-together quilt of surfaces. Beautiful for a bracket with six faces. Terrible for a lattice with fifty thousand struts, because the quilt gets astronomically complicated and eventually the stitching fails. Not sometimes fails — reliably fails, at exactly the complexity level additive makes interesting.
+
+Alex: nTop's early bet was to sidestep the quilt entirely. Their early positioning centered on the geometry additive made possible — lattices, complex internal structures, topology-optimized shapes, exactly the stuff B-Rep chokes on. A narrow flag, planted deliberately, in territory the big CAD vendors weren't defending.
+
+Alex: Worth pausing on how contrarian that was. Around 2015, the money in this industry was chasing printers. Almost nobody was building design tools native to what those printers could do. Choosing to be a software company in the middle of a hardware gold rush took a certain conviction about where the real constraint was.
+
+Jordan: One caveat to carry forward: the founding story we have is the founder's own account, and there's no independent history of the early years in the public record. It matches the market reality I remember, but founding narratives get polished in retrospect. Every company's origin sounds inevitable ten years later.
+
+Alex: Even allowing for polish, the strategic read holds up. Plenty of hardware companies from that era are gone or limping, and the design bottleneck they ignored is still a bottleneck today. Everyone else sold shovels; nTop decided to sell the map.
+
+Alex: Now the product lineage, because the release cadence tells its own story. First milestone in the record: nTopology 3.0 in April 2021 — that's from the company's official release announcement — with GPU acceleration for real-time visualization as the headline feature.
+
+Jordan: That release matters more than it sounds. Implicit geometry is computationally heavy, and the honest knock on early implicit tools was that you'd change a parameter and then you'd wait. Moving visualization onto the GPU made the tool feel interactive instead of batch-like, which changes how engineers explore a design space. In hindsight it's also the first breadcrumb on a trail that leads straight to NVIDIA.
+
+Alex: May 2023 brings nTop 4, which VoxelMatters covered at the time, landing right alongside the corporate rebrand from nTopology to nTop announced that April. New name, new major version — clearly a coordinated repositioning rather than a coincidence of scheduling.
+
+Alex: Shortening the name is a small thing signaling a big thing. 'nTopology' says topology-optimization boutique. 'nTop' says platform. Companies rebrand when they've decided the old name describes a smaller business than the one they intend to be.
+
+Jordan: June 2024, nTop 5 ships — the company's announcement describes next-generation implicit modeling technology, essentially a new kernel for greater precision, plus five new integration partners across the design-to-manufacturing workflow. That partner push is an admission, and a smart one: nTop lives inside other people's toolchains, not instead of them. Nobody rips out their existing CAD seats and PLM system for a geometry tool, however clever.
+
+Jordan: The most recent chapter is simulation, and the sequence matters because it's easy to garble. nTop acquired cloudfluid, the company behind GPU-native CFD technology, in February 2025 — 3DPrint.com reported the deal. Then in May 2025, per TCT Magazine's coverage, they launched nTop Fluids, the GPU-accelerated CFD product built on that technology. Buy in February, ship in May. Acquisition first, launch second.
+
+Alex: Three months from closing a deal to shipping a product is fast. Either the integration work was largely done during the earlier partnership, or they moved with real urgency once the ink dried. Probably both.
+
+Alex: Step back and the arc is legible. 2021: make the geometry engine fast. 2023: rebrand around a bigger ambition. 2024: rebuild the kernel and open up integrations. 2025: bolt on physics. A deliberate, staged march from design-for-additive tool toward computational engineering platform — whether the market wants that from them is the open question, but the roadmap discipline is undeniable.
+
+Alex: Leadership is a remarkably stable picture. Bradley Rothenberg founded the company in 2015 and still runs it — the rebrand blog is signed 'CEO and Founder,' and the company's public communications have been consistent on that point the whole way through.
+
+Jordan: A founder-CEO eleven years in is rare in this industry. Most additive companies churn through two or three chief executives, usually after a rough earnings cycle. A decade of continuity means the strategy — for better or worse — is one person's sustained thesis, not a series of course corrections by hired operators.
+
+Alex: You can see the thesis in the documented moves. The rebrand was a leadership decision to claim a bigger category. The cloudfluid acquisition was a leadership decision to own simulation IP rather than rent it through a partnership. Both are bets on breadth, and both were made from a position of stability rather than panic.
+
+Jordan: The acquisition especially. Partnering for CFD is the low-risk path — integrate, co-market, walk away if it sours. Buying the company means employing CFD developers, owning the roadmap, and carrying the maintenance burden forever. That's a founder declaring simulation core to the company's identity, not an accessory bolted on for marketing.
+
+Alex: Honest limits, though: Rothenberg is well-documented, and beyond him the picture thins out. The executive bench, the internal culture, how decisions get made day to day — none of that is visible in the public record, and we're not going to invent color where there isn't any.
+
+Jordan: What the documented moves do show is a team playing offense — acquiring, rebranding, courting strategic investors — rather than reacting to whatever the CAD incumbents do next. Posture alone tells you something about how a company sees itself.
+
+Alex: On to the technology itself, since this is where nTop's whole identity lives. The core is implicit modeling. Jordan, give people the working mental model.
+
+Jordan: Instead of storing a part as that stitched quilt of surfaces we talked about, an implicit modeler stores it as math — a function that can answer, for any point in space, 'are you inside the part or outside it?' The geometry isn't a fragile data structure; it's an equation you evaluate. A lattice with a hundred thousand struts isn't a hundred thousand surfaces to manage. It's still just math.
+
+Jordan: The practical consequence shows up when you change something. In B-Rep CAD, edit an upstream dimension and the software has to re-stitch the whole quilt — sometimes it can't, and you get the dreaded rebuild failure, the red features cascading down your model tree. In an implicit system, changing a parameter just changes the equation. There's nothing to re-stitch.
+
+Alex: This is where nTop's marketing lands on the word 'unbreakable' — their term, straight off their modeling page: 'unbreakable implicit modeling,' contrasted directly with traditional CAD. They claim engineers can systematically explore hundreds of design variants because the model never fails on regeneration.
+
+Jordan: Teaching hat on. The architectural argument is legitimate — implicit geometry doesn't have rebuild failures in the B-Rep sense; that's simply how the math works. But 'unbreakable' is an absolute, and it's a company word. No third-party failure-rate data backs it up, none that anyone has published.
+
+Jordan: In fairness to the incumbents, too: a well-built parametric model made by a disciplined engineer is fairly robust. nTop's comparison invites you to picture sloppy CAD practice. Measured against good CAD practice, the gap is real but narrower than the pitch suggests.
+
+Alex: Above the kernel sits the workflow layer. You build designs as reusable, physics-driven workflows — the company describes chains of connected blocks rather than a linear feature history, though whether that amounts to a full programming environment or a simpler node editor is worth probing in a demo. Once a workflow exists, you feed it new inputs and regenerate a whole family of parts. From there come the iteration claims: marketing about collapsing months into hours, citing a fifty percent development time reduction.
+
+Jordan: Every engineering software vendor since the dawn of time has claimed to collapse months into hours, and there's no independent benchmark behind this version either, so hold the number loosely. The reusability argument is more credible than the speed claim. Encode your heat-exchanger design logic once, re-run it against new requirements every time they change — a structural advantage, not a demo trick.
+
+Alex: One more layer is forming: getting implicit geometry out of nTop and into machines without converting it. Their 'from implicit to print' write-up describes sending implicit data downstream directly, bypassing the need to mesh — meshing being the step where your clean math gets approximated by millions of tiny triangles.
+
+Jordan: Bypassing the mesh would be a big deal in practice — meshing a dense lattice produces file sizes and processing times that are a shop-floor nightmare, and the approximation degrades the geometry. But read that article carefully: they frame it as a proof of concept, a prototype workflow built around a large industrial heat exchanger. Promising direction, not an established capability.
+
+Alex: A fair scorecard, then: a real architectural difference at the kernel level, a workflow system that rewards repeat use, and an interoperability play still in its early days. The foundation is differentiated even where the adjectives around it are inflated.
+
+Alex: I'd add that a kernel-level moat is the durable kind. Features get copied within a release cycle. A fundamentally different geometric representation takes an incumbent years to replicate, because it fights their entire existing codebase.
+
+Alex: Who uses it? The homepage says 'trusted by 450-plus leading engineering teams.' Self-reported, unaudited, and a number that invites the obvious question: 450 what, exactly? Paying enterprise accounts? Trials? Academic seats? The company doesn't break it down, and nobody independent has confirmed the figure. The company's own site frames its focus around aerospace, defense, and medical devices, but that framing is theirs too.
+
+Jordan: Documented use cases are more informative than the headline count anyway. There's a NASA case study in the company's materials. There's a published case study with Specter Aerospace using nTop to accelerate hypersonic vehicle design. And there's a Le Mans case study on lightweighting hypercar components to survive a 24-hour race.
+
+Alex: Hypersonics, spaceflight-adjacent work, endurance motorsport. Notice the pattern — applications where performance per gram justifies almost any engineering cost, and where the geometry defeats conventional tools. That pattern, not the customer count, is what defines their market position.
+
+Alex: Their marketing goes further and leans on language like 'mission-critical,' which is a strong label with nothing public behind it — no renewal rates, no integration-depth data, no customer attestation. The verified use cases are impressive on their own. The framing wrapped around them outruns the evidence.
+
+Jordan: Case studies carry their own asterisk as well. A published one tells you an organization used the tool on a project and agreed to be named. It doesn't tell you whether they're a deep, renewing customer or a one-off collaboration that ended when the write-up did.
+
+Alex: Competitively, they've moved up a weight class. The rebrand and the simulation push put them in conversation with the big engineering software players — the Autodesks and Siemenses of the world, companies orders of magnitude larger with entrenched enterprise relationships.
+
+Jordan: In practice, an aerospace customer runs nTop alongside the incumbent CAD and simulation stack, not instead of it. nTop generates the complex geometry; the existing toolchain handles documentation, PLM, release. Hence the integration strategy from nTop 5 — a rip-and-replace pitch against entrenched enterprise CAD would be suicide, and to their credit they don't make one.
+
+Jordan: From the practitioner side, I'll name the friction the marketing skips: the learning curve. nTop asks engineers to think in workflows and fields instead of sketches and extrudes. For someone with fifteen years of parametric muscle memory, that's a real retraining cost — and it shapes who adopts. Teams with a burning problem, not teams that are merely curious.
+
+Alex: Loops back to why the customer profile skews the way it does. Making conventional parts, the switching cost isn't worth paying. Making a hypersonic thermal structure, you may not have a choice. Their market is effectively the set of no-alternative problems.
+
+Jordan: Defensible, with high switching costs once you're in — and naturally bounded. The number of organizations with no-alternative problems is not huge. Hold that thought for future-watch.
+
+Alex: Turning points — three big ones in the record. First, the money: a 65-million-dollar Series D in 2021, announced on the company's blog, earmarked for expanding applications and global reach. Serious venture backing for what was then a fairly narrow niche business.
+
+Jordan: Timed at the peak of additive enthusiasm, too — 2021 was when money poured into everything with a lattice in the pitch deck. The raise itself is less interesting than the aftermath: nTop survived the correction that followed, when plenty of that vintage didn't, and kept shipping on the roadmap cadence we walked through.
+
+Alex: Second, probably the biggest: NVIDIA invested in nTop in 2024. Independently reported — Develop3D and Forbes both covered it. And the coverage makes clear it's not passive capital. Develop3D describes the partnership integrating ray tracing and Omniverse technologies into nTop's stack.
+
+Jordan: Trace the through-line and it looks almost inevitable. GPU-accelerated visualization in 2021, a compute-hungry implicit kernel at the core, then GPU-native CFD. nTop had quietly become one of the most GPU-dependent engineering software companies around, and NVIDIA invests where its silicon becomes must-have infrastructure. Both sides get something structural out of it, not just a logo swap.
+
+Alex: There's a signaling value beyond the technology, too. When a procurement committee at a defense prime evaluates a mid-sized software vendor, 'NVIDIA is an investor' answers the will-this-company-exist-in-five-years question in a way a financial VC's money never does.
+
+Alex: Third turning point we've already touched: February 2025, the cloudfluid acquisition, per 3DPrint.com. On the surface a small tuck-in deal. Strategically, the moment nTop stopped being purely a geometry company and started owning simulation IP outright.
+
+Jordan: Owning a solver is a commitment with teeth. Solvers need validation, verification, ongoing accuracy work — customers in regulated industries will demand evidence the CFD results are trustworthy, forever. It's a different engineering culture than geometry tools, and it raises the ceiling and the operational burden at the same time.
+
+Alex: What stands out about this whole section is what's absent. No layoff coverage in the record, no lawsuits, no public blowups. For this industry, a company whose hardest documented moments are funding rounds and acquisitions is almost suspiciously clean.
+
+Jordan: Private company, remember. No earnings calls, no disclosure obligations, no short sellers digging for problems. The absence of visible turbulence might mean smooth sailing, or it might mean the turbulence is simply invisible. Nobody outside the building can tell you which.
+
+Alex: Future watch, starting with the flashiest recent signal: Develop3D reported in July 2026 that nTop and CoreWeave tackled NASA's Vision 2030 CFD goals 'with time to spare' — a computational fluid dynamics milestone NASA had set for the end of the decade, hit years early on GPU compute.
+
+Jordan: Impressive, and worth sizing correctly. NASA's Vision 2030 is a set of aspirational CFD capability targets — the kind of thing you demonstrate on a specific benchmark problem with a mountain of rented GPUs. Hitting it is a legitimate technical feat. It is not that capability deployed in NASA's daily workflows, or in anyone's. Read it as a scaling demo for the GPU-native architecture — which happens to be precisely the message they need the market to hear.
+
+Alex: Now the number that reframes everything. GetLatka — a third-party SaaS revenue tracker, so treat this strictly as an estimate — puts nTop at 17.9 million dollars in annual recurring revenue for 2024. The company hasn't confirmed it. And there's reason for extra caution: the same source labels nTop 'bootstrapped,' which is flatly wrong for a company with a 65-million-dollar Series D and NVIDIA money. An error that basic puts the revenue figure under a cloud too.
+
+Jordan: Treat it as rough order of magnitude, then — and even at that resolution it says something. Under twenty million in recurring revenue against sixty-five-million-plus raised is a modest base for the size of the ambition. The specialized niche we've described all episode is real. It may also be small. Both facts live in that one number.
+
+Alex: That crystallizes the central question: can they grow beyond the no-alternative problems? The confirmed direction of travel — owning CFD, the NVIDIA and CoreWeave compute partnerships, sustained kernel investment — points toward broad computational engineering. Broad means competing for budget against incumbents with thousand-person sales organizations.
+
+Jordan: My watch list, confirmed tier first: whether nTop Fluids picks up published customer results now that it's been shipping for over a year, and whether implicit-to-print interoperability graduates from proof of concept to something machine vendors support in production.
+
+Jordan: Speculative tier, clearly labeled as such: whether the NVIDIA relationship deepens further, whether more acquisitions follow the cloudfluid playbook, and whether growth forces or enables another funding event that finally gives outsiders a real look at the numbers. None of that is announced. Directional guesses from the pattern, nothing more.
+
+Alex: One defensive question nobody should skip: what happens if the incumbents get serious about implicit modeling? The big CAD vendors have seen this movie before. nTop's head start is real, but head starts against billion-dollar R&D budgets have a shelf life.
+
+Jordan: Their protection is the codebase-inertia point from earlier — an incumbent bolting implicit features onto a forty-year-old B-Rep kernel gets a compromise, not a rebuild. Still, 'they can't easily copy us' is a moat that buys time rather than one that wins markets. nTop has to convert the time into customers.
+
+Alex: Bringing it home. nTop matters because it's one of the few companies attacking the software side of the additive equation with a fundamentally different architecture rather than a coat of paint. Eleven years of founder continuity, a disciplined product cadence, NVIDIA's backing, and documented wins in some of the hardest engineering applications going.
+
+Jordan: It also matters as a test case for the whole industry: whether design software, not hardware, is where additive's next decade of value gets created. nTop is the purest bet on that proposition currently on the board.
+
+Alex: Who should pay attention? Engineers fighting their CAD tools on complex geometry should put nTop on the evaluation list — eyes open about the learning curve. Industry watchers should track it as a bellwether for computational design eating into the traditional engineering software stack.
+
+Jordan: The one question to follow: does the revenue ever catch up to the platform ambition? A great kernel plus prestigious case studies plus strategic investors makes a promising company, not yet a big one. The next couple of years of named, renewing simulation customers — not just geometry customers — will tell us which way this breaks.
+
+Alex: That's a wrap on episode twenty-four. Until next week, keep your first layers clean and your models well-constrained — unbreakable or otherwise.
+
+References
+
+1. About Us — ntop.com
+   https://www.ntop.com/company/about-us/
+
+2. Rebranding message | nTop — ntop.com
+   https://www.ntop.com/resources/blog/re-introducing-ntop/
+
+3. nTop | Computational Design Software | formerly nTopology — ntop.com
+   https://www.ntop.com/
+
+4. nTop Secures $65M in Series D Funding | nTop — ntop.com
+   https://www.ntop.com/resources/blog/ntopology-secures-65m-in-series-d-funding/
+
+5. Brad Rothenberg leads in additive manufacturing - Advanced Manufacturing — Google News: company overview
+   https://news.google.com/rss/articles/CBMivgFBVV95cUxNNzY5VkY4WU9mWi1hQWVuSlg0a3lhYWg0U3UyQlE1eDhmRFJMaWNhUE5rSERZRk8xNm83LVJrR1lYLVlqb3RLMkFmVGFlTkJGNWRvMXQ3Nm1CWTg2VVJ4V0V4SHNHel9oSzNJQUtQY2R2UEQyWVdSellDM0dpX3p0ZGN3M0F4aG4zTVdocTEyaG5RY1k4YVlqQTc2VkxrNVFQUlBfVHFEYXJjWmRjaWFVa0dwbzVGUEljR2NRUkR3?oc=5
+
+6. nTop Acquires cloudfluid, Further Integrates CFD Simulation - 3DPrint.com — Google News: turning points
+   https://news.google.com/rss/articles/CBMijwFBVV95cUxOdVhvaEpOczl0ZjlaQ2pjOVV1UjI2X2dIbVRMWjFYWnB4SW9ZZTMtOThCeHU4cTBlbVFNRHZ2X0ZrazVMSjQ2eHlOb1luMDFXZXpWU1FKajY3WTBQR3N1MXd2dE1va1hUM2Z6a2ZDTmZrVWo0NE56UXVkOEdrUEI2bVlYMWFibGFzU25FaWozZ9IBlAFBVV95cUxQZ3BpaGxVemRhN29HejIxWENHQ0wtUjd3dDA0Sy1PTDBIblVwN1BiR01BcjByRElucTk2MW1FSkhBZFpKVzNPNERLbzR6TGJzd1pjOFNZV1hTMDNsWTdmUE93aU1FU1plTFZRT2hYakZjNXVuWkw0eTQ2UFpUZzFwZDUxVjhLWnlUV3BGVU5MTFctNEdx?oc=5
+
+7. Introducing nTopology 3.0: Better engineering design | nTop — ntop.com
+   https://www.ntop.com/resources/product-updates/ntopology-3-0-release-announcement/
+
+8. nTop (nTopology) launches nTop 4 - VoxelMatters — Google News: products and technology
+   https://news.google.com/rss/articles/CBMiZkFVX3lxTE4yeWRpU01jNGlpemhDOUNfVGt2NGxidURwT2gyS2RVSWNBalpMaVllekdpSm1Samg1ZEdHZXRmeWNnZjZ1cjlrcE5USjFweVg2U2JzWExXSUVCdnplVVZOV0tBb3Ryd9IBa0FVX3lxTE16WXl0Uk5CNm1WRDZzc041SFVyTXd0a21NUW9Fb3hWM0M1OUtqLXdxcDRZRF9xRnd4QmVWZnFzdjdkbkUxWVRxTFVPN0N1WkY5c3R0Rm9BSjI0b3JMY1BZMFNDeS1BNkdra1VZ?oc=5
+
+9. nTop announces software release and new partners for workflow — ntop.com
+   https://www.ntop.com/resources/blog/ntop-announces-major-software-release-and-adds-five-new-integration-partners-to-advance-the-design-to-manufacturing-workflow/
+
+10. nTop launches new computational fluid dynamics solution - TCT Magazine — Google News: product releases and availability
+   https://news.google.com/rss/articles/CBMijAFBVV95cUxQYkpEelR2MXloVE5jU2xfUnVVdkc5aklKd2xCM0NuaEctdDRYVGhheWttQnh6SVdCQjFhQURVbDBlMEFzUEhTVWxhMUZmNGl2ZEMwSVNTY0k2YV9oWGVpTXBjeDZ0QmpPbXFvMFZzenBscGM3S1A2dlJaVHFrUXItZUJaMHFLaXpHbkdOWg?oc=5
+
+11. nTop Modeling Software | Parametric Implicit Design — ntop.com
+   https://www.ntop.com/software/capabilities/modeling/
+
+12. nTop | Computational Design & Analysis Platform — ntop.com
+   https://www.ntop.com/platform/
+
+13. From implicit to print without making a mesh | nTop — ntop.com
+   https://www.ntop.com/resources/product-updates/from-implicit-to-print/
+
+14. Additive Manufacturing Design Software | nTop for DfAM — ntop.com
+   https://www.ntop.com/additive-manufacturing-design-software/
+
+15. as pro engineering | Lightweighting in Endurance Racing | nTop — ntop.com
+   https://www.ntop.com/resources/case-studies/reducing-weight-to-help-win-and-withstand-the-rigors-of-a-24-hour-le-mans-race/
+
+16. Hypersonic Vehicles, Modeled in Days: How Specter Aerospace Accelerates Hypersonic Design with nTop — ntop.com
+   https://www.ntop.com/resources/case-studies/how-specter-aerospace-accelerates-hypersonic-design-with-ntop/
+
+17. High-performance product development in the era of computational design: a case study with nTop and NASA - Metal Additive Manufacturing magazine — Google News: customers and market
+   https://news.google.com/rss/articles/CBMi1AFBVV95cUxOTkpvY2tVeG01TWRvTlpDdy1fRjNFYS1fUlhfcnFFNC11TlYxVmJWTlJudnhsTDBjbTVPT0NoMWtZOW1sNFQ4eXNHcVNXNHJDZW1lbWEyOFU3dkFUb2ltWXVac2hWV1FBWDMwRW1XU2trX01hT1AwMkQ1N2d5S1FmcndzblBaVExVODhzOWpFenJldFp4T1VlV2JQa3BET0FPeERBTkltcTVyZmMzSWw5UVBVOE14TGhVRjhoaDcxeDBWTkpDNlFmQkE2UnFUTU1vTXdCUQ?oc=5
+
+18. Nvidia invests in nTop, as it adds ray tracing and Omniverse tech - Develop3D — Google News: turning points
+   https://news.google.com/rss/articles/CBMiZEFVX3lxTE95UVI5ejByMUVCU1Q5Tm9DeDlKTmc0cld4S3hjN2VWaGZscWZjVnhDSEZqTWRROXJIaWtXeEF3eGtQMFhidFdzNHhtdWtZYnY4d2xtQmJrTlFwLTBUdURVS0RrTlI?oc=5
+
+19. Nvidia Backs Software Start-Up Enabling Complex Additive Manufacturing - Forbes — Google News: company overview
+   https://news.google.com/rss/articles/CBMixAFBVV95cUxPVE1MLXlUam5fdHJ5bkdYdXhMSEl1OWpsVWhLcHFVaHJkaTVmODlqZHFlZ2t3LVpmMVdzaHMyNGhuT0ZYcjFya3RsOWYzeXRNazV0YzktaVhid25NZkFHeWdCZUZyZ3lBMmc2QlJMS2E2RHhYMERsSmFtX3dKbHNHODFFcXNSWDd5czdrd3dQeDJhRFBmLVpJbVZ0SjUyR3N2aFJFdF9ibDNPZzZRUkdwV0hkdW10VVN5bk5TS2sxbFA5VS1Q?oc=5
+
+20. nTop and CoreWeave tackle NASA’s Vision 2030 with time to spare - Develop3D — Google News: product releases and availability
+   https://news.google.com/rss/articles/CBMinAFBVV95cUxQdDBDTEZ5YmV0SzBTaFFfakdiQndPMEVqR2pjZ1dIaldBRmtYMmtTOW14NzExZWFxeTZsNEFHcjFlQW9STUZ0WENkakZ3UHg1UzNtOUxMZkxtR0NzeHhpRnAyZ3VsZGNlY2FITEo2RjYxSEVHSVRLUV91OHJick5Ea190aURqNGw4UU9YVzRvV2g0cWFfUTZyY1lFZGQ?oc=5
+
+21. Enterprise Software Leaders Build AI Agents With NVIDIA - NVIDIA Newsroom — Google News: strategy and future
+   https://news.google.com/rss/articles/CBMilAFBVV95cUxQcHJFOGJ1R0Rmb3FyLW4wRkZ4S0RzTTMwcVpZNWw2akdva0gxOFY2b0U1TDRTdWJoZmFPLUEwZmlYRTk4R1BzRnBCZUFDMHE5cGVlYlIyWXdtV0V5czBtV2pQUzgwYWEyTkY2a0pGVXZ6QTFjS0l3VU1NOFludDJiNFNJRTljRVp0NmVDRUdWZEh4WEpM?oc=5
+
+22. nTop Revenue 2024: $17.9M ARR (Bootstrapped) - GetLatka — Google News: history and founders
+   https://news.google.com/rss/articles/CBMiUEFVX3lxTE5iOWlTWTJJYXlycEprTEVPN3AyaWhQNGlySmFTenRfdE1JcjhxeXh1QzVCTGtFT1ZRX1ZobzBrRjcyNWxvRmROUHpFcFBBUG1p?oc=5
