@@ -54,6 +54,23 @@ interface ChatOptions {
 
 // Hard ceiling when escalating after a truncation — Claude Opus 4.8's max output.
 const MAX_OUTPUT_TOKENS = 128000;
+// A long-form request retried below this floor is likely to spend the last
+// credits on a truncated response. Fail clearly instead of making that bet.
+const MIN_AFFORDABLE_RETRY_TOKENS = 8192;
+
+function affordableTokenLimit(responseText: string): number | null {
+  try {
+    const data = JSON.parse(responseText) as {
+      error?: { message?: string };
+    };
+    const match = data.error?.message?.match(/can only afford\s+(\d+)/i);
+    if (!match) return null;
+    const value = Number(match[1]);
+    return Number.isSafeInteger(value) && value > 0 ? value : null;
+  } catch {
+    return null;
+  }
+}
 
 export async function chat(opts: ChatOptions): Promise<string> {
   const apiKey = process.env.OPENROUTER_API_KEY;
@@ -62,7 +79,8 @@ export async function chat(opts: ChatOptions): Promise<string> {
   // Working cap: starts at the requested value and grows if the model truncates
   // at the limit. Re-sending the identical request after a length-truncation
   // would just truncate again — the retry only helps if it has more room.
-  let maxTokens = opts.maxTokens ?? 4096;
+  const requestedMaxTokens = opts.maxTokens ?? 4096;
+  let maxTokens = requestedMaxTokens;
 
   const buildBody = (): Record<string, unknown> => {
     const body: Record<string, unknown> = {
@@ -72,7 +90,22 @@ export async function chat(opts: ChatOptions): Promise<string> {
       max_tokens: maxTokens,
     };
     if (opts.jsonMode) body.response_format = { type: "json_object" };
-    if (opts.reasoning) body.reasoning = opts.reasoning;
+    if (opts.reasoning) {
+      const reasoning = { ...opts.reasoning };
+      if (
+        maxTokens < requestedMaxTokens &&
+        typeof reasoning.max_tokens === "number"
+      ) {
+        // When the provider lowers the total output allowance, keep reasoning
+        // from consuming the entire affordable budget before visible JSON is
+        // produced. Preserve the caller's original cap on normal requests.
+        reasoning.max_tokens = Math.min(
+          reasoning.max_tokens,
+          Math.max(512, Math.floor(maxTokens * 0.25)),
+        );
+      }
+      body.reasoning = reasoning;
+    }
     if (opts.tools?.length) body.tools = opts.tools;
     if (opts.toolChoice) body.tool_choice = opts.toolChoice;
     return body;
@@ -122,6 +155,23 @@ export async function chat(opts: ChatOptions): Promise<string> {
     if (!res.ok) {
       lastError = new Error(`OpenRouter ${res.status}: ${responseText}`);
 
+      if (res.status === 402) {
+        const affordable = affordableTokenLimit(responseText);
+        const reducedMaxTokens = affordable
+          ? Math.min(maxTokens - 1, Math.floor(affordable * 0.98))
+          : 0;
+        const retryFloor = Math.min(
+          requestedMaxTokens,
+          MIN_AFFORDABLE_RETRY_TOKENS,
+        );
+        if (reducedMaxTokens >= retryFloor) {
+          maxTokens = reducedMaxTokens;
+          console.warn(
+            `  OpenRouter credit limit: retrying with max_tokens=${maxTokens}.`,
+          );
+          continue;
+        }
+      }
       if (res.status === 429 || res.status >= 500) continue;
       throw lastError;
     }

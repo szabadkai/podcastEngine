@@ -65,3 +65,38 @@ test("chat retries a successful response with no message choice", async () => {
   assert.equal(content, "recovered");
   assert.equal(calls, 2);
 });
+
+test("chat retries a credit-limited request within the affordable token budget", async () => {
+  const bodies: Array<Record<string, unknown>> = [];
+  globalThis.fetch = async (_input, init) => {
+    bodies.push(JSON.parse(String(init?.body)) as Record<string, unknown>);
+    if (bodies.length === 1) {
+      return new Response(
+        JSON.stringify({
+          error: {
+            message:
+              "This request requires more credits, or fewer max_tokens. You requested up to 32000 tokens, but can only afford 15001.",
+            code: 402,
+          },
+        }),
+        { status: 402, headers: { "content-type": "application/json" } },
+      );
+    }
+    return Response.json({
+      choices: [{ message: { content: "recovered" }, finish_reason: "stop" }],
+    });
+  };
+
+  const content = await chat({
+    messages: [{ role: "user", content: "write a full episode" }],
+    maxTokens: 32000,
+    reasoning: { max_tokens: 8000 },
+  });
+
+  assert.equal(content, "recovered");
+  assert.equal(bodies.length, 2);
+  assert.equal(bodies[0].max_tokens, 32000);
+  assert.deepEqual(bodies[0].reasoning, { max_tokens: 8000 });
+  assert.equal(bodies[1].max_tokens, 14700);
+  assert.deepEqual(bodies[1].reasoning, { max_tokens: 3675 });
+});
