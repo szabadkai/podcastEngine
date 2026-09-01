@@ -1,6 +1,17 @@
 {
   "episodes": [
     {
+      "number": 23,
+      "date": "2026-08-28",
+      "title": "The $2.3 Billion Signal — Defense Goes All-In on Additive",
+      "description": "Ursa Major rides a $2.3 billion SPAC into the public markets while the Navy and Army push printing onto submarines, ships, and flight lines — but is it a structural shift or a very well-timed news cycle? Plus PrusaSlicer 3.0's preview, a filament cabinet that dries without heat, and a mystery company claiming an 80-printer drone farm that nobody can seem to find.",
+      "duration": 1196,
+      "fileSize": 19133379,
+      "releaseUrl": "https://github.com/szabadkai/podcastEngine/releases/download/episode-2026-08-28/episode.mp3",
+      "guid": "layer-lines-weekly-2026-08-28",
+      "transcriptUrl": "https://szabadkai.github.io/podcastEngine/transcripts/2026-08-28.txt"
+    },
+    {
       "number": 22,
       "date": "2026-08-25",
       "title": "HP 3D Printing - The Inkjet Giant's Ten-Year Manufacturing Bet",

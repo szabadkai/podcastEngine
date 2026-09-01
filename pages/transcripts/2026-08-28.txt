@@ -1,0 +1,168 @@
+Layer Lines Weekly — The $2.3 Billion Signal — Defense Goes All-In on Additive
+Episode 23 · 2026-08-28
+
+Alex: A three-wheeled Piaggio Ape just drove from Italy to the North Cape of Norway — forty-five hundred kilometers, per a 3D Printing Industry piece this week — wearing a camper body that's entirely large-format printed foam. A rider named Francesco Furlani did the whole run in it, and the photos are absurd in the best possible way. It's a little loaf of bread on wheels crossing the Arctic Circle.
+
+Jordan: For anyone who hasn't met an Ape — picture a scooter that grew a truck bed. Single-digit horsepower, tops out somewhere around 'brisk cyclist.' Every kilo on that thing is real, so printing the shell in foam instead of laying up fiberglass is a legitimately smart move for a vehicle with the power output of a hairdryer.
+
+Alex: The article leans into the framing that the printed shell is what made the trip possible, which… I mean. Apes haul crates of produce up Italian hillsides every day of the week. They can carry a lot more than a camper and one determined man.
+
+Jordan: A touch generous, yes. Lighter helped; it didn't unlock physics. But I'll tell you what I take from it instead — a printed foam shell surviving forty-five hundred kilometers of highway vibration and Scandinavian weather is a durability data point nobody asked for and I'm delighted to have. Large-format foam usually gets shown off as movie props and trade-show sculptures. This one lived outside.
+
+Alex: Which is the fun end of a week where the serious end got very serious. This week, the money and the military said the same thing in the same breath: additive is defense infrastructure now. A two-point-three-billion-dollar SPAC deal for Ursa Major, the Navy cutting its own red tape on printed submarine parts, printers building drones on ships at RIMPAC. The question hanging over all of it — how much is structural, and how much is a really well-coordinated news cycle?
+
+Alex: Back on the desktop we've got the PrusaSlicer 3.0 preview, a filament cabinet that dries without heat — which I promise is more interesting than it sounds — and, for the skeptics' corner, a company nobody has ever heard of claiming an eighty-printer drone farm in Connecticut.
+
+Jordan: The word SPAC sitting next to '3D printing' gives me a mild stress response, so let's rip that bandage off first. And save real time for the drying cabinet. I think it's quietly the most useful story of the week for anyone with a printer at home.
+
+Alex: So Ursa Major — they build rocket propulsion, heavily printed engines and solid motors for defense and aerospace — announced they're going public by merging with a SPAC backed by Inflection Point. Combined valuation, 2.3 billion dollars. 3D Printing Industry had the breakdown this week. My honest first reaction: this is the strongest vote of confidence in additive-as-production I've seen in ages, because nobody hangs a ten-figure valuation on a company whose core manufacturing method doesn't work.
+
+Jordan: My honest first reaction was three names. Desktop Metal. Velo3D. Markforged. All three went public through SPACs, all three watched their value erode badly afterward — and we just watched BigRep wind down last month after its own SPAC fell through. Historically, 'SPAC' plus 'additive' is not a sentence with a happy ending.
+
+Alex: Quick sidebar for anyone whose eyes glaze at finance jargon — a SPAC is a shell company that's already listed on the stock market, sitting on a pile of cash. Merging with one is a shortcut to going public: faster money, fewer hoops, less scrutiny along the way. Which is both the entire appeal and the entire problem.
+
+Jordan: Less scrutiny is the operative phrase. A traditional IPO forces you to open the books in a way SPAC mergers historically haven't, which is how the 2021 class went public on forecasts instead of revenue. I'm not saying history repeats here — I'm saying the burden of proof sits with the company, not with us.
+
+Alex: Okay, but tell me this isn't a different animal. The class of 2021 were mostly selling printers — machines — into a market that hadn't shown up yet. Ursa Major sells engines. Additive is how they make the product, not the product. They're not asking anyone to buy 3D printing itself.
+
+Jordan: This is why I'm less dismissive than my blood pressure suggests. Back when I was in industry, the companies that did well with additive were the ones where the printer was invisible — the customer bought a part, and printing was just how you made it fast and made it geometrically complicated. Ursa Major is shaped like that. A rocket engine full of internal cooling channels is close to the perfect additive product.
+
+Jordan: What I can't get past is that nobody's showing revenue. Two point three billion — is that a company doing serious production volume, or a company with modest contracts and a terrific story about the defense supercycle? None of the reporting says. Until it does, the valuation is floating free of anything you could check it against.
+
+Alex: And the story around the story is doing a lot of lifting here. This deal landed the same week the Navy published its Project Peculiar push for printed submarine parts and the Army asked for more field-deployable printers — we'll get into both properly in a bit. If you're pitching investors on a defense manufacturing company, a week like this is a gorgeous backdrop. Suspiciously gorgeous, if you're feeling uncharitable.
+
+Jordan: Or just good timing — bankers read the news too. Here's what I'd separate out, though: the underlying demand isn't invented. Solid rocket motors are genuinely supply-constrained right now, the traditional supplier base has consolidated down to almost nothing, and additive is one of the few ways to add propulsion capacity on any reasonable timeline. That half of the thesis holds without any help from the press office.
+
+Alex: Whether Ursa Major specifically is worth 2.3 billion — no idea, and it stays their number and their bankers' number until someone independent kicks the tires. But the military being short on motors and long on urgency? Nobody disputes that half.
+
+Alex: There's a second-order thing I keep chewing on, too. If this lands well, it changes how additive companies raise money — you stop pitching 'we sell printers' and start pitching 'we sell the thing printers make.' A propulsion company, a medical device company, a spare-parts business that happens to print. That's a healthier industry even if this particular deal fizzles.
+
+Jordan: So the honest read: real demand, real company, unproven price. Watch it the way you'd watch any SPAC — ignore the headline valuation, wait for the first couple of quarters as a public company, and see whether the production numbers describe a business or a pitch deck. If the deliveries are there, I'll happily eat this segment.
+
+Jordan: It would also repair some trust, if it holds. The last SPAC wave set additive investment back years because everyone got burned at once and the whole sector wore the black eye. A defense SPAC that keeps its value changes the reference point people reach for. I want it to work. I've just been to this rodeo before, and I remember how it ends when the horse is made of PowerPoint.
+
+Alex: Let's come down from orbit. Two desktop stories this week, starting with PrusaSlicer 3.0 — Prusa put a preview build up on their blog, billed as a ground-up architectural rebuild. The pitch is easier to use, more accurate prints, and tighter integration with their own hardware and firmware.
+
+Jordan: 'More accurate prints' is the claim every slicer release has made since the dawn of slicing, and it means nothing without before-and-after numbers — which can't exist yet, because this is a preview of unreleased software. So file the performance talk under 'their words.' The rebuild itself is what matters, because architecture decisions outlive marketing copy by about a decade.
+
+Alex: And this particular codebase is load-bearing for the whole desktop world. PrusaSlicer isn't just Prusa's slicer — it started life as a fork of Slic3r, and a huge share of the slicers and printer profiles people run today trace their lineage through it. A new foundation under that ripples out way past Prusa's own machines, whether Prusa intends it to or not.
+
+Jordan: Which raises the one question I'd put to them directly: does 3.0 stay as open and third-party-friendly as 2.x has been? Prusa has been pulling everything closer into its own ecosystem lately — hardware, firmware, now the slicer. If the new architecture quietly favors their machines, the math changes for everyone downstream of that codebase. The preview's public, so we'll find out fast.
+
+Alex: Second item — the one you called the sleeper of the week. SUNLU and a company called INSLOGIC launched the FilaDC i10: a ten-spool filament cabinet that keeps material dry using desiccant-based dehumidification instead of heat. This one isn't vapor, either — Fabbaloo already spent hands-on time with a unit, alongside coverage from 3Dnatives and 3D Printing Industry.
+
+Jordan: It's thoughtful engineering aimed at a real problem. Heated dryers work, but you're low-key cooking the filament — hold a soft TPU or certain PLAs at sixty degrees for hours and you can deform the spool, fuse layers together, ruin the roll you were trying to save. Dehumidified air instead of heat means spools can live in there indefinitely with zero thermal abuse.
+
+Jordan: Ten spools at once is also the tell for who this is aimed at. That's not a hobby drawer — that's a small farm running nylon and PETG at volume, the exact crowd currently juggling four consumer dryers and a prayer schedule.
+
+Alex: The question I couldn't answer from any of the coverage, though: does it dry, or does it keep? Because a desiccant box that maintains already-dry filament — we've all built one of those out of a cereal container and some silica packets.
+
+Jordan: Everything hinges on that distinction. Desiccant alone is slow at pulling moisture back out of a soaked spool — heat is what drives water out of the plastic on any reasonable clock. If this cabinet can take wet nylon back to printable, it's a real machine. If it can only hold dry filament dry, it's a very handsome cabinet. Nobody's published humidity or drying-rate data yet, so the jury stays out until someone tests it independently.
+
+Alex: Either way, ten spools behind glass beats ten cereal containers on a shelf. Speaking from experience on the cereal containers.
+
+Alex: That cabinet sent me down a rabbit hole worth its own few minutes, because I suspect a lot of us are printing wet filament without knowing it. The symptoms are sneaky — stringing you blame on retraction, little pops and hisses at the nozzle, surfaces that come out fogged instead of glossy, layer adhesion that's mysteriously worse than last month. I fought stringy PETG for a solid month once. Retuned retraction five separate times, recalibrated everything twice. The fix was an afternoon in a dryer.
+
+Jordan: Those pops are literally water flashing to steam inside your hotend — you're hearing your print quality boil away. Nylon is the extreme case; it can pick up meaningful moisture in a matter of hours just sitting on the bench. PETG and TPU take days but get there. PLA is more forgiving, which is exactly why people don't learn this lesson until they graduate to the fussier materials.
+
+Jordan: It degrades quietly, too, which is the cruel part. Prints get a little worse week by week, you chase settings, you blame the nozzle, and the variable that changed is the plastic slowly drinking the room. If your quality drifted and you swear you touched nothing — suspect the material before the machine.
+
+Alex: Best trick I picked up while reading around this story: weigh your spools. A kitchen scale resolves a few grams, and a properly waterlogged spool of nylon is carrying grams of water. Weigh it, dry it, weigh it again — the difference is your answer. No guesswork, no forum arguments, just a number.
+
+Jordan: Carry the cabinet story's distinction into your own setup while you're at it, because drying and storing are different jobs. Heat rescues a wet spool. A sealed box with desiccant keeps it rescued. Where people go wrong is doing the second and assuming it accomplished the first.
+
+Alex: Right — the cereal container never un-wets anything. It just freezes the spool in whatever state you put it in, good or bad.
+
+Jordan: Back to the defense beat, because the backdrop behind the Ursa Major deal deserves its own airtime. The Navy put out something called Project Peculiar — 3DPrint.com and 3D Printing Industry both covered it — a document aimed at stripping administrative and engineering hurdles from metal printing for submarine parts. The messaging from the Pentagon side was pointed: too many compliance checklists, not enough parts.
+
+Alex: Same week, AMCOM — the Army's aviation and missile command — put out a call for more expeditionary printers, per 3DPrint.com. Machines that deploy with units and make parts in the field, close to the broken helicopter instead of three supply chains away. Two services, one message: print more, print faster, print closer to where the thing broke.
+
+Jordan: It sounds great, and it mostly is. Skeptic hat on for one beat, then I promise I'll take it off. The Pentagon publishes intent documents constantly, and the deep bottleneck for a submarine part was never paperwork volume — it's qualification. Quick translation for anyone outside this world: before a part goes on a sub, someone has to prove, with testing and documented process control, that this specific part made this specific way will not fail. That process is slow because the failure mode is 'flooding at depth,' not because anyone loves checklists.
+
+Jordan: So the question to ask of Project Peculiar is whether it changes the qualification pathway for parts that matter, or just clears administrative brush around it. Nobody's reported how many parts have been approved and installed because of it — probably too early to know. Hat off now, because even as pure signal, it's loud.
+
+Alex: Loud is what I'd underline. For years the refrain from suppliers has been 'we'd invest in additive if we believed the demand was real.' A written Navy directive saying 'we want printed parts and we're dismantling our own obstacles to getting them' — that's the demand signal they kept asking for. In writing. With a name on it.
+
+Jordan: RIMPAC is the same signal in physical form. During this summer's exercises, SPEE3D ran their cold spray system aboard a vessel and produced thirty-two parts they're describing as mission-critical, and Firestorm Labs printed over a thousand parts and twelve flight-ready drones in a maritime environment — 3D Printing Industry and 3D Adept both covered it. Worth saying out loud: those numbers come from the vendor side of the reporting, not from a Navy after-action report.
+
+Alex: Cold spray deserves thirty seconds for anyone who hasn't gone down that particular rabbit hole, because it's such a gloriously weird process. Sell it to me like I'm one of your students.
+
+Jordan: It's the metal printing that doesn't melt anything. You accelerate metal powder to supersonic speed and fire it at a surface — the particles hit so hard they deform and weld on impact, cold. No laser, no melt pool, no inert atmosphere to babysit. Which is why it works on a moving ship: it shrugs off vibration and salt air in a way a laser powder-bed machine never could. Picture a very precise sandblaster running in reverse.
+
+Alex: I also love the third piece in this cluster — TCT reported that Continuous Composites won a Navy Phase II contract to embed electrical conductors directly inside printed composite structures. The wiring is in the part. Antennas, sensor lines, harnesses — printed into the structure instead of threaded through it afterward. Only additive can pull off geometry like that, and it might be the least flashy, most consequential item of the three.
+
+Jordan: Phase II money also means the Phase I feasibility work convinced someone holding a budget — those contracts aren't participation trophies. Put the three together — cold spray, drone printing, multifunctional composites, all funded in parallel — and you're looking at how an organization invests when it's serious about an outcome rather than a headline.
+
+Jordan: One flag on the framing, though. Some coverage is calling this a sustained operational capability, and it isn't yet. RIMPAC is an exercise. Printing parts during a demonstration is still a demonstration, however impressive. Graduation day is a deployed ship fixing itself mid-cruise because that's simply what ships do now — and no one has reported that happening.
+
+Alex: 'Flight-ready' is carrying some weight in that Firestorm number, too — twelve drones ready to fly and twelve drones flown are different sentences, and nobody's said which one we got. Still. A thousand parts printed on a ship at sea would have read as science fiction when this show started.
+
+Jordan: Time for the weekly 'okay, is this real' treatment, and this one barely needs the full segment. A company called Quantum Cyber N.V. put out a press release claiming an eighty-unit 3D printing drone production farm in Bridgeport, Connecticut, and calling it a major manufacturing milestone. It ran everywhere — the Manila Times, the finance wires — and every version is a syndication of the same release. Zero original reporting anywhere in the chain.
+
+Alex: This pattern is burned into my brain from my reporting days — the inbox filled with these every morning. Big round number, the phrase 'production milestone,' no photos of the facility, no named customer, no printer brand, nobody offering a walkthrough.
+
+Alex: Think about what a real company does with eighty installed printers, too. They invite press to come stand in front of them! Rows of machines all humming at once is the cheapest photo op in manufacturing. The absence of that photo is its own data point.
+
+Jordan: Notice who else is silent: the printer manufacturer. An eighty-machine order is millions of dollars, and vendors issue their own triumphant announcements for orders that size every single time — it's their best marketing, and they never skip it. No vendor anywhere has claimed this sale. The silence says more than the press release does.
+
+Alex: Then there's the name itself. That N.V. suffix is a Dutch public-company structure — so we've got a Dutch-registered entity, with no history in additive that anyone in this industry can point to, supposedly operating a drone factory in Connecticut. Each piece has an innocent explanation on its own. The pile of pieces does not.
+
+Jordan: The frustrating part is that the story it's riding is true, and that makes it clever. We just spent five minutes on Firestorm printing drones at RIMPAC. Printed drone production is real, growing, and very fundable right now — which makes it the perfect thing to claim if what you want is attention on a ticker symbol rather than parts out the door. The plausible fiction always lives next door to the truth.
+
+Alex: So — verdict?
+
+Jordan: Until someone independent stands inside that Bridgeport building and counts printers, this is a press release, not a factory. If it's real, wonderful — it's the easiest claim in the world to prove. Open the doors. My money says we never hear from them again.
+
+Alex: A small plea, while we're here, to every outlet that ran it unedited: syndicating isn't reporting. One phone call would have either killed this story or confirmed it, and nobody made the call.
+
+Alex: One thing to try this week, and it's the PrusaSlicer 3.0 preview. It installs alongside your current setup rather than replacing it, so there's no commitment. Take a model you know intimately — the part you've printed twenty times — slice it in both versions and compare the previews, the time estimates, the toolpaths. Ten minutes of that will teach you more about what changed than any changelog.
+
+Jordan: One caveat, and I mean it: this is preview software. Don't point it at a forty-hour print or your last spool of the expensive stuff. And export your custom profiles somewhere safe first — major version migrations eat settings. Always have, always will.
+
+Alex: Wise words. That's the week — a big bet, a bigger question mark, and one very light camper. Go weigh a spool of nylon and prepare to be mildly horrified. Talk next week.
+
+Jordan: Keep your filament dry. Later.
+
+References
+
+1. Ursa Major Goes Public in $2.3B SPAC Deal, Cementing AM's Place in the Defense Economy — 3dprintingindustry.com
+   https://3dprintingindustry.com/news/ursa-major-to-go-public-in-2-3bn-spac-deal-with-inflection-point-254263/
+
+2. Project Peculiar Document & Other AM-Relevant Signs of a New War Economy — 3DPrint.com
+   https://3dprint.com/331465/project-peculiar-document-other-am-relevant-signs-of-a-new-war-economy/
+
+3. Ursa Major Goes Public in $2.3B SPAC Deal, Cementing AM's Place in the Defense Economy — 3dprintingindustry.com
+   https://3dprintingindustry.com/news/navy-fast-tracks-3d-printed-parts-to-boost-submarine-production-254114/
+
+4. AMCOM Wants More Expeditionary 3D Printers for US Army Aviation Systems — 3DPrint.com
+   https://3dprint.com/331569/amcom-wants-more-expeditionary-3d-printers-for-us-army-aviation-systems/
+
+5. A Piaggio Ape Camper Drives 4,500 km Thanks to a 70 kg 3D Printed Foam Shell — 3dprintingindustry.com
+   https://3dprintingindustry.com/news/70kg-vs-200kg-how-a-printed-foam-shell-made-an-ape-camper-road-trip-possible-254196/
+
+6. SPEE3D and Firestorm Push At-Sea Manufacturing From Demo to Doctrine at RIMPAC 2026 — 3dprintingindustry.com
+   https://3dprintingindustry.com/news/us-joint-effort-tests-at-sea-metal-3d-printing-rimpac-2026/
+
+7. SPEE3D and Firestorm Push At-Sea Manufacturing From Demo to Doctrine at RIMPAC 2026 — 3d-adept-media.com
+   https://3d-adept-media.com/spee3d-cold-spray-am-rimpac/
+
+8. Continuous Composites awarded US Navy Phase II research contract — TCT Magazine
+   https://www.tctmagazine.com/continuous-composites-awarded-us-navy-ph/
+
+9. PrusaSlicer 3.0 Preview – Built for the Future of 3D Printing — Prusa Blog
+   https://blog.prusa3d.com/prusaslicer-3-0-preview-built-for-the-future-of-3d-printing_137672/
+
+10. SUNLU and INSLOGIC Take a New Tactic on Filament Drying: Dehumidification Without Heat — 3dprintingindustry.com
+   https://3dprintingindustry.com/news/new-filadc-i10-by-sunlu-and-inslogic-rethinks-filament-storage-254310/
+
+11. SUNLU and INSLOGIC Unveil the FilaDC i10, a Filament Cabinet That Dehumidifies Without Heat — 3Dnatives
+   https://www.3dnatives.com/en/sunlu-inslogic-filadc-i10-dehumidifying-cabinet-01092026/
+
+12. SUNLU and INSLOGIC Take a New Tactic on Filament Drying: Dehumidification Without Heat — fabbaloo.com
+   https://www.fabbaloo.com/~968378345/0/fabbaloo/default~Hands-On-with-the-SUNLU-FilaDC-i-Filament-Dryer
+
+13. Quantum Cyber Claims an 80-Printer Drone Farm—But Who Are They? — manilatimes.com
+   https://www.manilatimes.com/quantum-cyber-completes-purchase-and-installation-80-unit-3d-printing-drone-production-farm/
+
+14. quantum cyber completes 3d printing drone production line setup By Investing.com - Investing.com Canada — GNews AM
+   https://news.google.com/rss/articles/CBMiwgFBVV95cUxQaVIzLXU5OTVKMnJxLUZoNUpIdmF1VW9xRWZ3MlB3bExXczdwMHVvTkt6WTJvVU45b1FfWlZvcGdCWHg0X1kzY01lNnZuMEE0ckUtRmhjMTgtM080a2dhVnBMaWdJVFh0YmN0cFpmN2VaMWdRNFRGWmpFem4yQUpoQ19nLWEzU2dZVGhrZmJVbWhSZzJaQUNyMlJIVGpuQ0xxUmx4cC1hby16ZUZDRnV2T3ZpZmhZc080T09NVzl1cTZFZw?oc=5
