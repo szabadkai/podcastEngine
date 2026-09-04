@@ -1,0 +1,154 @@
+Layer Lines Weekly — The 30-Foot Question — UMaine's Printed Boat, Japan's Drone Deal, and Same-Day Crowns
+Episode 25 · 2026-09-04
+
+Alex: A mosquito's mouth just won a prize for 3D printing. This made the rounds this week — a research team built a print nozzle modeled on a mosquito's proboscis, the whole blood-sucking apparatus, to control how fluid gets deposited. And for their trouble they got an Ig Nobel.
+
+Jordan: Which is the correct prize for it, honestly. But of all the things in nature to copy — the mosquito is a remarkably good needle. That's millions of years of evolution spent on one problem: moving a viscous fluid through a tube thinner than a hair without clogging. Every FDM owner should feel personally attacked by how well it works.
+
+Alex: The one time my abandoned biology degree earns its keep on this show — the proboscis isn't even one tube, it's this bundle of six separate parts that all slide against each other. It's an absurdly sophisticated instrument for something you swat without thinking. If that's your deposition head, I get why someone stared at it long enough to build one.
+
+Jordan: The Ig Nobels are for research that makes you laugh and then think, and this one lands both. Meanwhile the rest of the week was decidedly less whimsical.
+
+Alex: It was. This week, additive keeps showing up in places where failure is expensive — boats, interceptor drones, nuclear plants, your own teeth — and every single story turns on the same question: not 'can you print it,' but 'can you prove it.' We've got UMaine's new 30-foot printed boat, Japan signing a production deal for printed interceptor drones, 3D Systems partnering with a national lab on nuclear components, an FDA-cleared resin for permanent dental crowns, a warping guide worth your bookmark, and some Bambu Lab patents getting the is-this-real treatment.
+
+Jordan: The nuclear one is the sleeper for me — least flashy headline, hardest problem in the industry. And I want to talk about the phrase 'mass production' in that Japan story, because it's carrying a suspicious amount of weight for a report with no numbers in it.
+
+Alex: We'll get there. But first — Maine built another boat, and I have feelings about the framing.
+
+Alex: So 3D Printing Industry covered this: the University of Maine launched 3Dirigo X, a 30-foot vessel printed at their Advanced Structures and Composites Center, pitched at commercial and defense shipbuilding. And it's a beautiful piece of work. But the coverage frames it as large-format printing shifting from demo tech to practical tool — and UMaine has been launching printed boats since 2019. So my honest question is: what changed?
+
+Jordan: Some history for anyone who wasn't following in 2019 — the original 3Dirigo was a 25-footer that set Guinness records for the largest printed boat and the largest polymer printer. It was a spectacular proof of concept, and it put UMaine on every defense contractor's radar. So this new one is bigger, and clearly more ambitious as an engineering exercise. Whether it's a different *kind* of thing... that's where I slow down.
+
+Alex: The detail I keep coming back to is that it's reported as printed in one piece. A 30-foot hull, monolithic. Why does that matter? Because if I were building a boat the normal way I'd have joints everywhere.
+
+Jordan: And joints are where boats fail. Every seam, every bonded joint, every fastener is a place where water gets in and fatigue starts. A monolithic hull sidesteps all of that — no secondary bonding, no joint qualification, the structure is one continuous thing from bow to stern. That's a real engineering argument, not marketing, and it's an argument you can only make if your printer is big enough to swallow the whole boat.
+
+Jordan: But — and this is where my old shop-floor brain kicks in — the counterargument writes itself. To print a 30-foot hull in one piece you need a printer the size of a small warehouse, and only a handful of those exist anywhere. For a real shipyard, printing segments on smaller machines and assembling them might be the more practical route, even if it costs you those joints. One-piece is elegant. It's not obviously the way the industry scales.
+
+Alex: What's the material story on these? Because when people hear '3D printed boat' they picture a giant Benchy in PLA, and I assume that's not what's floating in Maine.
+
+Jordan: Not even close. Large-format extrusion like this uses fiber-filled thermoplastics — glass or carbon reinforced — laid down in beads the size of your thumb. Pellet-fed rather than filament, so material cost per kilo is a fraction of what we pay. The engineering challenge is thermal: each layer is enormous, so you're managing how much the last layer has cooled before the next one lands, across the whole hull. Too hot and it slumps, too cold and the layers don't bond. Getting that window right at 30 feet is hard in a way desktop printing only hints at.
+
+Alex: Can we sit on that for a second? Because everything we fight at desktop scale gets worse with size. Warping is stress from cooling plastic, and the stress grows with the part — a big flat bracket on my machine curls a corner and I lose a night. At thirty feet of thermoplastic, uneven cooling doesn't curl a corner, it gives you a banana-shaped boat. The quiet achievement in this story is that the hull comes out straight enough to *be* a hull.
+
+Jordan: Which is where the fiber fill earns its keep — the fibers knock the thermal expansion down and stiffen every bead, so the part resists its own shrinkage as it cools. Same reason carbon-filled filaments warp less on your desktop machine. Same physics, three orders of magnitude apart.
+
+Alex: So here's where the framing bugs me. The line is that this marks a shift from demonstration to practical tool for shipbuilding. When I was writing for tech publications, that phrasing was the tell — 'marks a shift' is the writer talking, not the ship. There's no procurement contract in the story. No shipyard announcing they're adopting the process. The trajectory is real — UMaine works with the Navy, this whole program exists because defense wants it — but a trajectory isn't an inflection point.
+
+Jordan: What would convince me the shift happened: a classification society publishing a rules pathway for printed hulls, or a yard doing repeat builds with the process, or a defense order for vessels rather than research. None of that is here yet. And marine is a brutal environment for polymers — UV, water absorption, fatigue cycling in salt water for years. The qualification story for a printed hull is a long book, and we're a few chapters in.
+
+Alex: Worth saying, though — the near-term wins from this program have been quietly real. UMaine's been printing molds and tooling for boatbuilders, and that's already commercially useful. Boat molds are huge, expensive, slow to make traditionally. If large-format printing eats the tooling side of marine before it ever prints production hulls, that's still a win.
+
+Jordan: That's the honest version of the story, I think. Tooling today, one-off specialized craft next, production hulls eventually — maybe. Iteration is how you get there. Nobody qualifies a printed hull by accident, and each of these boats is a data point you can't get any other way.
+
+Alex: So: real milestone, on a real road, and the press release just wants it to be the destination. Fine. I still want to see it in the water.
+
+Alex: Okay, materials — and this one is quietly a big deal. TCT had a piece on SprintRay launching Midas Restore, an FDA-cleared ceramic and zirconia-filled resin for definitive crowns, inlays, onlays, and veneers. The word that matters in that sentence is 'definitive.'
+
+Jordan: Because printed dental has lived in the temporary aisle for years — surgical guides, models, temp crowns, night guards. All useful, none of it the thing that stays in your mouth for a decade. A definitive restoration is where the clinical bar and the money both live, and clearance for that indication is a real regulatory milestone, not a press-release flourish.
+
+Alex: Quick precision point, because I spent years watching press releases blur this: 'cleared' is not 'approved.' Clearance generally means the FDA agreed the material is substantially equivalent to something already on the market — a real bar, with real testing behind it, but not the multi-year clinical-trial gauntlet the word 'approved' implies. So this expands what a dentist can legally cement in your mouth permanently. It doesn't arrive with a decade of wear data attached.
+
+Alex: And the workflow is the pitch: you get scanned, the crown prints chairside on their patent-pending SLA process, and you walk out the same visit. No temporary crown, no two-week wait, no external lab. Anyone who's lived through the temp-crown-falls-off-on-a-Friday experience understands immediately why that matters.
+
+Jordan: The honest question I'd keep in my pocket, without raining on it — a filled resin is still a resin composite. The gold standards for permanent crowns are sintered zirconia and lithium disilicate: proper ceramics, fired at high temperature, with well-understood wear behavior. A photopolymer loaded with ceramic particles is a different animal mechanically, and dentists will be watching how these hold up against opposing teeth over years, not months. Normal question for any new restorative material, not a red flag.
+
+Alex: As a resin printer owner, the part that impresses me is the post-processing discipline this implies. My SLA workflow at home involves gloves, a wash station, and a garage that would horrify the FDA. Getting cure and cleanup to clinical standards inside a single appointment window is a systems achievement, not just a chemistry one.
+
+Jordan: And it's competing against a mature incumbent — dentists went digital ages ago with chairside milling. Printing wins if it's cheaper per unit, handles geometry milling can't, and fits the appointment. If the whole cycle — print, wash, cure, glaze — fits in the chair time, the economics of the external lab model start to wobble. That's the reshaping the story hints at, and for once the logic holds together.
+
+Alex: A story where the interesting version and the true version might be the same one. Novel. Alright — factory floor, and Jordan, you flagged Japan.
+
+Jordan: I did. So 3D Printing Industry reports that Japan's defense procurement agency, ATLA, signed a mass production agreement with Terra Drone for interceptor drones — the Terra B1, a rocket-launched drone, selected after a demonstration with the Maritime Self-Defense Forces, aimed at countering one-way attack platforms like the Shahed. My take up front: the interesting word is 'mass production,' and nobody attached a number to it.
+
+Alex: Context for why this category exists at all — Shahed-style drones changed the defensive math. They're cheap, they come in volume, and intercepting a ten-thousand-dollar drone with a million-dollar missile is a losing trade every single time. So everyone wants interceptors that are cheap and plentiful. The word the defense world uses is 'attritable,' which deserves a quick unpack.
+
+Jordan: Attritable just means you can afford to lose it. Not disposable exactly — but designed so losing one doesn't hurt. And this is where printing has a real argument: no tooling investment, so you can scale production up and down, iterate the design between batches, and the per-unit economics work for something you expect to expend. On paper it's a perfect fit for the mission.
+
+Alex: Japan's not alone in circling this, either — a US outfit printed flight-ready drones aboard a ship at sea just last month, so 'print attritable aircraft near where you need them' is an idea with momentum across several militaries right now. The direction of travel is clear even where the details are fuzzy.
+
+Alex: What I can't tell from the coverage, though: what's actually printed on this thing? The report says the drones are made using 3D printers and stops there. There's a huge gap between a printed airframe and a few printed brackets on an otherwise conventional aircraft, and one of those versions is a much bigger story than the other.
+
+Jordan: Both gaps are real, and there's a third stacked on top: defense 'mass production' can mean a few dozen units. It can also mean a development agreement with production options rather than a firm order — the distinction matters enormously and the reporting doesn't settle it. So I'd file this as directionally significant — a national procurement agency putting the word 'production' next to printed drones is not nothing — but the scale claims are unpriced until someone publishes numbers.
+
+Alex: Fair. Second floor story, and this is your sleeper pick — 3D Systems signed a CRADA with Savannah River National Laboratory to push additive into nuclear energy, broader energy infrastructure, and national security. Both 3DPI and 3DPrint.com covered it. For the listener who hasn't gone down this rabbit hole: what is a CRADA, and why should anyone care?
+
+Jordan: Cooperative Research and Development Agreement — the standard legal vehicle for a national lab and a private company to work together. The lab brings facilities and deep expertise, the company brings its technology, they share the results. Crucially, it's a research framework, not a purchase order. Nobody's buying printed reactor parts next quarter. This one runs through SRNL's Advanced Manufacturing Collaborative, which they describe as the only national lab-operated facility of its kind in South Carolina — a purpose-built site for this sort of work.
+
+Jordan: And here's why I still think it's the most consequential story of the week: nuclear-grade qualification is arguably the hardest problem left in additive. Back when I was in industry, qualifying a single aerospace part could eat two years of your life — material characterization, process locks, endless documentation proving that part ten thousand behaves like part one. Nuclear makes aerospace look casual. You're adding irradiation testing and regulatory processes through NRC or DOE, where the material has to be understood after years inside a reactor. It's a decade-scale problem, and a national lab is one of the few institutions built to grind through it.
+
+Alex: And the payoff if it works is very concrete, right? The nuclear fleet is old. There are reactors running on components whose original suppliers vanished decades ago, and getting a replacement casting can take years. If additive can make qualified replacements for obsolete parts, that's not a nice-to-have — that's keeping plants running.
+
+Jordan: It's the killer app and the sane entry point in one — replacement parts for existing plants before anything exotic in new reactor designs. And notice how the announcement itself is hedged: 'potentially opening a new vertical.' No overclaiming needed. It's early, it's slow by design, and it's the right people in the room working on the right problem. Some weeks that's what good news looks like.
+
+Alex: Down to the desktop — Hackaday published a guide this week on preventing corners lifting on prints, and I want to give it a moment because warping is the failure that never fully goes away. I lost a fourteen-hour print maybe a month ago — big flat bracket, checked it before bed, perfect. Woke up to one corner curled up like a potato chip and forty layers of spaghetti on top of it.
+
+Jordan: The physics is almost rude in its simplicity, and it's the same story as the boat, just smaller. Plastic shrinks as it cools. On a long flat part, every layer shrinks a little, the stress accumulates, and corners are where it concentrates — so corners peel first. The guide walks the standard toolkit: bed adhesion, enclosure and temperature management, the works. None of it is exotic, which is the point — this is a settings-and-technique problem, not a buy-new-hardware problem.
+
+Alex: The adhesion side is where most people under-invest. A generous brim costs you two minutes of cleanup and saves overnight prints. And washing the build plate properly — soap and water, not just a quick alcohol wipe — fixes more mystery failures than any slicer setting I've ever changed.
+
+Alex: The other lever people forget is airflow. Half my historical warping failures traced back to the printer sitting near a door. A draft you can't even feel is enough to yank heat out of one side of a big part — and if you can't move the machine, most slicers will print a draft shield, this thin single-wall curtain around the part. A disposable enclosure made of the same filament. Costs a little plastic, saves the print.
+
+Jordan: Which matters most for the shrink-happy materials — ABS, ASA — where a proper enclosure stops being optional. And there's a design-side answer nobody reaches for first: round your corners, or add sacrificial 'mouse ear' discs at each one. You're not fighting the stress, you're giving it nothing to grab. Sometimes the fix belongs in CAD, not the slicer.
+
+Alex: It's a good, evergreen piece — the kind of thing worth bookmarking for the next time a corner betrays you. Which it will.
+
+Alex: Hype corner. Newly published Bambu Lab patents made the rounds this week describing automatic printhead changing and real-time nozzle monitoring. Multi-tool Bambu! Self-diagnosing nozzles! The community lit up. Jordan, do your worst.
+
+Jordan: Patents are not products. Companies file them defensively, file them for ideas they'll never build, file them to block competitors. The coverage doesn't even cite patent numbers, so good luck reading the claims yourself. No product announced — the reports say that plainly. And automatic tool changing already exists on the desktop: Prusa XL, the E3D ToolChanger before it. So the bar isn't 'can it be done,' it's 'what would Bambu add.'
+
+Alex: Let me push back on the pure cold water, though — Bambu's pattern is precisely this. Quiet, quiet, quiet, then a polished product that ships in volume and just works. And they've been in tease mode all summer — that laser engraver announcement with no details was the same shape. Nozzle monitoring in particular fits everything they already do. Lidar, AI failure detection, machines that diagnose themselves — a nozzle that knows it's clogging is the obvious next square on that board.
+
+Alex: And worth spelling out why the tool-changing half set people off. Bambu already does multi-color with the AMS, but that's one printhead swapping filaments through it, with a purge tower eating material at every change. True tool changing is separate heads: dissolvable supports without the purge waste, a fat nozzle for infill and a fine one for surfaces, materials that hate sharing a hotend kept apart. It's a different class of machine, not a feature bump.
+
+Jordan: I'll grant the monitoring half. That's sensors and firmware, it fits their integrated-ecosystem play, and it solves a failure everyone has. The tool changer is where I squint. Multi-tool means docking mechanisms, per-head calibration offsets, real mechanical complexity — and Bambu's entire value proposition has been tightly integrated machines at aggressive prices. Prusa charges what the XL costs for good reasons. Doing it at Bambu prices would be impressive. It would also be hard in ways a patent filing tells you nothing about.
+
+Alex: So your read is: two patents, two different probabilities. Monitoring plausibly becomes a feature; tool changing is a maybe-someday.
+
+Jordan: That's my read. And the practical translation for listeners: a patent is a company writing down an idea, not committing to it. If you need a multi-tool machine, the Prusa XL exists today. Don't park a purchase decision on a filing that may never grow legs.
+
+Alex: Watch with interest, buy what ships. The eternal Bambu posture.
+
+Alex: One thing to try this week, straight out of that Hackaday piece: if there's a big flat print you've been avoiding because it warped on you last time, pull it back up. Read the guide, then re-run it with a wide brim, a properly washed plate, and the printer moved out of any airflow. Treat it as an experiment, not a gamble.
+
+Jordan: Two additions. Dish soap and hot water on the plate — alcohol smears skin oils around more than it removes them. And if you enclose the printer for it, PLA can get too cozy in there; crack the door or you trade warped corners for heat creep and a clogged hotend. Change one variable at a time so you learn which fix was the fix.
+
+Alex: Spoken like someone who's clogged a hotend for science. And that was the week — printed boats, drone deals, nuclear paperwork, same-day teeth, and a mosquito with a trophy. Go rescue a warped print, and we'll talk next week.
+
+References
+
+1. UMaine Launches 3Dirigo X, a 30-Foot 3D Printed Boat That Hits 40 Knots — 3dprintingindustry.com
+   https://3dprintingindustry.com/news/umaine-launches-3dirigo-x-a-3d-printed-30-foot-boat-254357/
+
+2. UMaine Launches 3Dirigo X: A 3D Printed 30-Foot Boat - 3D Printing Industry — GNews AM
+   https://news.google.com/rss/articles/CBMimwFBVV95cUxQeTM1S2g1NEJxY0dENFByVXBSUWpaTmhlVmFMMHNhbVBtWmNWMUlIRlk4V1RxdHRZYVNIMlBnV3NERXpLYzdQSHpYbldMZnFhbW1YNFJ4NEdnNm5mSktObmxnLXRRSmwzSzhyOGlVeWtSQVUyOGZMVHVUdHNwSms4UndIalJkQk9QYS14NXpxX0JtNEtzaGRGbmdzcw
+
+3. Japan Taps 3D Printing for Mass-Produced Interceptor Drone Fleet — 3dprintingindustry.com
+   https://3dprintingindustry.com/news/japan-taps-3d-printing-for-latest-interceptor-drone-fleet-254316/
+
+4. Japan Taps 3D Printing for Latest Interceptor Drone Fleet - 3D Printing Industry — GNews AM
+   https://news.google.com/rss/articles/CBMiowFBVV95cUxONExRX2JCQnlqSXdSempBWmdsMHFkbGJhUURVSW5Wd3g5TVVfcU1NTHRtd1VyM013WF93S0t2YjNXNFdfNzlxNmdNY3ZMS0pGMXRILUJ1RFRZY3BWTGFJLVJfSkpuaF9Jd3RsaThqVDlOYjdmRW1JZUV3Y2pwVjBhQ2NPeUtUaERvTEE1VWtuaXZwS0RtXzB3dzBNcTh5ZnRxa2xn
+
+5. SRNL and 3D Systems Partner to Qualify Nuclear-Grade AM Components — 3dprintingindustry.com
+   https://3dprintingindustry.com/news/srnl-and-3d-systems-target-nuclear-grade-components-with-new-am-partnership-254363/
+
+6. Savannah River National Laboratory & 3D Systems Sign Nuclear CRADA — 3DPrint.com
+   https://3dprint.com/331740/savannah-river-national-laboratory-3d-systems-sign-nuclear-crada/
+
+7. SRNL and 3D Systems Target Nuclear-Grade Components With New AM Partnership - 3D Printing Industry — GNews AM Companies
+   https://news.google.com/rss/articles/CBMiuwFBVV95cUxOZEdfR0JMdHY4YnRfcjBhbTNnckp3dGVLd2ZZYW1GV3dHYkVFU0ZUb2FsQjdZY3JWdTZrVW9jeXpnLUU0cWRZNl9BQTR3MmpEdzZxVS1zMTBLVGJKOG9vSFB5czJJbS1XeU1mQ1M3X2doMWFZU2RTbV9DRUxmUjNESG1scXk4UHhKd3hHNkNLX2RDNEx0QV9DeUc1ZUZuenl4TEdUSFZRLXNUYUNZNUpEUzhjUFVObllqeTVz
+
+8. SprintRay launches FDA-cleared ceramic and zirconia-filled definitive restorative resin for patent-pending SLA process — TCT Magazine
+   https://www.tctmagazine.com/sprintray-launches-fda-cleared-ceramic-and-zirconia-filled-definitive-restorative-resin-for-patent-pending-sla-process/
+
+9. SprintRay Midas Restore: FDA-Cleared Ceramic-Zirconia Resin for 3D Printing Crowns - News and Statistics - IndexBox — GNews AM Regulation
+   https://news.google.com/rss/articles/CBMiqwFBVV95cUxPOEVzbkxsNlQ0UTJmQVdlZ3VpRE9ERXhTaXk2VzJab1c4d0VEZlhnUlFtV0ZKUDQ4TjAtazRqTVpXaTlUWlk1T1JOYVU4M2FoaHlCekZuUmo1NFl4eHZuZFRYTmFMWkNqVGhyT3hMRjhHZzJQSlVwZDZNSnk5TmhwblRLNzBWRHVYc3JxbThMYU1HNjRHLVNscGhseHBDcG1uMlI3T2huYWs2Rk0
+
+10. Mosquito Blood-Sucking Organ Turned 3D-Printing Nozzle Wins Ig Nobel - the-scientist.com — GNews AM
+   https://news.google.com/rss/articles/CBMipwFBVV95cUxOM3FoaHZSVE5CVXN5WE50TE5ISkNtLUtRaml3YXVHQ055Z1B0c25QenBlT1REMWVoQkFuczVJRTEtYUNPSEtWclRFOVNfNC1CZnZlb0tzOFY5RzlPWFZsWEhucXZkbVpFTEFnX2pBSHRnVllISlM0OWd6M3c0T1V5V3RWWHBjWVo3UGFncnVsWXRsWTJHRkRoSWg2WXhqOERBZ2dNYWVyRQ
+
+11. Corners Lifting On 3D Prints? Guide Gives Prevention Tips — Hackaday 3DP
+   https://hackaday.com/2026/09/03/corners-lifting-on-3d-prints-guide-gives-prevention-tips/
+
+12. Bambu Lab patents detail automatic printhead changing and nozzle monitoring systems - 3D Printing Industry — GNews AM Companies
+   https://news.google.com/rss/articles/CBMixgFBVV95cUxPN3NlNk82dXV4WkZYWXVyZThiaGt5QjZkMkhzQXUxNTR0OVFFd3Fob3BySURhbk13SFhTMGRfTEVRSXpaU1VONlVRUzRkWWI5eTYwZnRLUGlneGZsYV8yRlByZU1uZ2p5Y0NFUmRudTVYN0h6WHhDZ3dpRXFzdWVwZG03endJX3hYZldLWGtKZExlT0pGTGZYOEJEcHYtOW1UUXVqOF9jY1AtcDROX0VtV1lhU29IYzlYSi10U2l0Q3l0NEVkalE

@@ -1,6 +1,17 @@
 {
   "episodes": [
     {
+      "number": 25,
+      "date": "2026-09-04",
+      "title": "The 30-Foot Question — UMaine's Printed Boat, Japan's Drone Deal, and Same-Day Crowns",
+      "description": "UMaine launches its biggest printed boat yet — but is it a turning point or a bigger version of the same demo? Plus: Japan signs a production deal for printed interceptor drones, 3D Systems goes nuclear with Savannah River, SprintRay's FDA-cleared crown resin, a warping guide worth your weekend, and Bambu Lab patents that may or may not ever ship.",
+      "duration": 1208,
+      "fileSize": 19323968,
+      "releaseUrl": "https://github.com/szabadkai/podcastEngine/releases/download/episode-2026-09-04/episode.mp3",
+      "guid": "layer-lines-weekly-2026-09-04",
+      "transcriptUrl": "https://szabadkai.github.io/podcastEngine/transcripts/2026-09-04.txt"
+    },
+    {
       "number": 24,
       "date": "2026-09-01",
       "title": "nTop: The Software Company That Thinks CAD Is the Bottleneck",
