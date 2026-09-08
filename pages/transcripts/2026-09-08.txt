@@ -1,0 +1,254 @@
+Layer Lines Weekly — Divergent Technologies: The Hypercar Was Just the Demo
+Episode 26 · 2026-09-08
+
+Alex: Divergent Technologies is what happens when a company decides the 3D printer isn't the product, the entire factory is — and then bets that factory on defense. That's this week's profile, and I think it's the most interesting positioning in additive manufacturing right now, because it breaks every assumption about how AM companies make money.
+
+Jordan: It's also one of the harder companies to pin down, because most people know it, if they know it at all, as the folks behind the Czinger 21C hypercar. And that car is real — TIME covered it, MotorTrend has driven it. But the car is almost a distraction from what the business has become.
+
+Alex: The business is DAPS — the Divergent Adaptive Production System. Their website pitches it as 'one platform, any product,' spanning defense, automotive, and industrial structures. AI-driven design, their own large-format metal printer, robotic assembly, all in one closed loop. You don't buy any piece of it. You buy what comes out the other end.
+
+Jordan: And in the last eighteen months the story has shifted hard toward the Pentagon. Axios and CNN have both run coverage tying Divergent to 3D-printed missiles and the future of warfare, and Breaking Defense reports they'll be producing Tomahawk missile structures at a new Long Beach factory. That's a long way from a two-and-a-half-million-dollar sports car.
+
+Alex: So today: the father-son origin story, the products that define the company — the 21C, the Monolith One printer, a Saab aircraft fuselage — the leadership team, the money, and the question that hangs over every claim they make.
+
+Jordan: Which for me is: can a company that proved itself on a boutique hypercar deliver at defense-production volumes? Those are wildly different problems, and the public evidence for the second one is still thin.
+
+Alex: Let's start at the top, literally, because this is a family operation. TIME identifies Kevin Czinger as CEO and his son Lukas as co-founder, COO, and president. And the origin is unusual for additive — they didn't start by building a printer to sell. They started by building a car.
+
+Jordan: The problem they saw, as I read it, was that traditional car manufacturing is locked into tooling. Stamping dies, casting molds, fixtures — all of it designed for one specific part, all of it enormously expensive to change. Their bet was that if you combine AI-driven structural design with metal printing and flexible robotic assembly, you can make the factory software-defined. Change the product, not the tooling.
+
+Alex: Anyone who's printed at home understands the appeal instantly, just scaled up a thousandfold. On my desktop machine, switching from one part to another costs me nothing but a new file. In a car plant, that same switch is months of lead time and millions in dies. Divergent's founding wager is that the file-swap economics can survive the jump to structural metal.
+
+Alex: And the Czinger 21C is the proof point they built. MotorTrend profiled the Spyder version — $2,750,000, heavily 3D-printed structure, 3,267 pounds of downforce. It's a genuinely extreme machine with lap-time credentials behind the hype.
+
+Jordan: One caveat on the corporate structure, though. The framing everywhere — including TIME's coverage — is that Divergent is the parent behind the Czinger brand. That relationship is widely repeated, but notice that Divergent's own site doesn't lead with the car at all. It leads with defense and industrial structures. Which tells you where they think the money is.
+
+Alex: If the hypercar were the business, it would be on page one of their website. Instead the car reads as a demonstration — build the hardest, most performance-critical structure you can, prove the platform works, then sell the platform's output to industries that buy at real volume.
+
+Jordan: To be fair, as a demo it worked. A hypercar chassis is a brutal test case: structural loads, crash requirements, weight targets measured in grams. If your generatively designed, printed nodes survive that, you've earned a conversation with aerospace people.
+
+Jordan: But a conversation is all it earns you. The gap between 'we built dozens of stunning cars' and 'we can feed a defense prime's production line' is where most of my questions live, and we'll get there.
+
+Alex: Hold that thought, because the product lineage is precisely the story of that gap being climbed — or at least attempted, one bigger structure at a time.
+
+Alex: Four products explain this company. The 21C, which we've covered. DAPS, the platform itself. The Monolith One printer. And the flagship partner projects — a drone called Venom and an aircraft fuselage with Saab.
+
+Jordan: Take DAPS first, because everything else hangs off it. Per the company's own materials, it's three things fused together: AI-enabled engineering software that generates lighter, more efficient structures; metal additive to print them; and autonomous robotic assembly to join them without design-specific fixtures. The pitch is that the whole chain, design to assembled structure, lives in software.
+
+Alex: And the 'lighter by design' piece is a verified part of the claim — the company states the AI software produces lighter-weight, higher-performance structures by design, and the 21C is public evidence that the outputs hold up in at least one brutally demanding application.
+
+Jordan: Then in June 2026 they unveiled the Monolith One, their own large-format laser powder bed fusion machine. TCT Magazine reports it runs twelve 2-kilowatt lasers. That's a serious specification by any standard.
+
+Alex: Worth translating why. Laser powder bed fusion melts metal powder layer by layer, and the laser is the bottleneck — one beam can only draw so fast. Most industrial systems run one to four lasers. Twelve means huge swaths of the build plate melting simultaneously, which is what you need before big structures become economically printable rather than heroically printable.
+
+Jordan: What I'd push back on is the branding. The company calls it 'America's most advanced metal additive manufacturing system.' That's a self-awarded title. There's no independent benchmark behind it, and there are other capable American systems out there. Twelve lasers is impressive engineering; 'most advanced' is marketing.
+
+Alex: The other notable thing about the Monolith One: you can't buy it. Multiple reports confirm it's not commercially available — it exists for internal use inside DAPS. That's a genuinely different strategy from almost everyone else in metal AM.
+
+Jordan: It's the contract manufacturer model. TCT ran a deep dive on why companies like Divergent and Seurat build their own metal AM technology rather than selling machines — you keep the process knowledge in-house, you tune the machine to your workflow, and you sell parts and structures rather than hardware. Your customer never touches a printer.
+
+Alex: Then there are the end products with partners. The Venom autonomous strike aircraft, launched with Mach Industries. And the one that grabbed me: a five-meter software-defined aircraft fuselage produced with Saab, with flight testing targeted for 2026 according to Saab's own announcement and VoxelMatters.
+
+Jordan: The Saab fuselage is the most interesting item in the whole lineage, and also the one that needs the most careful framing. It's a demonstrator. A five-meter printed-and-assembled fuselage going to flight test is a legitimate technical milestone — but it is not a production aircraft program. Certification of primary aircraft structure is a years-long grind of coupon testing, full-scale testing, and process qualification.
+
+Alex: Still, look at the arc: hypercar suspension nodes, to a full chassis, to a drone, to a five-meter fuselage. Whether or not each one becomes a production program, the platform is demonstrably handling bigger and bigger structures. The company says DAPS handles structures up to nine meters, though I'll flag that figure comes from their own literature, not independent measurement.
+
+Jordan: The arc is real. My caution is the pace. Going from a hypercar to a flight-test fuselage in a few years is extremely ambitious, and the public record doesn't yet include structural test results or qualification data. Impressive geometry and qualified structure are two different achievements.
+
+Alex: Same caution presumably applies to Venom — a launch announcement with Mach Industries doesn't tell us how many airframes exist or whether anything is fielded.
+
+Jordan: Correct. Treat it as a collaboration with hardware behind it, not a deployed weapons system, until someone independent reports otherwise.
+
+Alex: On leadership — this has been a founder-led company from day one. Kevin Czinger as CEO, Lukas Czinger as co-founder and president, covered by TIME as a genuine father-son duo. Lukas also made the LA500 list of influential Los Angeles business figures, so he's become a public face in his own right, not just the founder's son.
+
+Jordan: What caught my eye is the June 2026 moves. Citybiz reports Divergent promoted Cooper Keller to chief operating officer and Brian Erhartic to chief technology officer that month. Lukas had been carrying the COO title alongside president, per the earlier TIME profile, so this reads like a deliberate redistribution of operational load as the company scales.
+
+Alex: My read is that it's the healthy signal, not the worrying one. Two founders holding every operational title through a defense scale-up is the pattern that breaks companies. Installing a dedicated COO and CTO in the same window you announce a second factory suggests they know the complexity is outgrowing two people.
+
+Jordan: I'd land in the same place — it looks like filling gaps and acknowledging new complexity at once, which is what maturing is supposed to look like.
+
+Jordan: With the standard disclaimer: we have no visibility into internal culture or how decisions get made day to day, so we're reading structure, not substance.
+
+Alex: The other leadership signal is rhetorical. Fox News ran a quote from a tech CEO — context strongly suggests Kevin Czinger, though the headline doesn't name him — saying 3D-printed missiles could reshape modern warfare. That's not a product claim, that's advocacy. Leadership is deliberately positioning this company inside the defense-industrial conversation, on camera.
+
+Jordan: And that positioning is a choice with consequences. It attracts capital and political attention — which they've gotten, as we'll cover — but it also stakes the company's credibility on delivering military-relevant hardware, not just giving good quotes.
+
+Alex: It shapes the brand permanently, too. Once you're the '3D-printed missiles' company on cable news, you don't get to quietly go back to being a boutique automotive supplier.
+
+Alex: Let's do the moat question properly. Strip away the marketing — what is Divergent demonstrably good at, and what's still a press release?
+
+Jordan: Three things, with different confidence levels on each. First, the integrated workflow — AI design feeding a printer feeding robotic assembly, with the stated goal of eliminating design-specific tooling. That's on their site, and the 21C shows the loop closes at least once, at low volume.
+
+Jordan: Second, and this one is independently sourced: the Wall Street Journal reported on why this defense startup built a U.S. supply chain for its 3D printer. For anyone selling into the Pentagon, that's not a footnote.
+
+Alex: Worth unpacking why, because it's the least glamorous and maybe most durable advantage they have. Defense customers care where your lasers, optics, and control electronics come from, both for supply resilience and for security review. A machine with foreign-sourced components hits procurement friction a domestic one never sees. It's not patriotic branding — it's a structural advantage that took years to build and can't be copied with a press release.
+
+Jordan: Third is the tooling-elimination claim itself. In conventional manufacturing, every new part design means new fixtures, and fixtures are where cost and lead time hide. If robotic assembly genuinely adapts to new geometry in software, changeover between products becomes a file swap instead of a retooling project. That's the whole thesis of 'one platform, any product.'
+
+Alex: Now the number I want you to shred. The New York Post reported the technology increases output by 8x — a figure that comes from the company itself, relayed through a general-interest outlet rather than a trade publication or a third-party test.
+
+Jordan: Eight-x compared to what? No baseline, no methodology. Eight times their previous machine? Eight times a competitor? Measured in cubic centimeters per hour, or in finished, accepted parts per week? Those give completely different answers. Until there's a defined baseline, that number is a press release, not a specification.
+
+Jordan: It also invites an uncomfortable follow-up: if the new system is 8x faster, what does that say about the throughput of everything they built before it? Vendor-sourced multipliers always cut both directions.
+
+Alex: There's a subtler tension in the moat, too. If the Monolith One is as advanced and reliable as claimed, keeping it off the market is a defensible strategic choice — sell parts, not printers. But it also means nobody outside Divergent can independently verify the machine's performance. The moat and the opacity are the same wall.
+
+Jordan: That's well put, and it's my core reservation about the vertical-integration story. Vertical integration can be a moat. It can also be where cost overruns and yield problems hide, because no external customer is stress-testing the machine and publishing results. From outside, those two situations look identical.
+
+Alex: So the honest summary: the workflow integration is real and demonstrated at hypercar scale, the U.S. supply chain is independently reported by the WSJ, and the performance multipliers are unverified. That's the moat as far as public evidence takes us.
+
+Alex: On to the customer question. The partner list has gotten genuinely impressive on paper. Saab on the fuselage. Lockheed Martin has featured a collaboration. General Atomics Aeronautical Systems did a joint keynote with Divergent at AMUG — that one's verified by VoxelMatters. And there's a strategic collaboration with AEVEX on adaptive uncrewed aircraft systems, announced via Business Wire, targeting scalable production.
+
+Jordan: Sort that list by evidentiary weight, though. The AEVEX collaboration is a formal announcement targeting UAS development and scalable production — concrete. The Saab fuselage has hardware and a flight-test target — concrete. The GA-ASI keynote is verified, but a joint conference keynote is a relationship signal, not a purchase order. And the Lockheed item is the thinnest: a collaboration is featured, but we don't know if it's a contract or a memorandum of understanding.
+
+Alex: Then the political layer: Secretary Hegseth visited Divergent and Rocket Lab, per VoxelMatters. When the Secretary of Defense tours your Long Beach facility, you've reached a certain tier of visibility.
+
+Jordan: Visibility, yes. Endorsement, not necessarily. Secretaries tour promising facilities constantly — it can be fact-finding as easily as favor. What it does confirm is that Divergent is on the Pentagon's radar as part of the defense-industrial-base modernization story, which counts for something in a town where attention drives contracts.
+
+Alex: Competitively, they occupy a strange seat. They're not selling printers, so they're not really fighting the machine OEMs for customers. And because they sell structures directly, their channel strategy is essentially direct program relationships — no distributors, no reseller network, just prime-to-supplier deals. Who's the real competition?
+
+Jordan: Two groups. On one side, advanced contract manufacturers and the primes' internal additive shops — anyone else who can deliver qualified printed structures. On the other, conventional manufacturing itself: castings, forgings, machined assemblies. For every part, the customer's real question is whether DAPS beats the incumbent process on cost, lead time, or performance. The moat only matters where that answer is yes.
+
+Jordan: Notice the vertical concentration, too. Despite 'any product,' the visible traction is defense and aerospace plus luxury automotive. That's a rational place to start — those customers pay for weight savings and speed — but it's narrower than the branding.
+
+Alex: It's a striking contrast with the legacy end of the industry — we profiled 3D Systems' scramble to pivot toward defense and mission-critical work a couple months back. Divergent skipped the pivot entirely; they built the company next to the target from the start.
+
+Jordan: Which is an advantage right up until defense budgets stop being a tailwind. File that for future-watch.
+
+Alex: The money chapter. September 2025: a $290 million Series E at a $2.3 billion valuation, explicitly to scale DAPS and meet U.S. defense production demand. That's confirmed across PR Newswire, Bloomberg, SiliconANGLE, and 3D Printing Industry — and Crunchbase's roundups show they were landing top-tier rounds as far back as 2023, so this wasn't a one-off spike of investor enthusiasm.
+
+Jordan: A $2.3 billion valuation in additive manufacturing in 2025 is remarkable on its own. The sector has spent years watching public AM companies shrink. For private investors to price a parts-and-platform company at that level, they're either seeing revenue we can't, or they're pricing strategic defense positioning. Probably the latter — which isn't automatically wrong, but it means the valuation rests on contracts materializing.
+
+Alex: Then June 2026 is the big operational swing: a second Long Beach factory and a plan for a 64-machine 'super-factory' built around the Monolith One, announced alongside the printer itself. PR Newswire, All3DP, and Breaking Defense all covered it.
+
+Jordan: And the headline detail from Breaking Defense: the CEO says the new facility will produce Tomahawk missile structures. That's not a vague 'defense applications' gesture — that's a named, flying, flight-qualified weapons program. It's the most concrete defense commitment in the company's public record.
+
+Alex: Also the most demanding one, I'd assume, because a cruise missile isn't a demonstrator — every structure in it has to survive flight loads someone else defined decades ago. Walk us through what it takes for a printed part to get in.
+
+Jordan: Qualification, and lots of it. Every process variable — powder lot, laser parameters, build orientation, heat treatment — has to be locked down and proven repeatable, then the parts go through structural and environmental testing against the program's requirements. It's slow, expensive, and unforgiving. The public reporting gives us the stated intent to produce; it doesn't tell us which qualification milestones have been passed. That's the number-one thing I'd watch.
+
+Jordan: Same skepticism on the 64-machine figure. That's planned capacity, not installed capacity. How many Monolith Ones are running today, at what yield, producing how many accepted parts per month — none of that is public. A super-factory is a plan until the machines are bolted down and humming.
+
+Alex: Worth noting what's absent from the turning-points file, though: no layoff waves, no lawsuits, no recalls in the public record we've seen. For a company at this stage, the risks are all forward-looking — execution risk, not scandal.
+
+Jordan: Agreed, and I don't want to manufacture drama that isn't there. The fair characterization: an extremely well-funded private company making very large, very public promises, with the receipts still to come.
+
+Alex: The financial unknown I keep circling is burn rate. Two factories, an in-house printer development program, robotic assembly lines — that's a capital-hungry model with no machine sales to offset it. Two hundred ninety million sounds enormous until you price out what building and staffing a 64-machine facility costs. Nothing public tells us how long that runway is.
+
+Alex: Future-watch time. Let's separate confirmed from informed guessing. Confirmed: the Monolith One remains internal-only, not for sale. Confirmed: Saab flight tests targeted for 2026. Confirmed: the second factory and the Tomahawk production intent. Confirmed: the AEVEX UAS collaboration.
+
+Jordan: The ambition beyond that is broader — the 'any product' language on their site plus their automotive component work points toward mass-market vehicles and wider aerospace eventually. But no mass-market contracts are publicly named, so file that under stated direction, not pipeline.
+
+Alex: Here are the signals I'd track over the next twelve to twenty-four months. Does the Saab fuselage fly, and what gets reported afterward? Do any Tomahawk qualification milestones land on the record? And does the machine count at the new factory get disclosed as something other than a plan?
+
+Jordan: I'd add two structural risks. First, defense concentration. The current geopolitical moment is a huge tailwind — munitions demand, industrial-base anxiety, political attention. If that shifts, a company built around defense urgency needs the automotive and industrial legs to be real, and right now those are the least-evidenced part of the story.
+
+Jordan: Second, the deployment model. If the Monolith One is the key to scale but is never sold, then Divergent's growth is bounded by how many factories Divergent itself can build and finance. That's a much slower expansion curve than a machine OEM's, and it makes every factory a bet-the-balance-sheet decision.
+
+Alex: The mass-market question deserves one more beat. Hypercars and missiles both tolerate high part costs because performance is everything. A mass-market vehicle needs costs an order of magnitude lower — a printed node that's fine at hypercar prices is a non-starter in a family sedan. Nothing in the public record shows DAPS economics at that level, and to be fair, nothing disproves it either. It's simply unknown.
+
+Jordan: Which is why I keep coming back to near-term milestones over vision statements. A fuselage that flies, a qualified missile structure, a disclosed production rate — any one of those would move my assessment more than another partnership announcement. Ten-year visions are cheap; 2027 deliverables are not.
+
+Alex: And if those milestones land, this becomes the template everyone else studies: a software-defined factory that treats products as interchangeable outputs. That's the upside case investors priced at $2.3 billion.
+
+Alex: Let's land it. Divergent matters because it's running the boldest version of the additive business model: don't sell printers, don't sell software, sell an entire reprogrammable factory's output — and aim it at the customers with the deepest pockets and the most urgency.
+
+Jordan: My takeaway is a split verdict. The engineering achievements are real and independently covered — the 21C exists, the twelve-laser machine exists, the Saab fuselage exists, the U.S. supply chain is documented. What remains unproven is everything the valuation depends on: volume, yield, qualification, and cost at scale.
+
+Alex: Who should pay attention? Anyone in defense manufacturing, obviously. But also anyone who designs structural parts for a living — because if generative design plus fixtureless robotic assembly works economically, it changes what 'design for manufacturing' even means. The constraints you design around stop being the tooling and start being the algorithm.
+
+Jordan: And the one question to track: does a Divergent-printed Tomahawk structure pass qualification and enter production? That single milestone would convert the whole story from ambitious to demonstrated. Until then, watch the deliverables, not the demos.
+
+Alex: The hypercar got our attention; the factory is the real product. That's Divergent Technologies. Thanks for listening to Layer Lines Weekly — we'll see you next week.
+
+References
+
+1. This Company is Using 3D Printing and AI to Make Sports Cars — time.com
+   https://time.com/7023380/czinger-3d-print-ai-sports-car/
+
+2. Divergent — divergent.us
+   https://www.divergent.us/
+
+3. https://www.axios.com/2026/03/23/divergent-3d-printing-missiles-pentagon — axios.com
+   https://www.axios.com/2026/03/23/divergent-3d-printing-missiles-pentagon
+
+4. How 3D printing is transforming warfare | CNN Business - CNN — Google News: company overview
+   https://news.google.com/rss/articles/CBMirwFBVV95cUxPVmYyRnEyd2F0QjNOUjdVUDE4dGF3d3JmcFNJTHZRNVVuQWp6dHFQWGhvemFveUNLcDdkOGNTQk12UWJlMlV6ZkRlOVdZSXNnRVJVM3UwZkFoVW1Vb08wUXdrYm5BWmpkQnpmdWJ3R19GTTRacDU0eVhIRjRha2xGdURMaTBLd3U0WVc2TWQwWjM0eUViNm04YjlEZXZGZDlqbFJxLXNLSjVEMnpQLXlN?oc=5
+
+5. The $2,750,000, 3D-Printed Czinger 21C Spyder Makes 3,267 Pounds of Downforce—Roofless - MotorTrend — Google News: history and founders
+   https://news.google.com/rss/articles/CBMidEFVX3lxTFA5eldnVHZpN01qT3ExMlp1Q0ZROXFpSzVnTHF4Z0RmZHZwdm1BcENuNF9YSU4yelJHOTh0Q291T3JRN1BDMkhMS2g0WlczSDl4V0d1YndVRExRYjE2bnNNaUk3Z2V2RGZCZG1kNXF2NmlfV3Rp?oc=5
+
+6. LA500 2026: Lukas Czinger - Los Angeles Business Journal — Google News: history and founders
+   https://news.google.com/rss/articles/CBMiigFBVV95cUxPVGE3M1dsM3hvQnczYXBzaEpaYWFBLVdqWHNOUFhkS3owY2xQaHB6a3I2MHlnM1JtNUduUUhNN0JEdnVFWWtkRjRXU3Jpd2JsZGhoV2RNSUlka0wzOXJVdGh6d214c3NHWkVNbUhOQVVpOFhhN1ZrYjdjaUItOXlnY2JqaWZkNTAzQmc?oc=5
+
+7. Divergent Builds America's Most Advanced Industrial Metal 3D Printer, Monolith One, and Announces Second Factory - PR Newswire — Google News: company overview
+   https://news.google.com/rss/articles/CBMi-AFBVV95cUxPWnBMZll0RmpYZzlWNnFHb1FIaFNfb0FvaFNnT0NSR0VVaUZqWlB2dnJxNnYtY2Q3WmlZQjg4algxS1MwZTJfOFhYazExaFQ4VGN1UFhxTnQ4S1BwZWZXNV9sRVM1bEJ1WUFKLWZvOXk1NHBpS2xudHlOLVBjTW1mdFRUVEdSVVN3cUZ3UFVOd29TTk42WVB5eHhYNDB3LURkX2s5RXBGY0dTY2lyUkdsbU14RXRRSm9nS3ROUk5UTV9LdS1pNW1CQmNlb1pCR0FlT0NvOG81UVFram0zR2Z6b3VUeVMwTFFVc3hleFRvcHJhZVNXdC1IZA?oc=5
+
+8. Divergent unveils large-format metal 3D printer with twelve 2kW lasers - TCT Magazine — Google News: products and technology
+   https://news.google.com/rss/articles/CBMioAFBVV95cUxPckVTeHJhemoxOEUzdjctWENGNU45Yk16RDJfTC1pcUpGSTQzbHctR3N6MlVsa1k4UDk0dkUwYWNydk9PZDNDSFVySzlySi16REJoQkVVYi02TGl3dmFWNHFaR0FmUXRvVDdOTlBMVGtNOERGSkF6THRfb3h5Qm02NjBweDZfWk8xM2Jqak5rRnZCX1ZKVEtlcGdRUEhtcVZG?oc=5
+
+9. Divergent and Mach Industries Launch Venom - PR Newswire — Google News: product releases and availability
+   https://news.google.com/rss/articles/CBMinwFBVV95cUxQQTVpcFNWYVQtSWY4YnVOdUMyVjFRVnkyYWRsYW1jMFRFZ1ZXVFRQenh2RU9La0l5bVVTWVgtandFZTktYXRubXZ3T05nWXRTUy1QbkplMU52OHJkNkdNYVJXYVBHSTdvWTU4dzQ3SUR5SFdzcmVlYjM1SUZsU3lEcjFldDFla3VROE9EaUtSRnA4UmNsb21NVkJYN0RhMU0?oc=5
+
+10. Saab announces world’s first software-defined aircraft fuselage with Divergent Technologies - saab.com — Google News: strategy and future
+   https://news.google.com/rss/articles/CBMi2gFBVV95cUxNb2k5OUtKZC15ekFJaGEwMmU2MHJNUVZnSWpBZGFyY25xQnBOYzJjN1VndlphM3Z6TjE3RlJiSlU1ZjdsU1dndWUzcm1sRG5DUmRWbUJWYXhZaldVdlB3RlkyQ0RNR1d2LXY3X2JJdldCWDlJT0d0cDRERzF3SUFka0RsT2I0cWtyb004UUl1WGk3akJ5aTZxLWFsb1YxNm1vWDF3bnRnS3JCN1NmSUd5a0I5N0UzSWVBdHlvYUlPcU9tVktkcE4zcEh3cVJRYVVYaU1LbkhfVmFNdw?oc=5
+
+11. Saab and Divergent produce 5-meter 3D printed aircraft fuselage for 2026 flight test - VoxelMatters — Google News: customers and market
+   https://news.google.com/rss/articles/CBMitAFBVV95cUxNcEYxSnBkM0c1aVlEV1h0VC1fdmJKV2pGNjlLMTA4cUFWaWFOZHBpVWVIdHZMWEJfaURWSDk3azZVUkVMMlFUNUs4Qk96UWRLeU5tM0sxdFduWlNvRldKdlBCSTBWRnByeTkzSHM3aS1uUU9wN2twSG9hUzNIYTFiRm13R1M3SkY5Ym9zNER1TWEzU29GdExUc2hTNFdYRm1KYVRSMTd2ZjlYc0p6REY1cFpkVk7SAboBQVVfeXFMT09UTDZkeTRPd2c1ZHNvVW9VeTJNOGhwRXVlRXpycDRCRXVBN3NzTUJqMHNUX3FMSlJJb1BmQkhXdUdSeHdmT2xMUngwY0Q3UG9qLTRqNE41WFprOW9nZE1YME53cHdJNVhxS25haUo0V0hLUFJXZWp1WUhDZElJRUtVU1M5UTVwYjhhLS1na1NLY1lLS1VpOU51elZHQzJmVnB2anBuTUIyZF9MSW1wT1dIdlJrajZUOVB3?oc=5
+
+12. Why a Defense Startup Built a U.S. Supply Chain for Its 3-D Printer - WSJ — Google News: turning points
+   https://news.google.com/rss/articles/CBMipwFBVV95cUxOZnptRmszX1g2WFZmTkZ0OXBOQUtaeFBDRnJkdTU5dnpWb19DRnQxa05IbHNkX3lHT1F5VkRmWHRtTDcwcldzczZqZ201Y3pDQVhwcHJCWjNvYmxyaDdBYXZqMDdFc09NTzhIOXNpV2ZRaEpDZ3NaVUJ4WU9rTTdjTWNPb2Qtd1Fla2gwVnV1RHYyWWdudzNhNmtzakVYYjFQQjFHZUtaQQ?oc=5
+
+13. DEEP DIVES | Why contract manufacturers like Divergent & Seurat developed their own metal AM technology - TCT Magazine — Google News: leadership
+   https://news.google.com/rss/articles/CBMiowFBVV95cUxPMnB5Uzh0R0VIV18zZzZROUh0UnhEUnMyOXlpZ0otYWJfREM0Nl9lX3pDdUhuUkppYkJQeXgwalBXa1dlNUkzNWpBY0dkbXoxRGtqTU4xbXYydGZqU3lKWlFZb1lUXzc1NFdfY2ZKVXNZNXZTanU0eXpMVTRtdlJlWktiZ2FsVTQtdDNBdHhUdkgzc1ZLNGpIVFREdXlhYkk2OWdF?oc=5
+
+14. 3D printing company Divergent unveils technology to increase output by 8x: ‘Respond to changing demand far more quickly’ - New York Post — Google News: company overview
+   https://news.google.com/rss/articles/CBMiogFBVV95cUxPX3E0akpHVkJYYnl2S29Jd0VaT1RtVE1EWjYzeC1lMEladU9yY3VIeXkxUWpPR2N3S3JISVo3R2FnTXhZXzhZcFhyX2RnNk1kZnM3azVPTml2U1JuSXp6QXNmN3VrYVE0SGtkeUR0RURQeDBiVnJaN3RHVHlyRVNYYXNUQ21IcURfNDN5Um9sNWdXMkFyOUhwS1BudGFobXo1Qnc?oc=5
+
+15. Scaling Innovation: Collaborating to Deliver What’s Next - Lockheed Martin — Google News: customers and market
+   https://news.google.com/rss/articles/CBMiuAFBVV95cUxQUThQVFlpLVFqTVVkZGFKc3BCZWlLQjE4aUZHNkNldUdpdnNkZHotVXY5ZHhNN2pFVzdWYWlwcEt2WEI2b1VLN2NUMG9yZmpYUWIzbzctWFVSODRNMUlLYVhNSG9QcTZvMjl2NElZejFsbHE5NVdwUVBFTFluZGd6NHFDeG5WeTRJaUNENFlVNUdOM3F5d2I3Y1dtLXI0S0o0S1VCWXRicy1jQW0tS08zWmVFZjNJUkJ0?oc=5
+
+16. GA-ASI and Divergent, a match made at AMUG - VoxelMatters — Google News: customers and market
+   https://news.google.com/rss/articles/CBMiekFVX3lxTE1Wc1VGMDRtaldOSFBfbWJZdlkwTUZpZEFZR1hrZHc4Tk91YlJfWm1GRHZzMnlxY2dPR3BXdUtMUnhDeEdXNFowaXVOVzE4S2hpQi1RaE5NYkctdkhyWDRScm5ZMWkwWkdjdC1LaWlMS1FqbTd0ZFZfYlhB0gF_QVVfeXFMUGo3RnppbjFqLW9CMFlfWUJCYmNhaFdqQW1qZE4xQXZXSFpkdXlFcW5HVTZxZGNlbF9KQ3VYRk5sX3lqV3VqVUZReG1KdUF3Yl95c2Nad1ZibjhwTHNBRENoLXVsNHZsVlZ2Z0RVUm9KTktJQ2Qya2twcjVnTlZ4WQ?oc=5
+
+17. Secretary Hegseth visits Rocket Lab and Divergent - VoxelMatters — Google News: company overview
+   https://news.google.com/rss/articles/CBMihgFBVV95cUxQYUllT1VqVjBxMFNwTl91TExlMTZUNEFJQVNCUkctcXV3SXpsYzZ4Vm45VnM2NE85X3c4SWNkRWVoR0c0UTRFVXNHZGZuYlpxd3dTNXVFWFNxVHVsZnc0ZkFzcEplX0VWcndDbTlQNF9sc09BZzZEUFE1bTlXRm5MT0RDRV9GQdIBiwFBVV95cUxNbUNuOVMxYXRmRnh2aDBiM0RSdFpMYW5tOU9HdHFnZTYwRm42Rm0xZy01TXEtRzZIX042dnh3M3JaSjZIaXNtUHdLb1pLNmhMOWJWSTFQRnNhVElYR0lhcVhJYjlLNU1JZjBuYV85LW5lSEVUcHhmMTFKLThnTVFXanFLVmxVUHhfRTIw?oc=5
+
+18. AEVEX and Divergent Announce Strategic Collaboration to Accelerate Adaptive UAS Development and Scalable Production - Business Wire — Google News: strategy and future
+   https://news.google.com/rss/articles/CBMiggJBVV95cUxNUzRxRm4xYkFrbnNDM2hVOG9QTE0tSm1xQnVhMEZRbGZnazBJYkF4djRuSjl5WUt5NUdlcXpaY0dXTlcxRUR0dWEtMDZOblRBaHR3ZGFZQWU2WGV4blU0RkJiWmV4eF9wVFlFUG5VZGthbFUyOHlkdVVvTFNtWXZ6RjNLTkVUdWFqVUVET1VHN05wYWZCT0d3WmhSQVMyU05obnJEdFppRl9LRDQzNERfU1VsdlVtUjM5ME9OUTRkOXVuSU5YMnVUek5iLUlOTHJDSzFSR21RRnlrdUFCVjNHQUhwcm5rZGxIS0hFMlJPMTAyc1BLMXhYbENQaGVxXy0wM3c?oc=5
+
+19. Divergent Elevates Cooper Keller to COO as Manufacturing Platform Scales Across Defense and Aerospace - citybiz — Google News: leadership
+   https://news.google.com/rss/articles/CBMi1wFBVV95cUxNekZWU2didmVfZnZPV3VHOUxsVy03NWV5Uk50YmdWRWJaeEJQZTNaTDgtekpPREEtM2hpckV1THhLR1NuY3p1cTNaQ25leHgzY0pVVldrcXFhYWNwSXRRbk5hNHBFRWhFTVdJNUlvSUFfeGFZUWh1WjJRWTZzdnYycVZlanRWcVNlT2EybFEzaFF4Y0hXLXBOZDBzbkItQmNtQTdIWm5oZ0pIX0pPY0EtV0pNSFlmMUMya2xSRmoyVkNZR3ExT1BxWUY1RWJrTnd5MXBibXZXYw?oc=5
+
+20. Divergent Promotes Brian Erhartic to Chief Technology Officer - citybiz — Google News: product releases and availability
+   https://news.google.com/rss/articles/CBMiogFBVV95cUxOcGxRcVZpSGtYXzJXSTkyTWh0RGZwMl9ObXhkMFJSSlFLenRuVGRITzhFeDdKRE13Vnc5Y2lxT0VPYlh6cHM0OGV0RVdPRzhCWXhZSWxnTlNLdjI0SEd0MEhrR296TEtyajV3UGlRU1kyWjRsTmNpbjFtSzlnbGpRSUUxbWxuYWMwREhmVXp3U0RoMlFCWW1QZ0pXMkU3eFljM2c?oc=5
+
+21. Tech CEO says 3D-printed missiles could reshape modern warfare - Fox News — Google News: leadership
+   https://news.google.com/rss/articles/CBMiVkFVX3lxTE1maU5VaTFpQ2FvbmUxQVVJNmJGS0VrNHJCSWlSVmd3dV9GUGt2MHBSS0ZkZEwwSjM5T3RxcUdBZDFVVDN6SVhYWFZLckNod2tnSUhQalZR?oc=5
+
+22. Divergent Announces $290 Million Series E to Scale Digital Manufacturing Platform and Meet Growing US Defense Production Demand - PR Newswire — Google News: turning points
+   https://news.google.com/rss/articles/CBMijwJBVV95cUxPdmNLTU5aVVpJWGF4TF93cUxSVjF3YUxERHBmYTAyZ19fa0M4SUxkbnpucnNoZDZSUzN2V09DTy1JcTBLcVNNcnFRbloyR1NYWFZOdUJtZnhvLUhFZ1BhR1ZkNzB4b2Zha2FZYjV4UG9mWWV2YUlkaWtSRE9ILWFBZUp3WDJMV1VHb3psOUlyaWlMQTFUdUVtUFl2MjBWWkd3Z09zbjFZV3BNbU43c0NSelRpQ003cXRuRkZqUGRrU0pRY2otdVNYODV3cjFMZWFzQVhpclhoYlJwT3U1OWplaXkyM3ctRy1tOWJ0OUwtQkdsYkpZSUM5Qmt2RmRwUlVjcWtFdXYxeUhpd2lMZ0pJ?oc=5
+
+23. Defense Tech Manufacturing Startup Divergent Valued at $2.3 Billion - Bloomberg.com — Google News: turning points
+   https://news.google.com/rss/articles/CBMiuAFBVV95cUxONGF5VFdGSmlSUXRnR0xVX2ZGZHBlTDJOUWc5WnBjVTljMldmZjA1bllieklMbGRDcU1hb19vYzNyRXlCbGtDUGtpQ3FUQkw4YTltMjRIVFBtM29qeGwxYnNkWUFmQzVpMjhvTmI0bzhPaHE1UmlrMy1iQmZtNVY5TVFmZ3ZkSk9IRjVwcHdZMlFQWlNVOVFPODdFOW8yd2UyMXNKT3U4dXBEQTRUNkIyUUNya21nRkR5?oc=5
+
+24. Manufacturing startup Divergent raises $290M at $2.3B valuation - SiliconANGLE — Google News: turning points
+   https://news.google.com/rss/articles/CBMimwFBVV95cUxNX3NXUXFJalVHS1BHT2xvQmYtMXdEYy1lNlMwOTRWWFE2R00xZDNWMklRQktOLXpPZWRmVV8zNmtCTlk4ME1RLTQ2VmVqbVpraXBiUTdlb2R2eUcxYzJZdmFSSndUbGpEV3FBS3ZGS3pNWmllV3ZRcFJtaVlGRVlqLVBPTzJ4N0FDOTdIcm5nRzkxcjFiUzZTZ3hXcw?oc=5
+
+25. Divergent Secures $290M to Strengthen U.S. Defense Manufacturing Capabilities - 3D Printing Industry — Google News: turning points
+   https://news.google.com/rss/articles/CBMiuwFBVV95cUxNcEdJd1JtM3M3TTR0bW1RT1R0RnZsczhTS3N5ZV9odlh1OFJYYzBHelN1MTlZTVhSODVXSlNRVU8tQlpjbkNscVBMWmRQVUdDNXNvWllrLVUzeFdSRk1mMzMwQXo4R0xkNXJ0Um05a2RDTGVVbGZya2U3aVBCS1Q4amlvLW1UUHhaaHZQajE4UkNab29FM2RBbnFSRnNabThpUkIzMjc0bGx2UmQtNldIMXBJWXhsUm93Uk44?oc=5
+
+26. The Week’s 10 Biggest Funding Rounds: Divergent Technologies And Biotech Rule - Crunchbase News — Google News: turning points
+   https://news.google.com/rss/articles/CBMinAFBVV95cUxNVEtqOUpZb0JweVQ2VzFsdnpad29pOHhuUEl3MzlMai1ydTE5cklpd2IyaFRobnNKQVlmcnM2TWY2RkdTRWFPLVRuV1duT01pVl9uZms3azVtZnZoYlJYeFRoMWJWdkYydXlicWt4MnRGdlQwSXctMFh5N2NUZ19XdXd0ZU9iMFVfcXJUWUhoS0pOVmNSSkZOVWZXdlc?oc=5
+
+27. Divergent Bets Big on Defense with Massive New Printer & 64-Machine 3D Printing Super-Factory - All3DP — Google News: company overview
+   https://news.google.com/rss/articles/CBMiswFBVV95cUxNaS1FS1pMT2hjajR4NHV2ZElVRzlDRGRWQ3M3VUpQRzNQUmN6bHJFT0VPMEFmTkN5b3FHQWxYTkJUanhmaHRTRi04QnFoS3JzbS1yWUJ1TFZELURKeEhOTVlwLXRsbnNsZDdkVGNPWEhiTjhYLTRnajNLWktiSjRxbGJFQnFpLW1JX1E1Y0wycUsxelh4dUwzVlFEYWEybnZ5MWo3b1poZjM5QjNPVVRUXzA2Yw?oc=5
+
+28. 3D printing company Divergent to produce Tomahawk structure at new factory, CEO says - Breaking Defense — Google News: company overview
+   https://news.google.com/rss/articles/CBMivAFBVV95cUxPZ2EteXdIMjN0bFRBSUQ4WHZmRS04RE5ZeUt2TVVjYmdwRFd0V1JXb2J2dlVuVGxTVW00N2J6bjlOMUVoNnJuTTR1a1pQMzZIdWFqZU03TllyMElRNy1CYjFKem1sMktHWTRTR0pwQ3hyT2FRS29yRDlRbGtBbWtVMXgzZW9nUElyTkZqMjVxS0F1MGZ6WEVnbWFLb09xXzJIQnV3SzVPQ0VtcDVPUktfLVhWSzdrdUlac1NGSw?oc=5
+
+29. Saab and Divergent Technologies To Fly First Software-defined Fuselage - ainonline.com — Google News: strategy and future
+   https://news.google.com/rss/articles/CBMikAFBVV95cUxQZGlHZHFIRkNFNFd4akNMVGtBb2NHc2RfYnhvb19uRDBEbE5MN1BYenZjZjMwQjJCUXJtcGVIUWx0U1NQSEVYbnB5UGh4TXA2a0E5WUJSbHBGTER1ZmNmUjh0Y0N6QWNsM0NuTFF4T0ZXMFh1R0J1NzRhdkpUZ3JFWHQzTmRHU3l5RmZHanBVZ3A?oc=5
+
+30. Divergent unveils Monolith One AM machine, announces Long Beach facility - Metal Additive Manufacturing magazine — Google News: product releases and availability
+   https://news.google.com/rss/articles/CBMingFBVV95cUxQdk16TGNBZnhhMzF3a2thdndtTFp2ZlZyLWNub3VyX2c2UElBc01ONGpWSl8tczh1LVE1LUc1OVptZFU4TWdUamRfelBYZGVyM2xOUDNvUTJTXy1mRU5nckJvOV9CbUlNSDJJQzZLZnc4UU10Y2V3U0dCaEZSajQ2dDFVYmNKNUNkekREM0E3MG05VjJ2VThReFZVQzd0UQ?oc=5

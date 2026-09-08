@@ -1,6 +1,17 @@
 {
   "episodes": [
     {
+      "number": 26,
+      "date": "2026-09-08",
+      "title": "Divergent Technologies: The Hypercar Was Just the Demo",
+      "description": "Alex and Jordan profile Divergent Technologies, the Los Angeles company behind the 3D-printed Czinger 21C that's now printing Tomahawk missile structures and aircraft fuselages. From a father-son hypercar project to a $2.3 billion defense manufacturing bet, this is a company trying to sell a factory model, not a printer.",
+      "duration": 1427,
+      "fileSize": 22835244,
+      "releaseUrl": "https://github.com/szabadkai/podcastEngine/releases/download/episode-2026-09-08/episode.mp3",
+      "guid": "layer-lines-weekly-2026-09-08",
+      "transcriptUrl": "https://szabadkai.github.io/podcastEngine/transcripts/2026-09-08.txt"
+    },
+    {
       "number": 25,
       "date": "2026-09-04",
       "title": "The 30-Foot Question — UMaine's Printed Boat, Japan's Drone Deal, and Same-Day Crowns",
