@@ -227,7 +227,9 @@ export async function chat(opts: ChatOptions): Promise<string> {
   throw lastError || new Error("AI call failed after retries");
 }
 
-export async function chatJson<T>(opts: ChatOptions): Promise<T> {
+export async function chatJson<T>(
+  opts: ChatOptions & { validate?: (value: unknown) => T },
+): Promise<T> {
   let lastError: Error | null = null;
 
   for (let attempt = 0; attempt < config.ai.maxRetries; attempt++) {
@@ -237,13 +239,14 @@ export async function chatJson<T>(opts: ChatOptions): Promise<T> {
       .replace(/\n?```\s*$/, "")
       .trim();
     try {
-      return JSON.parse(cleaned) as T;
+      const parsed: unknown = JSON.parse(cleaned);
+      return opts.validate ? opts.validate(parsed) : parsed as T;
     } catch (err) {
       // Malformed/truncated JSON: retry the whole call. Reasoning models
       // occasionally emit partial output even under finish_reason=stop.
       lastError = err as Error;
       console.log(
-        `  JSON parse failed (attempt ${attempt + 1}/${config.ai.maxRetries}): ${(err as Error).message}`,
+        `  JSON parse/validation failed (attempt ${attempt + 1}/${config.ai.maxRetries}): ${(err as Error).message}`,
       );
     }
   }

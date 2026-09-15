@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import { validateAnalyzedStories } from "./lib/analysis.js";
 import { config } from "./config.js";
 import { chatJson } from "./lib/ai.js";
 import {
@@ -132,6 +133,11 @@ export async function run(episodeDir: string): Promise<void> {
   const inputPath = path.join(episodeDir, "02-analyzed.json");
   const analyzed = loadJson<AnalyzedStories | null>(inputPath, null);
   if (!analyzed) throw new Error("No analyzed stories found in 02-analyzed.json");
+  try {
+    validateAnalyzedStories(analyzed);
+  } catch (error) {
+    throw new Error(`Invalid 02-analyzed.json; rerun the analyze stage. ${(error as Error).message}`);
+  }
   const rawStories = loadJson<RawStory[]>(
     path.join(episodeDir, "01-raw-stories.json"),
     []
