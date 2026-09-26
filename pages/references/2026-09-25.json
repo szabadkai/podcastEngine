@@ -1,0 +1,85 @@
+{
+  "episodeDate": "2026-09-25",
+  "references": [
+    {
+      "title": "Texas jury hits Bambu Lab with $27.6M verdict in Stratasys patent fight",
+      "source": "Tom's Hardware 3DP",
+      "url": "https://www.tomshardware.com/3d-printing/texas-jury-hits-bambu-lab-with-usd27-6m-verdict-in-stratasys-patent-fight-x1-p1-and-a1-printers-found-to-infringe-prime-tower-and-bed-leveling-tech"
+    },
+    {
+      "title": "Stratasys Wins $27.6M Jury Verdict Against Bambu Lab",
+      "source": "feeds.fabbaloo.com",
+      "url": "http://feeds.fabbaloo.com/~/970160297/0/fabbaloo/default~The-Stratasys%E2%80%93Bambu-Lab-Patent-Verdict-Could-Reshape-Desktop-D-Printing"
+    },
+    {
+      "title": "McDermott wins $27.6M jury verdict for Stratasys in patent trial - McDermott Will & Schulte",
+      "source": "GNews AM Companies",
+      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQUGFmcmJGS0d2SzZGMElybmV1S3pqcXlNV2h5bWxnbm8xWk9ZazhCRnJ6QWtjY2xwRVF1UWRyNWg0c3JWMW9CV3RrRnRpbUh4VDBCMkpobm1aanZ6QWMtZVB4cm81cktuTFJjQkJuZm5xTG1zdUQ3QzJOMEZILWtvbkt0bWpsQ0xrMTN2bFZFN041RGFhX1FWVmVLcDhXU2s?oc=5"
+    },
+    {
+      "title": "Big Job. Light Work. Bambu Lab Launches R1",
+      "source": "Bambu Lab Blog",
+      "url": "https://blog.bambulab.com/big-job-light-work-bambu-lab-launches-r1/"
+    },
+    {
+      "title": "Bambu Lab R1 laser cutter gets full release",
+      "source": "DEVELOP3D AM",
+      "url": "https://develop3d.com/hardware/bambu-lab-r1-laser-cutter/"
+    },
+    {
+      "title": "Bambu Lab’s First Laser Engraver Lands Days After a $27.6M Patent Loss to Stratasys",
+      "source": "3Dnatives",
+      "url": "https://www.3dnatives.com/en/bambu-lab-laser-engraver-22092026/"
+    },
+    {
+      "title": "Bambu Lab R1 Review: This one stands alone - Tom's Hardware",
+      "source": "GNews AM Companies",
+      "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTFB0RmtBNFIwSDlObVQ3VzdEd1M0TDN6dHpjODBYRmV2bDduZllnaHo3X0xRWE5XN1h0NFdDVURMekJNSmI3NmdiSEJURk5xNVptQWQ5T3lzLTVWbmxMTUZNeTF0T3JsdDBQcHU0?oc=5"
+    },
+    {
+      "title": "ORNL and Boeing WAAM-Print a 2-Ton Steel Stamp Form Die",
+      "source": "3dprintingindustry.com",
+      "url": "https://3dprintingindustry.com/news/ornl-3d-prints-steel-mold-for-boeing-aircraft-work-255091/"
+    },
+    {
+      "title": "Partnership between ORNL, Boeing advances manufacturing for aircraft parts - Oak Ridge National Laboratory (ORNL) (.gov)",
+      "source": "GNews AM Government",
+      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNUmNFcnczakktVGVyTWlYb0VIYU1vRkhZSUR4VUNwNXZURGtTM096dklXaGN0azZOYVlnQ1FQZ0pVb2FJdG9CMnhoeXZXLTA1NjY2eDVYWVk5NFkyX2U3UUh1bzFxbTI5VUNHZld6M0RjM2psUjVzaS1QeGNxTGRLUVVINXkxVlJRVGNyOEZjNjI4MmZoTURPdFhiUQ?oc=5"
+    },
+    {
+      "title": "Creality Crowdfunds SPARKX i8 Four-Color Printer at $289-$309",
+      "source": "3dprintingindustry.com",
+      "url": "https://3dprintingindustry.com/news/creality-crowdfunds-sparkx-i8-four-channel-multi-color-3d-printer-255039/"
+    },
+    {
+      "title": "Can Creality’s US$309 Sparkx i8 Solve the Purge Poop Problem?",
+      "source": "Fabbaloo",
+      "url": "http://feeds.fabbaloo.com/~/970106963/0/fabbaloo/default~Can-Creality%e2%80%99s-US-Sparkx-i-Solve-the-Purge-Poop-Problem"
+    },
+    {
+      "title": "Creality Crowdfunds SPARKX i8 Four-Channel Multi-Color 3D Printer - 3D Printing Industry",
+      "source": "GNews AM Expanded Companies",
+      "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOWHVjZ2dxZUVmdmxoQzM1a0NlWUNkMXhjM2Q4OG1vVWJIbzlLOWN4cDVUazhzOHB2ZXN4dGE3bzdudHFpYzd3YWl0U0lKNDRSeXVHS0VvSGJIdTV3QkNYcUowQmNfejQtb0wyYVRmemlqdTNQQkU5cnF2SXJlSkxLNWM3dHZJb0dZbHNxS3ZkMmVpNTZYYlBUSkFLbzlDTnJlaUVBQzhPVGhaS1RDTWc?oc=5"
+    },
+    {
+      "title": "Open AI GPT-6 Astra Can Reconstruct CAD Geometry From Photos, Why That Matters for Additive Manufacturing - 3D Printing Industry",
+      "source": "GNews AM",
+      "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxQY2x2dGVid2VxbXR5Q0x1UWJNM1FpSjFJN2lqbDVma0hNWXNHeGdRc0VMdklkLU9GdU5iYmJVVF95YlpocGd1SEs5eDNGLVV4RTdwRTVXXzhSVmpia0pyNXNYcExMMGxEMndUSEE3Q0ttUkFLVURNcEdSNUhKR0F0QTZOUmRGUWJneENWX293eXVodGo3TFJWYkdDX08tV0hDVUF4RW9CTEJHdk9xU3JxMWdSZHR0TEcwQkdHTTQtYVhVeFNvMG44azRnbnBUSGt4Y3ZFYmhMR2hZeWt3cm9rQ1Jn?oc=5"
+    },
+    {
+      "title": "Prusament’s New Foaming PLA: How It Cuts Print Weight by 65% - All3DP",
+      "source": "GNews AM Companies",
+      "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQVzdaY1pwQXpzd3AybHJ1QTBnZGVPOVJuOV9RWUZBa1pBN2VtZWZoWFFrS1dTekFQY283OFRfUDJVak5veUVfckZkY0twbHVCMU5FOFNFZVctMkFwZDMwOVNVS2VtV2p0X1ZxdDJxNDZJdmFpMVNsSndaUF9Fb1JNNFhmbVp5QQ?oc=5"
+    },
+    {
+      "title": "Prusa Makes Lightweight Printing Easier by Keeping it PLA",
+      "source": "Fabbaloo",
+      "url": "http://feeds.fabbaloo.com/~/969593201/0/fabbaloo/default~Prusa-Makes-Lightweight-Printing-Easier-by-Keeping-it-PLA"
+    },
+    {
+      "title": "Forget Trees, add Fins to your 3D Prints Instead",
+      "source": "Hackaday 3DP",
+      "url": "https://hackaday.com/2026/09/23/forget-trees-add-fins-to-your-3d-prints-instead/"
+    }
+  ]
+}

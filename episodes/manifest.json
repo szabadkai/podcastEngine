@@ -1,6 +1,17 @@
 {
   "episodes": [
     {
+      "number": 27,
+      "date": "2026-09-25",
+      "title": "Somebody Owns the Purge Tower: Stratasys Wins $27.6M Against Bambu Lab",
+      "description": "A Texas jury finds Bambu Lab's X1, P1 and A1 printers infringe Stratasys patents on prime towers and bed leveling. Alex and Jordan dig into why the $27.6M figure is a midpoint, not an ending. Plus Bambu's first laser cutter, Creality's 'no purge waste' four-color crowdfunder, a two-ton WAAM steel die from ORNL and Boeing, a Hackaday support trick you can test this weekend, and an AI photo-to-CAD claim with no printed part behind it.",
+      "duration": 1142,
+      "fileSize": 18267368,
+      "releaseUrl": "https://github.com/szabadkai/podcastEngine/releases/download/episode-2026-09-25/episode.mp3",
+      "guid": "layer-lines-weekly-2026-09-25",
+      "transcriptUrl": "https://szabadkai.github.io/podcastEngine/transcripts/2026-09-25.txt"
+    },
+    {
       "number": 26,
       "date": "2026-09-08",
       "title": "Divergent Technologies: The Hypercar Was Just the Demo",

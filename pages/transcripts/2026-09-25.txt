@@ -1,0 +1,180 @@
+Layer Lines Weekly — Somebody Owns the Purge Tower: Stratasys Wins $27.6M Against Bambu Lab
+Episode 27 · 2026-09-25
+
+Alex: Prusa put out a foaming PLA, and I can't stop thinking about it. It's filament that expands as it comes out of the nozzle — the bead puffs up into this little foam. All3DP's piece says parts can come out up to about sixty-five percent lighter, and I have already, in my head, printed an entire RC glider with it. Wings, fuselage, the little tail. It's beautiful. It flies.
+
+Jordan: Of course it flies. It's imaginary. I'd underline the 'up to' in that sentence, though. It's a best case — and the plastic's density dropping and your finished part's weight dropping are two different numbers. The second one depends on walls, infill, flow, the whole recipe. Also, this isn't a brand-new kind of material. ColorFabb's LW-PLA and eSUN's lightweight PLA have been on shelves for years.
+
+Alex: Sure, but that's kind of why I'm interested. The category's proven — what's always been annoying is living with it. The foam keeps expanding after it leaves the nozzle, so you get this matte, slightly lumpy surface, and your dimensions wander. You end up retuning flow and temperature from scratch, sometimes going up a nozzle size. If Prusa's version is less fussy than what's already out there, it earns a spot on my shelf, novelty or not.
+
+Jordan: And for a drone, or cosplay armor you're wearing for nine hours at a convention, I will take a weird surface every single time. Nobody's measuring your shoulder pauldron with calipers. Okay. Should we do the show?
+
+Alex: Let's do the show. Welcome to Layer Lines Weekly, I'm Alex. This week: the features we treat as free on our desktop printers turned out to belong to somebody, Bambu starts selling tools that aren't printers, and a lot of the loudest claims out there are still waiting on a part you can hold in your hand.
+
+Alex: We've got the Stratasys versus Bambu verdict, Bambu's new laser cutter, a very cheap four-color Creality on Indiegogo, a two-ton printed steel die out of Oak Ridge and Boeing, a support trick from Hackaday you can try this weekend, and an AI photo-to-CAD story we're going to poke with a stick.
+
+Jordan: I'm Jordan, and the one I keep rereading is the Creality. 'No purge waste' on a single toolhead. I would love to see the physics on that. But verdict first — people have been texting me about it all week, mostly in all caps.
+
+Alex: Same. So here's my read: this is the biggest legal event desktop printing has had in a long time, and almost nothing about what it means for your printer has been decided yet. The facts — on September 17, a federal jury in the Eastern District of Texas found for Stratasys against Bambu Lab and awarded twenty-seven point six million dollars. Tom's Hardware had the full rundown a few days later, Stratasys' law firm put out its own announcement, and 3Dnatives covered it too. The X1, P1 and A1 lines were all found to infringe.
+
+Jordan: And the patents, at least as they're being described, cover prime towers — purge towers — and bed leveling. Which is what made everyone's head snap around, because those feel like furniture. Of course there's a little tower on my build plate. Of course the printer taps around the bed before it starts. That's just... what printers do now.
+
+Alex: Quick catch-up for anyone who prints single-color and has never had to care. When you switch filaments on a single nozzle, the old color's still sitting in the hot end. So the printer builds a sacrificial tower off to the side and pushes plastic through it until the new color comes out clean. Hence the little tower. Bed leveling is the probe checking your plate so your first layer isn't spaghetti in one corner and a crater in the other.
+
+Jordan: Where I'd slow down: 'prime towers and bed leveling' is the headline version, and patents don't work at that level. They're made of claims — a particular way of doing a particular thing. Nobody's saying Stratasys owns the idea of purging a nozzle. The fight is about how Bambu implemented it, and that lives in claim language that's a lot narrower than a news summary.
+
+Alex: Which is the first thing I'd have chased when I was reporting in this space — the headline always sounds broader than what the court looked at. The other word in the verdict coverage that jumped out at me: the jury found the infringement willful. Four Bambu-linked entities, four patents, willful. Okay, explain willful to me like I'm a biologist.
+
+Jordan: Willful basically means the jury concluded Bambu knew about the patents, or should have, and went ahead anyway. In US patent law, that finding is what opens the door for the judge to enhance damages — up to three times the jury's number. It doesn't mean that happens. Judges don't automatically triple anything. But it means twenty-seven point six million is better thought of as a midpoint than a final bill.
+
+Alex: So the number everybody's quoting in the headlines might not end up being the number.
+
+Jordan: Might not. And the money's honestly the less interesting half. What matters more is remedy — what the court does going forward. That ranges from a royalty, where Bambu pays per printer and nothing changes on your desk, to a design-around, where they change how the feature works, all the way up to an injunction, which is the scary word everybody's typing in forums right now.
+
+Jordan: None of that has been decided. And this is only the first of two scheduled trials between them, so there's more coming. When you see takes about this changing desktop printing forever, that's a prediction stacked on top of a ruling nobody's made yet.
+
+Alex: Okay, so let me do the 'why should I care' for someone with an A1 on their desk right now. Your printer works tomorrow. It works next week. A jury verdict doesn't reach into your machine and switch off the probe. Don't panic-sell it on Marketplace for eighty bucks — someone will be very happy, and it won't be you.
+
+Alex: What I do think people should care about is the ripple. Pretty much every desktop brand has spent the last couple of years chasing the same playbook — enclosed, fast, automatic everything, multicolor. If features at the center of that playbook come with a patent fight attached, it's not only a Bambu question. It's how comfortable everybody else feels shipping the same thing. I'd bet a few legal departments at other printer companies had a long week of reading.
+
+Jordan: And the design-around path isn't automatically bad news for users. If it goes that way, maybe you get a firmware update that changes how the purge sequence or the probing works. Could be invisible. Could be slightly worse. Could even be better — engineers forced around a patent sometimes find a cleverer route than the obvious one. Some of the best mechanisms I've seen exist because somebody wasn't allowed to do it the easy way.
+
+Alex: That's a weirdly hopeful take from you.
+
+Jordan: I contain multitudes. The part I'm watching most is what Stratasys does with the win. They're an industrial company — their core business isn't selling multicolor printers to hobbyists for a few hundred dollars. So whatever they push for next tells you whether this is about money, licensing leverage, or drawing a line in the sand. Right now we don't know which, and anyone telling you they do is guessing.
+
+Alex: Midpoint, not ending. I hate that it's the correct answer. The legal system is famously terrible at wrapping things up in time for a podcast.
+
+Alex: And Bambu had quite a week beyond the courtroom, because the R1 is real and shipping. It's a 55-watt CO₂ laser cutter and engraver — the first thing they've ever sold that isn't a 3D printer. Bambu's blog has the launch, 3Dnatives covered it, and DEVELOP3D and Tom's Hardware both have reviews up. Bambu lists a 600 by 300 millimeter working area and automatic laser alignment.
+
+Jordan: And before anybody draws a line between those two stories — this was teased back in August. You don't design, certify and ship a CO₂ laser in the week after a jury comes back. The timing's just the calendar being funny.
+
+Alex: Totally. What grabs me is the strategy. Bambu wants to be the workshop, not just the printer. And for someone like me — I've been eyeing a laser for exactly the stuff printing is bad at. Flat panels, wood, clear acrylic for a display case, a stack of perfectly identical bases. The idea of one ecosystem, one app, one company to yell at when something breaks... it's tempting. That's their pitch, anyway.
+
+Alex: It also changes how I'd plan a workshop budget. Right now the money goes into a second printer or a resin machine. With a laser in the mix, a lot of projects split — the printer does the brackets and the weird organic shapes, the laser does the flat panels in minutes instead of a six-hour print. That's a different way of designing things, not just a different gadget.
+
+Jordan: The spec I'd put a big asterisk next to is cutting. Bambu says the R1 goes through eighteen millimeter walnut plywood and twenty millimeter acrylic in a single pass. And there's no test condition published next to those numbers — no lens, no speed, no power setting, nothing about air assist.
+
+Jordan: Twenty millimeters of acrylic in one pass at fifty-five watts is the kind of result you get with the ideal lens, a crawling speed, a fresh tube and perfect focus. It might be true. I'm not calling it false. But it's a best case until someone independent runs it on a regular Tuesday with regular stock.
+
+Alex: It's the laser version of the max speed on a printer box. Six hundred millimeters a second — on a calibration cube, printed by the marketing department. For me, what I'd notice day to day isn't peak thickness anyway. It's whether jobs just work. With lasers, focus and alignment are where beginners lose whole afternoons. If the auto alignment holds up, that's worth more to me than two extra millimeters of acrylic I'll never cut.
+
+Jordan: And plan your ventilation before the box arrives. Everybody who buys their first CO₂ laser learns about ventilation, and some of them learn it with the smoke alarm going off. Cutting plywood is not a scented candle.
+
+Alex: Noted. Okay — the Creality you've been dying to get to. The SPARKX i8 went live on Indiegogo on September 21. Four filaments, single toolhead, $309 early bird, $289 on some tiers, against a stated $399 MSRP. And it's a separate machine from the i7 Nano they showed off in August, so Creality is apparently determined to put four colors at every price point it can find.
+
+Jordan: And the headline marketing is 'no purge waste.' Which takes us right back to the prime tower we just explained. One nozzle, four filaments. When you change colors, the old plastic has to go somewhere. You can shrink it, you can hide it — push it into infill, wipe it on a tower, drop it down a chute — but you can't make it not exist. Until Creality shows how much it purges per swap and where that goes, 'no purge waste' is a slogan.
+
+Alex: Fabbaloo literally built their headline around whether it solves the purge-poop problem, which, credit where it's due. Anyone who's run a multicolor machine for a month has a jar of those little twisted noodles somewhere. Mine's on a shelf like a trophy of shame.
+
+Alex: The other thing, for anyone eyeing that $289: this is crowdfunding. You're not buying a printer, you're backing a campaign — you take on the shipping-date risk and the 'is the firmware finished' risk. Creality has launched this way plenty of times, so it's their pattern, not a red flag. But the early-bird price isn't a shelf price, and whether $399 holds at retail is its own question.
+
+Jordan: I'll give them this, though — the price is doing real work. Four colors for around three hundred bucks, whatever the purge number turns out to be, is a direct shot at Bambu's multicolor lead. If the waste is merely 'less,' plenty of people would take that deal.
+
+Jordan: Can I do the one I've been waiting for all week? Oak Ridge National Lab and Boeing printed a steel stamp form die — about six feet tall, roughly two tons — using wire-arc additive. 3D Printing Industry covered it off ORNL's release. Boeing's going to use it in its work supporting NASA's Hi-Rate Composite Aircraft Manufacturing program. And my take: this is what serious industrial adoption looks like. Ugly, heavy, and nobody's putting it on a trade show banner.
+
+Alex: I love that you get this excited about a block of steel. Okay — wire-arc. WAAM. I know the acronym and roughly nothing else. Catch me up.
+
+Jordan: Picture a welding robot that never stops. You feed metal wire into an electric arc, like MIG welding, and the robot lays down bead after bead, layer on layer, building up the shape. It's the opposite corner of the metal world from laser powder bed fusion, where a laser melts super-fine powder in thin layers and you get small, precise parts. WAAM is big and rough. You get a near-net shape — close to final, with extra material everywhere — and then you machine it down to the real surface.
+
+Alex: So straight off the robot it looks like the world's most ambitious weld-bead sculpture.
+
+Alex: And a stamp form die is... the shape you press material against? I'm picturing a giant cookie cutter, but I suspect that's underselling it.
+
+Jordan: It's not wrong, just heavier. It's the tool that heated material gets pressed into to form a part. And tooling is a sweet spot for additive — it's big, it's specific to one program, and you're making one of it, not ten thousand. There's no production run to amortize anything over, so the usual arguments against printing mostly go away.
+
+Alex: I also love the layering of it. A printed steel tool, to help make composite aircraft parts, for a program about making those parts faster. It's additive showing up one step back from the product, where nobody on the plane ever sees it.
+
+Alex: The coverage says about eight weeks of printing. Which, for two tons of steel, I have zero intuition for. Is that fast? Slow? Is that what I spend on a single Warhammer army?
+
+Jordan: Probably less than your army. But I'd hold that number loosely. Eight weeks could be arc-on time — the robot depositing metal — or the whole elapsed project. Those are very different things. And either way it isn't the full lead time. Back when I was in industry, the print was never the long pole on a big metal part. It was the machining, heat treatment, inspection. On a two-ton steel die that's serious work nobody posts a timelapse of.
+
+Alex: And it's future tense, too — Boeing will use it. So it's printed-and-pending, not proven-in-production. I'm still into it. For me the tell is whether this is one die or the first of a pipeline. One is a press release. Five is a process. Twenty is a line item in somebody's budget, and then you know it's real.
+
+Jordan: I'll be watching for the same thing. And I don't want to sound down on it — a national lab and an aerospace company lining up a printed two-ton tool for a NASA-linked composites program is a big deal. I just want to see number two.
+
+Alex: Coming all the way down from two tons of steel to the plastic in my garage. Hackaday ran a piece on the 23rd, basically titled 'forget trees, add fins.' The idea: instead of letting the slicer grow tree supports or auto supports under your overhangs, you use thin angled fins. The pitch is that they print faster, use less material, and snap off more cleanly.
+
+Jordan: Nobody's published numbers on that — it's the pitch — but the logic holds up. A fin is a thin wall, and walls are what your printer does best. Trees are dozens of little branches, each with a tiny contact patch, plus a ton of travel moves in between. Swap that for a few clean planes and you'd expect less stringing and fewer weird little failure points.
+
+Alex: I'm sold on anything that fights support scarring, because that's where I lose prints. Not failed prints — ruined ones. I had an archway for a terrain piece last winter where the tree supports basically fused to the underside of the arch. Forty minutes with a hobby knife and it still looked like it had a skin condition. I painted it anyway and told everyone it was battle damage.
+
+Jordan: 'Skin condition' is a great technical term. I'm putting it in a lecture.
+
+Jordan: The other reason I like fins is control. When you place support yourself, you decide where the break line lands. With trees the slicer decides — and somehow it always decides the underside of your nicest surface. Designing your own support is how a lot of engineers think anyway. You don't ask the machine to guess; you tell it.
+
+Alex: And it costs nothing. No new hardware, no firmware update, no Indiegogo. You model a couple of fins into the part in whatever CAD tool you already use, or drop a thin wall in as a separate body in the slicer, turn auto supports off, and find out.
+
+Jordan: Okay. The one I've been itching to do. 3D Printing Industry ran a piece saying an OpenAI model it calls GPT-6 'Astra' can reconstruct CAD geometry from photographs. And my read: it's a claim about a capability, not a result. No benchmark, no tolerances, nothing on whether the geometry is even watertight, and not one printed part that anybody measured.
+
+Alex: I'm going to push a little, because I want this to be real. I've spent entire evenings with calipers trying to model a replacement bracket for a kitchen cabinet — measure, print, it's two millimeters off, measure again. And the direction isn't crazy. Photogrammetry has been turning photos into printable meshes for years.
+
+Jordan: And there's where it all hinges. A mesh from photos isn't new. A mesh is a skin of triangles — it'll print, sure, but you can't click a hole and say 'make this six point two millimeters.' The claim only gets interesting if what comes out is editable, dimensioned, parametric CAD. Real features, real numbers. Nothing in the piece shows that.
+
+Alex: To be fair, though, no benchmark on day one isn't proof it doesn't work.
+
+Jordan: Completely fair. It's proof we don't know. And I'd want to see OpenAI itself put its name on a product called that before I repeated the name like it's settled. Until then, there's nothing to test.
+
+Alex: So what's the bar? What would move you?
+
+Jordan: One part. Somebody photographs a real object, gets CAD out, prints it, measures it, and tells me the tolerance. Bonus points if it has to fit against something — a bracket that bolts onto the real cabinet. Until then it's a render with a press release attached.
+
+Alex: I'm holding you to that. The day someone posts that bracket, I'm sending it to you at 3 AM.
+
+Jordan: I'll be up. Probably swapping a spool.
+
+Alex: One thing to try this week, and it's the fins, because it's free and you only believe it once you've done it. Pick one part that always gives you support grief. Print it once with your usual trees, once with fins. Weigh the support material, note the print time, and look hard at that underside.
+
+Jordan: And angle the fins so the break line runs along a face you don't care about, or one you're sanding anyway. Keep them thin, and leave a small gap at the top like any support interface, so they release instead of welding on. Then you've got your own numbers instead of somebody's pitch.
+
+Alex: And tell us how it went — especially the ugly ones, those are the best emails. That's us for this week. Go print something weird, maybe something foamy. Talk next week.
+
+References
+
+1. Texas jury hits Bambu Lab with $27.6M verdict in Stratasys patent fight — Tom's Hardware 3DP
+   https://www.tomshardware.com/3d-printing/texas-jury-hits-bambu-lab-with-usd27-6m-verdict-in-stratasys-patent-fight-x1-p1-and-a1-printers-found-to-infringe-prime-tower-and-bed-leveling-tech
+
+2. Stratasys Wins $27.6M Jury Verdict Against Bambu Lab — feeds.fabbaloo.com
+   http://feeds.fabbaloo.com/~/970160297/0/fabbaloo/default~The-Stratasys%E2%80%93Bambu-Lab-Patent-Verdict-Could-Reshape-Desktop-D-Printing
+
+3. McDermott wins $27.6M jury verdict for Stratasys in patent trial - McDermott Will & Schulte — GNews AM Companies
+   https://news.google.com/rss/articles/CBMinwFBVV95cUxQUGFmcmJGS0d2SzZGMElybmV1S3pqcXlNV2h5bWxnbm8xWk9ZazhCRnJ6QWtjY2xwRVF1UWRyNWg0c3JWMW9CV3RrRnRpbUh4VDBCMkpobm1aanZ6QWMtZVB4cm81cktuTFJjQkJuZm5xTG1zdUQ3QzJOMEZILWtvbkt0bWpsQ0xrMTN2bFZFN041RGFhX1FWVmVLcDhXU2s?oc=5
+
+4. Big Job. Light Work. Bambu Lab Launches R1 — Bambu Lab Blog
+   https://blog.bambulab.com/big-job-light-work-bambu-lab-launches-r1/
+
+5. Bambu Lab R1 laser cutter gets full release — DEVELOP3D AM
+   https://develop3d.com/hardware/bambu-lab-r1-laser-cutter/
+
+6. Bambu Lab’s First Laser Engraver Lands Days After a $27.6M Patent Loss to Stratasys — 3Dnatives
+   https://www.3dnatives.com/en/bambu-lab-laser-engraver-22092026/
+
+7. Bambu Lab R1 Review: This one stands alone - Tom's Hardware — GNews AM Companies
+   https://news.google.com/rss/articles/CBMia0FVX3lxTFB0RmtBNFIwSDlObVQ3VzdEd1M0TDN6dHpjODBYRmV2bDduZllnaHo3X0xRWE5XN1h0NFdDVURMekJNSmI3NmdiSEJURk5xNVptQWQ5T3lzLTVWbmxMTUZNeTF0T3JsdDBQcHU0?oc=5
+
+8. ORNL and Boeing WAAM-Print a 2-Ton Steel Stamp Form Die — 3dprintingindustry.com
+   https://3dprintingindustry.com/news/ornl-3d-prints-steel-mold-for-boeing-aircraft-work-255091/
+
+9. Partnership between ORNL, Boeing advances manufacturing for aircraft parts - Oak Ridge National Laboratory (ORNL) (.gov) — GNews AM Government
+   https://news.google.com/rss/articles/CBMimwFBVV95cUxNUmNFcnczakktVGVyTWlYb0VIYU1vRkhZSUR4VUNwNXZURGtTM096dklXaGN0azZOYVlnQ1FQZ0pVb2FJdG9CMnhoeXZXLTA1NjY2eDVYWVk5NFkyX2U3UUh1bzFxbTI5VUNHZld6M0RjM2psUjVzaS1QeGNxTGRLUVVINXkxVlJRVGNyOEZjNjI4MmZoTURPdFhiUQ?oc=5
+
+10. Creality Crowdfunds SPARKX i8 Four-Color Printer at $289-$309 — 3dprintingindustry.com
+   https://3dprintingindustry.com/news/creality-crowdfunds-sparkx-i8-four-channel-multi-color-3d-printer-255039/
+
+11. Can Creality’s US$309 Sparkx i8 Solve the Purge Poop Problem? — Fabbaloo
+   http://feeds.fabbaloo.com/~/970106963/0/fabbaloo/default~Can-Creality%e2%80%99s-US-Sparkx-i-Solve-the-Purge-Poop-Problem
+
+12. Creality Crowdfunds SPARKX i8 Four-Channel Multi-Color 3D Printer - 3D Printing Industry — GNews AM Expanded Companies
+   https://news.google.com/rss/articles/CBMirgFBVV95cUxOWHVjZ2dxZUVmdmxoQzM1a0NlWUNkMXhjM2Q4OG1vVWJIbzlLOWN4cDVUazhzOHB2ZXN4dGE3bzdudHFpYzd3YWl0U0lKNDRSeXVHS0VvSGJIdTV3QkNYcUowQmNfejQtb0wyYVRmemlqdTNQQkU5cnF2SXJlSkxLNWM3dHZJb0dZbHNxS3ZkMmVpNTZYYlBUSkFLbzlDTnJlaUVBQzhPVGhaS1RDTWc?oc=5
+
+13. Open AI GPT-6 Astra Can Reconstruct CAD Geometry From Photos, Why That Matters for Additive Manufacturing - 3D Printing Industry — GNews AM
+   https://news.google.com/rss/articles/CBMi4gFBVV95cUxQY2x2dGVid2VxbXR5Q0x1UWJNM1FpSjFJN2lqbDVma0hNWXNHeGdRc0VMdklkLU9GdU5iYmJVVF95YlpocGd1SEs5eDNGLVV4RTdwRTVXXzhSVmpia0pyNXNYcExMMGxEMndUSEE3Q0ttUkFLVURNcEdSNUhKR0F0QTZOUmRGUWJneENWX293eXVodGo3TFJWYkdDX08tV0hDVUF4RW9CTEJHdk9xU3JxMWdSZHR0TEcwQkdHTTQtYVhVeFNvMG44azRnbnBUSGt4Y3ZFYmhMR2hZeWt3cm9rQ1Jn?oc=5
+
+14. Prusament’s New Foaming PLA: How It Cuts Print Weight by 65% - All3DP — GNews AM Companies
+   https://news.google.com/rss/articles/CBMihgFBVV95cUxQVzdaY1pwQXpzd3AybHJ1QTBnZGVPOVJuOV9RWUZBa1pBN2VtZWZoWFFrS1dTekFQY283OFRfUDJVak5veUVfckZkY0twbHVCMU5FOFNFZVctMkFwZDMwOVNVS2VtV2p0X1ZxdDJxNDZJdmFpMVNsSndaUF9Fb1JNNFhmbVp5QQ?oc=5
+
+15. Prusa Makes Lightweight Printing Easier by Keeping it PLA — Fabbaloo
+   http://feeds.fabbaloo.com/~/969593201/0/fabbaloo/default~Prusa-Makes-Lightweight-Printing-Easier-by-Keeping-it-PLA
+
+16. Forget Trees, add Fins to your 3D Prints Instead — Hackaday 3DP
+   https://hackaday.com/2026/09/23/forget-trees-add-fins-to-your-3d-prints-instead/
