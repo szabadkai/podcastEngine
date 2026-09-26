@@ -1,8 +1,8 @@
-name: Generate Company Profile Tuesday
+name: Generate Company Profile
 
 on:
   schedule:
-    - cron: '17 1 * * 2' # Every Tuesday at 1:17 AM UTC / 3:17 AM Budapest summer time
+    - cron: '17 1 * * 5' # Fridays 1:17 AM UTC / 3:17 AM Budapest summer time; profiles run on alternate weeks
   workflow_dispatch:
     inputs:
       date_override:
@@ -52,13 +52,15 @@ jobs:
           node-version: '22'
           cache: 'npm'
 
+      - run: npm ci
+
       - name: Preflight scheduled episode
         id: preflight
         env:
           EPISODE_DATE: ${{ inputs.date_override }}
         run: |
           episode_date="$(
-            TARGET_WEEKDAY=2 node --input-type=module <<'NODE'
+            TARGET_WEEKDAY=5 node --input-type=module <<'NODE'
           const override = process.env.EPISODE_DATE?.trim();
           if (override) {
             console.log(override);
@@ -78,6 +80,15 @@ jobs:
           echo "episode_date=$episode_date" >> "$GITHUB_OUTPUT"
 
           if [ "$GITHUB_EVENT_NAME" = "schedule" ]; then
+            # One episode a week: this workflow and its sibling both fire on
+            # Fridays and alternate by week (src/lib/schedule.ts).
+            scheduled_type="$(npx tsx scripts/scheduled-episode-type.ts "$episode_date")"
+            if [ "$scheduled_type" != "company-profile" ]; then
+              echo "$episode_date is a $scheduled_type week; skipping the scheduled company profile run."
+              echo "should_run=false" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+
             if EPISODE_DATE="$episode_date" node --input-type=module <<'NODE'
           import fs from "node:fs";
 
@@ -110,9 +121,6 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y ffmpeg
-
-      - if: ${{ steps.preflight.outputs.should_run == 'true' }}
-        run: npm ci
 
       - name: Select company profile
         if: ${{ steps.preflight.outputs.should_run == 'true' }}

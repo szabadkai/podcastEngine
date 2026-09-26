@@ -66,7 +66,7 @@ export async function run(episodeDir: string): Promise<void> {
   const userContent =
     episodeContext.type === "company-profile"
       ? `Today's date: ${today}\nEpisode type: company-profile\nCompany: ${episodeContext.companyName}\n\nHere are ${stories.length} source items for a company-profile episode:\n\n${storyList}\n\nAnalyze, organize into profile segments, rank, and return JSON.`
-      : `Today's date: ${today}${recentCoverageBlock}\n\nHere are ${stories.length} stories from this week:\n\n${storyList}\n\nAnalyze, cluster, rank, and assign segments. Return JSON.`;
+      : `Today's date: ${today}${recentCoverageBlock}\n\nHere are ${stories.length} stories from the past ${config.episode.storyWindowDays} days:\n\n${storyList}\n\nAnalyze, cluster, rank, and assign segments. Return JSON.`;
 
   const result = await chatJson<AnalyzedStories>({
     validate: validateAnalyzedStories,

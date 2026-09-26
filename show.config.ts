@@ -191,8 +191,10 @@ const show: ShowConfig = {
     // Indicative only — actual runtime is driven by the word target in
     // prompts/script.md (currently ~20-25 min), not read by the pipeline.
     targetMinutes: 23,
-    storyWindowDays: 7,
-    fallbackWindowDays: 14,
+    // News runs every other Friday (src/lib/schedule.ts), so one episode
+    // covers the two weeks since the previous news episode.
+    storyWindowDays: 14,
+    fallbackWindowDays: 21,
     minStories: 3,
     maxSeenUrls: 2000,
     continuityWindow: 8,
