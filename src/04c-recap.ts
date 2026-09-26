@@ -73,7 +73,11 @@ export async function run(episodeDir: string): Promise<void> {
         },
       ],
       temperature: 0.3,
-      maxTokens: 1024,
+      // The recap JSON itself is small, but the DeepSeek model reasons before
+      // answering and those tokens count against max_tokens. At 1024 the
+      // thinking pass regularly consumed the whole budget and returned no
+      // content, pushing published episodes onto the fallback recap.
+      maxTokens: 4096,
       model: config.ai.recapModel,
     });
   } catch (err) {

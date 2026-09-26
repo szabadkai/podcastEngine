@@ -237,13 +237,14 @@ export async function run(episodeDir: string): Promise<void> {
       { role: "system", content: systemPrompt },
       { role: "user", content: userContent },
     ],
-    temperature: 0.7,
     // Episodes target ~20-25 min (3200-4000 words) across 5-7 stories, so the
     // JSON script runs long — give the model room not to truncate mid-line.
     maxTokens: 32000,
-    // Reasoning tokens are drawn from max_tokens for several OpenRouter models.
-    // Cap thinking so the full JSON script still has comfortable output room.
-    reasoning: { max_tokens: 8000 },
+    // Claude Opus 5.5 always thinks and takes no sampling parameters; effort
+    // is its only depth control and defaults to medium, one level lower than
+    // this writing task warrants. Thinking tokens count against max_tokens;
+    // chat() grows the cap if a long think truncates the script.
+    reasoning: { effort: "high" },
     model: config.ai.scriptModel,
   });
 
@@ -302,9 +303,8 @@ export async function run(episodeDir: string): Promise<void> {
             revisionReasons.map((reason) => `- ${reason}`).join("\n"),
         },
       ],
-      temperature: 0.45,
       maxTokens: 32000,
-      reasoning: { max_tokens: 6000 },
+      reasoning: { effort: "high" },
       model: config.ai.scriptModel,
     });
     applyAuthoritativeMetadata(result);

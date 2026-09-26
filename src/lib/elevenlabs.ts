@@ -82,3 +82,55 @@ export async function textToSpeech(opts: TtsOptions): Promise<TtsResult> {
 
   throw lastError || new Error("TTS call failed after retries");
 }
+
+export interface CreditQuota {
+  used: number;
+  limit: number;
+  remaining: number;
+  resetsAt: Date | null;
+}
+
+// Reads the plan's credit counter. Returns null when it cannot be read (a key
+// without the user_read permission, a network error, an unexpected shape) so
+// a restricted key never blocks an episode on a check that is advisory.
+export async function getCreditQuota(): Promise<CreditQuota | null> {
+  const apiKey = process.env.ELEVENLABS_API_KEY;
+  if (!apiKey) throw new Error("ELEVENLABS_API_KEY not set");
+
+  let res: Response;
+  try {
+    res = await fetch(`${BASE_URL}/user/subscription`, {
+      headers: { "xi-api-key": apiKey },
+    });
+  } catch (err) {
+    console.warn(`  ElevenLabs quota check failed: ${err instanceof Error ? err.message : String(err)}`);
+    return null;
+  }
+  if (!res.ok) {
+    console.warn(`  ElevenLabs quota check returned ${res.status}; skipping it.`);
+    return null;
+  }
+
+  const data = (await res.json().catch(() => null)) as {
+    character_count?: unknown;
+    character_limit?: unknown;
+    next_character_count_reset_unix?: unknown;
+  } | null;
+  const used = data?.character_count;
+  const limit = data?.character_limit;
+  if (typeof used !== "number" || typeof limit !== "number") return null;
+  const reset = data?.next_character_count_reset_unix;
+  return {
+    used,
+    limit,
+    remaining: Math.max(0, limit - used),
+    resetsAt: typeof reset === "number" ? new Date(reset * 1000) : null,
+  };
+}
+
+export function describeQuota(quota: CreditQuota): string {
+  const reset = quota.resetsAt
+    ? `, resets ${quota.resetsAt.toISOString().slice(0, 10)}`
+    : "";
+  return `${quota.remaining} of ${quota.limit} credits remaining${reset}`;
+}

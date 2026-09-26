@@ -106,6 +106,53 @@ function sanitizeSource(value: unknown): ResearchSource | null {
   };
 }
 
+// The tool-using research call is asked for JSON, but it often ends its search
+// loop with prose ("Now let me search…", "I've hit the fetch limit…"), with
+// or without a JSON object inside. Returns null when no findings array can be
+// recovered, so the caller can structure the notes instead of re-searching.
+export function parseResearchFindings(raw: string): unknown[] | null {
+  const cleaned = raw
+    .replace(/^```json\s*\n?/, "")
+    .replace(/\n?```\s*$/, "")
+    .trim();
+  const first = cleaned.indexOf("{");
+  const last = cleaned.lastIndexOf("}");
+  const candidates = [cleaned];
+  if (first > 0 && last > first) candidates.push(cleaned.slice(first, last + 1));
+  for (const candidate of candidates) {
+    try {
+      const parsed = JSON.parse(candidate) as { findings?: unknown };
+      if (Array.isArray(parsed?.findings)) return parsed.findings;
+    } catch {
+      // Try the next candidate.
+    }
+  }
+  return null;
+}
+
+// Structuring prose notes after the fact must not introduce new evidence.
+// Keep only sources whose URL appears verbatim in the research notes; the
+// sanitizer then downgrades any resolved finding left without a source.
+export function restrictSourcesToNotes(findings: unknown[], notes: string): unknown[] {
+  return findings.map((value) => {
+    if (!value || typeof value !== "object") return value;
+    const finding = value as { sources?: unknown };
+    if (!Array.isArray(finding.sources)) return value;
+    return {
+      ...finding,
+      sources: finding.sources.filter((source) => {
+        const url =
+          typeof source === "string"
+            ? source
+            : source && typeof source === "object"
+              ? (source as { url?: unknown }).url
+              : undefined;
+        return typeof url === "string" && url.length > 0 && notes.includes(url);
+      }),
+    };
+  });
+}
+
 export function sanitizeResearchFindings(
   requests: EpisodeResearchRequest[],
   values: unknown,

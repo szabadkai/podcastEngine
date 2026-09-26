@@ -24,6 +24,7 @@ else console.log("");
 type StageFn = (dir: string) => Promise<void>;
 
 const stages: Array<{ name: string; run: () => Promise<StageFn> }> = [
+  { name: "tts-quota", run: () => import("./00-tts-quota.js").then((m) => m.run) },
   { name: "collect", run: () => import("./01-collect.js").then((m) => m.run) },
   { name: "analyze", run: () => import("./02-analyze.js").then((m) => m.run) },
   { name: "fact-check", run: () => import("./03-fact-check.js").then((m) => m.run) },
@@ -35,7 +36,7 @@ const stages: Array<{ name: string; run: () => Promise<StageFn> }> = [
   { name: "publish", run: () => import("./06-publish.js").then((m) => m.run) },
 ];
 
-const SKIP_IN_DRY_RUN = new Set(["audio", "publish"]);
+const SKIP_IN_DRY_RUN = new Set(["tts-quota", "audio", "publish"]);
 
 async function runStage(name: string, loadFn: () => Promise<StageFn>) {
   if (dryRun && SKIP_IN_DRY_RUN.has(name)) {

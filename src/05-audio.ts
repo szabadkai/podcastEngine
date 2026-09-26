@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { config } from "./config.js";
-import { textToSpeech } from "./lib/elevenlabs.js";
+import { describeQuota, getCreditQuota, textToSpeech } from "./lib/elevenlabs.js";
 import { synthesize as piperSynthesize } from "./lib/piper.js";
 import { synthesize as edgeSynthesize } from "./lib/edge-tts.js";
 import { synthesizeBatch as kokoroSynthesizeBatch } from "./lib/kokoro.js";
@@ -189,6 +189,20 @@ export async function run(episodeDir: string): Promise<void> {
     });
     await chatterboxSynthesizeBatch(jobChunks);
     return finalize(chunkPaths, chunksDir, outputPath);
+  }
+
+  // Chunks are not kept when a CI run fails, so a partial episode spends
+  // credits for nothing. Stop before the first chunk if the rest won't fit.
+  if (provider === "elevenlabs") {
+    const pendingChars = chunks
+      .filter((chunk) => !fs.existsSync(chunkPaths[chunk.index]))
+      .reduce((sum, chunk) => sum + chunk.text.length, 0);
+    const quota = pendingChars > 0 ? await getCreditQuota() : null;
+    if (quota && quota.remaining < pendingChars) {
+      throw new Error(
+        `ElevenLabs has ${describeQuota(quota)}, but ${pendingChars} characters remain to synthesize.`,
+      );
+    }
   }
 
   for (const chunk of chunks) {

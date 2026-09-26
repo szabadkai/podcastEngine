@@ -100,3 +100,28 @@ test("chat retries a credit-limited request within the affordable token budget",
   assert.equal(bodies[1].max_tokens, 14700);
   assert.deepEqual(bodies[1].reasoning, { max_tokens: 3675 });
 });
+
+test("chat grows the token cap when reasoning consumes the whole budget", async () => {
+  const bodies: Array<Record<string, unknown>> = [];
+  globalThis.fetch = async (_input, init) => {
+    bodies.push(JSON.parse(String(init?.body)) as Record<string, unknown>);
+    if (bodies.length === 1) {
+      return Response.json({
+        choices: [{ message: { content: null }, finish_reason: "length" }],
+      });
+    }
+    return Response.json({
+      choices: [{ message: { content: "recovered" }, finish_reason: "stop" }],
+    });
+  };
+
+  const content = await chat({
+    messages: [{ role: "user", content: "distill this episode" }],
+    maxTokens: 1024,
+  });
+
+  assert.equal(content, "recovered");
+  assert.equal(bodies.length, 2);
+  assert.equal(bodies[0].max_tokens, 1024);
+  assert.equal(bodies[1].max_tokens, 2048);
+});

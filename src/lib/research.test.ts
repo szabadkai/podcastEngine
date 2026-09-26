@@ -1,7 +1,9 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import {
+  parseResearchFindings,
   researchEvidenceForCluster,
+  restrictSourcesToNotes,
   sanitizeResearchFindings,
   selectResearchRequests,
   supportedAndUnsupportedClaims,
@@ -157,4 +159,40 @@ test("separates unverifiable claims from the on-air claim set", () => {
   const split = supportedAndUnsupportedClaims(factCheck);
   assert.deepEqual(split.supported.map((claim) => claim.claim), ["Supported", "Overclaim"]);
   assert.deepEqual(split.unsupported.map((claim) => claim.claim), ["Unknown"]);
+});
+
+test("recovers findings JSON embedded in research prose, and rejects pure prose", () => {
+  assert.deepEqual(
+    parseResearchFindings('```json\n{"findings":[{"requestId":"a"}]}\n```'),
+    [{ requestId: "a" }],
+  );
+  assert.deepEqual(
+    parseResearchFindings('I have strong evidence now.\n{"findings":[{"requestId":"b"}]}'),
+    [{ requestId: "b" }],
+  );
+  assert.equal(parseResearchFindings("Now let me search for the filing."), null);
+  assert.equal(parseResearchFindings('{"answer":"no findings key"}'), null);
+});
+
+test("structured prose findings keep only URLs present in the research notes", () => {
+  const notes =
+    "Found the spec sheet at https://example.com/spec (build volume 300 mm). Nothing else.";
+  const [finding] = restrictSourcesToNotes(
+    [
+      {
+        requestId: "cluster-1-gap-1",
+        status: "resolved",
+        sources: [
+          { url: "https://example.com/spec", evidence: "Build volume" },
+          { url: "https://invented.example/report", evidence: "From memory" },
+          "https://example.com/spec",
+        ],
+      },
+    ],
+    notes,
+  ) as Array<{ sources: unknown[] }>;
+  assert.deepEqual(finding.sources, [
+    { url: "https://example.com/spec", evidence: "Build volume" },
+    "https://example.com/spec",
+  ]);
 });

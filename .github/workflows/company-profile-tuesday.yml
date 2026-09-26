@@ -126,6 +126,12 @@ jobs:
         if: ${{ steps.preflight.outputs.should_run == 'true' && env.COMPANY_PROFILE_SELECTED != 'true' }}
         run: echo "No company profile selected. Add enabled entries to data/company-profile-queue.json."
 
+      # Fail in seconds, not after ~25 minutes of AI stages, when the
+      # ElevenLabs plan cannot cover an episode's audio.
+      - name: Check TTS quota
+        if: ${{ steps.preflight.outputs.should_run == 'true' && env.COMPANY_PROFILE_SELECTED == 'true' && !inputs.dry_run }}
+        run: npx tsx src/pipeline.ts tts-quota
+
       - name: Collect company research
         if: ${{ steps.preflight.outputs.should_run == 'true' && env.COMPANY_PROFILE_SELECTED == 'true' }}
         env:

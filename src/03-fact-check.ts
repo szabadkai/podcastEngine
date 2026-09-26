@@ -2,7 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { validateAnalyzedStories } from "./lib/analysis.js";
 import { config } from "./config.js";
-import { chatJson } from "./lib/ai.js";
+import { chat, chatJson } from "./lib/ai.js";
 import {
   episodeContextFromMetadata,
   getEpisodeContext,
@@ -10,8 +10,10 @@ import {
 } from "./lib/episode-mode.js";
 import { loadJson, writeJson, fileExists } from "./lib/storage.js";
 import {
+  parseResearchFindings,
   researchEvidenceForCluster,
   researchSourceUrls,
+  restrictSourcesToNotes,
   sanitizeResearchFindings,
   selectResearchRequests,
 } from "./lib/research.js";
@@ -208,24 +210,29 @@ export async function run(episodeDir: string): Promise<void> {
       });
 
       try {
-        const researched = await chatJson<{ findings: unknown[] }>({
+        const requestBlock =
+          `Episode date: ${analyzed.episodeDate}\n` +
+          `Episode type: ${episodeContext.type}\n` +
+          (episodeContext.companyName
+            ? `Company: ${episodeContext.companyName}\n`
+            : "");
+        // One tool-using call, not chatJson: its parse-failure retry re-ran the
+        // whole web search up to three times. Prose output is structured below.
+        const notes = await chat({
           messages: [
             { role: "system", content: researchPrompt },
             {
               role: "user",
               content:
-                `Episode date: ${analyzed.episodeDate}\n` +
-                `Episode type: ${episodeContext.type}\n` +
-                (episodeContext.companyName
-                  ? `Company: ${episodeContext.companyName}\n`
-                  : "") +
+                requestBlock +
                 `\nResearch every request below, then return the complete findings JSON.\n\n${JSON.stringify(requestContext, null, 2)}`,
             },
           ],
           temperature: 0.1,
           maxTokens: 20000,
           reasoning: { max_tokens: 5000 },
-          model: config.ai.model,
+          jsonMode: true,
+          model: config.ai.researchModel,
           tools: [
             {
               type: "openrouter:web_search",
@@ -247,10 +254,41 @@ export async function run(episodeDir: string): Promise<void> {
           ],
           toolChoice: "required",
         });
-        research.findings = sanitizeResearchFindings(
-          requests,
-          researched.findings,
-        );
+        let findings = parseResearchFindings(notes);
+        if (!findings) {
+          // Every episode from 2026-08-14 through 2026-09-08 lost all of its
+          // research this way: the model finished searching but answered in
+          // prose. Structure those notes once, without tools, and keep only
+          // URLs that actually appear in them.
+          console.warn(
+            "Targeted research returned prose instead of JSON; structuring the notes without re-searching...",
+          );
+          const structured = await chatJson<{ findings: unknown[] }>({
+            messages: [
+              {
+                role: "system",
+                content:
+                  `${researchPrompt}\n\n## Formatting pass\n\n` +
+                  "The web research is already done and you have no tools. Convert the research notes into the findings JSON. " +
+                  "Use only facts and URLs that appear in the notes; never answer from memory. " +
+                  "A request the notes do not answer is `not-found`.",
+              },
+              {
+                role: "user",
+                content:
+                  requestBlock +
+                  `\nRequests:\n${JSON.stringify(requestContext, null, 2)}\n\nResearch notes:\n${notes}`,
+              },
+            ],
+            temperature: 0,
+            maxTokens: 12000,
+          });
+          findings = restrictSourcesToNotes(
+            Array.isArray(structured.findings) ? structured.findings : [],
+            notes,
+          );
+        }
+        research.findings = sanitizeResearchFindings(requests, findings);
         research.completed = true;
       } catch (error) {
         research.findings = sanitizeResearchFindings(requests, []);

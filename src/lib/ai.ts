@@ -52,7 +52,7 @@ interface ChatOptions {
   toolChoice?: "auto" | "required" | "none";
 }
 
-// Hard ceiling when escalating after a truncation — Claude Opus 4.8's max output.
+// Hard ceiling when escalating after a truncation — Claude Opus 5.5's max output.
 const MAX_OUTPUT_TOKENS = 128000;
 // A long-form request retried below this floor is likely to spend the last
 // credits on a truncated response. Fail clearly instead of making that bet.
@@ -86,9 +86,11 @@ export async function chat(opts: ChatOptions): Promise<string> {
     const body: Record<string, unknown> = {
       model: opts.model ?? config.ai.model,
       messages: opts.messages,
-      temperature: opts.temperature ?? 0.3,
       max_tokens: maxTokens,
     };
+    // Omitted when unset: current Claude models reject sampling parameters,
+    // and some OpenRouter providers forward them instead of dropping them.
+    if (opts.temperature !== undefined) body.temperature = opts.temperature;
     if (opts.jsonMode) body.response_format = { type: "json_object" };
     if (opts.reasoning) {
       const reasoning = { ...opts.reasoning };
@@ -177,7 +179,10 @@ export async function chat(opts: ChatOptions): Promise<string> {
     }
 
     let data: {
-      choices?: Array<{ message: { content: string }; finish_reason?: string }>;
+      choices?: Array<{
+        message?: { content?: string | null };
+        finish_reason?: string;
+      }>;
       error?: string | { message?: string; code?: string | number };
     };
     try {
@@ -190,25 +195,13 @@ export async function chat(opts: ChatOptions): Promise<string> {
     }
 
     const choice = Array.isArray(data.choices) ? data.choices[0] : undefined;
-    if (!choice || typeof choice.message?.content !== "string") {
-      const providerError =
-        typeof data.error === "string"
-          ? data.error
-          : data.error?.message || data.error?.code
-            ? [data.error.message, data.error.code && `code=${data.error.code}`]
-                .filter(Boolean)
-                .join("; ")
-            : "no provider error details";
-      lastError = new Error(
-        `OpenRouter response did not contain a message choice (${providerError})`,
-      );
-      continue;
-    }
     // Truncated at the cap. A reasoning model spends part of max_tokens thinking,
     // so the visible answer can run out of room. Grow the cap and retry rather
     // than re-sending the same doomed request. (Bounding `reasoning` at the call
     // site is the primary guard; this is the safety net if the estimate is off.)
-    if (choice.finish_reason === "length") {
+    // Checked before the content: when thinking consumes the whole budget the
+    // provider returns null content, which is still a truncation.
+    if (choice?.finish_reason === "length") {
       if (maxTokens >= MAX_OUTPUT_TOKENS) {
         lastError = new Error(
           `OpenRouter response truncated at max_tokens=${maxTokens} (model ceiling); reduce reasoning budget or shorten the request`,
@@ -221,7 +214,22 @@ export async function chat(opts: ChatOptions): Promise<string> {
       );
       continue;
     }
-    return choice.message.content;
+    const content = choice?.message?.content;
+    if (typeof content !== "string") {
+      const providerError =
+        typeof data.error === "string"
+          ? data.error
+          : data.error?.message || data.error?.code
+            ? [data.error.message, data.error.code && `code=${data.error.code}`]
+                .filter(Boolean)
+                .join("; ")
+            : "no provider error details";
+      lastError = new Error(
+        `OpenRouter response did not contain a message choice (${providerError}; finish_reason=${choice?.finish_reason ?? "none"})`,
+      );
+      continue;
+    }
+    return content;
   }
 
   throw lastError || new Error("AI call failed after retries");

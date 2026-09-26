@@ -75,7 +75,7 @@ export async function run(episodeDir: string): Promise<void> {
       { role: "user", content: userContent },
     ],
     temperature: 0.3,
-    // Reasoning models (deepseek-v4-pro) emit a long internal trace before the
+    // Reasoning models (deepseek-v4.1-flash) emit a long internal trace before the
     // JSON; 4096 truncates the answer mid-string. Give it ample headroom —
     // more so now that we shortlist 7-10 clusters plus the skipped list.
     maxTokens: 24000,

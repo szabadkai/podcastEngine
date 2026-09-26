@@ -3,9 +3,12 @@ import type { ShowConfig } from "./show.js";
 export const engineConfig = {
   ai: {
     baseUrl: "https://openrouter.ai/api/v1",
-    model: "deepseek/deepseek-v4-pro",
-    scriptModel: "anthropic/claude-fable-5",
-    recapModel: "deepseek/deepseek-v4-pro",
+    model: "deepseek/deepseek-v4.1-flash",
+    scriptModel: "anthropic/claude-opus-5.5",
+    recapModel: "deepseek/deepseek-v4.1-flash",
+    // Tool-using web research in the fact-check stage. Kept separate because
+    // this step needs dependable server-side tool use, not just cheap JSON.
+    researchModel: "moonshotai/kimi-k2.6",
     maxRetries: 3,
     retryDelayMs: 2000,
   },
@@ -44,6 +47,10 @@ export const engineConfig = {
     // A clip this short for its text almost certainly lost part of the
     // generation. 0.20 seconds per word is a deliberately generous 300 WPM.
     minSecondsPerWord: 0.2,
+    // Credits the ElevenLabs plan must have left before an episode starts.
+    // Recent episodes used 20-23k credits with eleven_multilingual_v2 (one per
+    // character); the margin covers longer scripts and short-clip retries.
+    minEpisodeCredits: 25000,
     shortAudioRetries: 2,
     delayBetweenChunksMs: 500,
     pronunciationDictionaryLocators: [] as Array<{
