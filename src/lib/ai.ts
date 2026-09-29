@@ -1,3 +1,5 @@
+import fs from "node:fs";
+import path from "node:path";
 import { config } from "../config.js";
 
 interface ChatMessage {
@@ -50,10 +52,55 @@ interface ChatOptions {
   reasoning?: ReasoningConfig;
   tools?: OpenRouterTool[];
   toolChoice?: "auto" | "required" | "none";
+  telemetry?: {
+    label: string;
+    filePath: string;
+  };
 }
 
 // Hard ceiling when escalating after a truncation — Claude Opus 4.8's max output.
 const MAX_OUTPUT_TOKENS = 128000;
+
+interface OpenRouterUsage {
+  prompt_tokens?: number;
+  completion_tokens?: number;
+  total_tokens?: number;
+  cost?: number;
+  prompt_tokens_details?: Record<string, unknown>;
+  completion_tokens_details?: Record<string, unknown>;
+  cost_details?: Record<string, unknown>;
+  [key: string]: unknown;
+}
+
+function recordTelemetry(
+  opts: ChatOptions,
+  details: Record<string, unknown>,
+): void {
+  if (!opts.telemetry) return;
+  try {
+    fs.mkdirSync(path.dirname(opts.telemetry.filePath), { recursive: true });
+    fs.appendFileSync(
+      opts.telemetry.filePath,
+      JSON.stringify({
+        timestamp: new Date().toISOString(),
+        label: opts.telemetry.label,
+        model: opts.model ?? config.ai.model,
+        requestChars: opts.messages.reduce(
+          (sum, message) => sum + message.content.length,
+          0,
+        ),
+        maxTokens: opts.maxTokens ?? 4096,
+        reasoning: opts.reasoning,
+        tools: opts.tools?.map((tool) => tool.type) ?? [],
+        ...details,
+      }) + "\n",
+    );
+  } catch (error) {
+    console.warn(
+      `Token telemetry write failed: ${error instanceof Error ? error.message : String(error)}`,
+    );
+  }
+}
 
 export async function chat(opts: ChatOptions): Promise<string> {
   const apiKey = process.env.OPENROUTER_API_KEY;
@@ -70,6 +117,7 @@ export async function chat(opts: ChatOptions): Promise<string> {
       messages: opts.messages,
       temperature: opts.temperature ?? 0.3,
       max_tokens: maxTokens,
+      usage: { include: true },
     };
     if (opts.jsonMode) body.response_format = { type: "json_object" };
     if (opts.reasoning) body.reasoning = opts.reasoning;
@@ -129,6 +177,7 @@ export async function chat(opts: ChatOptions): Promise<string> {
     let data: {
       choices?: Array<{ message: { content: string }; finish_reason?: string }>;
       error?: string | { message?: string; code?: string | number };
+      usage?: OpenRouterUsage;
     };
     try {
       data = JSON.parse(responseText) as typeof data;
@@ -141,6 +190,12 @@ export async function chat(opts: ChatOptions): Promise<string> {
 
     const choice = Array.isArray(data.choices) ? data.choices[0] : undefined;
     if (!choice || typeof choice.message?.content !== "string") {
+      recordTelemetry(opts, {
+        attempt: attempt + 1,
+        outcome: "missing-choice",
+        effectiveMaxTokens: maxTokens,
+        usage: data.usage,
+      });
       const providerError =
         typeof data.error === "string"
           ? data.error
@@ -159,6 +214,13 @@ export async function chat(opts: ChatOptions): Promise<string> {
     // than re-sending the same doomed request. (Bounding `reasoning` at the call
     // site is the primary guard; this is the safety net if the estimate is off.)
     if (choice.finish_reason === "length") {
+      recordTelemetry(opts, {
+        attempt: attempt + 1,
+        outcome: "truncated",
+        finishReason: choice.finish_reason,
+        effectiveMaxTokens: maxTokens,
+        usage: data.usage,
+      });
       if (maxTokens >= MAX_OUTPUT_TOKENS) {
         lastError = new Error(
           `OpenRouter response truncated at max_tokens=${maxTokens} (model ceiling); reduce reasoning budget or shorten the request`,
@@ -171,13 +233,22 @@ export async function chat(opts: ChatOptions): Promise<string> {
       );
       continue;
     }
+    recordTelemetry(opts, {
+      attempt: attempt + 1,
+      outcome: "success",
+      finishReason: choice.finish_reason,
+      effectiveMaxTokens: maxTokens,
+      usage: data.usage,
+    });
     return choice.message.content;
   }
 
   throw lastError || new Error("AI call failed after retries");
 }
 
-export async function chatJson<T>(opts: ChatOptions): Promise<T> {
+export async function chatJson<T>(
+  opts: ChatOptions & { validate?: (value: unknown) => T },
+): Promise<T> {
   let lastError: Error | null = null;
 
   for (let attempt = 0; attempt < config.ai.maxRetries; attempt++) {
@@ -187,13 +258,14 @@ export async function chatJson<T>(opts: ChatOptions): Promise<T> {
       .replace(/\n?```\s*$/, "")
       .trim();
     try {
-      return JSON.parse(cleaned) as T;
+      const parsed: unknown = JSON.parse(cleaned);
+      return opts.validate ? opts.validate(parsed) : parsed as T;
     } catch (err) {
       // Malformed/truncated JSON: retry the whole call. Reasoning models
       // occasionally emit partial output even under finish_reason=stop.
       lastError = err as Error;
       console.log(
-        `  JSON parse failed (attempt ${attempt + 1}/${config.ai.maxRetries}): ${(err as Error).message}`,
+        `  JSON parse/validation failed (attempt ${attempt + 1}/${config.ai.maxRetries}): ${(err as Error).message}`,
       );
     }
   }

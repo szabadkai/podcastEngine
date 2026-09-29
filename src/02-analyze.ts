@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import { validateAnalyzedStories } from "./lib/analysis.js";
 import { config } from "./config.js";
 import { chatJson } from "./lib/ai.js";
 import { getEpisodeContext, promptPath } from "./lib/episode-mode.js";
@@ -14,8 +15,13 @@ import type { RawStory, AnalyzedStories, EpisodeManifest } from "./lib/types.js"
 export async function run(episodeDir: string): Promise<void> {
   const outputPath = path.join(episodeDir, "02-analyzed.json");
   if (fileExists(outputPath)) {
-    console.log("Stage 02: output already exists, skipping.");
-    return;
+    try {
+      validateAnalyzedStories(loadJson<unknown>(outputPath, null));
+      console.log("Stage 02: output already exists, skipping.");
+      return;
+    } catch (error) {
+      console.warn(`Stage 02: regenerating invalid saved analysis: ${(error as Error).message}`);
+    }
   }
 
   const inputPath = path.join(episodeDir, "01-raw-stories.json");
@@ -63,6 +69,7 @@ export async function run(episodeDir: string): Promise<void> {
       : `Today's date: ${today}${recentCoverageBlock}\n\nHere are ${stories.length} stories from this week:\n\n${storyList}\n\nAnalyze, cluster, rank, and assign segments. Return JSON.`;
 
   const result = await chatJson<AnalyzedStories>({
+    validate: validateAnalyzedStories,
     messages: [
       { role: "system", content: systemPrompt },
       { role: "user", content: userContent },
@@ -72,6 +79,10 @@ export async function run(episodeDir: string): Promise<void> {
     // JSON; 4096 truncates the answer mid-string. Give it ample headroom —
     // more so now that we shortlist 7-10 clusters plus the skipped list.
     maxTokens: 24000,
+    telemetry: {
+      label: "analyze",
+      filePath: path.join(episodeDir, "token-usage.jsonl"),
+    },
   });
 
   result.episodeDate = today;

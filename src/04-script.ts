@@ -8,6 +8,10 @@ import {
   promptPath,
 } from "./lib/episode-mode.js";
 import { analyzeScriptQuality } from "./lib/script-quality.js";
+import {
+  materialScriptReviewReasons,
+  normalizeScriptReview,
+} from "./lib/script-review.js";
 import { loadJson, writeJson, fileExists, loadRecentRecaps } from "./lib/storage.js";
 import { getSpeakerIds } from "./show.js";
 import { findBestRecapMatch } from "./lib/continuity.js";
@@ -104,6 +108,10 @@ export async function run(episodeDir: string): Promise<void> {
   const episodeContext =
     episodeContextFromMetadata(factChecked) ?? getEpisodeContext();
   const systemPrompt = fs.readFileSync(promptPath("script", episodeContext), "utf-8");
+  const reviewPrompt = fs.readFileSync(
+    path.resolve("prompts", "script-review.md"),
+    "utf-8",
+  );
 
   const manifest = loadJson<EpisodeManifest>(
     path.resolve("episodes", "manifest.json"),
@@ -241,10 +249,14 @@ export async function run(episodeDir: string): Promise<void> {
     // Episodes target ~20-25 min (3200-4000 words) across 5-7 stories, so the
     // JSON script runs long — give the model room not to truncate mid-line.
     maxTokens: 32000,
-    // Reasoning tokens are drawn from max_tokens for several OpenRouter models.
-    // Cap thinking so the full JSON script still has comfortable output room.
-    reasoning: { max_tokens: 8000 },
-    model: config.ai.scriptModel,
+    // GPT-5.6 Sol defaults to medium reasoning, but make the production baseline
+    // explicit so provider defaults cannot silently change this stage.
+    reasoning: { effort: "medium" },
+    model: config.ai.scriptDraftModel,
+    telemetry: {
+      label: "script-draft",
+      filePath: path.join(episodeDir, "token-usage.jsonl"),
+    },
   });
 
   const applyAuthoritativeMetadata = (script: EpisodeScript): void => {
@@ -269,18 +281,61 @@ export async function run(episodeDir: string): Promise<void> {
     episodeContext.type === "company-profile"
       ? findLaunchedProductContradictions(result, factChecked)
       : [];
+  console.log(
+    `Stage 04: reviewing Sol draft with ${config.ai.scriptReviewModel}...`,
+  );
+  const rawReview = await chatJson<unknown>({
+    messages: [
+      { role: "system", content: reviewPrompt },
+      {
+        role: "user",
+        content: JSON.stringify({
+          hostVoices: {
+            alex: "warm, curious, maker-minded; connects stories to practical use",
+            jordan: "dry, technical, industry-minded; tests claims against practice",
+          },
+          factCheckedBrief: storyBrief,
+          mechanicalQualityReport: initialQuality,
+          numberedDraft: {
+            ...result,
+            lines: result.lines.map((line, index) => ({
+              lineIndex: index + 1,
+              ...line,
+            })),
+          },
+        }),
+      },
+    ],
+    temperature: 0.1,
+    maxTokens: 2500,
+    // The reviewer should spend its budget diagnosing, not producing prose.
+    reasoning: { max_tokens: 1000 },
+    model: config.ai.scriptReviewModel,
+    telemetry: {
+      label: "script-review",
+      filePath: path.join(episodeDir, "token-usage.jsonl"),
+    },
+  });
+  const semanticReview = normalizeScriptReview(rawReview, result.lines.length);
+  const semanticRevisionReasons = materialScriptReviewReasons(semanticReview);
+  const advisoryCount = semanticReview.issues.filter(
+    (issue) => issue.severity === "advisory",
+  ).length;
+  console.log(
+    `Stage 04: semantic review ${semanticReview.decision} — ${semanticRevisionReasons.length} material, ${advisoryCount} advisory.`,
+  );
   const revisionReasons = [
     ...initialQuality.blockingIssues,
-    ...initialQuality.warnings,
     ...initialContradictions.map(
       (contradiction) => `Factual product-status contradiction: ${contradiction}`,
     ),
+    ...semanticRevisionReasons,
   ];
 
-  // The old engine recorded warnings and published anyway. A single focused
-  // revision is cheaper and safer than letting a 15-minute, one-sided, or
-  // clockwork-alternating episode reach TTS. The original brief remains in the
-  // conversation so the reviser has no reason to invent facts.
+  // Deterministic defects or material editorial findings earn one focused Sol
+  // rewrite. Advisory-only feedback is retained for observability but does not
+  // incur another full generation. There is deliberately no reviewer/reviser
+  // loop: the final deterministic and product-status gates remain authoritative.
   if (revisionReasons.length > 0) {
     console.warn(
       `Stage 04: first draft needs revision (${revisionReasons.length} quality issue(s)).`,
@@ -304,15 +359,28 @@ export async function run(episodeDir: string): Promise<void> {
       ],
       temperature: 0.45,
       maxTokens: 32000,
-      reasoning: { max_tokens: 6000 },
-      model: config.ai.scriptModel,
+      reasoning: { effort: "medium" },
+      model: config.ai.scriptRevisionModel,
+      telemetry: {
+        label: "script-revision",
+        filePath: path.join(episodeDir, "token-usage.jsonl"),
+      },
     });
     applyAuthoritativeMetadata(result);
   }
 
   const quality = analyzeScriptQuality(result, qualityOptions);
   quality.revisionAttempted = revisionReasons.length > 0;
-  if (revisionReasons.length > 0) quality.initialWarnings = revisionReasons;
+  const initialObservations = [
+    ...initialQuality.blockingIssues,
+    ...initialQuality.warnings,
+    ...initialContradictions.map(
+      (contradiction) => `Factual product-status contradiction: ${contradiction}`,
+    ),
+    ...semanticRevisionReasons,
+  ];
+  if (initialObservations.length > 0) quality.initialWarnings = initialObservations;
+  quality.draftSemanticReview = semanticReview;
 
   if (quality.blockingIssues.length > 0) {
     throw new Error(

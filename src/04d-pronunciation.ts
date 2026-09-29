@@ -85,6 +85,10 @@ Return JSON: { "entries": [{ "term": "ACRONYM", "spoken": "how-to-say-it" }] }`,
     ],
     temperature: 0.1,
     maxTokens: 2048,
+    telemetry: {
+      label: "pronunciation",
+      filePath: path.join(episodeDir, "token-usage.jsonl"),
+    },
   });
 
   const map = loadPronunciationMap();

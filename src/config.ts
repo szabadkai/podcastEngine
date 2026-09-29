@@ -4,7 +4,11 @@ export const engineConfig = {
   ai: {
     baseUrl: "https://openrouter.ai/api/v1",
     model: "deepseek/deepseek-v4-pro",
-    scriptModel: "anthropic/claude-fable-5",
+    // Script writing and rewriting benefit from Sol's long-form reasoning;
+    // Fable is deliberately kept in the narrower editorial-review role.
+    scriptDraftModel: "openai/gpt-5.6-sol",
+    scriptReviewModel: "anthropic/claude-fable-5",
+    scriptRevisionModel: "openai/gpt-5.6-sol",
     recapModel: "deepseek/deepseek-v4-pro",
     maxRetries: 3,
     retryDelayMs: 2000,

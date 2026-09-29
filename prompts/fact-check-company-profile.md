@@ -29,7 +29,7 @@ For product chronology, record the status of every named product precisely: **la
 
 5. Suggest skeptical angles only when warranted. A clean leadership fact or well-sourced product history can have an empty `skepticalAngles` list.
 
-6. Create targeted follow-up research requests for consequential gaps that are likely answerable on the public web. Good requests include a missing founding date, named leadership, product launch status, certification, court filing, partnership scope, or a basic financial transaction detail. Do not request private financials, unpublished test data, unnamed customers, or proof that would require new laboratory work. Limit each cluster to at most two requests.
+6. Create targeted follow-up research requests only for critical gaps that materially affect the profile and are likely answerable on the public web. Good requests include a missing founding date, named leadership, product launch status, certification, court filing, partnership scope, or a basic financial transaction detail. Routine context and nice-to-have details do not qualify. Do not request private financials, unpublished test data, unnamed customers, or proof that would require new laboratory work. Limit each cluster to at most one request.
 
 ## Rules
 
@@ -72,7 +72,7 @@ Return a JSON object:
           {
             "question": "One specific factual question to resolve",
             "reason": "Why resolving it materially improves the episode",
-            "priority": "critical|useful",
+            "priority": "critical",
             "query": "A focused web search query",
             "preferredSources": ["Official company page", "court filing", "independent trade reporting"],
             "publicAnswerLikely": true

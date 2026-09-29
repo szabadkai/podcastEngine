@@ -50,6 +50,10 @@ export async function run(episodeDir: string): Promise<void> {
     ],
     temperature: 0.4,
     maxTokens: 16384,
+    telemetry: {
+      label: "expressive-tags",
+      filePath: path.join(episodeDir, "token-usage.jsonl"),
+    },
   });
 
   // Guard against the model dropping or rewording lines: if a line's taggedText

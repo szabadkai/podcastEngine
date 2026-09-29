@@ -13,9 +13,9 @@ The pipeline runs as a sequence of stages, each reading the previous stage's JSO
 | **collect** | `01-collect.ts` | Fetches RSS feeds + curated GitHub Issues, deduplicates, filters by recency |
 | **analyze** | `02-analyze.ts` | AI clusters stories into 5-7 segments, ranks by relevance, avoids rehashing recent episodes |
 | **fact-check** | `03-fact-check.ts` | Audits claims, runs bounded targeted web research for consequential gaps, then produces a final sourced fact-check |
-| **script** | `04-script.ts` | AI writes a two-host script, scores it, and revises weak drafts before a hard quality gate |
+| **script** | `04-script.ts` | Sol drafts, Fable performs a semantic edit, and Sol conditionally revises before the hard quality gate |
 | **tag** | `04b-tag.ts` | Adds expressive tags (`[laugh]`, `[chuckle]`) for TTS providers that support them |
-| **recap** | `04c-recap.ts` | Distills episode into a continuity recap for future episodes |
+| **recap** | `04c-recap.ts` | Builds a mechanical continuity recap from the fact-checked brief |
 | **pronunciation** | `04d-pronunciation.ts` | Scans for new acronyms, auto-extends the pronunciation map via AI |
 | **audio** | `05-audio.ts` | Synthesizes speech with configurable TTS backend, concatenates and normalizes |
 | **publish** | `06-publish.ts` | Uploads MP3 to GitHub Releases, updates RSS feed and manifest |
@@ -23,6 +23,8 @@ The pipeline runs as a sequence of stages, each reading the previous stage's JSO
 Each stage is idempotent — if its output file already exists, it skips. You can re-run a failed pipeline without repeating completed work.
 
 The fact-check stage is deliberately two-pass. Its first audit is saved as `03-fact-check-initial.json`; answerable, consequential holes become a bounded set of web research requests in `03-research.json`; and `03-fact-checked.json` is produced only after the new evidence is assessed. The research pass uses OpenRouter's server-side web search with strict gap and result caps. Routine facts that remain unsupported become off-air omissions rather than dialogue about the show's source packet.
+
+The script stage uses a bounded writer/editor workflow: GPT-5.6 Sol creates the draft, Claude Fable reviews it for factual fidelity, editorial arc, host voice, conversational flow, and semantic repetition, and Sol performs one complete revision only when the deterministic checks or Fable report a material issue. Advisory feedback does not trigger a rewrite, and there is no open-ended model loop. The final mechanical and product-status checks still block unsafe output.
 
 ## Setup
 
@@ -131,7 +133,7 @@ src/
   01-collect.ts          # RSS + curated link collection
   02-analyze.ts          # AI story clustering
   03-fact-check.ts       # AI fact-checking
-  04-script.ts           # AI script generation
+  04-script.ts           # Sol draft, Fable review, conditional Sol revision
   04b-tag.ts             # Expressive tag injection
   04c-recap.ts           # Continuity recap
   04d-pronunciation.ts   # Acronym pronunciation auto-extension

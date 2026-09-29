@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import { validateAnalyzedStories } from "./lib/analysis.js";
 import { config } from "./config.js";
 import { chatJson } from "./lib/ai.js";
 import {
@@ -10,6 +11,7 @@ import {
 import { loadJson, writeJson, fileExists } from "./lib/storage.js";
 import {
   researchEvidenceForCluster,
+  mergeResearchedFactChecks,
   researchSourceUrls,
   sanitizeResearchFindings,
   selectResearchRequests,
@@ -132,6 +134,11 @@ export async function run(episodeDir: string): Promise<void> {
   const inputPath = path.join(episodeDir, "02-analyzed.json");
   const analyzed = loadJson<AnalyzedStories | null>(inputPath, null);
   if (!analyzed) throw new Error("No analyzed stories found in 02-analyzed.json");
+  try {
+    validateAnalyzedStories(analyzed);
+  } catch (error) {
+    throw new Error(`Invalid 02-analyzed.json; rerun the analyze stage. ${(error as Error).message}`);
+  }
   const rawStories = loadJson<RawStory[]>(
     path.join(episodeDir, "01-raw-stories.json"),
     []
@@ -159,6 +166,10 @@ export async function run(episodeDir: string): Promise<void> {
       ],
       temperature: 0.2,
       maxTokens: 24000,
+      telemetry: {
+        label: "fact-check-initial",
+        filePath: path.join(episodeDir, "token-usage.jsonl"),
+      },
     });
     initialFactChecked = assembleFactChecked(analyzed, initialResult);
     initialFactChecked.episodeType = analyzed.episodeType ?? episodeContext.type;
@@ -202,6 +213,10 @@ export async function run(episodeDir: string): Promise<void> {
       });
 
       try {
+        const searchResultLimit = Math.min(Math.max(requests.length * 2, 3), 10);
+        const searchTotalLimit = Math.min(requests.length * 4, 18);
+        const fetchLimit = Math.min(requests.length * 2, 6);
+        const researchOutputLimit = Math.min(4000 + requests.length * 1200, 10000);
         const researched = await chatJson<{ findings: unknown[] }>({
           messages: [
             { role: "system", content: researchPrompt },
@@ -217,29 +232,33 @@ export async function run(episodeDir: string): Promise<void> {
             },
           ],
           temperature: 0.1,
-          maxTokens: 20000,
-          reasoning: { max_tokens: 5000 },
+          maxTokens: researchOutputLimit,
+          reasoning: { max_tokens: 2000 },
           model: config.ai.model,
           tools: [
             {
               type: "openrouter:web_search",
               parameters: {
                 engine: "exa",
-                max_results: 5,
-                max_total_results: 30,
-                search_context_size: "medium",
+                max_results: searchResultLimit,
+                max_total_results: searchTotalLimit,
+                search_context_size: "low",
               },
             },
             {
               type: "openrouter:web_fetch",
               parameters: {
                 engine: "openrouter",
-                max_uses: 10,
-                max_content_tokens: 12000,
+                max_uses: fetchLimit,
+                max_content_tokens: 3500,
               },
             },
           ],
           toolChoice: "required",
+          telemetry: {
+            label: "fact-check-research",
+            filePath: path.join(episodeDir, "token-usage.jsonl"),
+          },
         });
         research.findings = sanitizeResearchFindings(
           requests,
@@ -269,7 +288,13 @@ export async function run(episodeDir: string): Promise<void> {
       path.resolve("prompts", "fact-check-final.md"),
       "utf-8",
     );
-    const finalClusterSummary = analyzed.clusters
+    const researchedClusterIds = new Set(
+      requests.map((request) => request.clusterId),
+    );
+    const researchedClusters = analyzed.clusters.filter((cluster) =>
+      researchedClusterIds.has(cluster.id),
+    );
+    const finalClusterSummary = researchedClusters
       .map((cluster) => {
         const initial = initialFactChecked.clusters.find(
           (candidate) => candidate.id === cluster.id,
@@ -298,13 +323,21 @@ export async function run(episodeDir: string): Promise<void> {
             (episodeContext.companyName
               ? `Company: ${episodeContext.companyName}\n\n`
               : "") +
-            `Produce the final fact-check for all ${analyzed.clusters.length} clusters using both evidence rounds:\n\n${finalClusterSummary}`,
+            `Produce the final fact-check only for these ${researchedClusters.length} researched cluster(s) using both evidence rounds:\n\n${finalClusterSummary}`,
         },
       ],
       temperature: 0.1,
-      maxTokens: 24000,
+      maxTokens: Math.min(4000 + researchedClusters.length * 2500, 16000),
+      telemetry: {
+        label: "fact-check-final",
+        filePath: path.join(episodeDir, "token-usage.jsonl"),
+      },
     });
-    factChecked = assembleFactChecked(analyzed, finalResult, research);
+    factChecked = mergeResearchedFactChecks(
+      initialFactChecked,
+      finalResult.clusters,
+      research,
+    );
   }
 
   factChecked.episodeType = analyzed.episodeType ?? episodeContext.type;

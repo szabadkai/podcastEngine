@@ -1,4 +1,5 @@
 import type { EpisodeScript } from "./types.js";
+import type { ScriptReview } from "./script-review.js";
 
 export interface ScriptQualityOptions {
   expectedSpeakers?: string[];
@@ -24,6 +25,7 @@ export interface ScriptQualityReport {
   blockingIssues: string[];
   revisionAttempted?: boolean;
   initialWarnings?: string[];
+  draftSemanticReview?: ScriptReview;
 }
 
 const WORD_RE = /\b[\w'-]+\b/g;

@@ -21,7 +21,7 @@ For each story cluster provided, you must:
 
 5. **Suggest skeptical angles — only when warranted:** If a story has a genuine soft spot (a dubious or unverifiable claim, a vendor overclaim, real hype), note what the hosts should question or push back on. If the story checks out — claims verified, no hype — return an empty `skepticalAngles` list. Do NOT invent doubts to fill the field.
 
-6. **Request targeted follow-up research when it can change the verdict:** Ask for a second search only when a consequential claim is likely answerable from public sources—for example an official specification, paper, filing, bill text, acquisition terms, or a corroborating independent report. Do not request private production data, unpublished test results, or evidence that does not yet exist. Limit each cluster to at most two requests.
+6. **Request targeted follow-up research only when it can materially change the episode:** Ask for a second search only for a critical, consequential claim that is likely answerable from public sources—for example an official specification, paper, filing, bill text, acquisition terms, or a corroborating independent report. Routine context and nice-to-have details do not qualify. Do not request private production data, unpublished test results, or evidence that does not yet exist. Limit each cluster to at most one request.
 
 ## Rules
 - Do NOT make claims that are not supported by the provided sources
@@ -54,7 +54,7 @@ Return a JSON object:
           {
             "question": "One specific factual question to resolve",
             "reason": "Why it could change the fact-check verdict",
-            "priority": "critical|useful",
+            "priority": "critical",
             "query": "A focused web search query",
             "preferredSources": ["Official source", "primary paper", "independent reporting"],
             "publicAnswerLikely": true
