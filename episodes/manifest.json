@@ -1,6 +1,17 @@
 {
   "episodes": [
     {
+      "number": 28,
+      "date": "2026-10-02",
+      "title": "BICO: The Bioprinting Pioneer That Bet on the Whole Lab",
+      "description": "BICO began as CELLINK, the Swedish company that put bioprinters and bioinks on university benches, and grew into a lab automation group built on software, dispensing and robotics. Alex and Jordan cover the bioprinter lineage, the 2021 rebrand and acquisition spree, the whistleblower investigation and founder exit, the divestments and BICO 2.0 reset, and a 2026 leadership shake-up that put the founder back in the chair. They also ask whether 1% organic growth can carry a margin story toward a double-digit target.",
+      "duration": 1502,
+      "fileSize": 24034786,
+      "releaseUrl": "https://github.com/szabadkai/podcastEngine/releases/download/episode-2026-10-02/episode.mp3",
+      "guid": "layer-lines-weekly-2026-10-02",
+      "transcriptUrl": "https://szabadkai.github.io/podcastEngine/transcripts/2026-10-02.txt"
+    },
+    {
       "number": 27,
       "date": "2026-09-25",
       "title": "Somebody Owns the Purge Tower: Stratasys Wins $27.6M Against Bambu Lab",

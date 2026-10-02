@@ -14,8 +14,8 @@
     <language>en</language>
     <link>https://szabadkai.github.io/podcastEngine</link>
     <atom:link href="https://szabadkai.github.io/podcastEngine/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 25 Sep 2026 00:00:00 GMT</pubDate>
-    <lastBuildDate>Fri, 25 Sep 2026 00:00:00 GMT</lastBuildDate>
+    <pubDate>Fri, 02 Oct 2026 00:00:00 GMT</pubDate>
+    <lastBuildDate>Fri, 02 Oct 2026 00:00:00 GMT</lastBuildDate>
     <generator>podcast-engine</generator>
     <category>Science &amp; Technology</category>
     <itunes:author>Layer Lines Weekly</itunes:author>
@@ -38,6 +38,28 @@
     <podcast:locked>yes</podcast:locked>
     <podcast:guid>1aa65aa4-6725-411a-8b5c-a109f9cf36b6</podcast:guid>
     <copyright>© 2026 Layer Lines Weekly</copyright>
+    <item>
+      <title>BICO: The Bioprinting Pioneer That Bet on the Whole Lab</title>
+      <description>BICO began as CELLINK, the Swedish company that put bioprinters and bioinks on university benches, and grew into a lab automation group built on software, dispensing and robotics. Alex and Jordan cover the bioprinter lineage, the 2021 rebrand and acquisition spree, the whistleblower investigation and founder exit, the divestments and BICO 2.0 reset, and a 2026 leadership shake-up that put the founder back in the chair. They also ask whether 1% organic growth can carry a margin story toward a double-digit target.</description>
+      <itunes:title>BICO: The Bioprinting Pioneer That Bet on the Whole Lab</itunes:title>
+      <itunes:summary>BICO began as CELLINK, the Swedish company that put bioprinters and bioinks on university benches, and grew into a lab automation group built on software, dispensing and robotics. Alex and Jordan cover the bioprinter lineage, the 2021 rebrand and acquisition spree, the whistleblower investigation and founder exit, the divestments and BICO 2.0 reset, and a 2026 leadership shake-up that put the founder back in the chair. They also ask whether 1% organic growth can carry a margin story toward a double-digit target.</itunes:summary>
+      <content:encoded><![CDATA[BICO began as CELLINK, the Swedish company that put bioprinters and bioinks on university benches, and grew into a lab automation group built on software, dispensing and robotics. Alex and Jordan cover the bioprinter lineage, the 2021 rebrand and acquisition spree, the whistleblower investigation and founder exit, the divestments and BICO 2.0 reset, and a 2026 leadership shake-up that put the founder back in the chair. They also ask whether 1% organic growth can carry a margin story toward a double-digit target.]]></content:encoded>
+      <pubDate>Fri, 02 Oct 2026 00:00:00 GMT</pubDate>
+      <enclosure url="https://github.com/szabadkai/podcastEngine/releases/download/episode-2026-10-02/episode.mp3" length="24034786" type="audio/mpeg"/>
+      <media:content url="https://github.com/szabadkai/podcastEngine/releases/download/episode-2026-10-02/episode.mp3" fileSize="24034786" type="audio/mpeg" medium="audio" duration="1502"/>
+      <media:title>BICO: The Bioprinting Pioneer That Bet on the Whole Lab</media:title>
+      <media:description>BICO began as CELLINK, the Swedish company that put bioprinters and bioinks on university benches, and grew into a lab automation group built on software, dispensing and robotics. Alex and Jordan cover the bioprinter lineage, the 2021 rebrand and acquisition spree, the whistleblower investigation and founder exit, the divestments and BICO 2.0 reset, and a 2026 leadership shake-up that put the founder back in the chair. They also ask whether 1% organic growth can carry a margin story toward a double-digit target.</media:description>
+      <media:thumbnail url="https://szabadkai.github.io/podcastEngine/artwork.png"/>
+      <guid isPermaLink="false">layer-lines-weekly-2026-10-02</guid>
+      <itunes:duration>1502</itunes:duration>
+      <itunes:episode>28</itunes:episode>
+      <itunes:explicit>false</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:image href="https://szabadkai.github.io/podcastEngine/artwork.png"/>
+      <yt:category id="28">Science &amp; Technology</yt:category>
+      <yt:madeForKids>false</yt:madeForKids>
+      <podcast:transcript url="https://szabadkai.github.io/podcastEngine/transcripts/2026-10-02.txt" type="text/plain"/>
+    </item>
     <item>
       <title>Somebody Owns the Purge Tower: Stratasys Wins $27.6M Against Bambu Lab</title>
       <description>A Texas jury finds Bambu Lab&apos;s X1, P1 and A1 printers infringe Stratasys patents on prime towers and bed leveling. Alex and Jordan dig into why the $27.6M figure is a midpoint, not an ending. Plus Bambu&apos;s first laser cutter, Creality&apos;s &apos;no purge waste&apos; four-color crowdfunder, a two-ton WAAM steel die from ORNL and Boeing, a Hackaday support trick you can test this weekend, and an AI photo-to-CAD claim with no printed part behind it.</description>

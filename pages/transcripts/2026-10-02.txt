@@ -1,0 +1,328 @@
+Layer Lines Weekly — BICO: The Bioprinting Pioneer That Bet on the Whole Lab
+Episode 28 · 2026-10-02
+
+Alex: BICO is what a bioprinting startup looks like after it decides the printer is the smallest part of the lab, then spends years buying, selling and reorganizing to automate everything around it. Welcome to Layer Lines Weekly. I'm Alex.
+
+Jordan: And I'm Jordan. If BICO doesn't ring a bell, CELLINK probably does. That Swedish outfit made bioprinters something a university lab could order off a product page instead of building from scratch.
+
+Alex: We'll start with that founding bet. Then we'll cover the products that made the name, and a leadership story with a twist I didn't see coming. The big future question is whether a slow-growing, margin-focused lab automation group can hold its shape, and whether bioprinting stays part of that shape.
+
+Alex: First, the basics. BICO Group AB is a Swedish public limited company headquartered in Gothenburg, with its series B shares listed on Nasdaq Stockholm. That's straight from its investor page. Its own tagline now says it is enabling and automating 'the life science lab of the future' across healthcare.
+
+Jordan: A tagline like that could belong to almost anyone. The portfolio framing on the company's site is more useful. It starts with Biosero's Green Button Go, which is lab orchestration software, then runs through automated workstations, liquid handling, single-cell dispensing, 3D cell culture and bioprinting, and imaging. Bioprinting is still on the list, but it's one stop on a longer line.
+
+Alex: The company advertises its scale as more than 500 employees, more than 50,000 instruments in the field, more than 12,000 publications, and operations in more than 25 countries.
+
+Jordan: Those are company-reported figures, so I'd hold them a bit loosely. I'm not calling them wrong. But 'instruments in the field' can mean a liquid handler running three shifts or a benchtop unit that gets switched on twice a semester. A count like that tells you about reach, not usage.
+
+Jordan: Revenue is a firmer anchor. If you add up the four quarterly net sales figures BICO published for 2025, you get roughly SEK 1.5 billion. That total is my own sum of their quarterly numbers, not a headline figure they printed, but every input comes from the company.
+
+Alex: So this is a real operating company, not a scrappy startup, and not a giant either. Keep that mid-size scale in mind, because it explains a lot of the buying and selling later. It all started with one very specific bet.
+
+Jordan: The bet was bioprinting. For an FDM audience, the simplest picture is extrusion. Instead of pushing molten PLA through a nozzle, you push a soft hydrogel that can carry living cells. The engineering problem is keeping those cells alive through the nozzle, through crosslinking, and for days afterward in culture.
+
+Alex: Erik Gatenholm co-founded CELLINK. BICO's own account says the company was founded in spring 2015 and officially registered in January 2016, which is why you'll see both years quoted. According to BICO's board page, Gatenholm ran it as CEO until 2023. The name carries the founding idea: cell plus ink. From the start, the identity was the material as much as the machine. You can still see that on CELLINK's site, where the bioprinter line and a full bioink catalogue sit side by side.
+
+Jordan: That pairing made sense to me from the shop side. Anyone who's run a printer knows the machine is only half the problem. If you sell only hardware, the customer spends months tuning material before getting a useful result. Selling the ink with the printer shortens that process, and it gives customers something to reorder.
+
+Alex: Then, in 2021, the company changed shape. Trade coverage that year described a 'rebranded BICO' betting big on 'bioconvergence' after a buying spree. The rename itself is a matter of record. The change from CELLINK AB to BICO Group AB was registered with the Swedish Companies Registration Office on 12 August 2021.
+
+Jordan: 'Bioconvergence' is a hard-working word. My best translation is biology plus engineering plus software, which describes most of modern life science. As a strategy label, it leaves a lot of room.
+
+Alex: The acquisitions made it concrete, though. One 2021 trade report covered a plan to acquire QInstruments for the bioautomation business. By the September 2024 Capital Markets Day, QInstruments appears inside BICO's Life Science Solutions business area. The completion date and deal terms aren't publicly laid out, but the company did end up in the group.
+
+Jordan: That's where the strategic tension starts. The CELLINK brand didn't go away, and its site still carries the bioprinter line. So the parent company's name and pitch moved toward automation, while the founding brand kept selling the product everyone associates with the company.
+
+Alex: The maker version would be a filament brand buying a slicer company, a motion-control company and a microscope company. Then it renames itself after the concept of 'manufacturing' and tries to explain to shareholders what the gross margin on 'manufacturing' is.
+
+Alex: That brings us to products. If I had to pick three things that explain BICO, I'd pick the extrusion bioprinters, the bioinks, and the single-cell dispensing line. Most people in 3D printing have never heard of that third one.
+
+Jordan: Start with the printers. CELLINK's site lists three extrusion bioprinters: BIO X, BIO X6 and BIO ONE. It lists two light-based systems, BIONOVA X and LUMEN X. And it lists the Quantum X bio, a two-photon polymerization printer.
+
+Jordan: A quick decoder. Extrusion is the FDM cousin: a printhead pushes material through a nozzle. Light-based is the resin cousin: you cure a light-sensitive bioink with projected light, much like a DLP or MSLA printer at home. Two-photon focuses a laser so tightly that curing happens only at a tiny focal point. That lets you build features far smaller than any nozzle could lay down.
+
+Alex: The BIO X6 tells you what the company thought its users wanted. CELLINK announced it in September 2019 as a six-printhead platform. The announcement called it 'the most flexible six-printhead bioprinting platform on the market,' which is a superlative to take with a grain of salt.
+
+Jordan: Six heads matter because tissue isn't one material. You might want a stiff structural ink, a cell-laden ink, and a sacrificial ink you wash out later to leave channels. More heads mean fewer compromises in the design. They also mean more to align, purge and clean. Anyone who's calibrated tool offsets on a multi-tool printer knows that trade-off.
+
+Alex: The Quantum X bio matters for a different reason. VoxelMatters reported in December 2021 that Nanoscribe and CELLINK released it jointly. Nanoscribe was part of the BICO group then, and that relationship didn't last. Hold onto that for the turning points.
+
+Jordan: The inks are where the money repeats. CELLINK's catalogue covers tissue-specific bioinks, photoinks for the light-based machines, stock solutions and consumables. That's the recurring-revenue engine. The printer is a one-time capital purchase. The ink gets reordered every time someone runs an experiment.
+
+Alex: Despite all the corporate reshuffling, the printers are still a live product line. CELLINK's support page, BICO's product page and an independent 2026 buyer's guide from Excedr all show the bioprinters as commercially available and supported. There's one housekeeping note for older gear. CELLINK's support page says the first-generation Lumen X and X+ was discontinued in January 2023, with spare parts available until 1 May 2027 and no further software updates. If one of those sits in your teaching lab, you now know the deadline.
+
+Alex: Now for the part most of our listeners won't know. SCIENION and its subsidiary Cellenion launched the proteoCHIP LF 48 in September 2022. It's for label-free single-cell proteomics on the cellenONE platform.
+
+Jordan: cellenONE dispenses individual cells into very small wells. Proteomics means measuring the proteins inside them. Doing that one cell at a time, without chemical tags, is fiddly sample prep that rewards precise dispensing. So it's a printhead problem, aimed at a mass spec workflow instead of a scaffold.
+
+Alex: That's the thread I'd use to connect the whole portfolio. A bioprinter and a single-cell dispenser share one core skill: putting a tiny amount of biological material exactly where you want it, every time. The company is selling precise deposition, whether the output is a tissue scaffold or a well plate.
+
+Alex: Imaging closes the loop. BICO company Discover Echo launched the Echo Confocal microscope for high-resolution imaging. You print or dispense, then you look at what you made. Seen that way, the portfolio is less random than the list of brand names suggests.
+
+Jordan: I'll add one caution about the marketing copy across that range. It includes lines like 'most user-friendly, flexible bioprinter in the world,' plus a ten-micron feature-resolution figure with no published independent test method. Resolution depends heavily on how you measure it. I'd treat that number as a starting point for a demo, not a spec to design around.
+
+Alex: Leadership is where this profile gets unusual. The broad arc goes like this. The founder was CEO through 2023. Maria Forss held the CEO seat during the divestment phase. Now, in 2026, it's Anders Fogelberg.
+
+Jordan: BICO's executive management page lists Fogelberg as President and CEO since 2026, and says he joined as Chief Commercial Officer in 2024. News coverage in August described the appointment as a promotion from that commercial role. So this is an internal promotion from the sales side, not an outside hire.
+
+Alex: Most of the team around him is new in their roles. Ewa Linsäter has been CFO since 2026. Jesper Hagberg has held the CODO title since 2026. Catharina Nordlund has been Chief HR Officer since 2024, which makes hers the longest-held of those titles.
+
+Jordan: StockWatch coverage described the CEO addressing a CFO exit alongside a plunging share price. Changing the CEO and the CFO in the same year isn't automatically a crisis. But this company's whole pitch right now is discipline and predictability, and that much churn works against the message.
+
+Jordan: There's an earlier marker of the same build-out. In 2022, BICO added a senior investor relations manager to executive management. It's a small item, but it fits the pattern of a founder-led startup adding public-company infrastructure as it went.
+
+Alex: Then comes the twist. On 31 July 2026, BICO announced that Erik Gatenholm had been appointed Board Chair, with immediate effect. I want to stay disciplined here. The appointment is the fact, and I'm not going to guess at the board's reasoning. BICO's own investor page also notes board changes and an extraordinary general meeting in 2026, so by the company's own account, its governance has been in motion all year.
+
+Jordan: Remember who this is. The co-founder stepped down as CEO in 2023, left the board in 2024, and now chairs it. We'll get to why he left in a few minutes, because it changes how you read his return.
+
+Jordan: From the qualification side, this is why customers care. When a pharma lab or a manufacturer commits to an automation platform, it's betting on years of service, software updates and spare parts. Governance stability is how buyers judge whether that support will still exist in year five. A founder back as chair could mean continuity of vision, or it could raise open questions. Procurement teams will be reading it either way.
+
+Alex: So what is BICO good at, underneath all the brands? I don't think the moat is any single machine. It's the bundle: instruments, materials, software and documented protocols that get a lab to a repeatable result faster than building its own setup would.
+
+Jordan: Software is what holds that bundle together. BICO calls Biosero's Green Button Go its 'market-leading' orchestration software, which is the company's own description. Orchestration is the scheduling layer that coordinates the liquid handler, the incubator, the imager, and the robot arm moving plates between them. Picture print-farm management, but for a biology lab. Running one instrument is easy. Coordinating a dozen machines from different vendors, each handing off a plate at the right minute with a logged temperature history, is where labs burn whole weeks.
+
+Alex: A few weeks ago, nTop's pitch was that CAD is the bottleneck in additive. BICO is making a parallel bet one level up: in a lab, the bottleneck is the handoff between instruments, not the instruments themselves.
+
+Jordan: On the bioprinting side, the bundle shows up as documentation. CELLINK publishes protocols, application notes and consumables alongside the hardware. One technical note documents reproducible irradiance from the 405-nanometer photocuring modules across the BIO X series.
+
+Jordan: That sounds dull, but it's the important part. When you crosslink a bioink with light, the dose sets the gel's stiffness, and stiffness changes how cells behave. If one printhead puts out a different irradiance than the next, your experiment won't replicate across machines or across labs. A document showing consistency is the first thing a pharma partner or a journal reviewer will ask for.
+
+Alex: I'd love that on every hobby resin printer. Plenty of failed-print threads come down to exposure calibration nobody wrote down. In a biology lab, a bad exposure costs you cells and weeks, not just resin. There's a community side to this too. CELLINK customer spotlights name academic users, including an MIT group working with the INKREDIBLE+ printer. The company's figures of 12,000-plus publications and 50,000-plus instruments are the numerical version of that ecosystem claim.
+
+Jordan: In research tools, a publication count is a meaningful sign of a moat, if it holds up. When a methods section names your printer and your ink, the next lab trying to reproduce that paper buys the same printer and ink. The literature itself creates lock-in. The count is company-reported, though, so I'd treat it as a claim rather than an audited metric.
+
+Jordan: So the case for the moat is that you're buying a documented, published route to a result, not just a printer. The weak spot is that bundling isn't the same as defensibility. A closed ecosystem only holds if switching hurts. Hydrogels and protocols can be reverse-engineered. Validated workflows inside a pharma group that has already qualified your system are much harder to move. The question is which kind of customer BICO has more of.
+
+Alex: That leads straight into market position. Going by what the company names publicly, the buyers are in pharma drug discovery, single-cell research, regenerative medicine, and increasingly life-sciences manufacturing.
+
+Jordan: The anchor reference is AstraZeneca. In May 2020, CELLINK announced a collaboration to supply 3D-bioprinted liver organoids for drug discovery in cardiovascular and renal disease. Organoids are small lab-grown tissue models that behave more like an organ than a flat layer of cells in a dish does. Printing them consistently is a big part of what makes them usable for drug screening.
+
+Alex: And it wasn't a one-off. In January 2021, CELLINK announced the collaboration had been extended for a third year, with CELLINK scientists working inside AstraZeneca's labs. A related release placed that work at the Gaithersburg R&D site.
+
+Jordan: That embedded-scientist detail tells me more than the logo does. This wasn't just pharma buying printers. CELLINK people were producing models on site, which is closer to a service relationship. That kind of high-touch work builds credibility, but it scales very differently from shipping boxes.
+
+Alex: The other named partnerships fill in the picture. In November 2023, CELLINK and Ossiform partnered on Ossi Ink, a printable bioink based on Ossiform's P3D bone material. That's a materials-partner model: someone else's chemistry, delivered through CELLINK's printers and sales channel.
+
+Jordan: On the automation side, a September 2025 trade report said Biosero was developing integrated lab automation solutions worth $15.2 million. BICO has also introduced The Nucleus Automation Ecosystem for life-sciences manufacturing, which integrates ABB Robotics technology. Of everything on that list, The Nucleus is the clearest signal that the company wants to sell production-floor systems, not just research benches.
+
+Alex: My take is that the brand recognition lives in bioprinting. CELLINK is the name people in this corner of additive know. But the list of named partners is short, and much of it reads as collaboration and development work rather than disclosed recurring supply deals.
+
+Jordan: I'm halfway with you. Short lists of named customers are normal in pharma, because many customers won't let you put their logo on a slide. The distinction I'd draw is between research collaboration and production supply. A collaboration proves the science works. It doesn't prove a repeatable sales process.
+
+Jordan: The yardstick also changes with the identity. A bioprinting company gets judged on printheads and inks. A lab automation group gets judged on uptime, integration with other vendors' equipment, and service response times. That's a very different kind of competition, and service is expensive to do well.
+
+Alex: Now for the hard part. Trade coverage reported a 41% share-price plunge by May 2022, alongside the board declaring 'full confidence' in the CEO, who was still Gatenholm. Boards don't usually issue that kind of statement unless somebody has been asking pointed questions.
+
+Alex: Gatenholm stepped down as CEO in 2023. Then, in March 2024, the founders left. BICO's own press release, dated 15 March 2024, tied their departure to an external whistleblower investigation, and independent coverage from Nordic Life Science and Realtid confirmed it.
+
+Jordan: Precision matters here. According to the company and Realtid's reporting, the investigation found an aggressive sales culture between 2017 and 2021, with revenues recognized in the wrong periods and sometimes prematurely. It also concluded that no crime had been committed and that no further accounting measures were needed.
+
+Jordan: For anyone outside finance, revenue recognition is about when a sale gets counted on the books. Counting it early doesn't mean the sale was fake. But for a company valued on its growth rate, timing is the whole story. Early recognition makes the growth curve look smoother than it really was.
+
+Alex: Realtid reported chairman Rolf Classon's summary: the conduct was not illegal, but it was 'clearly inappropriate.' And 2017 to 2021 is the CELLINK rocket-ship era, the stretch most people remember as the company's golden period. That's an uncomfortable overlap.
+
+Jordan: It's fair to point out, as long as we don't overreach. The findings were inappropriate conduct, not a crime, and the investigation said no further accounting measures were needed. Both of those facts belong in the same sentence as the overlap.
+
+Alex: Next came the divestments. Trade coverage reported that Nanoscribe was sold to LAB14 in December 2024. In 2025, two independent reports said BICO sold MatTek, which one report described as MatTek and Visikol, to Sartorius for $80 million. One outlet framed that as the third exit under CEO Maria Forss.
+
+Jordan: Nanoscribe is the sale this audience should notice. It was the two-photon, high-precision printing business and the co-developer of the Quantum X bio. Letting it go says a lot about where cutting-edge additive sat on the priority list during the cleanup.
+
+Alex: The strategic frame for all of this arrived on 17 September 2024. At its Capital Markets Day, BICO launched what it calls BICO 2.0, built around 'sustainable profitable growth.' It created three business areas, effective in the third quarter of 2024: Lab Automation, Life Science Solutions, and Bioprinting. The financial targets from November 2022 were reiterated, not changed.
+
+Jordan: Bioprinting kept its own business area, and that's worth saying out loud, because the popular read is that BICO walked away from it. Nanalyze ran the headline 'BICO Group Dashed Our 3D Bioprinting Dreams,' and that commentary captures a feeling plenty of people seem to share.
+
+Alex: I get the feeling, though. The investor page now leads with lab automation. If you bought into the CELLINK story because you believed printed tissue was the future, hearing the company talk mostly about orchestration software and robotics feels like a letdown.
+
+Jordan: Structure and sentiment are different things. The structure says bioprinting is one of three pillars. The sentiment says it's no longer the headline. Both are true at once, and the gap between them is what to watch.
+
+Alex: The latest consolidation landed this month. BICO completed the integration of Cellenion into SCIENION, a move reported as targeting SEK 30 million in annual savings.
+
+Jordan: Folding a subsidiary into its parent unit is what a group does once it has stopped buying and started tidying up: fewer legal entities, shared overhead, one sales team. Only the next few reports will show whether the SEK 30 million recurs every year or turns out to be a one-time cut.
+
+Alex: On to the future watch, starting with the latest quarter. For April through June 2026, the company reported net sales of SEK 299 million and 1% organic growth. Coverage of the earnings call emphasized organic growth and margin expansion.
+
+Jordan: Set that against the targets. BICO's stated financial targets, valid from 2023, are double-digit organic growth in constant currency, an EBITDA margin less capitalized development costs above 10%, and net debt to EBITDA below 3.0 times.
+
+Jordan: The 'less capitalized development costs' part deserves credit. Capitalizing R&D moves spending off the income statement, which flatters earnings. Subtracting it back out makes the margin measure stricter. They picked the tougher definition.
+
+Alex: On growth, though, 1% against a double-digit target is a wide gap. A margin story can carry a company for a while, but eventually the market asks what the margin is being earned on. The targets page adds a clue: it says the targets will be updated only after they've been achieved. So if the new CEO resets them early, that move is worth reading closely, whichever direction they go.
+
+Jordan: There's also a wrinkle between reported and organic figures. The Q2 2026 figure is below the SEK 324 million BICO reported for Q2 2025. Organic growth normally strips out divestments and currency effects, and businesses have left the group since then, so the two numbers don't necessarily conflict. But the company you see in the headline figures is getting smaller.
+
+Alex: I'd split the watch list like this. Confirmed: the Cellenion integration is done, there's a SEK 30 million savings target, there's a new CEO and a new CFO, the founder is now chair, and there was an extraordinary general meeting this year. Speculation, clearly labeled: whether Fogelberg's commercial background means a sales push, and whether more divestments follow.
+
+Alex: For a 3D printing audience, the question I care about most is bioprinting. The printers are available and supported, and bioprinting still has its own business area. Whether it stays a pillar or becomes the next exit is the thing I'd track most closely.
+
+Jordan: A practical tip: watch the support pages as closely as the press releases. End-of-life notices and spare-parts windows tend to reveal a product line's real status before any announcement does. The Lumen X notice shows how that information surfaces.
+
+Alex: To sum it up: BICO matters because it put bioprinting on ordinary lab benches, then concluded that the bigger, steadier market is the workflow around the bench. That means software, dispensing, robotics and imaging. It's an impressive portfolio with a messy history, and both of those things are true.
+
+Jordan: Who should pay attention? Anyone buying a bioprinter for a lab or a classroom should check the support and spare-parts window before signing. Anyone evaluating lab automation should look at Green Button Go and The Nucleus with ABB on their own merits. And anyone curious about how additive companies age after the hype should study this one.
+
+Alex: The open question to track is this: can a founder-chaired, newly restaffed BICO turn 1% organic growth into the double-digit target it has held since 2023, while keeping bioprinting a working pillar rather than a legacy brand?
+
+Jordan: That's technically two questions, but they're tied together, so I'll allow it. Thanks for listening to Layer Lines Weekly.
+
+References
+
+1. About Us — bico.com
+   https://bico.com/about-us/
+
+2. Investors — bico.com
+   https://bico.com/investors/
+
+3. Home — bico.com
+   https://bico.com/
+
+4. BICO; Combining Life Sciences Solutions to Further Human Health - News-Medical — Google News: history and founders
+   https://news.google.com/rss/articles/CBMisgFBVV95cUxPTWUxaUk5OU9MWEdvNlpuVWcyakhHTGd3Mnd5QlBsd0NPSzhmT0hKOWtlZlVaMXN0azZfWER0bXVpaEZTQk9VWFF0SDc2MXRDLTRTeU1sYmZmT1E5SFItT0RCVk94TFNnMFE0V2wxdExLZ25Wbkk2dEVtVUVHRlFYdF9Bbk9DX1Z3WmdxTlR4dUNoZkZkM3FoZDhPeEItb1ZYdlhEVDczMEd3TXdBV01la0Vn?oc=5
+
+5. BICO today: a Swedish lab-automation group that still carries its bioprinting DNA — bico.com
+   https://bico.com/investors/financials/quarterly-figures/
+
+6. Board of Directors — bico.com
+   https://bico.com/investors/governance/board-of-directors/
+
+7. Buying Spree: Rebranded BICO Bets Big on "Bioconvergence" - Genetic Engineering and Biotechnology News — Google News: history and founders
+   https://news.google.com/rss/articles/CBMilgFBVV95cUxNdTZaZjhYREhTcEhmRTNCcExyMDNkY01FVjhNMUdZdmJiWFZqajNJSXVOanl4ckFNRnhfc1NlLXlSU1JlXzJ1QTlTM1cyTERLUUNPejM4M2k3X3c2SThvUG1pT2xBS3dkRmo5ZG5wUmEta1p2dlJfcVpNWkg0S3BTV3M1TmNVTDFfRjRhWGlQUlFXc0QzMlE?oc=5
+
+8. Home — cellink.com
+   https://www.cellink.com/
+
+9. BICO plans to acquire QInstruments for its bioautomation business - Medical Design & Outsourcing — Google News: customers and market
+   https://news.google.com/rss/articles/CBMioAFBVV95cUxNd1JEYzEzLTRmNDZtQ0RlQnpPM0tPbG5aRmR1ZHJwWk1fNVo2Vkd1cm05blZDamFlUFhXNVkyT1R6aUZGTjFqSVBybU50Y0pDVXVNWTFqUlZGazhqYVJpc3gwczVFVXQwWnRLak1LOUpMcFdYbTBOZUxmSjFNdjE0MzRtQ0M0Z0lDdTVkOHN0OERGVW9oWmpnVWoxdWV5MGFs?oc=5
+
+10. From CELLINK to BICO: a 2016 bioprinting startup that became an acquisition-driven group — news.cision.com
+   https://news.cision.com/bico-group/r/the-name-change-has-been-registered--cellink-ab--publ--new-name-is-bico-group-ab--publ-,c3395654
+
+11. From CELLINK to BICO: a 2016 bioprinting startup that became an acquisition-driven group — en.wikipedia.org
+   https://en.wikipedia.org/wiki/BICO_Group
+
+12. From CELLINK to BICO: a 2016 bioprinting startup that became an acquisition-driven group — stockanalysis.com
+   https://stockanalysis.com/quote/sto/BICO/transcripts/222275-cmd-2024/
+
+13. BICO board declares that it has "full confidence" in CEO despite 41% plunge in share price - 3D Printing Industry — Google News: company overview
+   https://news.google.com/rss/articles/CBMiywFBVV95cUxONFpFbEtwaHBXc2psS3czQ01ubG5Kd1RIcWJoVzBQOFRkaUlVMHdKbW11NDFwOHBzbjJGOEdoaUhqOUpmWDNLNnRCMldhMmd2QlZoTTdSTFh3STY0MVhRZ2wzZ19YamVsajJsOVBWTjltazJmelc3OE43NjZ3U0FlcTMtRlNpRzNuZGU2d3lybTlDTUt6RHh1WnRNeWZtMWtNazhEZXg0Yml6XzhWS0lVOURndnlFd2l5RFFacE91MGVDYmMxMFdWdERCbw?oc=5
+
+14. A collapsing share price, whistleblower revelations and a divestment program — news.google.com
+   https://news.google.com/rss/articles/CBMif0FVX3lxTFBoc2ZRa0lTZzlXRFVQR2tXU0NtSXU5YkFueWtLaXk4NnQ4d0lTZFkxVHBIS3RJcHlNdG1HT0ZSelFIZUVTOW9jN0JmaUt4V29zSWtuLVFTOVVMTHpFUWNmQTU3bzlxdl9VYlVseVBjSlB0WkszUnJvbUZXTQ?oc=5
+
+15. Big Changes at BICO: Founders Leave as Whistleblower Revelations Spark Overhaul - 3DPrint.com — Google News: strategy and future
+   https://news.google.com/rss/articles/CBMiqgFBVV95cUxNQ1ljSXh5a1E4NlpUZ1RGajk0Q29EU3JyX1duS1o2VzVGbG9yVVVwU3RLUXNpSWt3amt0aS1hZ1NYVzc0YlZYZFpDRkRqcGdHUlBDOWQ4elBkYVF1NWJicU56UjJPclpwcGRtcEh5cE1JUDBUdmJqeWYwS3VTaTQyTHhZYW51TWRIck9ENl91NUpFSFdFOUF6LWhQNXNsZ1dLalVEMjJLWnFPZw?oc=5
+
+16. Nanoscribe Finds a New Home with LAB14 After Being Sold by BICO - 3DPrint.com — Google News: company overview
+   https://news.google.com/rss/articles/CBMilgFBVV95cUxOYjE2Mmk4LUF4aUdtZUJlZERnZnozeHZsdFMyYVNCX0FHMG9qSTdWdG1BNDAyNUt4TUhRdV9FQTFKQTQxZWVUaEh6UTdJNG02SjBNNFl1dm5URG5EYzRKT1Fkd1N0NXdxZHVjVEd0NXN5MERsclhRdTU2SHJON2NpdzBkaEdCOG9tR1hOLUJHTXNDdExMSXfSAZsBQVVfeXFMTTB5elFpRHhNbE5va1dIVVFQS25mSVFnQnBNcHBlS0cyWWJaVFFVNW9kcWlTQVU0bVQwWDBiSy1HMURxQmpreTNMdlE0aWxRTTNyai1vSmxITGlaV1llZEtDSDZjM0NHcFRPdmNkOTI2QUFZS0k4WVlpV25qY1Y2Wk9zNUtQZzlCWGVqeHhhemFfMjc3WDZ4MFM5aXc?oc=5
+
+17. Biotechnology vendor Sartorius buys microtissue firm MatTek from BICO Group in $80 million deal - BioProcess International — Google News: turning points
+   https://news.google.com/rss/articles/CBMilwFBVV95cUxQejJvbWxKU2lJRmMxUXBzOGdFenpDM0pPOW0ySG9OUFRXQmNscjBqaWViNnNjVl9OWFFndFlPdzlVZHllMWpJaEUzYThrc0ZwaW9pSjUzTENxWWFhWWU4RXJkbF91WFJzTUtzQ2hFekpFckdxanRSNnNBcmc1WFNEVlU2ZE4teHA2cmJ6cktIUlNSbkZzZFhr?oc=5
+
+18. BICO’s 3rd Exit Under CEO Maria Forss: MatTek and Visikol to be Sold for $80M - 3DPrint.com — Google News: company overview
+   https://news.google.com/rss/articles/CBMipAFBVV95cUxPUWw1Z2Vva1B0UU0zWEdjSk42cmN0Nm1SQzhJdjkzM19oc1JIeURDVTdybFZ1UXJJMW54elVmWDM3clJtc2VVUVJ6VG1qTV94ZjZCS0l4cXJhNjhlbHp2Ml9wXy1HQWNDQ0g3LXg5dC04Q3hyYjhHXzZMQVlINDNhcHNQSDlpWWpOYkZVWV9pQmVSYmpXaWdXMTlOZy05cjdTU0E1NdIBqgFBVV95cUxPdU81UXVPcTBfWEZCWTJfU00xN3JtNy1FVHcyS0k4ZUlWX201RTV2cklDRmZYY3BOanJfdVk4dlV6MExjLTB6NllTTVVDOHB5WHhmOUU1cVdic0RnX2VMd0JhdDhZaS1BOC1XdGFLd1lIZkd0VnBfRmZWLXNtd2JLT1NIcFplS0FpeXVwaEJ3bnQ2Uy1FQmJid3NESnFweVRucXJGbl9ZYXIwdw?oc=5
+
+19. A collapsing share price, whistleblower revelations and a divestment program — news.google.com
+   https://news.google.com/rss/articles/CBMivAFBVV95cUxOT1ROcnZGYzNYb3BHaU9iZnRzWmF1SF9ZZ0tMM0xBTVFKUzFhb3hSbGFQM1hyZ0ZXTlotcXZYVVNwSk10MG50RUVIdW5mNzMxdzM0ZEpOSjFocWNaQnZMaEdvRG5YZUw1Qm5RMGxiN0VEdmEwU0ZmZTB6Q25HeXlNS1h4bDFBR1NsU1RlZUtGWVVfU3BPQmNfSXdOejVfaTVHTTNueHRZaDQ5R3BxcVg5dnhsYTdsSkkyTmw1MQ?oc=5
+
+20. A collapsing share price, whistleblower revelations and a divestment program — bico.com
+   https://bico.com/se/single-press-release/?id=5648bc48-02df-4e1c-9575-0330cf40527b
+
+21. A collapsing share price, whistleblower revelations and a divestment program — nordiclifescience.org
+   https://nordiclifescience.org/bico-founders-leave-after-eight-years/
+
+22. A collapsing share price, whistleblower revelations and a divestment program — realtid.se
+   https://www.realtid.se/bors-finans/bicos-ordforande-kritiserar-grundare-inte-olagligt-men-klart-olampligt/
+
+23. Executive Management — bico.com
+   https://bico.com/investors/governance/executive-management/
+
+24. BICO Group Names Chief Commercial Officer Anders Fogelberg as New CEO - The Globe and Mail — Google News: leadership
+   https://news.google.com/rss/articles/CBMi6wFBVV95cUxPdjRkYjl5cnZLM2JlendGcGtUeml5MWlnbUtxek4wX2FxWHdIcTdkUkZ4X0RjaUJ1TkVldy1VUGUyRmpGSnlWaVFnLW1pMVc4WFQyUUlRVkQ1aFRFeUhjMkktUWZJOHBNRmpKclpycHNsMXc2LTZ4aHVKd3RIUl9hbU95aldkSVlETHF4a1lCX0IxSm5CcXpmSWZaal90eTRJbWlEdjFKNlhPa0FTT3lVLVJsODBoeDZwaXQzNUUtUHRIeURBaEF0V0l4ME00aVhTVFBVbEZrTlZSN0tWbUNLcXNhTkRpNVFHTXY0?oc=5
+
+25. Bico Group Appoints Anders Fogelberg As President And CEO - TradingView — Google News: leadership
+   https://news.google.com/rss/articles/CBMixgFBVV95cUxQamJySDhHUWVYVEJVS05admNxTnNaa1hZckxFOGNBNGVfaHBHTjNYOU1HaVk3REIxTm9lSFhhV1EyTlBwVDA2YmI4eTJCRElqZjE0MmZfcHFVbkU3MHdQb3hnMENXTGdGR1htYWd0VXhtckE3UVVMQmdsbS1GbWVwYS1CNWxXM1Zhb00tOWVWY3doVl93ckVLc1R5b1J0Q002N09rc3ZQei1ScmVfRm5ZdVUtaldybDhjN2puQUh3SUpwVzlXd0E?oc=5
+
+26. StockWatch: BICO CEO Addresses CFO Exit, Plunging Share Price: - journals.sagepub.com — Google News: leadership
+   https://news.google.com/rss/articles/CBMiZkFVX3lxTE9NdFdHOHpja00zX1BkY3dRSGZuQ2Iyd0pqTUZJWmZsck1qWWl1NXBEVWFFQ3RRc01xRzRpS1c3Xzc0bDZrXzBJN3RvUDFLSk4zdGNVYmhmLXdIRWdvWm9FeG1kVU9Ldw?oc=5
+
+27. BICO Group adds senior IR manager to its executive management - Cision News — Google News: leadership
+   https://news.google.com/rss/articles/CBMiqwFBVV95cUxOTTZGZ3otZkVXS014NWRzUUUxbmJmZXpKVXkxWHE3Mmttb2dwOU83eWFQWnVLeGt4d3JRNWpLdFE0el9WQnlIZ1YxdmtaX3U2WEdvd1pQTmpIWi13ZTFHd19sY2JuNkZvTjRBLXVTOUdyY3dPS2NqanlYZER4akxTZzdTNGhURDNKbDBTX3o2X0ZVeTBPeF85N0pHX3VBc2NPdVBsYndNMEJ1ZWs?oc=5
+
+28. Founder out, professional management in — and still churning — storage.mfn.se
+   https://storage.mfn.se/1b849a71-ae43-4f2d-8f6d-196701d75a11/bicos-board-of-directors-has-appointed-erik-gatenholm-as-board-chair.pdf
+
+29. BICO Group AB (publ) (BICO) Integrates Cellenion Into SCIENION, Targeting SEK 30M Annual Savings - TradingView — Google News: product releases and availability
+   https://news.google.com/rss/articles/CBMi6AFBVV95cUxNam53NUc4VUptRnBaQTFUb0NJbGtqbGo0RHM0T25uOVUxdGg4bXZiZkg0VlZqMzdKUFdLd2gyZEp0X1RrTWtBUkZUSTBvZ3FvOTNYTklSTkh1ZWFaYUNzYWZYQldIM1hKZjdxZUZDaWpWS0dpaEV6aEt4WXNtODdTMmZ5dldPb0lrYXZFNkFKU285U3BRNU51emx1UTBzNzVSTjVBUkRUeUV3cXp6UFkzU3pFRDBQbVY4SVM1bUN4ckhkUWpTeXRreVNRNzZncXJrQ000TmpSSTlJTlBrQ0V3Umhkd1J3Q1VH?oc=5
+
+30. BICO Completes Integration of Cellenion into SCIENION, Strengthening Precision Biotech Platform - TradingView — Google News: leadership
+   https://news.google.com/rss/articles/CBMi8gFBVV95cUxPcHc2VmlyV3BTemwwM1NFQ2loU1RkeUFGMmxZcXdyRGdZYlFKRXJuVU9ZTE5KYTl3c0drS3hySktwQVp5UHZDdjVieE9ERXlvRFVyNGRiZnJodm4zVVpHRUVDWXVGWnl0eWNkT1FjM2JDMURtd1V3ZHVBV0EzeVFVVS04VGt0LTFJMWZhX25LLVhGR3ZkcUEwR05nWUNUMWVGZmNnN1JvQmM3bDk3Y1hmRWp2U1NrSm4zbjRSWWNCcUM2ckRHTUVzLTJLd0FxWmFxcWRHMjR3eTFVTFFjdTJzd3k3TldJckZqRzZsR2JkMnNOdw?oc=5
+
+31. BICO Group Dashed Our 3D Bioprinting Dreams - Nanalyze — Google News: company overview
+   https://news.google.com/rss/articles/CBMigwFBVV95cUxQM0xIUGJ1Zjg0ZHRwVVJKalZYVTNjVFFuZENLc2xzLV9FU1pTeHN2TzZncXdOUVlHRmNPdF8tWUo3NWxORTZvQnRPZTBCRUhjVl9USGFxSlAtbkJnN09yakZHMzhydVFxRGF0azRfMnFQRWZSVWZna3lYX1RlUm02X19zNA?oc=5
+
+32. BICO Group Stock Plummets. Time to Check In. - Nanalyze — Google News: customers and market
+   https://news.google.com/rss/articles/CBMia0FVX3lxTE1jdFhmNHN2cGc4RFNZdkwyUlVVdGEwNkF2MTNNQml3NkJ3X0dQckxhUWRjWUg0SGFucThTQ3FBZ1J6ZFNTTkVqTU1PT1JISzFrMU5NelI4V1liaXNGQXhOYTFYTFdSZ0c0cjdZ?oc=5
+
+33. From bioprinting pure-play to lab automation: Strategy 2.0 and internal consolidation — bico.com
+   https://bico.com/wp-content/uploads/2024/09/BICO_Capital_Markets_Day_2024_web.pdf
+
+34. From bioprinting pure-play to lab automation: Strategy 2.0 and internal consolidation — bico.com
+   https://bico.com/investors/financials/capital-markets-day/capital-markets-day-2024/
+
+35. CELLINK announces a new product, the BIO X6 — cellink.com
+   https://www.cellink.com/cellink-announces-a-new-product-designed-to-be-the-most-flexible-six-printhead-bioprinting-platform-on-the-market/
+
+36. Product lineage: bioprinters, bioinks and single-cell dispensing instruments — news.google.com
+   https://news.google.com/rss/articles/CBMimAFBVV95cUxOVGQxRFdSYmJBWThWM2cyMDhlczNlaWp4Y1hlVVZqam5QUkROaVJIX0g4a1V0a2thME1hQzBYNk5ZYklYNGQzWEl5WG5rSTJQWmswUVRwaXQ4bkxjMVlIQVJNUHVkamtPUUtETVVzaXlBNmhYaW9zYU5Ea2xqbEJfYzYxcm10RUstMGhMU0U5YTUzTXRHaFlhNtIBngFBVV95cUxObmFkdy04QjZVZ014Y2VXVmVhYTA5TTMzN2ZHd1J3ZTJIVm5RanAwT2cybE8tOFpRWTYwM2UwQUZTOHJ2NTZWUzhpQUpPcUxvM3ptTlFoeGdNalNRZTczRFA2TnNjcnlrczhvYUN1SVllejlNMGNCUkNTckEwdlpLTTIyajlOQXNVZEQ1VFc1ODl0VHRoYjRqaVNKU09nZw?oc=5
+
+37. Stock solutions — cellink.com
+   https://www.cellink.com/product-category/base-materials/stock-solutions/
+
+38. The INKREDIBLE+ Bridges the 3D Materials Gap: From Nano- to Macroscale — cellink.com
+   https://www.cellink.com/customer-spotlight/the-inkredible-bridges-the-3d-materials-gap-from-nano-to-macroscale/
+
+39. SCIENION & Cellenion launch the proteoCHIP LF 48, for label-free single-cell proteomics sample preparation on the cellenONE® platform — bico.com
+   https://bico.com/blog/executive-order-on-advancing-biotechnology-and-biomanufacturing-innovation-for-a-sustainable-safe-and-secure-american-bioeconomy%EF%BF%BC/
+
+40. Discover Echo Launches New Confocal Microscope for High-Resolution Imaging — bico.com
+   https://bico.com/blog/mfn_news/discover-echo-launches-new-confocal-microscope-for-high-resolution-imaging/
+
+41. Product lineage: bioprinters, bioinks and single-cell dispensing instruments — cellink.com
+   https://www.cellink.com/support/
+
+42. Product lineage: bioprinters, bioinks and single-cell dispensing instruments — bico.com
+   https://bico.com/products/3d-cell-culture-bioprinting/
+
+43. Product lineage: bioprinters, bioinks and single-cell dispensing instruments — excedr.com
+   https://www.excedr.com/blog/featured-manufacturer-cellink
+
+44. CELLINK announces collaboration with AstraZeneca to utilize CELLINK's 3D-bioprinting technology for liver organoid culture — cellink.com
+   https://www.cellink.com/cellink-announces-collaboration-with-astrazeneca-to-utilize-cellinks-3d-bioprinting-technology-for-liver-organoid-culture/
+
+45. CELLINK announces third year extension of collaboration with a global biopharmaceutical company for drug discovery — cellink.com
+   https://www.cellink.com/cellink-announces-third-year-extension-of-collaboration-with-a-global-biopharmaceutical-company-for-drug-discovery/
+
+46. CELLINK and Ossiform Enter a Strategic Partnership to launch Ossi Ink, a printable bioink based on Ossiform’s P3D Bone material — cellink.com
+   https://www.cellink.com/cellink-and-ossiform-enter-a-strategic-partnership-to-launch-ossi-ink-a-printable-bioink-based-on-ossiforms-p3d-bone-material/
+
+47. Pharma and biotech customers, with AstraZeneca as the anchor reference — news.google.com
+   https://news.google.com/rss/articles/CBMimwFBVV95cUxPVk1zZ2QtSjJ4MTItZXVLZjZiOWJRVjRCQUtPeHhxQVU0ZkpVcndnWjNETTdvaGROLWVHR0l6N3gtMEhmVUNmMlBXckZvLWpWeWNZc1VpYmw2cVhmejkyanYyTnYtM3ZHQnVGVGpFQVJMWEpyYkVnNGNsa0JPcVVNUWV5eXF3MmRlUWRwRTNMTm5BWmE3Si16Zmg5c9IBoAFBVV95cUxNVS10X0o5V1YyWlRvdDhRdUROa0JEb3psN2VhQmQ4RHNDeklEMVAwbXRYbmRKREZOS1NYTklhelBZd0ZidmdaWDhnZ2FXV2l4UGZpd0RVSzJSWGpOczluQVNRakIySVRQWHJuTG9oMEpUdEEzOFpVWlBrQk5yMnhMUXQ0clRJa3lNUE8zWTRxSVpJTFR2cXJ0T1hCQXliQXJO?oc=5
+
+48. BICO company Biosero to develop integrated lab automation solutions to a value of 15.2 MUSD - News-Medical — Google News: customers and market
+   https://news.google.com/rss/articles/CBMi1AFBVV95cUxOT2p5NEtrVkk0MDI4QTBsX2haSGNfU1VUTGc1YUFSLTBxVXhvVm1JS09Yb3p6emtTcGIxYXh3M1VZTVZyR1lpSk5FV1U1T01IY0RyQXFFQUc4dHRFVzZvcFF1a0Mwak41UURYY3YzWlJIVXZpWFFLbm9FQjRlMUJJMzBlUG5pVFhzX2NxWVNRcUJSa1loSjZMaTBsZ0poLU5SZlhfeVB2aWlTSTlVQS1LNmRQZ0JJMGFyMXlxR2NqN3Rnc045QkpmNFptMmJ6MHI4R1ptUw?oc=5
+
+49. BICO introduces new life sciences manufacturing platform integrating ABB Robotics technology — bico.com
+   https://bico.com/blog/mfn_news/bico-introduces-new-life-sciences-manufacturing-platform-integrating-abb-robotics-technology/
+
+50. Pharma and biotech customers, with AstraZeneca as the anchor reference — news.cision.com
+   https://news.cision.com/bico-group/r/cellink-announces-extension-of-collaboration-with-astrazeneca-to-use-cellinks--3d-bioprinting-and-as,c3025717
+
+51. Reproducible irradiance of 405 nm photocuring modules on BIO X series bioprinters — cellink.com
+   https://www.cellink.com/application-notes/reproducible-irradiance-of-405-nm-photocuring-modules-on-bio-x-series-bioprinters/
+
+52. BICO Group AB (CLLKF) (Q2 2026) Earnings Call Highlights: Organic Growth and Margin Expansion ... - Yahoo Finance — Google News: product releases and availability
+   https://news.google.com/rss/articles/CBMikAFBVV95cUxORW1yb1ZDcXhrb29kTVRmcm55Q2VvLWFpYjVHY29YZTY3dGVOdGhXeEZIZ2dGVHUwU293TnJEc3VlaGRTTDVLUWF2VThOOE1RV3JsTXJzOTBnLXRxZl9vQmd4MkRGeWdXc1dndUJGeVlnWV9oUnNFX0VZUXlxLVNCLUhvbVpXbGhXTmxaelp3czM?oc=5
+
+53. AstraZeneca drags the index, Ascelia contests the FDA and board drama at BICO – the Nordic Pulse | 2026:28 - Biostock — Google News: product releases and availability
+   https://news.google.com/rss/articles/CBMiyAFBVV95cUxON3pCeXdDYi10aU1rM1JfTlNoWkVPd2Y2bVBRLUpxUDJQRkFaRWtManNidnJrZzZuc0dqRERKRHZPeHNnNzdUVURBam1jbTN3VGZhV3phRkxDSkREWVJfc0tIYnN1cnNOS1FOTFJXY0JqdEVQc0Nsb3g2RmtlOWhBT0pidkNWNlZYQXZQV3BxXzVyWXNYbnV6Zjk1VE9DM0JXb0RnNTB1a0FZSWUwUGg4a2ZDMEpXWlREMGpmLWo2eXpIN1BlbVh6UA?oc=5
+
+54. What to watch: margin expansion, further divestments and the new CEO's first full year — bico.com
+   https://bico.com/investors/the-share/financial-targets/
