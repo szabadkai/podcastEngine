@@ -1,0 +1,219 @@
+Layer Lines Weekly — Nine Tools, One Box: Bambu's H3C, Factory Jigs, and Lenses in a Flash
+Episode 29 · 2026-11-06
+
+Alex: A hundred and forty-two thousand faces. That's the number LAIKA is giving for its new stop-motion feature, Wildwood. More than 142,000 3D-printed facial expressions, according to a 3Dnatives piece this week. Every blink, every tiny quiver of a lip is its own printed face, swapped in frame by frame.
+
+Jordan: Replacement animation. They've built a whole studio around it, so the technique isn't new. But that number... I'd love to know if it's 142,000 printed or 142,000 that ended up on screen, because those are very different piles. Somewhere there's a bin of rejected eyebrows, and I want to see it.
+
+Alex: The rejected eyebrow bin. I'd pay admission. And look, I paint miniatures. I know how hard it is to get a face the size of a pea to read as 'sad' instead of 'mildly confused.' They're doing it at film frame rates, where your eye catches it if one cheek shifts by a hair between frames.
+
+Jordan: Which is the part I love. Strip away the art and it's a consistency problem: tens of thousands of parts that all have to match their neighbors perfectly. A production challenge wearing a very cute costume.
+
+Alex: And that's not a bad lens for the whole week. This week, tool changers stop being a DIY project and become a box you can order, the real factory wins turn out to live in the unglamorous stuff, and the boldest claim on the list comes with the least evidence. Welcome to Layer Lines Weekly. I'm Alex.
+
+Jordan: I'm Jordan. And that boldest claim is a company saying it prints progressive eyeglass lenses from a single flash of light. It's the one I'm most curious about, and also the one I'm saving my raised eyebrow for.
+
+Alex: We'll get there. Before that: Bambu's nine-tool H3C, ELEGOO jumping into 3D scanning, Ford and Rivian on what printing is saving them on the factory floor, a five-year Velo3D deal with Sandia, and an OrcaSlicer release candidate that's stuffed to the gills.
+
+Alex: So, my take: Bambu didn't invent the tool changer, but they might have just made it boring, and I mean that as the highest compliment. The H3C launched this week. TCT, 3DPrint.com and 3Dnatives all had it. It's a desktop FFF machine built around a nine-tool changer they call Swaptek, and it's $2,499.
+
+Jordan: And it's worth being precise about what the $2,499 buys, because for once the answer is pleasantly boring too. The price is for the Combo, and that's the only way they sell it. The AMS 3H comes in the box, plus all nine PrintTools. Eight are 0.4 millimeter tools for regular 1.75 filament, and the ninth is a 0.4 for 2.85 millimeter flexible filament.
+
+Alex: Okay, wait. 2.85 for the flex tool? Why go back to the thicker stuff? I thought 2.85 was something only a handful of holdout machines still used.
+
+Jordan: Pushing soft filament is like pushing a wet noodle up a straw. A thicker strand is a stiffer column, so it has less room to buckle and wrap itself around the drive gears. Pair that with what Bambu calls the FlexFeed extruder, and their number is soft TPU at 75A, which is a lot squishier than the 95A stuff most people start with.
+
+Alex: That soft stuff has personally ruined a weekend for me. I tried feeding a really soft TPU through a long bowden setup once and came back to a bird's nest jammed inside the extruder. An hour with tweezers. So when Tom's Hardware says in their hands-on that this thing 'handles TPU like nobody's business'... yeah, that gets my attention.
+
+Jordan: It should. That's one of two independent hands-ons, Tom's Hardware and Fabbaloo, and both broadly back up the multi-material and TPU story. The 75A figure itself is Bambu's. They haven't said how they tested it or what range of TPUs they mean. But a dedicated flex tool, stiffer filament, an extruder designed around it... the TPU part sounds credible to me.
+
+Alex: Can we do the quick explainer? A lot of people listening have an AMS on an X1 or a P1S, and they're thinking, 'I already print four colors. What's different?'
+
+Jordan: Sure. With an AMS on one of those machines, all your filaments share one nozzle. To change color, the printer cuts the strand, pulls it back, loads the new one, then pushes a bunch through the hot end to flush the old color out. That's your pile of purge poop, or your prime tower. A tool changer gives each material its own complete hot end, parked and loaded. The head drops one and grabs another. Most of the flushing goes away, and you can mix materials that want very different temperatures in one print.
+
+Alex: And that's where I get excited, because for me it's not about pretty colors. It's support interfaces that peel off clean. It's a PLA bracket with TPU feet so it stops skating across the shelf. It's a part where the grippy bit and the rigid bit come off the bed as one object instead of me gluing them together at midnight.
+
+Alex: And it moved fast. A couple of months ago this was patent drawings, then an October teaser. Now it's something you can add to a cart.
+
+Jordan: Let me put my grumpy hat on for a second, and not about the machine, about the marketing. The blog headline is 'Tool changer. Game changer.' They're calling it 'the defining new generation of 3D printers.' TCT quotes Bambu expecting it to eliminate long-standing compromises between speed, reliability and multi-material. You can't test 'eliminate compromises.' It's a vibe.
+
+Alex: Fair, but come on, every launch says that. The difference here is that two outside reviewers got their hands on it and came back impressed. Prusa's got INDX, and Snapmaker and Creality have been chasing tool changers too. If this one shows up polished, the bar moves for everybody.
+
+Jordan: Oh, no argument. And credit where it's due: the hard part of a tool changer was never the docking. It's keeping nine nozzles registered to each other, same height, same XY offset, so the tool printing your TPU lands right where the PLA tool left off. On a lot of machines that calibration was a person with a dial indicator and a free afternoon. If Bambu automates it well, that's real engineering.
+
+Jordan: What I'd want measured is the whole job, not the swap. A clean mechanical tool change is lovely, but on any tool changer the real time goes into bringing the next nozzle up to temperature and priming it so it doesn't dribble on your part. I want somebody to run a long print with hundreds of changes and just time it, wall clock. And nine hot ends means nine things that can clog.
+
+Alex: So who's it for? Twenty-five hundred dollars is real money for a hobby. But I keep thinking about small shops: the person selling custom parts online, or a little firm doing functional prototypes, who's throwing away a ton of purge filament and time babysitting color swaps.
+
+Jordan: That's my read too. Prosumers and small shops first, and anyone already deep in multi-material who has watched a prime tower eat a third of a spool. For somebody printing one-color brackets, it's a lot of machine to dust.
+
+Alex: Printing nine materials is only half the loop, though. The other half is getting real objects into the computer, and ELEGOO just jumped in there with what it calls its first all-in-one 3D scanner, the M1 Ultra. 3D Printing Industry had it this week. It's $1,599 early bird, and ELEGOO says it goes to $1,699 after November 12. My first reaction was: of course a printer company makes a scanner. Measuring is the worst part of making a replacement part.
+
+Jordan: Worst part by a mile. The headline spec is 0.02 millimeter accuracy with a blue laser. And to ELEGOO's credit, there's a footnote in the user manual that tells you how they got it: evaluated under laboratory conditions using a pair of 100 millimeter spheres.
+
+Jordan: That's a real test description, which is more than some spec sheets give you. But it doesn't cite an outside standard, no ISO, no VDI/VDE. Quick decoder ring: VDI/VDE 2634 is a German guideline a lot of scanner makers use so accuracy gets measured the same way. A VDE 2634 number and a two-sphere lab number aren't apples to apples.
+
+Alex: So what does that mean for the cracked clip off my dishwasher rack? Because that's the stuff I'd actually scan. Not a matte sphere. A grubby little piece of glossy white plastic with a snapped tab.
+
+Jordan: A pair of matte reference spheres is about the friendliest object a scanner will ever meet. Known shape, perfect surface. Your clip is shiny, it has thin edges, and one face is broken. You'll get a useful model. I just wouldn't expect that spec to describe it.
+
+Alex: The other number that jumped out: it supports objects from five millimeters up to four meters on a side. Four meters! I was picturing scanning a car in one go.
+
+Jordan: And that's the one I'd gently untangle. Four meters is the largest object it supports, not what it sees at once. A single capture is up to about 621 by 480 millimeters at 600 millimeters out in the high-speed laser mode, and roughly 1,121 by 960 at 1.2 meters in the NIR markerless mode. So a car is a lot of captures stitched together. Totally doable, just not one click.
+
+Alex: That sounds fine to me. ELEGOO says five scanning modes, and laser, high-speed laser and that near-infrared markerless mode are in there at least. My current workflow is calipers, a guess, and printing the same bracket four times until the screw holes line up. I've done the four-print dance more often than I'd like to admit.
+
+Jordan: This cuts that dance way down, even if you never get near 0.02. The way people reverse-engineer parts well is to scan for the overall shape, then lock in the critical dimensions, bolt holes and mating faces, with calipers. Scanner for the curves, calipers for the truth. Pair that with a printer that does the TPU gasket and the rigid housing together, and the 'I broke it, I'll make a new one' loop gets very short.
+
+Jordan: Speaking of making new ones, my favorite automotive printing story in a while isn't about printed car parts. It's about everything that holds the car parts. CNBC ran a piece on Halloween about Rivian and Ford, and they used the word 'democratizing,' which I'd happily trade for numbers. Luckily, the numbers are in there.
+
+Alex: Rivian first. A senior manager there told CNBC the savings are, quote, 'well in the millions,' and InsideEVs reported the same figure. For context, Rivian has spent more than five million dollars on printing machines and about $1.7 million a year on materials, and they say a machine usually pays for itself within a year.
+
+Jordan: That's their own estimate, not an audited line in a financial filing. But the context makes it believable rather than fluffy. And look at what they're printing: models for fluid testing on electric motors, screw guides for tooling, inserts for stamping presses, trim pieces for early builds.
+
+Alex: Wait, stamping-press inserts? Those are the giant machines that slam sheet metal into fenders, right? What's a printed part doing in there?
+
+Jordan: Mostly not the slamming. Inserts, locators, guides: the bits that hold, align or protect the part while the big tool does the work. Back when I was in industry, the first printed thing that really earned its keep was a little nest that held a part steady at an inspection station. A day to print instead of weeks from a tool shop, and nobody ever mentioned it again. That's what winning looks like.
+
+Alex: And Ford has my favorite version of that. CNBC describes them 3D printing a temporary machining wheel to keep an assembly line running until the permanent replacement showed up. Think about what a stopped line costs per hour, and compare that to a spool of material.
+
+Alex: Ford also says it has more than 200 machines in the program and expects 3D labs at more than 23 plants by year-end. And here's the detail I can't stop thinking about: there's a vending machine for 3D-printed parts on the F-150 line near Dearborn. A vending machine!
+
+Jordan: The vending machine might be the most telling detail in the whole piece. It means the parts are routine enough that someone on the line grabs one without filing a ticket. Those are Ford's figures, and the wheel is one example, not a pattern. And if anyone says this proves printing is now a mainstream production tool for cars, it doesn't. It's tooling and maintenance. Which, to me, is the better story.
+
+Alex: It's the same reason I print stuff at home. Nobody's impressed by the shelf-pin adapter I made for a bookcase from the nineties, but it's the most useful thing I printed all year. The glamour prints get the photos, and the boring ones get used every day. Ford just does it with two hundred machines.
+
+Jordan: Different scale, same energy. Okay, metal. Velo3D and Sandia National Laboratories have a five-year Cooperative Research and Development Agreement. Velo3D put out the press release, and We are the Frontier covered it this week. The agreement was signed back on January 13th, though, so it's not as fresh as the headlines make it look.
+
+Alex: Okay, CRADA. I've seen that acronym on press releases for years and nodded like I knew. What is it, really?
+
+Jordan: It's a legal framework that lets a company and a federal lab work together, sharing people, equipment and data, with the IP terms worked out up front. The individual projects get scoped later, in what they call Project Task Statements. So it's an umbrella, not a purchase order. No funding figures and no performance targets were disclosed. Nobody should hear this and think Sandia has adopted or qualified Velo3D machines.
+
+Alex: The research areas are interesting, though. Part reliability, repeatability across machines and sites, materials development, and workforce development and tech transfer, all framed around the defense industrial base and energy infrastructure. 'Repeatability across machines and sites' is the phrase that jumped out at me.
+
+Jordan: Same here. Velo3D does laser powder bed fusion: a laser melting thin layers of metal powder, one after another. Making one great part is solved-ish. Making the same part on two machines in two cities, and proving it's the same, is what qualification lives or dies on. That's the question regulated industries need answered, and five years of a national lab poking at it is the right kind of boring.
+
+Alex: Repeatability across machines is also, weirdly, a slicer problem, which brings me to the OrcaSlicer 2.5.0 release candidate. Orca is starting to feel less like a slicer and more like a whole workshop. Per the GitHub release notes, it has Python plugin support, belt-printer printing, color mixing from loaded filaments, real 3D surface textures, an experimental parametric Design tab, plus support for Bambu's H2C and A2L. The project calls it its biggest update yet.
+
+Jordan: For once I believe the self-assessment. Color mixing is the one I'd poke at first. If you've got a handful of colors loaded, Orca can blend them into shades you don't own a spool of. On a machine with a lot of tools loaded, that gets fun fast.
+
+Alex: Belt printing is my favorite weird one. Those are the printers where the bed is a conveyor and the head prints at an angle, so parts can be as long as you like. Seeing it in a mainstream open-source slicer is wild. One thing to clear up, because it's all over Reddit: non-planar printing. There's a community fork of Orca that adds it, with a list of supported Bambu machines, but it's not in 2.5.0, and the feature requests on the official repo are still open. The release does have a separate quality setting for curved or sloped top surfaces. Handy, but a different thing.
+
+Jordan: Good flag. And the plugins have me excited and a little nervous. Python plugins mean people can extend the slicer in ways the developers never imagined. They also mean code running on your computer, and the release notes don't say anything about sandboxing. I'd treat a random plugin like any random script from the internet.
+
+Alex: Which reminds me of my own cautionary tale. I once installed a slicer beta the night before a long terrain print, didn't back anything up, and found out six hours in that my tuned profile hadn't carried over the way I thought. Stringing everywhere. Release candidates are for testing, not for the print you need on Saturday.
+
+Jordan: And the line about it starting, slicing and exporting 'noticeably faster' is the project's own, with no benchmarks attached. It might well be true, so try it on your own files and see. The Design tab is labeled experimental, so treat it like a toy for now.
+
+Alex: Still: belt printing, plugins, textures, a parametric design tab, all free. Stuff that used to mean paid software or a vendor ecosystem keeps landing in an open-source slicer. That's a good week for hobbyists.
+
+Jordan: Okay. Eyebrow time. A Spanish ophthalmic company called IOT says its Light-Form Technology 3D prints personalized progressive lenses in seconds, from a single flash of light, with no layer-by-layer build. They're calling it the first 3D-printed personalized progressive lens. 3D Printing Industry wrote it up this week, based on IOT's announcement and quotes from its executives.
+
+Alex: I'm going to defend the idea before you take it apart, because the idea is great. Volumetric printing, curing a whole shape at once instead of slice by slice, is a real thing in research labs. And a progressive lens is the perfect target: one smooth, continuously changing surface where the power shifts as your eye moves down. Layer lines on a lens would be a disaster. If any part should skip layers, it's this one.
+
+Jordan: Totally agree the mechanism isn't crazy. My problem is the specifics. The volumetric processes I know of usually need multiple projections, or the resin rotating while patterns play into it. A single flash is a much bigger claim. And right now it rests on one trade-press write-up of a company announcement: no paper, no patent cited, no third-party optical testing.
+
+Alex: And 'first' is doing a lot of work too. First by what definition? There's no discussion of prior art and nothing about what they're excluding. And what's actually being timed in 'seconds'?
+
+Jordan: That's my question. Printing the lens is one step. Polishing, coating, and edging it to fit a frame are where lens production time tends to go. And there's zero optical data. No haze, no transmission, no Abbe number, which is basically how much a material smears colors at the edges of your vision. No power accuracy, no coating durability. And lenses are a regulated medical device category in most markets, with no mention of certification.
+
+Alex: Okay, that's a long list, and I'll concede most of it. Where I land: a real process idea, a lovely application, and two headline claims, 'first' and 'seconds,' that are IOT's word until someone else measures them.
+
+Jordan: Mine's simpler. Show me an independent optical report and a regulator's sign-off, and I'll be first in line. Until then, it's a press release with a gorgeous premise.
+
+Alex: So, one thing to try this week, straight out of the Orca news: grab the 2.5.0 release candidate, install it alongside your stable version, and run one small test with the new 3D surface textures, or the color mixing if you've got a few spools loaded. A coaster, a keychain, something small enough that if it goes weird, who cares.
+
+Jordan: And before you do, export your printer and filament profiles. It takes thirty seconds and saves the night. If you poke at plugins, stick to code you can read or people you trust, since the notes don't mention any sandboxing.
+
+Alex: And if you print something cool, tell us. We love seeing it. That's our week. Thanks for hanging out, go print something weird, and we'll talk next week.
+
+Jordan: Rejected eyebrows welcome.
+
+References
+
+1. Bambu Lab Releases $2,499 Full-Color, Multi-Toolhead H3C 3D Printer — 3DPrint.com
+   https://3dprint.com/336070/bambu-lab-releases-h3c-printer/
+
+2. Bambu Lab launches H3C desktop 3D printer with nine-tool capability — TCT Magazine
+   https://www.tctmagazine.com/bambu-lab-launches-h3c-desktop-3d-printer-with-nine-tool-capability/
+
+3. Bambu Lab launches $2,499 H3C with nine-tool Swaptek changer — 3dprintingindustry.com
+   https://3dprintingindustry.com/news/bambu-lab-launches-h3c-technical-specifications-and-pricing-256200/
+
+4. Bambu Lab H3C Launches With 9 PrintTools for $2,499 — 3Dnatives
+   https://www.3dnatives.com/en/bambu-lab-h3c-03112026/
+
+5. Bambu Lab H3C 3D printer review: A nine-tool monster — Tom's Hardware 3DP
+   https://www.tomshardware.com/3d-printing/bambu-lab-h3c-3d-printer-review
+
+6. Tool changer. Game changer. Bambu Lab presents H3C - the defining new generation of 3D printers — Bambu Lab Blog
+   https://blog.bambulab.com/tool-changer-game-changer-bambu-lab-presents-h3c-the-defining-new-generation-of-3d-printers/
+
+7. Hands On With The Bambu Lab H3C 3D Printer, Part 1 — Fabbaloo
+   http://feeds.fabbaloo.com/~/972284858/0/fabbaloo/default~Hands-On-With-The-Bambu-Lab-HC-D-Printer-Part
+
+8. Bambu Lab launches $2,499 H3C with nine-tool Swaptek changer — us.store.bambulab.com
+   https://us.store.bambulab.com/products/h3c
+
+9. Bambu Lab launches $2,499 H3C with nine-tool Swaptek changer — 3dprinting.com
+   https://3dprinting.com/news/bambu-lab-launches-h3c-nine-tool-changer-3d-printer-priced-from-2499/
+
+10. Bambu Lab launches $2,499 H3C with nine-tool Swaptek changer — printnexus.io
+   https://printnexus.io/blog/bambu-lab-h3c-price-specs
+
+11. Automakers like Rivian and Ford are ‘democratizing 3D printing’ to reduce costs and increase speed - CNBC — GNews AM
+   https://news.google.com/rss/articles/CBMif0FVX3lxTE03VHpWQVNudE80cmxIdHllS2R0MzVjQmd0ekVWREJZYXlIYjNlMG4xU0FoV3J6aC1FZEZIWFpkbWhXUVZVR2JBMU1rVUYwOGU3MFRsQWpJYzJNd3hHeVZzN2FsVFoyT0pMRlM5UGxLRjNHeXVKS29HS0M4WmxPalHSAYQBQVVfeXFMUG84TU5ISlg2amdTb1dVSjR1cjM1TnlFSVFnMlFEdjlGQ1Q0T25YQkcwdTFFM2gtT1RkaHE3c1djcnJJTzhBVDh3WkpMbTJIUi1CUmhXTmhMc2NncElLS014ZmJhZE90akhCd1dtRTdtS2RZMk1iUWlvS1dFX3RnRUdjbm1O
+
+12. Rivian Has Invested Millions In 3D Printing. Its Biggest Plans Are Still Ahead - InsideEVs — GNews AM
+   https://news.google.com/rss/articles/CBMigwFBVV95cUxQVDFkR3pXb1FBMDJKOHNpeDJIWGpqV09xSGIzSWFLMl94bjd4Z0lESXJnMS01ZW9UajcyTERtWVNuc01TLUhtNE5sMDBvcVV6YWQ1Vjc2aDl5ajdVR2hYX2xpdmt3eHVNNGxFZG5jWkdNaUpHNXBRYmlrTy1sWmdjanA0WQ
+
+13. Ford Says 3D Printing Has Prevented Assembly Plants From Going Dark - Ford Authority — GNews AM
+   https://news.google.com/rss/articles/CBMipAFBVV95cUxNUzFoZi1vNTJ6eWE3X0g3cE91VndabmVEV1gySDh5aGxyNmNMZFhsYThpUHhILUlSRjhFQmdrVXlWLUlaQXRRMjlJbEVybnBHMTJzaC1zcHdTZDlzbDVQSjRlWVRpQVcteWxRaUFkTGRnSXEwUGpsNWVfVXZRcEJjR2tHeEg3TWxTUnJpVXd0dnJfY1dnTWVMWnVJUEhoZTZ6eW5MYQ
+
+14. Rivian and Ford scale 3D printing across their factories — cnbc.com
+   https://www.cnbc.com/2026/10/31/automakers-3d-printing-ford-rivian-gm.html
+
+15. Rivian and Ford scale 3D printing across their factories — insideevs.com
+   https://insideevs.com/news/814028/rivian-3d-printing-investment-more-to-come/
+
+16. ELEGOO enters 3D scanning with the $1,599 M1 Ultra — 3dprintingindustry.com
+   https://3dprintingindustry.com/news/elegoo-moves-into-3d-scanning-with-the-m1-ultra-priced-from-1599-256204/
+
+17. ELEGOO Unveils All-in-One Smart 3D Scanner M1 Ultra, Delivering Precision and Versatility for Creators — ELEGOO Blog
+   https://www.elegoo.com/blogs/news/elegoo-unveils-all-in-one-smart-3d-scanner-m1-ultra-delivering-precision-and-versatility-for-creators
+
+18. ELEGOO enters 3D scanning with the $1,599 M1 Ultra — download.elegoo.com
+   https://download.elegoo.com/m1-ultra/user-manual/
+
+19. ELEGOO enters 3D scanning with the $1,599 M1 Ultra — elegoo.com
+   https://www.elegoo.com/pages/elegoo-m1-ultra-3d-scanner
+
+20. ELEGOO enters 3D scanning with the $1,599 M1 Ultra — print3dindex.com
+   https://www.print3dindex.com/scanners/elegoo-m1-ultra
+
+21. Velo3D and Sandia National Laboratories Sign Five-Year CRADA to Collaborate on Metal Additive Manufacturing - PR Newswire — GNews Metal AM
+   https://news.google.com/rss/articles/CBMi9gFBVV95cUxNYWxDUjdVNlFPV3JtRU5rUDMzV0xQWjZBVUUyMUVXc01Zd2libEtqQXJqcC00cHZZS2I5VExac1VnaWV5Z0ozUlFHM2V6cDZtMHFndHk4eVVxLVBXOHYybVdsWndDWUxNNG5GRlZETXlMUkNpZ2xtWlB1TmtoS3NOUzNYRXV5QmVJVElRM1J2NVI3XzdfeGVhNlZmWG1XNGVMMC1PTjluczZsRmFiR2Rhd19HYjFCYmgxT3VQQXhadllleXVoWFVBM3F6MjRPYzZwRE5SVVdCdmthTjhqZmRRQjUyMV9kYTlnaUcwaWVUczhxNUcxMVE
+
+22. Velo3D and Sandia sign five-year metal AM CRADA — ir.velo3d.com
+   https://ir.velo3d.com/news-events/press-releases/detail/222/velo3d-and-sandia-national-laboratories-sign-five-year
+
+23. Velo3D and Sandia sign five-year metal AM CRADA — wearethefrontier.org
+   https://wearethefrontier.org/world/us/2026/11/05/velo3d-sandia-metal-3d-printing-research
+
+24. OrcaSlicer V2.5.0 RC release — OrcaSlicer Releases
+   https://github.com/OrcaSlicer/OrcaSlicer/releases/tag/v2.5.0-rc
+
+25. RELEASE - Orca Slicer with Nonplanar Printing! — r/BambuLab
+   https://www.reddit.com/r/BambuLab/comments/1xm0lw1/release_orca_slicer_with_nonplanar_printing/
+
+26. OrcaSlicer 2.5.0 RC adds Python plugins, belt printing and color mixing — github.com
+   https://github.com/OrcaSlicer/OrcaSlicer/issues/5053
+
+27. OrcaSlicer 2.5.0 RC adds Python plugins, belt printing and color mixing — github.com
+   https://github.com/OrcaSlicer/OrcaSlicer/issues/7872
+
+28. IOT claims 'first' 3D-printed progressive lenses from a single flash — 3dprintingindustry.com
+   https://3dprintingindustry.com/news/iot-3d-prints-personalized-progressive-lenses-in-seconds-with-a-single-flash-of-light-256209/
+
+29. More Than 142,000 3D Printed Faces Bring the Characters of Wildwood to Life — 3Dnatives
+   https://www.3dnatives.com/en/wildwood-3d-printing-02112026/

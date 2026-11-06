@@ -14,8 +14,8 @@
     <language>en</language>
     <link>https://szabadkai.github.io/podcastEngine</link>
     <atom:link href="https://szabadkai.github.io/podcastEngine/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 02 Oct 2026 00:00:00 GMT</pubDate>
-    <lastBuildDate>Fri, 02 Oct 2026 00:00:00 GMT</lastBuildDate>
+    <pubDate>Fri, 06 Nov 2026 00:00:00 GMT</pubDate>
+    <lastBuildDate>Fri, 06 Nov 2026 00:00:00 GMT</lastBuildDate>
     <generator>podcast-engine</generator>
     <category>Science &amp; Technology</category>
     <itunes:author>Layer Lines Weekly</itunes:author>
@@ -38,6 +38,28 @@
     <podcast:locked>yes</podcast:locked>
     <podcast:guid>1aa65aa4-6725-411a-8b5c-a109f9cf36b6</podcast:guid>
     <copyright>© 2026 Layer Lines Weekly</copyright>
+    <item>
+      <title>Nine Tools, One Box: Bambu&apos;s H3C, Factory Jigs, and Lenses in a Flash</title>
+      <description>Bambu Lab&apos;s $2,499 H3C puts a nine-tool changer on the desktop, and Alex and Jordan dig into what that changes for multi-material printing, especially soft TPU. Plus ELEGOO&apos;s first 3D scanner, Rivian and Ford on the quiet value of printed tooling, a five-year Velo3D–Sandia research deal, a packed OrcaSlicer release candidate, and a hard look at a company claiming it prints progressive lenses from a single flash of light.</description>
+      <itunes:title>Nine Tools, One Box: Bambu&apos;s H3C, Factory Jigs, and Lenses in a Flash</itunes:title>
+      <itunes:summary>Bambu Lab&apos;s $2,499 H3C puts a nine-tool changer on the desktop, and Alex and Jordan dig into what that changes for multi-material printing, especially soft TPU. Plus ELEGOO&apos;s first 3D scanner, Rivian and Ford on the quiet value of printed tooling, a five-year Velo3D–Sandia research deal, a packed OrcaSlicer release candidate, and a hard look at a company claiming it prints progressive lenses from a single flash of light.</itunes:summary>
+      <content:encoded><![CDATA[Bambu Lab's $2,499 H3C puts a nine-tool changer on the desktop, and Alex and Jordan dig into what that changes for multi-material printing, especially soft TPU. Plus ELEGOO's first 3D scanner, Rivian and Ford on the quiet value of printed tooling, a five-year Velo3D–Sandia research deal, a packed OrcaSlicer release candidate, and a hard look at a company claiming it prints progressive lenses from a single flash of light.]]></content:encoded>
+      <pubDate>Fri, 06 Nov 2026 00:00:00 GMT</pubDate>
+      <enclosure url="https://github.com/szabadkai/podcastEngine/releases/download/episode-2026-11-06/episode.mp3" length="18991690" type="audio/mpeg"/>
+      <media:content url="https://github.com/szabadkai/podcastEngine/releases/download/episode-2026-11-06/episode.mp3" fileSize="18991690" type="audio/mpeg" medium="audio" duration="1187"/>
+      <media:title>Nine Tools, One Box: Bambu&apos;s H3C, Factory Jigs, and Lenses in a Flash</media:title>
+      <media:description>Bambu Lab&apos;s $2,499 H3C puts a nine-tool changer on the desktop, and Alex and Jordan dig into what that changes for multi-material printing, especially soft TPU. Plus ELEGOO&apos;s first 3D scanner, Rivian and Ford on the quiet value of printed tooling, a five-year Velo3D–Sandia research deal, a packed OrcaSlicer release candidate, and a hard look at a company claiming it prints progressive lenses from a single flash of light.</media:description>
+      <media:thumbnail url="https://szabadkai.github.io/podcastEngine/artwork.png"/>
+      <guid isPermaLink="false">layer-lines-weekly-2026-11-06</guid>
+      <itunes:duration>1187</itunes:duration>
+      <itunes:episode>29</itunes:episode>
+      <itunes:explicit>false</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:image href="https://szabadkai.github.io/podcastEngine/artwork.png"/>
+      <yt:category id="28">Science &amp; Technology</yt:category>
+      <yt:madeForKids>false</yt:madeForKids>
+      <podcast:transcript url="https://szabadkai.github.io/podcastEngine/transcripts/2026-11-06.txt" type="text/plain"/>
+    </item>
     <item>
       <title>BICO: The Bioprinting Pioneer That Bet on the Whole Lab</title>
       <description>BICO began as CELLINK, the Swedish company that put bioprinters and bioinks on university benches, and grew into a lab automation group built on software, dispensing and robotics. Alex and Jordan cover the bioprinter lineage, the 2021 rebrand and acquisition spree, the whistleblower investigation and founder exit, the divestments and BICO 2.0 reset, and a 2026 leadership shake-up that put the founder back in the chair. They also ask whether 1% organic growth can carry a margin story toward a double-digit target.</description>

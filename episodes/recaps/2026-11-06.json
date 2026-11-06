@@ -1,0 +1,20 @@
+{
+  "number": 29,
+  "date": "2026-11-06",
+  "title": "Nine Tools, One Box: Bambu's H3C, Factory Jigs, and Lenses in a Flash",
+  "topics": [
+    "Bambu Lab H3C nine-tool changer",
+    "ELEGOO M1 Ultra 3D scanner",
+    "Rivian and Ford printed factory tooling",
+    "Velo3D-Sandia five-year CRADA",
+    "OrcaSlicer 2.5.0 release candidate",
+    "IOT Light-Form progressive lens claim"
+  ],
+  "threads": [
+    "Bambu H3C long-print timing and nine-nozzle reliability",
+    "ELEGOO M1 Ultra independent accuracy testing",
+    "IOT Light-Form lens optical data and regulatory sign-off",
+    "Ford 3D labs at 23+ plants by year-end"
+  ],
+  "predictions": []
+}

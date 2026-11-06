@@ -1,6 +1,17 @@
 {
   "episodes": [
     {
+      "number": 29,
+      "date": "2026-11-06",
+      "title": "Nine Tools, One Box: Bambu's H3C, Factory Jigs, and Lenses in a Flash",
+      "description": "Bambu Lab's $2,499 H3C puts a nine-tool changer on the desktop, and Alex and Jordan dig into what that changes for multi-material printing, especially soft TPU. Plus ELEGOO's first 3D scanner, Rivian and Ford on the quiet value of printed tooling, a five-year Velo3D–Sandia research deal, a packed OrcaSlicer release candidate, and a hard look at a company claiming it prints progressive lenses from a single flash of light.",
+      "duration": 1187,
+      "fileSize": 18991690,
+      "releaseUrl": "https://github.com/szabadkai/podcastEngine/releases/download/episode-2026-11-06/episode.mp3",
+      "guid": "layer-lines-weekly-2026-11-06",
+      "transcriptUrl": "https://szabadkai.github.io/podcastEngine/transcripts/2026-11-06.txt"
+    },
+    {
       "number": 28,
       "date": "2026-10-02",
       "title": "BICO: The Bioprinting Pioneer That Bet on the Whole Lab",
