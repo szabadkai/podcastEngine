@@ -161,6 +161,7 @@ export async function run(episodeDir: string): Promise<void> {
         ? `Company: ${episodeContext.companyName}\n\nFact-check these ${analyzed.clusters.length} company-profile clusters and identify targeted public-web research requests:\n\n${renderedClusters}\n\nReturn JSON with fact-check results for each cluster.`
         : `Fact-check these ${analyzed.clusters.length} story clusters and identify targeted public-web research requests:\n\n${renderedClusters}\n\nReturn JSON with fact-check results for each cluster.`;
     const initialResult = await chatJson<FactCheckResponse>({
+      label: "initial-audit",
       messages: [
         { role: "system", content: systemPrompt },
         { role: "user", content: userContent },
@@ -219,6 +220,7 @@ export async function run(episodeDir: string): Promise<void> {
         // One tool-using call, not chatJson: its parse-failure retry re-ran the
         // whole web search up to three times. Prose output is structured below.
         const notes = await chat({
+          label: "research",
           messages: [
             { role: "system", content: researchPrompt },
             {
@@ -264,6 +266,7 @@ export async function run(episodeDir: string): Promise<void> {
             "Targeted research returned prose instead of JSON; structuring the notes without re-searching...",
           );
           const structured = await chatJson<{ findings: unknown[] }>({
+            label: "format-research",
             messages: [
               {
                 role: "system",
@@ -339,6 +342,7 @@ export async function run(episodeDir: string): Promise<void> {
       })
       .join("\n\n---\n\n");
     const finalResult = await chatJson<FactCheckResponse>({
+      label: "final-audit",
       messages: [
         {
           role: "system",

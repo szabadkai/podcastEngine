@@ -236,7 +236,7 @@ export async function run(episodeDir: string): Promise<void> {
   // else is preserved here rather than committed.
   const jsonArtifacts = fs
     .readdirSync(episodeDir)
-    .filter((f) => f.endsWith(".json"))
+    .filter((f) => f.endsWith(".json") || f === "ai-usage.jsonl")
     .map((f) => path.join(episodeDir, f));
   const recapFile = recapPath(script.episodeDate);
   if (fileExists(recapFile)) jsonArtifacts.push(recapFile);

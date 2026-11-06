@@ -61,6 +61,7 @@ export async function run(episodeDir: string): Promise<void> {
   let usedFallback = false;
   try {
     result = await chatJson<EpisodeRecap>({
+      label: "recap",
       messages: [
         { role: "system", content: systemPrompt },
         {

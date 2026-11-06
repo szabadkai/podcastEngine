@@ -245,3 +245,24 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: gh workflow run deploy-pages.yml --ref main
+
+      - name: Summarize AI usage
+        if: ${{ always() && steps.preflight.outputs.should_run == 'true' }}
+        env:
+          EPISODE_DATE: ${{ steps.preflight.outputs.episode_date }}
+        run: |
+          if [ -f "episodes/$EPISODE_DATE/ai-usage-summary.md" ]; then
+            cat "episodes/$EPISODE_DATE/ai-usage-summary.md" >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Preserve generation diagnostics
+        if: ${{ always() && steps.preflight.outputs.should_run == 'true' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: generation-${{ steps.preflight.outputs.episode_date }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            episodes/${{ steps.preflight.outputs.episode_date }}/*.json
+            episodes/${{ steps.preflight.outputs.episode_date }}/ai-usage.jsonl
+            episodes/${{ steps.preflight.outputs.episode_date }}/ai-usage-summary.md
+          if-no-files-found: ignore
+          retention-days: 30

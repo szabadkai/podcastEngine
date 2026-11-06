@@ -62,6 +62,7 @@ export async function run(episodeDir: string): Promise<void> {
   console.log(`Stage 04d: ${unknown.length} new acronym(s) found: ${unknown.join(", ")}`);
 
   const result = await chatJson<{ entries: PronunciationEntry[] }>({
+    label: "pronunciation",
     messages: [
       {
         role: "system",

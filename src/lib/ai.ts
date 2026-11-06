@@ -1,3 +1,4 @@
+import { recordAiUsage } from "./ai-usage.js";
 import { config } from "../config.js";
 
 interface ChatMessage {
@@ -45,6 +46,8 @@ interface ChatOptions {
   messages: ChatMessage[];
   temperature?: number;
   maxTokens?: number;
+  maxOutputTokens?: number;
+  label?: string;
   jsonMode?: boolean;
   model?: string;
   reasoning?: ReasoningConfig;
@@ -52,8 +55,8 @@ interface ChatOptions {
   toolChoice?: "auto" | "required" | "none";
 }
 
-// Hard ceiling when escalating after a truncation — Claude Opus 5.5's max output.
-const MAX_OUTPUT_TOKENS = 128000;
+// One bounded budget covers transport, truncation, and JSON validation retries.
+const MAX_OUTPUT_TOKENS = 48000;
 // A long-form request retried below this floor is likely to spend the last
 // credits on a truncated response. Fail clearly instead of making that bet.
 const MIN_AFFORDABLE_RETRY_TOKENS = 8192;
@@ -72,7 +75,7 @@ function affordableTokenLimit(responseText: string): number | null {
   }
 }
 
-export async function chat(opts: ChatOptions): Promise<string> {
+async function request<T>(opts: ChatOptions, decode: (raw: string) => T): Promise<T> {
   const apiKey = process.env.OPENROUTER_API_KEY;
   if (!apiKey) throw new Error("OPENROUTER_API_KEY not set");
 
@@ -80,7 +83,10 @@ export async function chat(opts: ChatOptions): Promise<string> {
   // at the limit. Re-sending the identical request after a length-truncation
   // would just truncate again — the retry only helps if it has more room.
   const requestedMaxTokens = opts.maxTokens ?? 4096;
+  const ceiling = Math.min(opts.maxOutputTokens ?? requestedMaxTokens * 2, MAX_OUTPUT_TOKENS);
+  if (requestedMaxTokens > ceiling) throw new Error("Requested tokens exceed the output ceiling");
   let maxTokens = requestedMaxTokens;
+  let retryAfterMs = 0;
 
   const buildBody = (): Record<string, unknown> => {
     const body: Record<string, unknown> = {
@@ -117,11 +123,17 @@ export async function chat(opts: ChatOptions): Promise<string> {
 
   for (let attempt = 0; attempt < config.ai.maxRetries; attempt++) {
     if (attempt > 0) {
-      const delay = config.ai.retryDelayMs * Math.pow(2, attempt - 1);
+      const delay = Math.max(retryAfterMs, config.ai.retryDelayMs * Math.pow(2, attempt - 1));
+      retryAfterMs = 0;
       console.log(`  Retry ${attempt}/${config.ai.maxRetries} after ${delay}ms...`);
       await new Promise((r) => setTimeout(r, delay));
     }
 
+    const started = Date.now();
+    const record = (details: Record<string, unknown>) => recordAiUsage({
+      label: opts.label, model: opts.model ?? config.ai.model, attempt: attempt + 1,
+      maxTokens, elapsedMs: Date.now() - started, ...details,
+    });
     let res: Response;
     try {
       res = await fetch(`${config.ai.baseUrl}/chat/completions`, {
@@ -138,6 +150,7 @@ export async function chat(opts: ChatOptions): Promise<string> {
       lastError = new Error(
         `OpenRouter request failed: ${err instanceof Error ? err.message : String(err)}`,
       );
+      record({ outcome: "network-error" });
       continue;
     }
 
@@ -151,12 +164,18 @@ export async function chat(opts: ChatOptions): Promise<string> {
       lastError = new Error(
         `OpenRouter response body failed while reading: ${err instanceof Error ? err.message : String(err)}`,
       );
+      record({ outcome: "body-error", status: res.status });
       continue;
     }
 
     if (!res.ok) {
       lastError = new Error(`OpenRouter ${res.status}: ${responseText}`);
 
+      record({ outcome: "http-error", status: res.status });
+      if (res.status === 402 && /in_flight_budget|in-flight requests/i.test(responseText)) {
+        retryAfterMs = retryDelay(res.headers.get("retry-after"), responseText, 120000);
+        continue;
+      }
       if (res.status === 402) {
         const affordable = affordableTokenLimit(responseText);
         const reducedMaxTokens = affordable
@@ -174,11 +193,17 @@ export async function chat(opts: ChatOptions): Promise<string> {
           continue;
         }
       }
-      if (res.status === 429 || res.status >= 500) continue;
+      if (res.status === 429 || res.status >= 500) {
+        retryAfterMs = retryDelay(res.headers.get("retry-after"), responseText, 0);
+        continue;
+      }
       throw lastError;
     }
 
     let data: {
+      id?: string;
+      model?: string;
+      usage?: Record<string, unknown>;
       choices?: Array<{
         message?: { content?: string | null };
         finish_reason?: string;
@@ -191,10 +216,12 @@ export async function chat(opts: ChatOptions): Promise<string> {
       lastError = new Error(
         `OpenRouter returned malformed response JSON: ${err instanceof Error ? err.message : String(err)}`,
       );
+      record({ outcome: "malformed-response", status: res.status });
       continue;
     }
 
     const choice = Array.isArray(data.choices) ? data.choices[0] : undefined;
+    const usage = { generationId: data.id, actualModel: data.model, usage: data.usage };
     // Truncated at the cap. A reasoning model spends part of max_tokens thinking,
     // so the visible answer can run out of room. Grow the cap and retry rather
     // than re-sending the same doomed request. (Bounding `reasoning` at the call
@@ -202,13 +229,14 @@ export async function chat(opts: ChatOptions): Promise<string> {
     // Checked before the content: when thinking consumes the whole budget the
     // provider returns null content, which is still a truncation.
     if (choice?.finish_reason === "length") {
-      if (maxTokens >= MAX_OUTPUT_TOKENS) {
+      record({ ...usage, outcome: "truncated" });
+      if (maxTokens >= ceiling) {
         lastError = new Error(
-          `OpenRouter response truncated at max_tokens=${maxTokens} (model ceiling); reduce reasoning budget or shorten the request`,
+          `OpenRouter response truncated at max_tokens=${maxTokens} (request ceiling); reduce reasoning budget or shorten the request`,
         );
         break;
       }
-      maxTokens = Math.min(maxTokens * 2, MAX_OUTPUT_TOKENS);
+      maxTokens = Math.min(maxTokens * 2, ceiling);
       lastError = new Error(
         `OpenRouter response truncated (finish_reason=length); retrying with max_tokens=${maxTokens}`,
       );
@@ -216,6 +244,7 @@ export async function chat(opts: ChatOptions): Promise<string> {
     }
     const content = choice?.message?.content;
     if (typeof content !== "string") {
+      record({ ...usage, outcome: "missing-choice" });
       const providerError =
         typeof data.error === "string"
           ? data.error
@@ -229,35 +258,42 @@ export async function chat(opts: ChatOptions): Promise<string> {
       );
       continue;
     }
-    return content;
+    try {
+      const result = decode(content);
+      record({ ...usage, outcome: "success" });
+      return result;
+    } catch (err) {
+      lastError = new Error(`JSON parse/validation failed: ${(err as Error).message}`);
+      record({ ...usage, outcome: "invalid-json" });
+      console.warn(lastError.message);
+    }
   }
 
   throw lastError || new Error("AI call failed after retries");
 }
 
+export async function chat(opts: ChatOptions): Promise<string> {
+  return request(opts, (raw) => raw);
+}
+
 export async function chatJson<T>(
   opts: ChatOptions & { validate?: (value: unknown) => T },
 ): Promise<T> {
-  let lastError: Error | null = null;
+  return request({ ...opts, jsonMode: true }, (raw) => {
+    const cleaned = raw.replace(/^```json\s*\n?/, "").replace(/\n?```\s*$/, "").trim();
+    const parsed: unknown = JSON.parse(cleaned);
+    return opts.validate ? opts.validate(parsed) : parsed as T;
+  });
+}
 
-  for (let attempt = 0; attempt < config.ai.maxRetries; attempt++) {
-    const raw = await chat({ ...opts, jsonMode: true });
-    const cleaned = raw
-      .replace(/^```json\s*\n?/, "")
-      .replace(/\n?```\s*$/, "")
-      .trim();
-    try {
-      const parsed: unknown = JSON.parse(cleaned);
-      return opts.validate ? opts.validate(parsed) : parsed as T;
-    } catch (err) {
-      // Malformed/truncated JSON: retry the whole call. Reasoning models
-      // occasionally emit partial output even under finish_reason=stop.
-      lastError = err as Error;
-      console.log(
-        `  JSON parse/validation failed (attempt ${attempt + 1}/${config.ai.maxRetries}): ${(err as Error).message}`,
-      );
-    }
+// Providers sometimes put Retry-After inside the error metadata instead of HTTP headers.
+export function retryDelay(header: string | null, body: string, fallback: number): number {
+  let value = header;
+  if (!value) {
+    try { value = JSON.parse(body).error?.metadata?.headers?.["Retry-After"]; } catch { /* use fallback */ }
   }
-
-  throw lastError || new Error("chatJson failed after retries");
+  if (!value) return fallback;
+  const seconds = Number(value);
+  const delay = Number.isFinite(seconds) ? seconds * 1000 : Date.parse(value) - Date.now();
+  return Number.isFinite(delay) && delay >= 0 ? delay : fallback;
 }

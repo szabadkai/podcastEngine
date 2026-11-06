@@ -169,3 +169,20 @@ pages/                   # GitHub Pages site (landing page + transcripts)
 The GitHub Actions workflow (`.github/workflows/weekly-episode.yml`) fires every Friday at 1:17 AM UTC and produces a news episode on alternate weeks. It can also be triggered manually with an optional date override and dry-run flag.
 
 Required secrets: `OPENROUTER_API_KEY`, `ELEVENLABS_API_KEY`. The workflow uses the default `GITHUB_TOKEN` for publishing releases and processing curated link issues.
+
+
+### AI cost and retry controls
+
+Every pipeline stage records API attempts in `ai-usage.jsonl`, including returned cost,
+input/output/reasoning tokens, model, substage, latency, and failed attempts. The
+`ai-usage-summary.md` report separates missing cost data from reported charges.
+GitHub Actions retains the report and intermediate JSON for 30 days, even after
+failure, and displays the cost table in the run summary. TTS billing is separate.
+
+Transport, truncation, and JSON validation share a maximum of three requests per
+logical call. Output growth is limited to twice the original allowance and never
+more than 48,000 tokens. Temporary in-flight budget errors honor Retry-After;
+permanent credit exhaustion fails without repeated generation. Script style
+warnings remain visible but only blocking quality issues or product-status
+contradictions trigger a full revision. Production models and reasoning settings
+remain unchanged until measured comparisons justify a switch.

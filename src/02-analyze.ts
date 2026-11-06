@@ -69,6 +69,7 @@ export async function run(episodeDir: string): Promise<void> {
       : `Today's date: ${today}${recentCoverageBlock}\n\nHere are ${stories.length} stories from the past ${config.episode.storyWindowDays} days:\n\n${storyList}\n\nAnalyze, cluster, rank, and assign segments. Return JSON.`;
 
   const result = await chatJson<AnalyzedStories>({
+    label: "selection",
     validate: validateAnalyzedStories,
     messages: [
       { role: "system", content: systemPrompt },

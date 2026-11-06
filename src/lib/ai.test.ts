@@ -125,3 +125,62 @@ test("chat grows the token cap when reasoning consumes the whole budget", async 
   assert.equal(bodies[0].max_tokens, 1024);
   assert.equal(bodies[1].max_tokens, 2048);
 });
+
+test("JSON validation and transport failures share three total attempts", async () => {
+  let calls = 0;
+  globalThis.fetch = async () => {
+    calls++;
+    if (calls === 1) return new Response("busy", { status: 503 });
+    return Response.json({ choices: [{ message: { content: "invalid JSON" }, finish_reason: "stop" }] });
+  };
+  const { chatJson } = await import("./ai.js");
+  await assert.rejects(chatJson({ messages: [] }), /JSON parse/);
+  assert.equal(calls, 3);
+});
+
+test("truncation cannot escalate past the request ceiling", async () => {
+  const limits: number[] = [];
+  globalThis.fetch = async (_input, init) => {
+    limits.push(JSON.parse(String(init?.body)).max_tokens);
+    return Response.json({ choices: [{ message: { content: null }, finish_reason: "length" }] });
+  };
+  await assert.rejects(chat({ messages: [], maxTokens: 32000 }), /request ceiling/);
+  assert.deepEqual(limits, [32000, 48000]);
+});
+
+test("permanent insufficient-credit errors fail without retries", async () => {
+  let calls = 0;
+  globalThis.fetch = async () => {
+    calls++;
+    return Response.json({ error: { message: "can only afford 449" } }, { status: 402 });
+  };
+  await assert.rejects(chat({ messages: [], maxTokens: 32000 }), /402/);
+  assert.equal(calls, 1);
+});
+
+test("temporary budget errors honor Retry-After before retrying", async (t) => {
+  const waits: number[] = [];
+  t.mock.method(globalThis, "setTimeout", (callback: () => void, delay: number) => {
+    waits.push(delay);
+    queueMicrotask(callback);
+    return 0;
+  });
+  let calls = 0;
+  globalThis.fetch = async () => {
+    calls++;
+    if (calls === 1) return Response.json({ error: {
+      message: "in-flight requests", metadata: { headers: { "Retry-After": "120" } },
+    } }, { status: 402 });
+    return Response.json({ choices: [{ message: { content: "ok" }, finish_reason: "stop" }] });
+  };
+  assert.equal(await chat({ messages: [] }), "ok");
+  assert.deepEqual(waits, [120000]);
+});
+
+test("Retry-After supports HTTP dates and invalid-value fallback", async () => {
+  const { retryDelay } = await import("./ai.js");
+  assert.equal(retryDelay("120", "", 0), 120000);
+  assert.equal(retryDelay("invalid", "", 120000), 120000);
+  const future = new Date(Date.now() + 120000).toUTCString();
+  assert.ok(retryDelay(future, "", 0) > 118000);
+});

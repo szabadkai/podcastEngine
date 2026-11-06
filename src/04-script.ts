@@ -233,6 +233,7 @@ export async function run(episodeDir: string): Promise<void> {
       : `Write episode #${episodeNumber} for ${factChecked.episodeDate}.\n\nHere are the fact-checked stories for this episode:\n\n${storyBrief}${continuityBlock}\n\nGenerate the full podcast script as JSON.`;
 
   let result = await chatJson<EpisodeScript>({
+    label: "draft",
     messages: [
       { role: "system", content: systemPrompt },
       { role: "user", content: userContent },
@@ -272,16 +273,13 @@ export async function run(episodeDir: string): Promise<void> {
       : [];
   const revisionReasons = [
     ...initialQuality.blockingIssues,
-    ...initialQuality.warnings,
     ...initialContradictions.map(
       (contradiction) => `Factual product-status contradiction: ${contradiction}`,
     ),
   ];
 
-  // The old engine recorded warnings and published anyway. A single focused
-  // revision is cheaper and safer than letting a 15-minute, one-sided, or
-  // clockwork-alternating episode reach TTS. The original brief remains in the
-  // conversation so the reviser has no reason to invent facts.
+  // Advisory pacing/style metrics remain in the report. Only material defects
+  // or factual contradictions justify another full paid generation.
   if (revisionReasons.length > 0) {
     console.warn(
       `Stage 04: first draft needs revision (${revisionReasons.length} quality issue(s)).`,
@@ -289,6 +287,7 @@ export async function run(episodeDir: string): Promise<void> {
     for (const reason of revisionReasons) console.warn(`  - ${reason}`);
 
     result = await chatJson<EpisodeScript>({
+      label: "revision",
       messages: [
         { role: "system", content: systemPrompt },
         { role: "user", content: userContent },

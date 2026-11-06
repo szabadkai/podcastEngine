@@ -1,3 +1,4 @@
+import { withAiUsage } from "./lib/ai-usage.js";
 import path from "node:path";
 import { loadShow } from "./show.js";
 import { setShowConfig, config } from "./config.js";
@@ -45,7 +46,7 @@ async function runStage(name: string, loadFn: () => Promise<StageFn>) {
   }
   console.log(`=== Stage: ${name} ===`);
   const fn = await loadFn();
-  await fn(episodeDir);
+  await withAiUsage(episodeDir, name, () => fn(episodeDir));
   console.log("");
 }
 
