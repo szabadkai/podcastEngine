@@ -1,0 +1,395 @@
+Layer Lines Weekly — COBOD: Selling the Printer, Not the Building
+Episode 30 · 2026-11-13
+
+Alex: Welcome to Layer Lines Weekly, I'm Alex. COBOD is what construction 3D printing looks like when a company decides to sell the equipment instead of building the houses. It's a Danish printer maker that wants to be the platform builders run on, not a builder itself.
+
+Jordan: And I'm Jordan. That framing is the key to the whole episode. Almost every number COBOD publishes makes more sense once you remember it's a capital-equipment vendor. It sells gantry and track printers, software, and support. Named partners like PERI, Havelar, nidus3D, and Matthäi do the building.
+
+Alex: Here's the plan. First, how a Copenhagen research project became a printer business. Then the three machines that define the lineup and who's steering the company. After that, the technical bet, which turns out to be about concrete more than robots. And finally the big open question: do the cost and speed claims hold up once someone outside the company checks them?
+
+Alex: First, a quick sense of scale, because it's not small. On its own pages, COBOD claims more than 90 systems in more than 35 countries. It also has GE, CEMEX, Holcim, and PERI in its investor and partner circle.
+
+Jordan: The independent numbers support a big installed base, even if they don't confirm 90 exactly. Business Insider reported in November 2023 that COBOD had sold more than 70 BOD2 systems. The audited 2022 annual report in the Danish business register records 60 printers sold from 2018 through the end of 2022. Sold and installed aren't the same thing, and the company doesn't say which one it means. Still, this is clearly not a vapor company.
+
+Alex: Then there's the headline marketing claim: 30% lower project cost and 50% faster delivery.
+
+Jordan: COBOD credits those figures to unnamed 'top customers.' There's no baseline, no project scope, and no method. So we'll treat them as company claims for the whole episode and come back to them at the end.
+
+Alex: I think the origin is where COBOD gets underrated. Plenty of construction-printing startups begin with renderings. COBOD began with an actual building.
+
+Jordan: That building is the BOD, short for Building On Demand, in Nordhavn, Copenhagen, completed in late 2017. 3DPrint.com, the Danish broadcaster TV 2 Kosmopol, and Concrete Printer Magazine all described it as Europe's first 3D-printed building. At the time, COBOD wasn't a standalone company. It was the civil-construction branch of 3D Printhuset, and it designed and operated the printer.
+
+Alex: That's why you'll see two founding dates. The company says 2015, which is fair as an origin date, since the research phase ran roughly 2015 to 2017. According to the Danish company register, though, the legal entity, COBOD International A/S, was incorporated in October 2016 as a spin-off from 3D Printhuset.
+
+Jordan: That's not a gotcha, it's a normal pattern. A project grows up inside a parent company and gets spun out once it looks like a business. I'd describe it as started in 2015 and incorporated in 2016.
+
+Alex: What interests me is the problem they chose to prove first. A small building in a Copenhagen harbor district isn't a sales demo, it's a proof of process. It shows you can do this outdoors, in a Nordic climate, on a real lot, not just in a lab bay.
+
+Jordan: And that matters more in construction than almost anywhere else in additive. In a production hall you control temperature, humidity, and the material batch. On a building site you control very little. The BOD showed the machine could survive those conditions long enough to finish a real structure, and that's the credential everything after it depends on.
+
+Alex: The move into selling came fast. By September 2018, All3DP ran a headline about new 3D-printed houses from 'construction company COBOD International.' That's a little funny, because becoming a construction company is the one thing they were trying to avoid.
+
+Jordan: The trade press hadn't quite caught up with the business model. Sales followed soon after. COBOD says its first printer sold in 2019, and 3D Printing Industry reported in March 2019 that a COBOD printer had been ordered for construction in Saudi Arabia.
+
+Jordan: One small caution: an announced order isn't the same as a paid delivery that's been commissioned and is printing. In equipment businesses those milestones can be months apart. Still, the order itself is documented.
+
+Alex: Then 2020 changed how people talked about them. 3D Printing Industry covered PERI using a COBOD printer for what the outlet called the world's first on-site 3D-printed apartment building.
+
+Jordan: 'World's first' is the publication's framing, so I'd hold it loosely. The more important signal is who the customer was. PERI is a formwork and construction group, meaning it sells the systems concrete gets poured into. When a company like that starts running your printer, you've gained a channel into the industry, not just a customer.
+
+Alex: The lineup is short, and I think that's deliberate. There are three printers, each matched to a scale of building.
+
+Jordan: The workhorse is the BOD2. It's a modular gantry, which means a big steel frame stands over the footprint of the building and the print head travels along it on X, Y, and Z. The company specs it for buildings up to three stories, and case studies of two- and three-story builds fit that claim.
+
+Alex: If you have an FDM machine at home, it's basically a Cartesian printer whose frame is bigger than the house. Instead of a plastic bead, it extrudes a bead of concrete.
+
+Jordan: That analogy holds up better than most. The differences are that your build plate is a foundation slab and your frame gets bolted together on site. That's why modularity ends up mattering so much, which we'll get to.
+
+Alex: To me, the BOD2 is the product that explains the company. COBOD says more than 50 have been delivered, and the Business Insider figure and the audited filing both point to a number in that range. That's an installed base, and an installed base is what turns a hardware company into a platform. Every machine in the field needs parts, training, software updates, and service calls.
+
+Jordan: With the usual caveat: delivered doesn't automatically mean commissioned and producing. In a unit count, a printer sitting in a contractor's yard looks exactly like one that's printing every week.
+
+Alex: Then in October 2024 came the BOD3, which tells you where the company thinks demand is heading.
+
+Jordan: The BOD3 replaces the over-the-building gantry with a mobile system on a ground track. The launch is well documented: there's COBOD's release, plus coverage from 3DPrint.com and VoxelMatters that October. The company pitches it for continuous row-house production. You print one unit, move the machine down the track, and print the next, instead of tearing down a frame and rebuilding it.
+
+Alex: 3DPrint.com's launch headline also said it was already deployed across three countries. Most new printers don't debut with field units on multiple continents' worth of job sites.
+
+Alex: COBOD's own launch release called it 'the most advanced 3D printer so far.' I'll note that and move on, since the release didn't include a benchmark.
+
+Jordan: Agreed. Keep the launch date and drop the superlative. The real story is the shift from printing a house to printing a street. That's a production mindset, and it's a bet that the buyer will be a developer or a housing program rather than someone building a one-off showcase.
+
+Alex: The third machine is the BOD XL. It uses the same modular gantry architecture at a much larger footprint, and COBOD markets it for industrial and multi-story work.
+
+Jordan: It has the thinnest public record as a catalog product, but it has one very large proof point. For the Qatar schools program, UCC Holding contracted COBOD for two custom BOD XL printers, each 50 meters by 30 meters by 15 meters. We'll get to that project shortly. For now, I'd call the BOD XL launched and real, but early in its track record.
+
+Alex: Around all three machines, COBOD sells a software suite for slicing, layer visualization, and print configuration, which turns CAD or BIM files into print paths. It also sells installation, training, and service packages. Each product page says the machine is CE certified.
+
+Jordan: For machinery, CE marking is often a self-declaration by the manufacturer, and those pages don't spell out the scope. It's credible, but it isn't an independent lab signing off on the printed structure. Structural approval of a building is a separate gate.
+
+Alex: Now the moat. My read is that COBOD's most important technical decision wasn't really about the printer. It was about the material.
+
+Jordan: I agree, and it's the most practical part of this whole profile. Many construction printers lean on bagged, proprietary dry-mix mortar. That's the razor-and-blades model: sell the machine and make your money on a proprietary consumable shipped wherever the customer happens to be. COBOD's pitch runs the other way. It says to use locally sourced ready-mix or batch-plant concrete, and that no proprietary dry mix is required.
+
+Alex: And on an actual job site, the difference is huge.
+
+Jordan: Concrete is heavy and cheap per ton, so freight costs eat you alive. If you're printing in Guatemala or Qatar and your material arrives in bags from another continent, your cost and schedule are hostage to shipping. If you can order from a local batch plant, you're using a supply chain contractors already trust. Contractors know how to order concrete. They don't know how to order a mystery mortar.
+
+Alex: The CEMEX piece is what turns this from a slogan into a system.
+
+Jordan: In September 2022, COBOD announced, and Global Cement independently reported, that CEMEX had developed D.Fab. It's an admixture system designed to make conventional concrete printable. According to COBOD's materials, less than 1% of the mix is the centrally sourced admixture, and more than 99% can be sourced locally.
+
+Alex: So 'real concrete' is mostly true, but the word 'mostly' is carrying some weight.
+
+Jordan: It's directionally right. You can't take completely unmodified ready-mix and print with it. You need admixtures to control how the mix moves through the pump and how quickly it stiffens, so each new layer doesn't squash the one below it. D.Fab itself is a proprietary admixture system. So the accurate version of the claim is: no proprietary mortar, but yes, a small proprietary additive.
+
+Jordan: If I were a buyer, I'd ask whether I'm required to buy the licensed admixture or whether my local supplier can qualify a generic one. That's the difference between real material freedom and a much smaller consumable lock-in. Smaller is still better than bagged mortar, but it's worth knowing which one you're signing up for.
+
+Alex: That connects to the leadership section, because CEMEX is also a shareholder. We'll pick that thread up there.
+
+Alex: On hardware, COBOD's spec for the BOD2 is galvanized steel trusses assembled in 2.5-meter modules.
+
+Jordan: That's construction-toy logic. You add modules to change the footprint, and the pieces travel on ordinary trucks. On a site, the gantry has to arrive on normal transport, go up with a small crew, and come back down afterward. Modularity here is less about elegance and more about logistics. The BOD3's ground track pushes the same idea further: instead of reconfiguring the frame for each building, you move the machine from building to building.
+
+Alex: On software, the company describes a CAD-to-print workflow with layer-by-layer control, and it uses the phrase 'AI-assisted scripting.'
+
+Jordan: The company hasn't said what that AI actually does, so I'll treat it as marketing until they specify. The part I'd care about is more boring. Can my architect's BIM model become a print path without someone hand-editing every corner and window opening? That's where slicer pain lives, whether you're printing a bracket or a wall.
+
+Alex: That's an interesting contrast with nTop, where the software is the entire bet. At COBOD, the software is the glue that makes the hardware usable. It isn't the reason anyone writes the check.
+
+Jordan: The last layer is service, and it's underrated. COBOD's support material lays out roughly three months to build a printer, four weeks for installation, and a three-week training program. On top of that come remote diagnostics and preventive maintenance.
+
+Alex: I appreciate that those numbers are specific. A lot of vendors just say 'world-class support' and leave it there.
+
+Jordan: They are specific, and they're also the vendor's numbers. I'd want one named customer saying they were printing walls by week five. In my experience on shop floors, the training plan on paper and the first month of production are rarely the same document. The first time a pump line clogs at four in the afternoon with a half-finished wall, you find out what a service contract is worth.
+
+Alex: One project shows the whole stack working: nidus3D in Ontario. According to COBOD's September 2022 case study, nidus3D printed a 2,300-square-foot, two-story building, which the company calls North America's first.
+
+Alex: Zoom out, and the market position is the business model made visible. COBOD sells to local contractors, cement companies, universities, and developers. Those partners own the customer relationship and carry the construction risk.
+
+Jordan: That's a smart place to stand. Construction risk is brutal: weather, permits, cost overruns, liability. COBOD sells the machine and the support and lets the local partner carry the building. The tradeoff is that COBOD's reputation depends on how well a lot of other companies run its printers.
+
+Alex: The geography is wide, too. The company's pages claim more than 35 countries, and its case studies range from Japan to Portugal to Germany to Canada to the Gulf.
+
+Alex: Two stood out to me. In Japan, COBOD says a two-story printed house from its customer Kizuki obtained government seismic approval. In Portugal, according to COBOD's case study, Havelar printed a 500-square-meter public building in Matosinhos in nine days, on budget, with a crew of four.
+
+Jordan: The Japan one interests me most, because seismic approval is a regulatory gate, and regulatory gates are where construction printing usually stalls. An approval like that is checkable, and it's worth more than any speed record. The nine days in Portugal is the company's framing, so I'd want a site report on what 'printed in nine days' includes. Is that the walls only, or walls plus everything a building inspector cares about?
+
+Alex: My favorite adoption signal is Matthäi in Germany. COBOD says the contractor printed its own 364-square-meter, two-story office on a BOD2 and then launched its own 3D printing division.
+
+Jordan: That's the right kind of signal. A contractor bet its own headquarters on the process, then built a business line around it. Repeat customers tell you more than ten one-off showcases. nidus3D is another example: it came back for a three-story building with a printed basement near Toronto, about 420 square meters. Again, the 'first' labels on that one come from COBOD.
+
+Alex: PERI keeps coming back, too. In July 2023, COBOD announced PERI's two-story football clubhouse in Nordkirchen, which it billed as Europe's first 3D-printed public building.
+
+Jordan: Look at the partner list: PERI, Holcim, CEMEX, Cementos Progreso in Guatemala, UCC Holding. It's heavy on cement and formwork companies, and those firms aren't just customers. They're the construction industry's existing distribution network. COBOD plugged into the companies that already sell to contractors instead of trying to replace them.
+
+Alex: Which brings us to Qatar, the project that shows how big this can get.
+
+Jordan: It's also well documented. In September 2024, UCC Holding contracted COBOD for those two custom BOD XL printers to print two schools totaling 40,000 square meters. The schools are part of a 14-school development program run as a public-private partnership with Ashghal. Printing started in June 2025, and VoxelMatters reported in July 2026 that the project was nearing final print completion.
+
+Alex: The media have called it the world's largest 3D-printed construction project. The contract value hasn't been disclosed.
+
+Jordan: Superlatives aside, 40,000 square meters across two schools on two printers is a different regime from a single house. At that scale the printer has to behave like a production asset, not a demo machine. Uptime, material consistency, and crew rotation all start to matter.
+
+Alex: On reputation, the fair summary is that most of the adoption evidence comes from COBOD's own case studies. They name customers, building sizes, and crew counts, which is more than a lot of companies offer. It's still company-published, though, and the projects with outside coverage, like the BOD, the PERI apartments, and Qatar, carry more weight.
+
+Alex: On leadership, COBOD is a founder-led company. Henrik Lund-Nielsen is the founder and the public face, quoted throughout the investment announcements and partnership releases. He describes himself as founder and general manager, and the audited 2022 annual report lists him as CEO.
+
+Jordan: That filing fills in the rest of the picture as of 2022. Jens Berthol Hansen is listed as CFO. The board is chaired by Lars Bugge, with Simon Rolf Klint Bergh, Christian Frode Peytz, and Thomas Imbacher as members. Anything that changed after early 2023 isn't in that document, so treat it as a snapshot.
+
+Alex: I won't pretend to know Lund-Nielsen's management style. What you can see from outside is a consistent pattern of decisions. Stay a vendor and don't build. Bring in industrial shareholders. Push the local-concrete story hard. Those three choices explain most of what we've talked about.
+
+Jordan: The ownership really is the leadership story here. GE Renewable Energy took a minority stake, which GE Vernova announced in May 2022. Construction Dive reported Cemex Ventures' investment in July 2022. COBOD announced Holcim's investment that October. PERI is consistently described as a strategic partner and investor.
+
+Alex: So the shareholder list is two cement majors, a formwork and construction group, and an energy equipment company, and every one of them is also a customer or a partner.
+
+Jordan: That's strategic money rather than purely financial money, and no ownership percentages have been published. It also raises the governance question I mentioned earlier. If two of your shareholders sell cement and admixtures, how open does your material story stay over time?
+
+Alex: I'd push back a little there. Having both CEMEX and Holcim inside could actually keep things open, because neither one wants the other to own the recipe.
+
+Jordan: Fair point. Two competitors on the same cap table can keep each other honest. I'm not saying it's a problem today. I'm saying it's the question a buyer should be asking in year five, not year one.
+
+Alex: On turning points, this is usually where we get into layoffs or a public-market hangover. COBOD's story is different. Its big turning point is that it became a profitable hardware company in construction tech, and it's in an audited filing, not just a press headline.
+
+Jordan: The audited numbers are the place to start. The Danish filing shows 2020 revenue of 25.1 million Danish kroner and net profit of 0.7 million. COBOD describes 2020 as a year of 100% growth, and trade coverage at 3DPrint.com headlined it as profitable growth.
+
+Jordan: Then the numbers jump. Revenue was about 83.5 million kroner in 2021 and 116.8 million in 2022, roughly 40% growth. That's about 15.7 million euros, which matches the company's 'nearly 16 million.' Net profit in 2022 was just under 6 million kroner, around 0.8 million euros.
+
+Alex: So from 2020 to 2021, revenue more than tripled.
+
+Jordan: It did, from a small base. That's the context to keep in mind: this is a mid-sized machine builder, not an industrial giant. The company also calls 2022 its fourth consecutive profitable year, and the filing shows profits for 2020, 2021, and 2022.
+
+Alex: The press release headline was 'impressive financial results amid global turbulence,' which is press-release language. I'll give them credit anyway. Profitable growth at this stage, backed by an audited report, is a stronger foundation than a lot of hardware stories in our space.
+
+Jordan: What I'd want to know is the revenue mix. How much comes from one-off printer sales, and how much is recurring, like service, software, and spare parts? Hardware revenue is lumpy, and one big order can make a whole year look great. Recurring revenue is what would make the platform story real.
+
+Alex: The other turning point is 2022 as the investor year. GE, CEMEX, and Holcim all came in within about six months of each other, joining PERI.
+
+Jordan: That's validation, but it also changes the kind of company you are. Once your shareholders are also your distribution, growth looks less like a startup selling to strangers and more like an industrial supplier selling through partners.
+
+Alex: And autumn 2024 brought the product turning point, with the BOD3 launch and Qatar's BOD XL contract just weeks apart. It's the moment they went from selling a printer to pitching something closer to a production line.
+
+Jordan: I'd call that a positioning turning point. Whether it becomes a business turning point depends on how many BOD3s end up running continuously rather than printing one demo row and sitting idle.
+
+Alex: On to the future watch. We'll start with what's confirmed and then move into speculation.
+
+Jordan: Confirmed: as of July 2026 coverage, Qatar was nearing print completion. The BOD3 has launched and is in the field. There's also a process expansion. 3D Printing Industry reported in July 2025 that COBOD and TU Braunschweig had launched a multifunctional construction robot for shotcrete 3D printing.
+
+Alex: Shotcrete is sprayed concrete, so you're spraying material instead of extruding a bead.
+
+Jordan: That's it. Beyond the announcement itself, though, there are no published specs, availability, or customers for the robot. For now it's a direction, not a product line.
+
+Alex: Here's my speculation, and I'll label it that way. I read the shotcrete move as diversification. A company that wants to be a platform wants more than one process running on it.
+
+Jordan: That's plausible. The less flattering reading is that it hints extrusion demand is narrower than the unit counts suggest. I don't know which is true, and from the outside, nobody can tell yet.
+
+Alex: My second watch item is the 30% and the 50%.
+
+Jordan: Those are the claims that matter for the whole category. Right now, COBOD attributes them to unnamed top customers and hasn't published a baseline or a method. The test is simple. Does any named customer, whether that's Havelar, Matthäi, UCC, or a housing program, publish its own project economics against conventional construction? Public-sector jobs are a natural place for that to happen, because public spending gets scrutinized.
+
+Alex: Third is utilization. On any given Tuesday, how many of those claimed 90-plus systems are actually printing?
+
+Jordan: That's my number one. For any equipment platform, the installed base only matters if it's being used. Idle printers don't consume admixture, don't need service, and don't lead to repeat orders. Nothing COBOD has published shows utilization or whether customers are making money with the machines.
+
+Alex: Fourth is governance. The 2022 filing is the latest public snapshot of the executive team and board. For a founder-led company with four industrial shareholders, it's worth watching how succession and board influence evolve, especially if a cement-company investor ever wants a bigger say in materials.
+
+Alex: Let's bring it home. COBOD matters because it's the clearest example of construction 3D printing run as an equipment business. It built a real building first, then sold modular printers. It lets local partners carry the construction risk, and it plugs into the cement industry instead of fighting it.
+
+Jordan: So who should pay attention? Contractors and developers considering printing, first of all. Ask about admixture licensing and ask for real support timelines from a named customer. Cement and materials people, too. And anyone in additive who wants to see what happens when a printer company's consumable is something the customer buys from a batch plant down the road.
+
+Alex: For the rest of us, it's a good reminder that the defining part of a printing process is often the material supply chain, not the motion system.
+
+Jordan: The open question I'd track is whether a named COBOD customer will publish its own cost and schedule numbers against conventional construction. If those numbers land anywhere near 30% and 50%, this becomes a much bigger story. If they never show up, the platform still works, but its central promise keeps resting on the company's own word.
+
+Alex: That's COBOD. Thanks for listening to Layer Lines Weekly.
+
+References
+
+1. Our company | COBOD International — cobod.com
+   https://cobod.com/company/
+
+2. 3D Construction Printing Technology | COBOD International — cobod.com
+   https://cobod.com/
+
+3. COBOD Releases Annual Report 2022 — cobod.com
+   https://cobod.com/cobod-the-3d-construction-printer-tech-leader-reports-impressive-financial-results-amid-global-turbulence-further-expands-international-presence/
+
+4. A Danish printer platform for construction-scale 3D printing — businessinsider.com
+   https://www.businessinsider.com/3d-printed-tiny-home-guatemala-earthquke-resistant-photos-2023-11
+
+5. A Danish printer platform for construction-scale 3D printing — regnskaber.virk.dk
+   http://regnskaber.virk.dk/68815183/amNsb3VkczovLzAzLzRjLzJjLzdkLzE1LzA1YzQtNGFiZC05ZTIxLTM2MDc3NTlkY2EwZg.pdf
+
+6. A Danish printer platform for construction-scale 3D printing — exa.ai
+   https://exa.ai/library/person/6fbs965r32l
+
+7. New 3D Printed Houses from Construction Company COBOD International - All3DP — Google News: product releases and availability
+   https://news.google.com/rss/articles/CBMikgFBVV95cUxOYmNVbEpBbW9pSVB1cEpydS1wc1ZsRnRjVGpWTzNDbVAydkU2VnVfZFExVzRpOVdQeW9qU0YzRVpHQ3RCWG5aYVlYUU9vM0RCYnJaanh4ZVhZNjAtR2xoYTZQelF6NzlPUHMzZ2hFM3JMRnk2SnZfVlYzN09hZUpoZC1MQ2tJTGQtZDlZbTE2Yi16UQ?oc=5
+
+8. COBOD 3D printer ordered for construction in Saudi Arabia - 3D Printing Industry — Google News: turning points
+   https://news.google.com/rss/articles/CBMiowFBVV95cUxNbUViYkR2cnRYZUM0N19PZWxtN1Y2REh2eXdpTS1GMVh6MVVldG05UEFZRGM3RGJLb2lJUENoeFd0VURKa1hQVGR0ZmJKQ185cmVHZlRoNkFqOXFjelpTblk4NFR6d0NacFVkeVpqNHU5eVI5dnBrX0VxdW5UdXRKNWw1QUNYOXh4MGtiTmJ2YkJKZURFaUF6blFreWF6WmREZnhv?oc=5
+
+9. PERI uses COBOD printer to build world’s first on-site 3D printed apartment building - 3D Printing Industry — Google News: customers and market
+   https://news.google.com/rss/articles/CBMixgFBVV95cUxPU1RGX3VuTWhUY2k3dGtsQlhpXzhqQXpLdC03U0c4SFp6bHpnMERpVWxpT1hlbXYzZEFvOTJWRnprWFNoVmRxejlFZkZ3MG5KR05wVktZZTlwRFNadDlZN0toUUZYOXVWVGpSaS1GUmg1a2hqeDQ3b1BYNVpkdXRnRzRiUUpfSHhxUzdEdTNmSHQzSXlBWnlJYVYzUjYxUkNha1JmdEpScXNsRTZ2NExnU003T1hzYTFiZmRUZ29rOUhOeFhncXc?oc=5
+
+10. From research lab to first commercial sale — 3dprint.com
+   https://3dprint.com/186860/3d-printed-building-copenhagen/
+
+11. From research lab to first commercial sale — tv2kosmopol.dk
+   https://www.tv2kosmopol.dk/kobenhavn/her-er-europas-forste-3d-printede-hus
+
+12. From research lab to first commercial sale — concreteprintermagazine.com
+   https://www.concreteprintermagazine.com/projects/pages/building-on-demand.php?id=14
+
+13. BOD3 | COBOD International — cobod.com
+   https://cobod.com/technology/3d-construction-printers/bod3/
+
+14. BOD XL | COBOD International — cobod.com
+   https://cobod.com/technology/3d-construction-printers/bod-xl/
+
+15. 3D Construction Printers | COBOD International — cobod.com
+   https://cobod.com/technology/3d-construction-printers/
+
+16. BOD2 | COBOD International — cobod.com
+   https://cobod.com/technology/3d-construction-printers/bod2/
+
+17. COBOD, the World Leader in 3D Construction Printing Technology, Launches the Most Advanced 3D Printer so Far | COBOD International — cobod.com
+   https://cobod.com/cobod-launches-the-most-advanced-3d-printer-so-far/
+
+18. The New BOD 3 Construction 3D Printer from COBOD, Already Deployed across Three Countries - 3DPrint.com — Google News: products and technology
+   https://news.google.com/rss/articles/CBMitwFBVV95cUxOLWhGdU1BWlcxVVZ0SjNqR281Y0FmUTc3enpoaGx4MFJtRVhZbEhueERqZkU0WXJOWEpwdUtGMEdOZVRacWZ4Y1VicmJwMXRmUzZmVG9rRDVyU0lKZXF1bGZEbTVrSzNEN0Rlb0lQaEg0cnlOWEFlbG00cWpjdTR6MGF1RUpCNWJaZlZxcGxEMzdVd1kwTEhKMDEyWjQ1VnpPVHNPX3U0N25kcFlleE94OUdKNHJSUU3SAbwBQVVfeXFMTi1weFphbVN3WUtrbmItT3ppbG5ZSEU2R05adWdIdjZpZFdJdkxSWDg5WmE0T2R6X0E5SGRRSEl0b2J4czROeVI3djFCaEJoX1Zlb1FGVm9Lb3FiLTlPVlpTV2JUZFpRTkdyQ1dQOXctVC1RTmIxTjhDd1JzWnNsZHYtdHJHTkpQcVBFNXR3OVlsWUtjaEx3ZFFMS0dvV3M1SlV1emthSFlnNTRTLXR4ZVNia0RJUURNeVB3QTA?oc=5
+
+19. COBOD releases new generation BOD3 construction 3D printer - VoxelMatters — Google News: products and technology
+   https://news.google.com/rss/articles/CBMikgFBVV95cUxOY3Atc2ZxSzlGVnVOZEl6TnNueVNFZHZFbjRMbTJEUGlmUTBmTUVUUE1oRDkwdEhOWU1EUnliNFltZXVnazQyU01oR1FaS0ZKVWlDMzFEdG4zNXQ4SjBpeENIQkJjM1JQRS1sTE9TaFlsWXhiaXBzclVzaHVLUU9vMTBIX01ucmR1RG5lMFhNTVluZ9IBlwFBVV95cUxNTHFwTDd0SDBhODlYcmlvNnZCNDUwZHdwLWlLYzRtLUJpZFloeGF0YlFDd3Y5SWl0by1hS1F4TVNEamFjZmNlbl9BY0pKLUpUV1cxYmpYUzRRSmhTSVN2UkpmaFk5WGlGUlhSWVRRWC1xM21uOGZrYWFDVzEwSHNmdnpJMm5mMnBQZlNVVGxjR01VXzg3R3g0?oc=5
+
+20. Software | COBOD International — cobod.com
+   https://cobod.com/technology/software/
+
+21. Support | COBOD International — cobod.com
+   https://cobod.com/technology/support/
+
+22. Welcome to Gainesville, BOD3 - University of Florida — Google News: products and technology
+   https://news.google.com/rss/articles/CBMiZEFVX3lxTE1DRjlTN0JGMzRvQnlxUUxvbXcyd0tnT0Y5Q21pa3RLRTRHNWw1NThxR2xESDVBVWtkR3JiZFlYOVdWWHhiNVB5NVF2cnBXc0RyLUMzWU1xY0dsWFpSakNuR1BueVE?oc=5
+
+23. Materials | COBOD International — cobod.com
+   https://cobod.com/technology/materials/
+
+24. CEMEX and COBOD team up to expand homebuilding with 3D printers | COBOD International — cobod.com
+   https://cobod.com/cemex-and-cobod-expand-homebuilding-with-3d-printers/
+
+25. The first 2-story 3D printed building in US | COBOD International — cobod.com
+   https://cobod.com/north-americas-first-2-story-3d-printed-building/
+
+26. Cemex and Cobod can now use ready-mix concrete in 3D-printing - Global Construction Review — Google News: history and founders
+   https://news.google.com/rss/articles/CBMipgFBVV95cUxQdnptc3JGS1J5VkJtYmZMVFNhbjZLc2QweTNHekYxY2tmOE9hcDZFV05yWko5TEVubzAtVkVJM01xUTlDTnZ0Y2VWaUdBak9RekdMM3kwdm5vanM0RUlTOTgtLWd6aVlCSXlJUGwzTFMxR2RYSHRlR1FrY1dqTzB4MTU0cXZMaDFHeWdSQkJFY2tNMEx2Ny1TM3BkT0dUSU9vczNBOHN3?oc=5
+
+27. Real concrete, modular hardware, and site support — cobod.com
+   https://cobod.com/the-concrete-revolution/
+
+28. Real concrete, modular hardware, and site support — globalcement.com
+   https://www.globalcement.com/news/14102-cemex-and-cobod-international-launch-d-fab-admixtures-for-3d-concrete-printing
+
+29. Holcim invests in 3D construction printing technology leader COBOD | COBOD International — cobod.com
+   https://cobod.com/holcim-invests-in-3d-construction-printing-leader-cobod/
+
+30. Cementos Progreso spearheads use of 3D construction printers in Latin America | COBOD International — cobod.com
+   https://cobod.com/guatemalas-largest-cement-company-spearheads-3d-construction-printers/
+
+31. Large Portuguese Public Building 3D Printed in Record 9 Days, On Budget, Using COBOD Technology | COBOD International — cobod.com
+   https://cobod.com/large-portuguese-public-building-3d-printed-in-record-9-days-on-budget-using-cobod-technology/
+
+32. German Construction Giant Launches 3D Printing Division After Printing Its Own Headquarters | COBOD International — cobod.com
+   https://cobod.com/german-construction-giant-launches-3d-printing-division-after-printing-its-own-headquarters/
+
+33. Japan’s First 2-Story 3D Printed House Obtains the Governments Seismic Approval | COBOD International — cobod.com
+   https://cobod.com/japans-first-2-story-3d-printed-house-obtains-the-governments-seismic-approval/
+
+34. North America’s First 3D printed 3-Story Building — cobod.com
+   https://cobod.com/north-americas-first-3d-printed-3-story-building-with-a-world-first-3d-printed-basement-completed-in-canada/
+
+35. PERI STARTS EUROPES FIRST 3D PRINTED PUBLIC BUILDING — cobod.com
+   https://cobod.com/peri-3d-construction-starts-europes-first-3d-printed-public-building-a-two-story-football-clubhouse/
+
+36. Global project portfolio across housing, public, and infrastructure — news.google.com
+   https://news.google.com/rss/articles/CBMizgFBVV95cUxNQjk3N1dTTnFkUjI5WXd3bUVONnI4TjNFc1V5emRrcF94alhmSmZiMTlWOFp4eWtBWmF1eFBmajhGQUdDUkZ4RS1uZlcxT0U5Uy13NXBlYmlUNXlRY0RldGNHV1JqcS1ZZnBCQzMwWmFkSHZZZ1lLNEtld0p4NUF4Q3FrMDV5eWRvcUFOUFgzYklCUWtMM215eWxWUjcxY3lmZTQtMl9nUGtsYjNtWDhra3pwVjFrVVQ4eDhHeGlYRjZaYXB1T3NteFhhS0V2Zw?oc=5
+
+37. Guatemala's first 3D-printed tiny home is 527 square feet and was designed to resist earthquakes — take a look inside - Business Insider — Google News: product releases and availability
+   https://news.google.com/rss/articles/CBMingFBVV95cUxNZXE2bjZKZDVwaS1NWTBTMWtvVENFWk9MMHZTeFFtcGJFNDZtYUt0NE5OUW5ubGZXck1sLUFXakdlZG91QjA1dnpOUVpQRFFKNXZSeE1PTUQyZTd2S0hNOXFhZFVLcTh4RlBwY0N6QU9uMzFndmhEUnpUMXlLUktMcE5MaW9XR3h4WFZ6a3U5cl9mLWJCVjF0TE9KRUFsdw?oc=5
+
+38. COBOD clients 3D print three U.S. homes in bid to start tackling affordable housing crisis - 3D Printing Industry — Google News: product releases and availability
+   https://news.google.com/rss/articles/CBMizgFBVV95cUxOYWdMNHNtTDRyLXVVbU5NdFdYZGFTWHgxT3pyMTZuOThueUF0RWxRWFlyZjBOTzFubWZhMjliREZBTndlRHU4dmlPWTJWWlFsSUkyeXNZSWVBdzhRNVdZU3dIVUFYQWNTNVI5eWx4QkwwWkR5b2NEUzA5U2V3cW5zOEVjYndqUmZpV1hRSU9WbWxxTkhHc1lUUnppLUx6RG5yNEhGUVgtQUNfdkJiNUVUVGliM044czJwT2loUHJxQW1JRFZoLTJ4ODVMQkJHQQ?oc=5
+
+39. France Just Built Europe's Largest 3D Printed Apartment Block, Three Months Faster Than Expected - 3D Printing Industry — Google News: products and technology
+   https://news.google.com/rss/articles/CBMi1AFBVV95cUxQRmI2LUhfMjhRZTdyN19MREF0MDIzeWpJNnAtUnVCdXltNXhMTHNCNkhldlpEZzBNRG1oTU9BWmVvSV91d1h0UW5Cbnp0QlBFYTROalFFaElzTlloY0JMWmxiSHpXY2tRajZoVTcxa1dUMzhGYVUtY2tCdHhVVEZDRktuTTIxYWZQN0JuWEdSOEN6dURGUHJpWlNEdVpnUTJhRmVUZ3o5d0lZRUdReVZWdlB3MHlGRDRtMmVwNjg0WFROV01mMGJBZGo2cmJrdFl4ZGYwZg?oc=5
+
+40. Residents Receive Keys to First 3D Printed Social Housing in South America - 3D Printing Industry — Google News: products and technology
+   https://news.google.com/rss/articles/CBMiugFBVV95cUxQWXQ3cGRkMUtZaGw2c28tMVVESzdNOEFnNElxeWtQMTlZUGlONWxMTU83YnJ2U1VkMUFXS1hzcVBJRGNNVXREZU85MGtFVTRHYWVLUnlCdEMtQmRkbUw1WjlYMUVxY1ZVYlNwbzNNNnZLM01LcGZPeWtfUThUWW9vYm1kTHBBWjdJcGJSTFRRanBFOTlBY3ZjSGpiYy1vUjZMZThuVHpxYkM3YmZyUFNTbmZ3bkFXYVhHb0E?oc=5
+
+41. SCG completed the world’s first 3D-printed medical center in Thailand - Parametric Architecture — Google News: customers and market
+   https://news.google.com/rss/articles/CBMiqAFBVV95cUxNZW5sM3I0Vm1rVUZfODVvdHJpaWVGMFU5dWFUTThWdU5GOWIwVlFzN25GZVl6dzlIdVp6MG5nNV9EZXp0cDlCWjRxZHBacjljYnR5Z2pITl9WOWo3S3NYUFJUTmxFQTRpb09kaW5uU05UZDh6SDJiTjRaRnRZX21aeV9JdC1mY0VCWWk5SUhrMzNwemJ3dkYzMWN1bTJpWHlZb0drLVdlek4?oc=5
+
+42. Why has this US university shelled out $1.5m on a concrete printer? - Construction Briefing — Google News: products and technology
+   https://news.google.com/rss/articles/CBMivgFBVV95cUxNcnF0MXV4M1JJWS12R1RwYWw2MFBLNlNQOVVVNnZkb2VCckhIVGtMbUV2WTF0QVczUXp6SzI2aE5rTEFCWUFDME1nMDdKM1FBcVYtQVZYS2h4VnMtakRIU3paRGFtaGU4SHRzYzZaOXlQb3lXdURLOGoyZnVrUWwtZ2VjUlZBWmF3UnVMWmh1dFVWeU1Ta3p2bTd6bEdhLUNZTjY1V0tzREUwWTlZSmlYUFhhVW9MQ0VEeS04LXVB?oc=5
+
+43. COBOD completed the world’s largest 3D-printed horse barn in Florida - Parametric Architecture — Google News: history and founders
+   https://news.google.com/rss/articles/CBMipwFBVV95cUxOdHNsUS1vWncwcTZ5bmRLazRhMkUwZHJ1RDNadFFyb2ozMGtjUFNnZDlYdjJXaTNMaGpSVWlHQlc3TC1KYXo0clU0NE04Yk5idERIZDhySVJCLVV1SXpaVHlzZFF3eHg1c3BBV0hpaWRydEZ1a2tVQzZOc3ZVNUQybFY4eFg4Q0FPM3UyR2M0U01QS0dmUm9lQ1NMUDg2TV9ROXRnM1g3dw?oc=5
+
+44. The University of Florida's newest printer can build homes, sea walls and careers - Gainesville Sun — Google News: turning points
+   https://news.google.com/rss/articles/CBMizgFBVV95cUxQb1RpVnNOSFVZWkNzcGhjbTB4TFY0bWtBcDVmZ2lTa3NOZmR2M1RiVUJRTlVaWVNqR2gyRWNTNV9SVHNQckItQ000YURrSmV5RnRGcTRibkpETnIxcHprdExqR1MzejdwVmVYTW1ZUVIwOVlORVdYTDBWT2JNWm1HaHMzMFlJX0tCSTl6S2pvUXl3andva1ZQY3A1azBzTllEVkN4WEVYQU9qd2VPbmN3OFJpY0Z1OTdDaUFXY2VlQktHYVJBT2xsUGd0MnpDQQ?oc=5
+
+45. COBOD Customer Completes “Largest” 3D Printed Building in Angola - 3DPrint.com — Google News: product releases and availability
+   https://news.google.com/rss/articles/CBMilAFBVV95cUxPdEdTV0VlR1JQeTRydlZhVzhQN3pCd2czWGI1dDQ2eHlLWWl5cWVUR2MzZW8tV2JoTU0yZHpLcmN1QjZScVU4OHF3bFg1b2c5TEl1b1ZnZm9uZjZpLVlmd1daTGVmYUpXZ3dUX01wSEYwZFQ5Vmp3aGZSUkNtaFJ2R0xNRDU2MVpvSjhFOXpBaXg3UXZL0gGaAUFVX3lxTE4wZEcwV2tVX3pVcXZYcTZseTc5czZneXE5LUEwSmtVT0hrT1dIYXprZkFYYURFeXhuVnVXdTRsY21nT2QwQU5MNEI3OElBandYaUpGcWFNR2p4ZEx4SF92V1dQMjM4LS1LREg5Tlg3azJiZkVnS2ctb3ZUOGZyalpNR25paWxXYmdnelBwTV91OVVWWkp6LUhsc1E?oc=5
+
+46. Havelar constructs public building with COBOD 3D printing technology on budget - TCT Magazine — Google News: company overview
+   https://news.google.com/rss/articles/CBMiqwFBVV95cUxNeE5BT2t3TTNtNUt3d3d2QjZ3Tl9jOFU0cFVBYTBfNnZ1Um9wbnpFMTVNTFlHTkEyenAxTVlfZndiM0ZfLW9kSEViVnc1U0FoQkhKOVgyN2g0LVk5dmdQMmk5eVlmdllNanBIS0dncDA5enpzN2I0X2o2SkZXYjIxTHRHTV9iSEJxd0x4N01lZFJMaHVjdFkwbjBSdUNkTWJXQmxpZk9yY0xfREE?oc=5
+
+47. UCC Holding partners with COBOD to construct 3D-printed schools in Qatar - EdTech Innovation Hub — Google News: leadership
+   https://news.google.com/rss/articles/CBMifEFVX3lxTE9ocDZOMG43cGVydXZETGxGV1RUYi1tZ2Z3Uk0tcU5KYlVLdXpXQUJMaVJSOW5QSjBYN0szcG5ObVVVQWpYdWZ5d0NobFY4a1VvMUNfaDQxaEl4UTdjVF91bnhlMHFSYjFIWjQyTVczcV92WExsVWtJQm9lVVk?oc=5
+
+48. Holcim & COBOD Complete Europe’s Largest Residential Build in 12 Months - 3dprinting.com — Google News: company overview
+   https://news.google.com/rss/articles/CBMingFBVV95cUxOUlhlTnVCYVdYSk5uOFBieHQ0djBCcGlyQUlHRVNCeUFtVTl3Q0FrT3hSdTR3QVBSUjgxeUxqNG9KbXBqRHJVWHlfcHJRNEh3emxkLVgtSWx6YTllNVE5VmtVR25EeUhiYmJoNDFMNWFlMGxWUFNORTVVSHUtUENyMm8xYTF5VnF4ZHhNNm8yT0tqSllRMHlSSldlaUJ6QQ?oc=5
+
+49. Holcim, COBOD and PERI Print 12 Unit Social Housing Project in France - 3DPrint.com — Google News: company overview
+   https://news.google.com/rss/articles/CBMinAFBVV95cUxOa1oxbkFyaERxMUVqbDlveVctVFFHQTBEdUZudU1SMG1ZUi1MaWE2b0F3VWxjTGtwOVBHS1hjbU5HQ19DazNZOGt0U0lSb1pVUllGdTJ5elY2SEIyUXNJSXpTSEpBMEFkbjg4SE9JcTVnV0s5TWtpQ0k0SF9rcGhEMGc2MEMwbW1MYll1SEZ4eXBjZDFHRzAwTlRpSErSAaIBQVVfeXFMUEZhdnR0dG5pZk45TFZhNFNVRVEwdmMwTWJQU3ZMVFJPMW42ZTFwd0UxdzQ2R0h2X1E5SWp2T0RYZHBBZGQzUGlKUGtDVmMtdXBHTE9PYk5ITDJNZnMyanRJY0pEXzNLWVVVelFrMGk4UE1JSVhadkZLeUFIcThCZkh1MmdLdWZMWnduSktIVTYzTm1VdHF6SE82bWlIWmhOWkJn?oc=5
+
+50. Qatar launches world’s largest 3D-printed construction project - Gulf Business — Google News: strategy and future
+   https://news.google.com/rss/articles/CBMinwFBVV95cUxOam8wSnlrYkQwZk5UdnpWbTFPMmV6a192OVpNWjFSSjR3ZW1Rd3VrN1F5WHlQY1hrYVBWRFFna1JGVWU5T1FabkRSQVprVGQxb0R4aF9KSDM3YnVCWUZwNkdZTG84b0tULWFqQzRQZFNGaUx1dGpjc1piVy1VLV9KOGgxM0ZuUEpHR1lPWnVhOF80R2Nlc2RYdGpPLXM1YU0?oc=5
+
+51. SCG completes first two-story 3D printed building in Thailand - VoxelMatters — Google News: customers and market
+   https://news.google.com/rss/articles/CBMilgFBVV95cUxOSzAzSHV1OWw4NWRnSzQ2WEF4VTZNckNpbVR3QnBuUkowUFNPZnFJeE8tRlhHMVNQWG15TllsY0N3eGhsc1VmaG9fZnVfUGpncm90eGJGOW5nZDltb0ZnUUo0Vk85bF9vNjFxU3ktZHY1VlZldUxMeUpreVZXV2dJaGR1dDJHU2dSMXRSdUM2aWVJTjdHR3fSAZsBQVVfeXFMUExOZzV0WTJVdXNPY29mMVo3X2piQWc3dFVxUVd2SmdyTUZkUUU0dHZvT0FHbDJMbjh3OVZySmRVOVljTGtDbUpJUlptdFh6NzdRWU9WaUpUbUd0TXhJVTRCTzlNWU55NXVwTFhQTkNVYk44c1ZjNlB2LW55bWc0ay1PUzNoRTZoMm4wNnRJTmZndklIcXRIVkNkdFE?oc=5
+
+52. COBOD printer used for India’s first 2-Story 3D printed building - 3Dnatives — Google News: leadership
+   https://news.google.com/rss/articles/CBMipgFBVV95cUxNQlpyc1dVU1A3MXZPV3BYTFBXMnAyR19yOHZFS1JieUlBcUEzRmU0VHpIMnluRWNCY2VUVkxGZ1FlTTNQRU8wNDJWQlExWDljdkZYV2h0THFoVnJRcmV4TnA3SjBJMmRDWUFLZTl1WGYzaGFXcUlVemtUeEplYkdQN3c3TkJXMExSeFFPZXdybFozNzlnalhXOV9wd0h4QXlndDlkVmlB0gGrAUFVX3lxTE5VZ3BnbjdkMVRrWjZ3WW9RRVVjWXdaOGZjTHk0NTRwYUViWUJKbzVmdHgya25ISzExaGZpUW9uc2tiZFZnSFVhN1lnamlkMVh4X204OTVGZnRYRDJYYWwyVUhhZEY3QTljckVyd2Raalk4RVVTMHljYUhGRmQ0U1ZxZmV6TnhhQnpVOVVNeXUwUW1NajBOTlJ6TzI4QWcwUFZCS3ZZei02TXl1aw?oc=5
+
+53. How COBOD is going beyond 3D printed houses - VoxelMatters — Google News: company overview
+   https://news.google.com/rss/articles/CBMimAFBVV95cUxPaEl2WmJ5c2tXQ3dJTlg1ODlGSUR0ekFOSzg1LUpLTWIyNEIySzdKQkhYM2V3WTRyZmpFRjl2RWFSU29aajZhUXNnbTM1R0p0UWRncG1EZi10UmdUckI5LXE5eEs2Vkg0WXhfN0xtb1FIcmpQRFZuNFlwbWFXYzVMcWo3ejlSWjBPZFpVRExELXZWLUNNU21VeNIBngFBVV95cUxPN0VjUjZkNEZMNHg4dlAtVlRrQ1M2OXg4eHc5cUpqOEU0dlMxRkJvNjdEdXY5dGh3LTFEVHJOQk1hNE1YVUdvSjltaDlCN2VPMmswSEU0MHF2b0JaaW5wRnJVb0tjQ1JsWUlwOUZjczBhbnBQZS1semFXMW1Uc3ZNekptZVJXcVRLVWU4Q1ZpNkN1OFppb25uMmlNU3plQQ?oc=5
+
+54. Global project portfolio across housing, public, and infrastructure — uccholding.com
+   https://www.uccholding.com/media/read/ucc-holding-partners-with-cobod
+
+55. Global project portfolio across housing, public, and infrastructure — uccholding.com
+   https://www.uccholding.com/media/read/worlds-largest-3d-printed-construction-project-commences
+
+56. Global project portfolio across housing, public, and infrastructure — voxelmatters.com
+   https://www.voxelmatters.com/massive-3d-printed-schools-project-in-qatar-nears-completion/
+
+57. COBOD’s 2020 Financial Results Confirm Profitable Growth for Construction 3D Printing - 3DPrint.com — Google News: strategy and future
+   https://news.google.com/rss/articles/CBMisgFBVV95cUxOY3ZvbWZLbnhValgtOUhUM2ZDa250RVFxbjNFS3hlWF8zRmFJNEJBenZvNjdZWERCbklDemMtS2RSRThJaTM5b3RGVGNGc2RQSjltdE14N3N0N21ySmRsd1YtWUNwY2tZUW9LX3E1UXByVEhWR0NDVmp6dldaRmtHYmRvWUFnNkpZcmRFRGU2OERRbDRQSmZ1blVZTTV6QlpNTWlEQTFnQlRBQ01URXF3cGp30gG3AUFVX3lxTE14T1JLaGpfVUx2dmFER0dGcG85QXdBZ0U2UTk4ODBnYmM3Q3gtaTFfZE9QUmZIMEptblg4MElLWk5BU3VoOGlDaTJLNlVwTDVScG5pa2JYaTVqaVB6R1hLZEp0NG9sVmRTdDJXRW4tX2U2ZGtKT3c0LUZoRHpVSHkwVDlLTXY4R0tHTExielRjY0RPa3JqckVDQmhreGVpNkVNaFBXTjgzZkUzVVhVSW5qOEMwUzBEcw?oc=5
+
+58. GE Renewable Energy announces minority investment in COBOD International - GE Vernova — Google News: history and founders
+   https://news.google.com/rss/articles/CBMiugFBVV95cUxNejVkT0ZHaDNJallWQVJhUkZ0WUNuaFVUUm81ZEJVV2I0V24xeU9Kc1pTVDVwZmo5M19DOTBTTWdOWEpkd0ZJT2ZqSFFRY0NuZHJISk1MS2VjQXRhenJoZmZWUWpRb1huRzN0TFg1SERmRU5TYUdhN3ZjNWhlUHhQQWZLSm1oLU5Qc1RFSlJ1ZmFTUVU3NFRRMHRyRG45OXUtNkt3Ti1yLU9talRVbEhxWk5nQkVEdmFGdWc?oc=5
+
+59. Cemex Ventures invests in 3D-printing tech for building - Construction Dive — Google News: company overview
+   https://news.google.com/rss/articles/CBMiqgFBVV95cUxNa2RzYjg2dXdydWRKcFYxUE95R01pWVBsQUNDMmplTzU4b3BacUd5T2tRRGRKNlcwak04c25Nak1RLUphYUdHOTVDTkp4cVEtMmZONUI2WnNvMDdURUpTd0tVUDRBenBGVGpaVGdlOThvZUtaZDh3Zl82bjVXU3pMR3BVY2RmY2UwMWFldVY0VEp3RWZqQ3A0X2NIbmREWE94aVRhWVdLckNEQQ?oc=5
+
+60. Investor validation and a profitable scale-up — news.google.com
+   https://news.google.com/rss/articles/CBMikwFBVV95cUxQUFFNZUh6cm1CUDh2b1lXQk9tT05nazV3SzZ5RVlzaG1YMXRkX0VieGJ5dFBZX1NtNUxobVkyV21BX1F3TWNYbTAtM1JjbVowUDFzSFliZDczTmNUYlpDc1R2NGtUS0VHdXRVQ251c3g0RUpfWjJuUHg2OVAxMktMd0dwVkVvcUFoNlF5WW4wUmQtSGPSAZgBQVVfeXFMTS1QT1dpZm5UaFpjZ0VmR3EwX20wR2FPVGZqSEhmd0tqVHlnNkJ6ajBDRW5RRVVvVVRBMW5rUkNCSV9BSDhIX2RuXzEyVkpGWmx4TXUxVGZsRVNWeUxyMjRITlVSeHhUX01GRng0YTFYMmU3c3ZMaWZlOUoyMWhGTFY2b0lBb2g4eC1xbTUtQjRzanplMlhhMEU?oc=5
+
+61. CEMEX Invests in COBOD's Revolutionary 3D Printing Tech - Newswire — Google News: turning points
+   https://news.google.com/rss/articles/CBMimAFBVV95cUxQRnFtR1lhYWpSdGJCcVNZRS1zd3VUcXdDTUZTVHhOS0xWZV9FVDNzdDdJeWRvRDA1b1lUT3hWbTQ2N05OYjRVR2ppUEZNa0VKaWFCbG1IMWdReFBRZFVucFNHUWNtSU1kVGxYZVNjU3hCd2tlRF9PNWR6Y3ZhSThvY3JFbVpsLTNZMmotN0hDalowUkUtY0lNcw?oc=5
+
+62. COBOD and TU Braunschweig Launch Multifunctional Construction Robot for Shotcrete 3D Printing - 3D Printing Industry — Google News: company overview
+   https://news.google.com/rss/articles/CBMi0wFBVV95cUxPYTdrbno0SGJGQkNSMXV6dUQtZzFTODFKZnNkcFZLS00xZ001UDQyVmk4dHBqakRzVzVrM25xZXAxbmRVdklwSE54ZkZVZGFxZG5SZk5RTG8wYmFneGVXRUxqTW5yRlNWankzZGJzRjRUUjhBSDZUYkduWFotX1FtU0I2a0xZeGx4R250akZqWWhfUVJaSGh5am1pZVdpcGZkbllaZ1lPTjR3MUFOamJmWUlNMkh2blFVbjhlQkJKOGlJay1odHlpVGkzQzh3MTI2MERn?oc=5
+
+63. INTERVIEW: COBOD on the State of Construction 3D Printing - 3D Printing Industry — Google News: history and founders
+   https://news.google.com/rss/articles/CBMiogFBVV95cUxNMl9aajZneEFQelQ1R3RkemxQdkxqWDE4VzVUcGxsaDZYdXdpQVA4MUxPRGxXa2lkZ3hpdWNFZEtfM09IWTd3OVZfVG5Oa2xpTHVEVG80SW5NaFVQZExaT2Y2N0tOcjNoRmpsLXBiajdQY3lHbVRSZmNKeFBhdlk0c0syWEhrejZZZ0J5SGpVbVRucFNqaXJZTnAtRTZHRkFHd2c?oc=5

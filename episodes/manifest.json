@@ -1,6 +1,17 @@
 {
   "episodes": [
     {
+      "number": 30,
+      "date": "2026-11-13",
+      "title": "COBOD: Selling the Printer, Not the Building",
+      "description": "COBOD started with a real building in Copenhagen and grew into one of construction 3D printing's most commercially embedded equipment suppliers, backed by cement, formwork, and energy shareholders. Alex and Jordan cover the BOD2, BOD3, and BOD XL lineup, the 'real concrete' bet and its admixture fine print, the audited financials, and the Qatar schools program. They also explain why the company's cost and speed claims remain the big open question.",
+      "duration": 1542,
+      "fileSize": 24666322,
+      "releaseUrl": "https://github.com/szabadkai/podcastEngine/releases/download/episode-2026-11-13/episode.mp3",
+      "guid": "layer-lines-weekly-2026-11-13",
+      "transcriptUrl": "https://szabadkai.github.io/podcastEngine/transcripts/2026-11-13.txt"
+    },
+    {
       "number": 29,
       "date": "2026-11-06",
       "title": "Nine Tools, One Box: Bambu's H3C, Factory Jigs, and Lenses in a Flash",
