@@ -1,0 +1,205 @@
+Layer Lines Weekly — VulcanForms Buys 200 EOS Printers, and Why That's the Strange Part
+Episode 31 · 2026-11-20
+
+Alex: So a mechatronics engineering student built a 3D printer that's ninety-two percent LEGO. And I don't mean a normal frame with some LEGO accents. The leadscrews are LEGO. The print bed is LEGO. Tom's Hardware and Hackaday both picked it up, and the headline price is under a hundred and eighty dollars.
+
+Jordan: The leadscrews are what got me. A leadscrew's entire job is turning rotation into precise, repeatable up-and-down motion. LEGO is designed for 'satisfying click,' not 'same position to a tenth of a millimetre every single time.' And yet... it prints a Benchy in about an hour and twenty-five minutes.
+
+Alex: A 'decent' Benchy, was the word. Which is fair! It's a little wobbly. Slightly seasick. I'd put it on my shelf in a heartbeat. And it's open source, so I fully expect somebody to fork it and swap in a Technic gearbox before Thanksgiving.
+
+Jordan: My one raised eyebrow is the hundred-eighty. I'd bet that assumes you already own the bricks. Anyone who's priced out Technic beams and pins knows the bin is the expensive part, and nobody says how the ninety-two percent was counted either. But that's not why you build this. You build it because you looked at a pile of LEGO and thought... what if.
+
+Alex: Which is a pretty good frame for the whole week, because almost every story is about the gap between the headline number and what it buys you. Two hundred printers ordered isn't two hundred running, a five-metre printed part isn't a flying one, and a five-thousand-dollar metal printer is... a question. Welcome to Layer Lines Weekly. I'm Alex.
+
+Jordan: I'm Jordan. And the one I've been chewing on all week is VulcanForms. Not because the order is big, though it's enormous, but because of whose machines they bought.
+
+Alex: We'll start there. Then Stratasys has a bigger SAF printer out of Formnext, the team behind China's J-35 fighter printed a structural part more than sixteen feet long, ABS is testing whether manufacturing data can help qualify printed ship parts, there's a free slicer that lets your nozzle draw curves, and we'll end on a desktop metal printer that costs about as much as a used motorcycle.
+
+Alex: So VulcanForms ordered two hundred metal printers from EOS, and I think the most interesting word in that sentence is 'EOS.' TCT had it, and both companies put out releases: two hundred EOS M4 ONYX systems. EOS calls it the largest single order in the company's history. And VulcanForms says it takes their fleet to two hundred and thirty-five of those machines.
+
+Jordan: That second number is the one I'd hang onto. Two hundred is a headline. Two hundred thirty-five tells you they already had thirty-five of these and liked them enough to go back for a lot more. That's not a pilot. That's a company standardizing on a platform.
+
+Alex: Quick pause for anyone who hasn't gone down the metal rabbit hole. These are laser powder bed fusion machines, LPBF. Can you give me the thirty-second version?
+
+Jordan: Sure. Picture a resin printer, but instead of liquid there's a bed of fine metal powder, spread in a layer thinner than a human hair. A laser traces the cross-section of your part and melts that powder solid. The bed drops, a blade sweeps fresh powder across, and the laser goes again. Thousands of times. You end up with a dense metal part buried in a box of loose powder, usually welded to a steel build plate. It's the workhorse of industrial metal printing: rocket parts, implants, that whole world.
+
+Alex: And this is where it gets weird for me. VulcanForms' whole identity was their own laser-array platform, their own machines, a big array of lasers working at once. That's what made them a story in the first place. So why does a company like that go buy two hundred printers from somebody else? All3DP flagged the same question, and I haven't seen anyone answer it publicly.
+
+Jordan: I can see two readings, and they describe very different companies. One: the proprietary platform is quietly being de-emphasized. Two: it's a bridge. You keep developing your own tech, but you fill customer orders now with machines everybody already trusts. The second one isn't crazy. Back when I was in industry, the fastest way to stall a part program was to tell an aerospace customer you'd moved their part to a new machine. Every change means re-qualifying.
+
+Jordan: Nobody gets fired for buying the machine the customer's quality team has already signed off on.
+
+Alex: I get that instinct from the hobby side, weirdly. When I've got a profile dialed in on my FDM machine after months of tweaking, temperatures, retraction, the whole fussy stack, the last thing I want is a shiny 'better' printer that means starting over from a first-layer test. Proven beats clever when you've got stuff to make.
+
+Jordan: Same instinct, bigger invoice. With a platform like EOS you're buying the parameter sets, the service network, spare parts, operators who already know the machine. That ecosystem is most of the value.
+
+Alex: It's almost the mirror image of Divergent, who went the other way and built their own twelve-laser machine. Two well-funded companies, opposite bets on whether the printer itself is your moat.
+
+Alex: Which brings me to the money, because my old reporter brain went straight there. 3DPrint.com reported VulcanForms raised roughly five hundred million dollars, about a billion total, from Apollo and JPMorgan. That's one outlet's figure. But the names jumped out at me. Those aren't the venture firms you usually see behind a hardware startup.
+
+Jordan: No, and that matters. Apollo and JPMorgan do a lot of credit and structured deals. If this is debt, or financing secured against equipment, then the story is less 'investors believe in the technology' and more 'somebody's financing a factory build-out.' Which can be perfectly healthy! But it reads differently. The instrument hasn't been described publicly, so the word 'raise' is carrying a lot.
+
+Alex: So the honest version is: big order, confirmed by both companies. Big money, reported by one outlet, shape unknown.
+
+Jordan: And one more thing before I'd get excited: an order isn't capacity. Neither announcement gives a delivery schedule, and neither calls it a binding purchase agreement. Two hundred machines over one year is a company bursting at the seams. Two hundred over five years is a much calmer story. The record is on unit count, too. No dollar value was disclosed.
+
+Alex: Then there's whether they're running once they land. I have two printers at home and one of them is basically decorative half the week. Fine for me. Multiply that by what an industrial metal machine costs and utilization stops being a joke and becomes the entire business.
+
+Jordan: Ha. Yeah, an idle LPBF machine is very expensive argon-filled furniture. But I don't want to undersell the good news. A two-hundred-unit order for a mature platform is what it looks like when a technology stops being exciting and starts being infrastructure. Boring, in the best way. That's a real signal for EOS and for metal printing generally.
+
+Alex: So for somebody like me, who's never going to own one of these, why care? I think it's this: the market is rewarding proven machines over clever new ones right now. That trickles down. It's the same reason the boring, reliable printer keeps winning on the desktop.
+
+Jordan: What I'll watch is simple: delivery cadence, and whether we ever hear what they're making on them. Customer names, part counts. Then we'll know which of the two VulcanForms stories is true.
+
+Alex: Stratasys is making a production pitch of its own. At Formnext they launched the H550, a bigger SAF printer, and TCT covered it. My take is that for this kind of printer, size isn't a vanity spec. A bigger box changes what you can make, not just how many.
+
+Jordan: Agreed. And SAF deserves a quick explainer because people mix it up with laser sintering. It's a polymer powder bed, think nylon, but no laser. A print head runs across and jets an absorbing fluid only where the part should be, then infrared energy sweeps over the bed. The inked areas soak up the heat and fuse; the bare powder stays loose. It's in the same family as HP's Multi Jet Fusion, which is the comparison everyone will reach for, even though that's not how Stratasys framed it. 3DPrint also had a podcast episode on the H550 if you want the deep version.
+
+Alex: The numbers: 34.2 litres of build volume, 365 by 208 by 450 millimetres, so parts up to 450 long. Stratasys' target list is UAV components, robotics, end-of-arm tooling, medical devices, automotive, manifolds, and ducts. That's their list, not a customer roster. But ducts and manifolds are exactly the long, twisty stuff that never fits.
+
+Alex: Last spring I printed a dust-collection adapter for my shop vac in three pieces because it wouldn't fit my bed. Glued it together, and it whistled. Every joint whistled. A long build axis is a very real thing to want.
+
+Jordan: The whistling adapter. A universal maker experience. The one thing I'd poke at is the word 'double.' The press release says the H550 extends SAF 'with double the build capacity.' The product page says nearly eighty percent more build volume than the H350, and more than twice the parts per build. Those aren't the same claim.
+
+Alex: Wait, how do you get more than double the parts out of eighty percent more space?
+
+Jordan: Packing, probably. A bigger box gives you better nesting and less wasted edge. They don't publish how they counted, so I'd treat it as their number until someone runs a real build.
+
+Alex: Oh, because the powder holds everything up. That's still my favourite thing about powder bed. No supports, so you can stack parts in three dimensions like a game of Tetris that never ends. And the parts come out with that slightly sandy, matte feel, no layer lines to speak of. Every time I've handled powder-bed nylon I've wanted a machine I can't afford.
+
+Jordan: And parts per build is the manufacturing argument. Nobody buys a production machine for litres. You buy it for how many brackets come out on a Tuesday. If that two-times figure holds up, it's the number a factory manager cares about.
+
+Alex: It's brand new, though. No shipping date or customer installs mentioned yet, so for now it's a launch, not a milestone. I'd still be pretty happy to see one show up at a service bureau near me.
+
+Jordan: The engineering question I'm curious about is thermal. Keeping a powder bed evenly hot across 450 millimetres is hard, and that's where long parts bow. If they've nailed that, the bigger box is the least interesting thing about it.
+
+Jordan: Speaking of long parts. The research institute that develops China's J-35 fighter, described as China's first aircraft research institute, has printed a primary load-bearing component more than five metres long. Sixteen-plus feet. Tom's Hardware wrote it up from coverage in The Paper, a state-affiliated Chinese outlet. The process is laser scanning a metal powder bed, so the same family as those EOS machines, using what they call segmented printing plus additive fusion connection.
+
+Alex: If I'm following, no powder bed is five metres long. So they print it in pieces and then... fuse the pieces together with more printing?
+
+Jordan: As described, yes. Print segments that fit the machine, then join them with an additive fusion step. For listeners: 'primary load-bearing' means it's in the main load path. Wing-spar territory. If it fails, the aircraft has a very bad day. Secondary structure is fairings, brackets, things that are annoying to lose but not catastrophic.
+
+Alex: So it's the cosplay-armour approach, kind of. Print it in segments because nothing's that big. Except we use superglue and a heat gun, and they're putting it in a fighter jet. Or... are they? Do we know if this thing has flown?
+
+Jordan: We don't. Nothing says whether it's a flight article, a ground-test article, or a research demonstrator, and that gap is where most big aerospace printing claims go to die. It's also being billed as a first for primary structure in military aircraft. That's their framing, and there's no way to check it from open sources. For me, though, the joint is the story. A segmented part is only as good as the place where the segments meet. Fatigue, how cracks grow from that seam, years of load cycles. None of that data is public.
+
+Alex: To be fair, you'd hardly expect a military program to post its fatigue curves.
+
+Jordan: No, you wouldn't. And I'm not dismissing it. Getting around the build-chamber limit is a real engineering problem, and this is a clever route. I just won't treat 'segmented and fused' as solved until somebody shows the joint.
+
+Alex: And the next story is pretty much about how you'd prove a part is trustworthy. ABS, the American Bureau of Shipping, one of the classification societies that decides whether a ship part is fit to go to sea, signed a joint development project with a company called Radian Forge. 3D Printing Industry had it. They're evaluating whether digital manufacturing data can qualify metal parts made with WAAM.
+
+Jordan: WAAM is wire arc additive manufacturing, and it's the opposite end of metal printing from LPBF. No powder. It's basically a welding torch on a robot arm, feeding wire and laying down bead after bead. Fast, big, rough. You print close to the final shape and machine it to finish. It's great for marine parts, where things are large and the alternative can be a long wait for a casting.
+
+Alex: And 'qualify' is the word doing all the work. As I understand it, to trust a printed part today you cut test pieces, pull them apart, scan them for flaws. The idea here is: what if the process data the machine records while it's building could count as evidence too?
+
+Jordan: That's the hope people will read into it, anyway. I'd be careful saying it replaces destructive testing. That's a big regulatory leap, and it isn't stated as the goal. What's encouraging is that ABS isn't starting from zero. 3D Printing Industry notes they already publish additive manufacturing requirements and have certified a WAAM bronze propeller for Mencast Marine. So this sits on a path that already exists.
+
+Alex: My only nit: a JDP is a plan. I'd love to know what comes out the other end. A guidance note? A rule change? A report? Nobody's said. But this is the kind of unglamorous groundwork that wider use at sea depends on, and I'm glad someone's doing it.
+
+Alex: Okay. My favourite story of the week, and it's free. It's called PancakeSlicer. Tom's Hardware had it, and Hackaday wrote about it on the fifteenth. It's a free, self-hostable non-planar slicer. So instead of every layer being perfectly flat, the nozzle can move up and down within a layer and follow a curve.
+
+Alex: And this one is personal. A while back I printed a domed terrain piece, a little observatory for the tabletop, and the top came out looking like a topographic map. Contour lines all the way up. I sanded it for an hour. Non-planar is the fix for exactly that: the top surface follows the curve instead of stair-stepping.
+
+Jordan: The terraced dome. Everyone has one. I love this, but credit where it's due: non-planar slicing isn't new. There was a non-planar fork of Slic3r years ago, and FullControl GCode lets you build these paths yourself. What's new here is the packaging. Free, runs on your own machine, aimed at people who don't want to compile a research project.
+
+Alex: Which is not nothing. Half the battle with this stuff has always been 'okay, but how do I even run it.' And the workaround most of us reach for now is ironing, which is lovely on a flat top and does nothing for a curve. So better packaging makes a real difference here.
+
+Jordan: Totally. The physical limit is the thing to know, though. Your nozzle tip is a tiny cone, but sitting right above it is a heater block, a fan duct, maybe a probe. Tilt the path too steep and all that hardware plows into the part you just printed. So 'curved printing along three axes' really means gentle curves your hotend can clear. Smoother tops and fewer supports on shallow overhangs are well-established benefits of the technique, but nobody's posted measurements from this tool yet.
+
+Alex: The other open question: the coverage doesn't say what firmware it needs. If it runs on a stock printer, that's huge. If you have to flash a fork, the 'for the masses' part gets a big asterisk.
+
+Jordan: Either way, a free tool means a thousand people trying it on a thousand different printers, which is how you find the edges fast. That's the community running the test program for free.
+
+Jordan: Okay. Hype check. SnowX has announced the SnowPod, described as a desktop metal laser powder bed fusion printer, for five thousand two hundred ninety-nine dollars. Fabbaloo covered it. I want to start with the price, because the price is the red flag. Real LPBF needs a fiber laser, a galvo scanner to steer it, and a sealed chamber you fill with inert gas so the molten metal doesn't react with air. A genuine LPBF system at that price would be a supply-chain event, not a product launch.
+
+Alex: I'll push a little, though. All3DP literally ran a piece asking why desktop metal printers are suddenly everywhere and cheaper than ever. Something is going on. Prices don't stay put forever. The resin printer on my bench would've been a fantasy a decade ago at what I paid for it. I don't want us sneering before we know what it is.
+
+Jordan: Fair. And that's my real question: what is it? Some 'desktop metal' machines in this price range aren't LPBF at all. They print metal powder bound in plastic, then you debind and sinter the part in a furnace. Totally different workflow. The part shrinks, you need a furnace, tolerances behave differently. Nothing published says which one SnowPod is. No build volume, no laser type or power, no atmosphere spec, no ship date.
+
+Alex: And no word on what happens after the print, which is the part people skip. With real LPBF you're digging a part out of fine metal powder you do not want in the air, or in your shop vac, or in your lungs. Some of those powders can be reactive, too.
+
+Alex: Plus a laser strong enough to melt metal is strong enough to wreck your eyes off one stray reflection. That's interlocked-enclosure territory. I'd want to know how this thing is laser-classified before it lives on a desk in someone's spare room.
+
+Jordan: Then you cut the part off the build plate, usually stress-relieve it in an oven, and pull supports off metal, which is nothing like peeling supports off PLA. A printer that doesn't come with a depowdering and post-processing plan isn't a metal capability. It's a very interesting box.
+
+Alex: So, verdict: I'm curious, not convinced. I'd love for it to be real.
+
+Jordan: Show me the laser. Then we'll talk.
+
+Alex: One thing to try this week, straight out of PancakeSlicer: if you've got a model with a gently curved top, like a dome, a knob, or a terrain hill, slice it non-planar and print it next to your normal flat-layer version. Compare the tops side by side. That's a Saturday-afternoon experiment that teaches you a lot.
+
+Jordan: Two tips. Before you print, measure how far your heater block and fan duct sit above the nozzle tip. That's your real clearance, and it tells you how steep a curve you can get away with, so start conservative. And sort out the firmware question first so you're not flashing anything you don't need to. Then stand next to the printer for the first few layers and listen for scraping.
+
+Alex: And if your dome comes out smooth, send us a photo. If it comes out with a nozzle-shaped trench through the middle... honestly, send that too. That's us for the week. Go print something weird, maybe out of LEGO. Talk next week.
+
+References
+
+1. VulcanForms orders 200 metal 3D printers, the largest single order of EOS machines to date — TCT Magazine
+   https://www.tctmagazine.com/vulcanforms-orders-200-metal-3d-printers-the-largest-single-order-of-eos-machines-to-date/
+
+2. VulcanForms Orders 200 EOS Metal 3D Printers, Raising Questions About Its Own Technology - All3DP — GNews AM Companies
+   https://news.google.com/rss/articles/CBMirgFBVV95cUxQRjJBSEt0NWwza3VPN3BpeTBCWXkwTzkyNmpNODJrR3pFekxDQWxRT3F2Zlo3bEVFWkp3bTdJUnpTU2FxUFFBZXZ3T3lxQVh5cFJaY3lZaTBRYzRWeWZfZE1CeUQtSDZ3UEJXZ0c4WnBWb3RkWktZYjh4R0xIRzdRcEVfYUxwSkVPV3ppc0w2QUF1ZXRJenNXbU5tMVM0bUJ3YjR2NE11S252RUx5LVE?oc=5
+
+3. Industrial 3D Printing 2026: The Year of Magical Thinking Part 1 — 3DPrint.com
+   https://3dprint.com/336959/3d-printing-service-bureau-landscape-2026-the-year-of-magical-thinking-part-1/
+
+4. VulcanForms orders 200 EOS metal printers — the largest single EOS order ever — eos.info
+   https://www.eos.info/press-media/press-center/press-releases/2026/vulcanforms-orders-200-eos-m4-onyx-systems
+
+5. VulcanForms orders 200 EOS metal printers — the largest single EOS order ever — vulcanforms.com
+   https://www.vulcanforms.com/press/vulcanforms-expands-industrial-metal-additive-manufacturing-capacity-with-landmark-order-for-200-eos-m4-onyx-systems/
+
+6. VulcanForms orders 200 EOS metal printers — the largest single EOS order ever — addiwire.com
+   https://addiwire.com/en/news/vulcanforms-orders-200-eos-m4-onyx-metal-printers-eos-s-largest-gdr9
+
+7. Stratasys launches larger H550 SAF 3D printer to move 'more applications onto the factory floor' — TCT Magazine
+   https://www.tctmagazine.com/stratasys-launches-larger-h550-saf-3d-printer/
+
+8. Stratasys Unveils H550™ at Formnext 2026, Scaling Industrial Powder Bed Fusion for Production — Stratasys IR
+   https://investors.stratasys.com/news-events/press-releases/detail/999/stratasys-unveils-h550-at-formnext-2026-scaling
+
+9. Stratasys Launches H550 SAF Printer at Formnext: Double Capacity, One Station for Six Machines - 3D Printing Industry — GNews AM Companies
+   https://news.google.com/rss/articles/CBMi0gFBVV95cUxPM3FOUXliVGVBWEZzRFV4czdRbGc2c3UtYnEtcl80ZERLUHhUeklWSXdWcXc3VFdfcVNSNnJNdHYxTjh6SmxPb2M0NXdwekNDYkhOV19IYmUxMVo4ZHhGZy05cWtUY1IxUjY5Q0p0YXhCY0trYVg2ZW04bTBLbjhTaFhxeXgtMVMyMVlsM0pCWVZHTDR1alJMckM5U1BMMXJ3OEw3RU9hcG9BY0Q4clR5RHZCRHg0SU1xUjhSTkR4TDNjTUk0SkNibjZManNRTVNiQkE?oc=5
+
+10. 3DPOD 322: Neil Hopkinson on Stratasys’ New H550 SAF 3D Printer — 3DPrint.com
+   https://3dprint.com/337246/3dpod-neil-hopkinson-on-stratasys-new-h550-saf-3d-printer/
+
+11. Stratasys launches H550 SAF printer for larger production parts — stratasys.com
+   https://www.stratasys.com/en/3d-printers/printer-catalog/saf/h550/
+
+12. Stratasys launches H550 SAF printer for larger production parts — planet3dp.com
+   https://planet3dp.com/stratasys-h550/
+
+13. China engineers behind J-35 fighter jet pioneer 3D-printed load-bearing structures in military aircraft — Tom's Hardware 3DP
+   https://www.tomshardware.com/3d-printing/china-engineers-behind-j-35-fighter-jet-pioneer-3d-printed-load-bearing-structures-in-military-aircraft-behemoth-16-4-foot-part-uses-segmented-printing-and-fusion-techniques
+
+14. China's J-35 team 3D-prints a 16.4-foot primary load-bearing aircraft structure — thepaper.cn
+   https://www.thepaper.cn/newsDetail_forward_34479042
+
+15. China's J-35 team 3D-prints a 16.4-foot primary load-bearing aircraft structure — m.cnfeol.com
+   https://m.cnfeol.com/Article/3887680.aspx
+
+16. ABS and Radian Forge test sensor-data qualification for WAAM ship parts — 3dprintingindustry.com
+   https://3dprintingindustry.com/news/abs-and-radian-forge-test-whether-sensor-data-can-qualify-3d-printed-ship-parts-256788/
+
+17. ABS and Radian Forge test sensor-data qualification for WAAM ship parts — ww2.eagle.org
+   https://ww2.eagle.org/content/dam/eagle/rules-and-guides/current/other/322-requirements-for-additive-manufacturing/322-additive-manufacturing-reqts-July22.pdf
+
+18. 3D printing dev’s free tool unlocks curved printing along all three axes — Tom's Hardware 3DP
+   https://www.tomshardware.com/3d-printing/3d-printing-developer-creates-self-hostable-non-planar-printing-slicer-pancakeslicer-makes-non-planar-3d-printing-accessible-potentially-leading-to-rapid-community-development
+
+19. Printing Smooth Upper Surfaces with a Non-Planar Slicer — Hackaday 3DP
+   https://hackaday.com/2026/11/15/printing-smooth-upper-surfaces-with-a-non-planar-slicer/
+
+20. SnowX SnowPod Targets Desktop Metal LPBF at US$5,299 — Fabbaloo
+   http://feeds.fabbaloo.com/~/973416035/0/fabbaloo/default~SnowX-SnowPod-Targets-Desktop-Metal-LPBF-at-US
+
+21. Why Desktop-Size Metal 3D Printers Are Suddenly Everywhere (And Cheaper Than Ever) - All3DP — GNews Metal AM
+   https://news.google.com/rss/articles/CBMipAFBVV95cUxQa2VaNDg3NzNsN3BJMi02TVhkaDdfTWtsMUJRZ0t3bGdhYzFWOWY5RHgwbXh0bmJnM3ZwM2IxcmZ1OFh6SFM5YThJQkdDaW1HOFJha29MWHNZNVAxUWNrYTBhekMyYkl6SVY5TmgtNFhERkNGbVRrYnAwUmI1RkZUOVBuZGRjQzY0eENaZXF0R0sxT2kyUXdvbm9yN2pFemp0dnRqaA?oc=5
+
+22. Mechatronics student builds 3D printer made from 92% LEGO for less than $180 — Tom's Hardware 3DP
+   https://www.tomshardware.com/3d-printing/mechatronics-student-builds-3d-printer-made-from-92-percent-lego-for-less-than-usd180-lego-leadscrews-and-print-bed-can-print-a-decent-benchy-in-1-25-hours
+
+23. A LEGO 3D Printer — Hackaday 3DP
+   https://hackaday.com/2026/11/11/a-lego-3d-printer/

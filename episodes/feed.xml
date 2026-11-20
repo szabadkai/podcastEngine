@@ -14,8 +14,8 @@
     <language>en</language>
     <link>https://szabadkai.github.io/podcastEngine</link>
     <atom:link href="https://szabadkai.github.io/podcastEngine/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 13 Nov 2026 00:00:00 GMT</pubDate>
-    <lastBuildDate>Fri, 13 Nov 2026 00:00:00 GMT</lastBuildDate>
+    <pubDate>Fri, 20 Nov 2026 00:00:00 GMT</pubDate>
+    <lastBuildDate>Fri, 20 Nov 2026 00:00:00 GMT</lastBuildDate>
     <generator>podcast-engine</generator>
     <category>Science &amp; Technology</category>
     <itunes:author>Layer Lines Weekly</itunes:author>
@@ -38,6 +38,28 @@
     <podcast:locked>yes</podcast:locked>
     <podcast:guid>1aa65aa4-6725-411a-8b5c-a109f9cf36b6</podcast:guid>
     <copyright>© 2026 Layer Lines Weekly</copyright>
+    <item>
+      <title>VulcanForms Buys 200 EOS Printers, and Why That&apos;s the Strange Part</title>
+      <description>VulcanForms placed the largest single order in EOS history, and Alex and Jordan dig into why a company built around its own laser-array tech is buying 200 machines from someone else. Plus Stratasys&apos; bigger H550 SAF, a five-metre printed structure from China&apos;s J-35 team, ABS testing data-driven qualification for WAAM ship parts, a free non-planar slicer, and a $5,299 &apos;desktop LPBF&apos; printer that needs a closer look.</description>
+      <itunes:title>VulcanForms Buys 200 EOS Printers, and Why That&apos;s the Strange Part</itunes:title>
+      <itunes:summary>VulcanForms placed the largest single order in EOS history, and Alex and Jordan dig into why a company built around its own laser-array tech is buying 200 machines from someone else. Plus Stratasys&apos; bigger H550 SAF, a five-metre printed structure from China&apos;s J-35 team, ABS testing data-driven qualification for WAAM ship parts, a free non-planar slicer, and a $5,299 &apos;desktop LPBF&apos; printer that needs a closer look.</itunes:summary>
+      <content:encoded><![CDATA[VulcanForms placed the largest single order in EOS history, and Alex and Jordan dig into why a company built around its own laser-array tech is buying 200 machines from someone else. Plus Stratasys' bigger H550 SAF, a five-metre printed structure from China's J-35 team, ABS testing data-driven qualification for WAAM ship parts, a free non-planar slicer, and a $5,299 'desktop LPBF' printer that needs a closer look.]]></content:encoded>
+      <pubDate>Fri, 20 Nov 2026 00:00:00 GMT</pubDate>
+      <enclosure url="https://github.com/szabadkai/podcastEngine/releases/download/episode-2026-11-20/episode.mp3" length="18658158" type="audio/mpeg"/>
+      <media:content url="https://github.com/szabadkai/podcastEngine/releases/download/episode-2026-11-20/episode.mp3" fileSize="18658158" type="audio/mpeg" medium="audio" duration="1166"/>
+      <media:title>VulcanForms Buys 200 EOS Printers, and Why That&apos;s the Strange Part</media:title>
+      <media:description>VulcanForms placed the largest single order in EOS history, and Alex and Jordan dig into why a company built around its own laser-array tech is buying 200 machines from someone else. Plus Stratasys&apos; bigger H550 SAF, a five-metre printed structure from China&apos;s J-35 team, ABS testing data-driven qualification for WAAM ship parts, a free non-planar slicer, and a $5,299 &apos;desktop LPBF&apos; printer that needs a closer look.</media:description>
+      <media:thumbnail url="https://szabadkai.github.io/podcastEngine/artwork.png"/>
+      <guid isPermaLink="false">layer-lines-weekly-2026-11-20</guid>
+      <itunes:duration>1166</itunes:duration>
+      <itunes:episode>31</itunes:episode>
+      <itunes:explicit>false</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:image href="https://szabadkai.github.io/podcastEngine/artwork.png"/>
+      <yt:category id="28">Science &amp; Technology</yt:category>
+      <yt:madeForKids>false</yt:madeForKids>
+      <podcast:transcript url="https://szabadkai.github.io/podcastEngine/transcripts/2026-11-20.txt" type="text/plain"/>
+    </item>
     <item>
       <title>COBOD: Selling the Printer, Not the Building</title>
       <description>COBOD started with a real building in Copenhagen and grew into one of construction 3D printing&apos;s most commercially embedded equipment suppliers, backed by cement, formwork, and energy shareholders. Alex and Jordan cover the BOD2, BOD3, and BOD XL lineup, the &apos;real concrete&apos; bet and its admixture fine print, the audited financials, and the Qatar schools program. They also explain why the company&apos;s cost and speed claims remain the big open question.</description>

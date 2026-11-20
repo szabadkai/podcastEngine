@@ -1,6 +1,17 @@
 {
   "episodes": [
     {
+      "number": 31,
+      "date": "2026-11-20",
+      "title": "VulcanForms Buys 200 EOS Printers, and Why That's the Strange Part",
+      "description": "VulcanForms placed the largest single order in EOS history, and Alex and Jordan dig into why a company built around its own laser-array tech is buying 200 machines from someone else. Plus Stratasys' bigger H550 SAF, a five-metre printed structure from China's J-35 team, ABS testing data-driven qualification for WAAM ship parts, a free non-planar slicer, and a $5,299 'desktop LPBF' printer that needs a closer look.",
+      "duration": 1166,
+      "fileSize": 18658158,
+      "releaseUrl": "https://github.com/szabadkai/podcastEngine/releases/download/episode-2026-11-20/episode.mp3",
+      "guid": "layer-lines-weekly-2026-11-20",
+      "transcriptUrl": "https://szabadkai.github.io/podcastEngine/transcripts/2026-11-20.txt"
+    },
+    {
       "number": 30,
       "date": "2026-11-13",
       "title": "COBOD: Selling the Printer, Not the Building",
